@@ -1,25 +1,504 @@
-<!-- BOOK 1: Bloom -->
-<article class="book-card">
-  <div class="book-header">
-    <div class="book-title-block">
-      <div class="book-title">Bloom</div>
-      <div class="book-author">Delilah S. Dawson (2023)</div>
-      <div class="book-meta">
-        <span class="meta-pill">~190 pages</span>
-        <span class="meta-pill">Debut novel: No</span>
-        <span class="meta-pill">Avg rating: 3.8★</span>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Final Girls Book Club · Obsession Picks</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    :root {
+      --bg: #04040a;
+      --bg-alt: #0b0b17;
+      --card-bg: #111221;
+      --accent: #f54545;
+      --accent-soft: #ffb4c8;
+      --accent-warn-soft: #f9d976;
+      --accent-warn-strong: #ff6b6b;
+      --text-main: #f6f6f9;
+      --text-muted: #a2a2bf;
+      --border-subtle: rgba(255, 255, 255, 0.06);
+      --shadow: 0 18px 40px rgba(0, 0, 0, 0.85);
+      --radius-lg: 20px;
+      --radius-pill: 999px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif;
+      background:
+        radial-gradient(circle at 0 0, rgba(255, 255, 255, 0.06) 0, transparent 55%),
+        radial-gradient(circle at 100% 100%, rgba(245, 69, 69, 0.18) 0, transparent 60%),
+        radial-gradient(circle at 100% 0, rgba(69, 89, 255, 0.14) 0, transparent 55%),
+        #020308;
+      color: var(--text-main);
+      min-height: 100vh;
+      padding: 24px 14px 40px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .page {
+      width: 100%;
+      max-width: 1040px;
+    }
+
+    header {
+      display: grid;
+      grid-template-columns: minmax(0, 1.7fr) minmax(0, 1fr);
+      gap: 24px;
+      margin-bottom: 24px;
+      align-items: center;
+    }
+
+    @media (max-width: 800px) {
+      header {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .title-block {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .club-name {
+      font-size: clamp(1.8rem, 3vw, 2.4rem);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .club-name span {
+      display: inline-block;
+    }
+
+    .club-name span:first-child {
+      color: var(--accent);
+    }
+
+    .club-name span:last-child {
+      color: var(--accent-soft);
+    }
+
+    .subtitle {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+    }
+
+    .theme-chip {
+      margin-top: 4px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 14px;
+      border-radius: var(--radius-pill);
+      background: linear-gradient(120deg, rgba(245, 69, 69, 0.2), rgba(47, 35, 92, 0.7));
+      border: 1px solid rgba(245, 69, 69, 0.65);
+      font-size: 0.86rem;
+    }
+
+    .theme-label {
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      font-size: 0.7rem;
+      color: var(--text-muted);
+    }
+
+    .theme-value {
+      font-weight: 600;
+    }
+
+    .month-tag {
+      margin-top: 6px;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .month-tag .mono {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      color: var(--accent-soft);
+    }
+
+    .legend-card {
+      background: radial-gradient(circle at 0 0, rgba(255, 255, 255, 0.06), transparent 60%),
+                  radial-gradient(circle at 100% 100%, rgba(245, 69, 69, 0.18), transparent 55%),
+                  var(--bg-alt);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-subtle);
+      padding: 14px 16px;
+      box-shadow: var(--shadow);
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .legend-title {
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      font-size: 0.7rem;
+      color: var(--accent-soft);
+    }
+
+    .legend-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px 12px;
+      align-items: center;
+    }
+
+    .badge {
+      border-radius: var(--radius-pill);
+      padding: 3px 10px;
+      font-size: 0.74rem;
+      border: 1px solid var(--border-subtle);
+      background: rgba(4, 4, 16, 0.8);
+      color: var(--text-main);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .badge-label {
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-size: 0.68rem;
+      color: var(--text-muted);
+    }
+
+    .badge-theme {
+      border-color: rgba(245, 69, 69, 0.7);
+      background: linear-gradient(120deg, rgba(245, 69, 69, 0.2), rgba(245, 69, 69, 0.05));
+      color: var(--accent-soft);
+    }
+
+    .badge-rating {
+      border-color: rgba(255, 255, 255, 0.12);
+    }
+
+    .badge-warnings.mild {
+      border-color: rgba(155, 199, 109, 0.7);
+      background: linear-gradient(120deg, rgba(155, 199, 109, 0.22), rgba(25, 50, 25, 0.85));
+      color: #e6fadc;
+    }
+
+    .badge-warnings.moderate {
+      border-color: rgba(249, 217, 118, 0.85);
+      background: linear-gradient(120deg, rgba(249, 217, 118, 0.2), rgba(60, 48, 16, 0.9));
+      color: #fff3cd;
+    }
+
+    .badge-warnings.extreme {
+      border-color: rgba(255, 107, 107, 0.9);
+      background: linear-gradient(120deg, rgba(255, 107, 107, 0.26), rgba(60, 10, 14, 0.96));
+      color: #ffe6e6;
+    }
+
+    .section {
+      margin-top: 26px;
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-size: 1.05rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--text-muted);
+    }
+
+    .section-subtitle {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .books-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      gap: 18px;
+    }
+
+    @media (min-width: 720px) {
+      .books-grid {
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      }
+    }
+
+    .book-card {
+      background: radial-gradient(circle at top left, rgba(245, 69, 69, 0.22), transparent 60%),
+                  radial-gradient(circle at bottom right, rgba(47, 35, 92, 0.7), transparent 55%),
+                  var(--card-bg);
+      border-radius: var(--radius-lg);
+      padding: 16px 18px 14px;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border-subtle);
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .book-header {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      align-items: flex-start;
+    }
+
+    .book-title-block {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .book-type-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 3px 9px;
+      border-radius: var(--radius-pill);
+      background: rgba(4, 4, 14, 0.9);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--text-muted);
+      margin-bottom: 6px;
+    }
+
+    .book-title {
+      font-size: 1rem;
+      font-weight: 600;
+    }
+
+    .book-author {
+      font-size: 0.9rem;
+      color: var(--accent-soft);
+      margin-top: 2px;
+    }
+
+    .book-meta {
+      margin-top: 6px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    .meta-pill {
+      padding: 3px 9px;
+      border-radius: var(--radius-pill);
+      background: rgba(5, 6, 16, 0.8);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .theme-score {
+      text-align: right;
+      font-size: 0.82rem;
+    }
+
+    .theme-score-label {
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      font-size: 0.68rem;
+      color: var(--text-muted);
+    }
+
+    .theme-score-value {
+      font-weight: 600;
+      color: var(--accent);
+      font-size: 1.2rem;
+    }
+
+    .summary {
+      font-size: 0.9rem;
+      line-height: 1.4;
+      color: var(--text-main);
+    }
+
+    .warnings {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      margin-top: 4px;
+      padding-top: 6px;
+    }
+
+    .warnings-label {
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-size: 0.68rem;
+      color: var(--accent-soft);
+    }
+
+    .footer-note {
+      margin-top: 26px;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      text-align: right;
+    }
+
+    .footer-note strong {
+      color: var(--accent-soft);
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header>
+      <div class="title-block">
+        <div class="club-name">
+          <span>Final Girls</span> <span>Book Club</span>
+        </div>
+        <p class="subtitle">
+          Monthly horror picks for the mortally curious. One novel, one short work; all obsessed with <strong>Obsession</strong>.
+        </p>
+        <div class="theme-chip">
+          <span class="theme-label">Theme</span>
+          <span class="theme-value">Obsession</span>
+        </div>
+        <p class="month-tag">
+          Current month: <span class="mono">May 2026</span> · Vote for <span class="mono">1 novel</span> and <span class="mono">1 short work</span>.
+        </p>
       </div>
-    </div>
-    <div class="theme-score">
-      <div class="theme-score-label">Theme fit</div>
-      <div class="theme-score-value">5 / 5</div>
-    </div>
-  </div>
-  <p class="summary">
-    Rosemary “Ro” Dutton, a newly tenured literature professor, falls into a whirlwind romance with Ash, a charismatic artisan whose perfect cottagecore life hides dangerous secrets. As their relationship deepens, Ro’s world shrinks to fit Ash’s idyllic orbit, and the line between love and obsession blurs against a backdrop of creeping, maybe‑supernatural dread. The novella leans into psychological horror and folk‑ish unease more than jump scares, turning cozy vibes into something quietly menacing.
-  </p>
-  <p class="warnings">
-    <span class="warnings-label">Content warnings:</span>
-    Psychological horror, gaslighting, obsession, manipulation, implied supernatural violence, toxic relationship dynamics, body‑centric horror.
-  </p>
-</article>
+
+      <aside class="legend-card">
+        <div class="legend-title">How to read this page</div>
+        <div class="legend-row">
+          <span class="badge badge-theme">
+            <span class="badge-label">Theme fit</span>
+            1–5 · How obsessed with “Obsession” it really is.
+          </span>
+        </div>
+        <div class="legend-row">
+          <span class="badge badge-rating">
+            <span class="badge-label">Avg rating</span>
+            Goodreads‑ish community score (approximate).
+          </span>
+        </div>
+        <div class="legend-row">
+          <span class="badge badge-warnings mild">
+            <span class="badge-label">CW: Mild</span>
+            Some disturbing content, but relatively light.
+          </span>
+          <span class="badge badge-warnings moderate">
+            <span class="badge-label">CW: Heavy</span>
+            Graphic scenes or sustained distress.
+          </span>
+          <span class="badge badge-warnings extreme">
+            <span class="badge-label">CW: Extreme</span>
+            Very intense or potentially overwhelming material.
+          </span>
+        </div>
+      </aside>
+    </header>
+
+    <!-- NOVELS -->
+    <section class="section">
+      <div class="section-header">
+        <h2 class="section-title">Novels</h2>
+        <p class="section-subtitle">Pick one to read this month.</p>
+      </div>
+
+      <div class="books-grid">
+        <!-- Example card: Bloom -->
+        <article class="book-card">
+          <div class="book-header">
+            <div class="book-title-block">
+              <div class="book-type-tag">Novel</div>
+              <div class="book-title">Bloom</div>
+              <div class="book-author">Delilah S. Dawson (2023)</div>
+              <div class="book-meta">
+                <span class="meta-pill">~190 pages</span>
+                <span class="meta-pill">Debut novel: No</span>
+                <span class="meta-pill">Avg rating: 3.8★</span>
+              </div>
+            </div>
+            <div class="theme-score">
+              <div class="theme-score-label">Theme fit</div>
+              <div class="theme-score-value">5 / 5</div>
+              <div class="badge badge-warnings moderate" style="margin-top:6px;">
+                <span class="badge-label">CW</span>
+                Heavy
+              </div>
+            </div>
+          </div>
+          <p class="summary">
+            Rosemary “Ro” Dutton, a newly tenured literature professor, falls into a whirlwind romance with Ash, a
+            charismatic artisan whose perfect cottagecore life hides dangerous secrets. As their relationship deepens,
+            Ro’s world narrows to fit Ash’s idyllic orbit and the line between love, obsession, and something
+            inhumanly hungry blurs in a slow, creeping folk‑horror spiral.
+          </p>
+          <p class="warnings">
+            <span class="warnings-label">Content warnings:</span>
+            Psychological horror, gaslighting, obsession, manipulation, implied supernatural violence, toxic relationship dynamics, body‑centric horror.
+          </p>
+        </article>
+
+        <!-- Add cards here for Brother, Misery, Cabal using the same structure -->
+      </div>
+    </section>
+
+    <!-- SHORT WORKS -->
+    <section class="section">
+      <div class="section-header">
+        <h2 class="section-title">Short works & novellas</h2>
+        <p class="section-subtitle">Pick one shorter nightmare to pair with the novel.</p>
+      </div>
+
+      <div class="books-grid">
+        <!-- Example card: Things Have Gotten Worse Since We Last Spoke -->
+        <article class="book-card">
+          <div class="book-header">
+            <div class="book-title-block">
+              <div class="book-type-tag">Short work</div>
+              <div class="book-title">Things Have Gotten Worse Since We Last Spoke</div>
+              <div class="book-author">Eric LaRocca (2021)</div>
+              <div class="book-meta">
+                <span class="meta-pill">~120 pages</span>
+                <span class="meta-pill">Debut book: No</span>
+                <span class="meta-pill">Avg rating: 3.9★</span>
+              </div>
+            </div>
+            <div class="theme-score">
+              <div class="theme-score-label">Theme fit</div>
+              <div class="theme-score-value">5 / 5</div>
+              <div class="badge badge-warnings extreme" style="margin-top:6px;">
+                <span class="badge-label">CW</span>
+                Extreme
+              </div>
+            </div>
+          </div>
+          <p class="summary">
+            Told entirely through emails and instant messages, this online‑relationship horror tracks two lonely women
+            whose kink‑heavy dynamic curdles into exploitation and cruelty. The more they feed each other’s worst
+            impulses, the more their private fantasies leak into real‑world harm, making “obsession” feel less like a
+            mood and more like a trap they built together.
+          </p>
+          <p class="warnings">
+            <span class="warnings-label">Content warnings:</span>
+            Graphic sexual violence, extreme sadomasochism, self‑harm, emotional and psychological abuse, homophobia, animal death, gore, financial exploitation, disturbing kink and bodily degradation.
+          </p>
+        </article>
+
+        <!-- Add card here for The Monster of Elendhaven -->
+      </div>
+    </section>
+
+    <p class="footer-note">
+      Tip: Highlight any card to copy–paste details into Discord, or screenshot the page to share all options at once. <strong>Updated monthly.</strong>
+    </p>
+  </main>
+</body>
+</html>
