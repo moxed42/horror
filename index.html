@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Final Girls Book Club · Obsession Picks</title>
+  <title>Final Girls Book Club · Werewolf Picks</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
     :root {
@@ -20,13 +20,7 @@
       --radius-lg: 20px;
       --radius-pill: 999px;
     }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
+    * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif;
       background:
@@ -40,12 +34,7 @@
       display: flex;
       justify-content: center;
     }
-
-    .page {
-      width: 100%;
-      max-width: 1040px;
-    }
-
+    .page { width: 100%; max-width: 1040px; }
     header {
       display: grid;
       grid-template-columns: minmax(0, 1.7fr) minmax(0, 1fr);
@@ -53,42 +42,19 @@
       margin-bottom: 24px;
       align-items: center;
     }
-
     @media (max-width: 800px) {
-      header {
-        grid-template-columns: minmax(0, 1fr);
-      }
+      header { grid-template-columns: minmax(0, 1fr); }
     }
-
-    .title-block {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-
+    .title-block { display: flex; flex-direction: column; gap: 10px; }
     .club-name {
       font-size: clamp(1.8rem, 3vw, 2.4rem);
       letter-spacing: 0.08em;
       text-transform: uppercase;
     }
-
-    .club-name span {
-      display: inline-block;
-    }
-
-    .club-name span:first-child {
-      color: var(--accent);
-    }
-
-    .club-name span:last-child {
-      color: var(--accent-soft);
-    }
-
-    .subtitle {
-      font-size: 0.95rem;
-      color: var(--text-muted);
-    }
-
+    .club-name span { display: inline-block; }
+    .club-name span:first-child { color: var(--accent); }
+    .club-name span:last-child { color: var(--accent-soft); }
+    .subtitle { font-size: 0.95rem; color: var(--text-muted); }
     .theme-chip {
       margin-top: 4px;
       display: inline-flex;
@@ -100,33 +66,23 @@
       border: 1px solid rgba(245, 69, 69, 0.65);
       font-size: 0.86rem;
     }
-
     .theme-label {
       text-transform: uppercase;
       letter-spacing: 0.16em;
       font-size: 0.7rem;
       color: var(--text-muted);
     }
-
-    .theme-value {
-      font-weight: 600;
-    }
-
-    .month-tag {
-      margin-top: 6px;
-      font-size: 0.85rem;
-      color: var(--text-muted);
-    }
-
+    .theme-value { font-weight: 600; }
+    .month-tag { margin-top: 6px; font-size: 0.85rem; color: var(--text-muted); }
     .month-tag .mono {
       font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
       color: var(--accent-soft);
     }
-
     .legend-card {
-      background: radial-gradient(circle at 0 0, rgba(255, 255, 255, 0.06), transparent 60%),
-                  radial-gradient(circle at 100% 100%, rgba(245, 69, 69, 0.18), transparent 55%),
-                  var(--bg-alt);
+      background:
+        radial-gradient(circle at 0 0, rgba(255, 255, 255, 0.06), transparent 60%),
+        radial-gradient(circle at 100% 100%, rgba(245, 69, 69, 0.18), transparent 55%),
+        var(--bg-alt);
       border-radius: var(--radius-lg);
       border: 1px solid var(--border-subtle);
       padding: 14px 16px;
@@ -137,21 +93,18 @@
       flex-direction: column;
       gap: 8px;
     }
-
     .legend-title {
       text-transform: uppercase;
       letter-spacing: 0.16em;
       font-size: 0.7rem;
       color: var(--accent-soft);
     }
-
     .legend-row {
       display: flex;
       flex-wrap: wrap;
       gap: 6px 12px;
       align-items: center;
     }
-
     .badge {
       border-radius: var(--radius-pill);
       padding: 3px 10px;
@@ -163,46 +116,34 @@
       align-items: center;
       gap: 6px;
     }
-
     .badge-label {
       text-transform: uppercase;
       letter-spacing: 0.12em;
       font-size: 0.68rem;
       color: var(--text-muted);
     }
-
     .badge-theme {
       border-color: rgba(245, 69, 69, 0.7);
       background: linear-gradient(120deg, rgba(245, 69, 69, 0.2), rgba(245, 69, 69, 0.05));
       color: var(--accent-soft);
     }
-
-    .badge-rating {
-      border-color: rgba(255, 255, 255, 0.12);
-    }
-
+    .badge-rating { border-color: rgba(255, 255, 255, 0.12); }
     .badge-warnings.mild {
       border-color: rgba(155, 199, 109, 0.7);
       background: linear-gradient(120deg, rgba(155, 199, 109, 0.22), rgba(25, 50, 25, 0.85));
       color: #e6fadc;
     }
-
     .badge-warnings.moderate {
       border-color: rgba(249, 217, 118, 0.85);
       background: linear-gradient(120deg, rgba(249, 217, 118, 0.2), rgba(60, 48, 16, 0.9));
       color: #fff3cd;
     }
-
     .badge-warnings.extreme {
       border-color: rgba(255, 107, 107, 0.9);
       background: linear-gradient(120deg, rgba(255, 107, 107, 0.26), rgba(60, 10, 14, 0.96));
       color: #ffe6e6;
     }
-
-    .section {
-      margin-top: 26px;
-    }
-
+    .section { margin-top: 26px; }
     .section-header {
       display: flex;
       justify-content: space-between;
@@ -210,35 +151,26 @@
       gap: 12px;
       margin-bottom: 12px;
     }
-
     .section-title {
       font-size: 1.05rem;
       text-transform: uppercase;
       letter-spacing: 0.16em;
       color: var(--text-muted);
     }
-
-    .section-subtitle {
-      font-size: 0.85rem;
-      color: var(--text-muted);
-    }
-
+    .section-subtitle { font-size: 0.85rem; color: var(--text-muted); }
     .books-grid {
       display: grid;
       grid-template-columns: minmax(0, 1fr);
       gap: 18px;
     }
-
     @media (min-width: 720px) {
-      .books-grid {
-        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-      }
+      .books-grid { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
     }
-
     .book-card {
-      background: radial-gradient(circle at top left, rgba(245, 69, 69, 0.22), transparent 60%),
-                  radial-gradient(circle at bottom right, rgba(47, 35, 92, 0.7), transparent 55%),
-                  var(--card-bg);
+      background:
+        radial-gradient(circle at top left, rgba(245, 69, 69, 0.22), transparent 60%),
+        radial-gradient(circle at bottom right, rgba(47, 35, 92, 0.7), transparent 55%),
+        var(--card-bg);
       border-radius: var(--radius-lg);
       padding: 16px 18px 14px;
       box-shadow: var(--shadow);
@@ -247,19 +179,13 @@
       flex-direction: column;
       gap: 10px;
     }
-
     .book-header {
       display: flex;
       justify-content: space-between;
       gap: 10px;
       align-items: flex-start;
     }
-
-    .book-title-block {
-      flex: 1;
-      min-width: 0;
-    }
-
+    .book-title-block { flex: 1; min-width: 0; }
     .book-type-tag {
       display: inline-flex;
       align-items: center;
@@ -274,18 +200,12 @@
       color: var(--text-muted);
       margin-bottom: 6px;
     }
-
-    .book-title {
-      font-size: 1rem;
-      font-weight: 600;
-    }
-
+    .book-title { font-size: 1rem; font-weight: 600; }
     .book-author {
       font-size: 0.9rem;
       color: var(--accent-soft);
       margin-top: 2px;
     }
-
     .book-meta {
       margin-top: 6px;
       display: flex;
@@ -294,45 +214,35 @@
       font-size: 0.78rem;
       color: var(--text-muted);
     }
-
     .meta-pill {
       padding: 3px 9px;
       border-radius: var(--radius-pill);
       background: rgba(5, 6, 16, 0.8);
       border: 1px solid rgba(255, 255, 255, 0.06);
     }
-
-    .theme-score {
-      text-align: right;
-      font-size: 0.82rem;
-    }
-
+    .theme-score { text-align: right; font-size: 0.82rem; }
     .theme-score-label {
       text-transform: uppercase;
       letter-spacing: 0.1em;
       font-size: 0.68rem;
       color: var(--text-muted);
     }
-
     .theme-score-value {
       font-weight: 600;
       color: var(--accent);
       font-size: 1.2rem;
     }
-
     .vibe {
       font-size: 0.82rem;
       font-style: italic;
       color: var(--accent-warn-soft);
       margin-top: 2px;
     }
-
     .summary {
       font-size: 0.9rem;
       line-height: 1.4;
       color: var(--text-main);
     }
-
     .warnings {
       font-size: 0.8rem;
       color: var(--text-muted);
@@ -340,7 +250,6 @@
       margin-top: 4px;
       padding-top: 6px;
     }
-
     .warnings-label {
       font-weight: 600;
       text-transform: uppercase;
@@ -348,17 +257,13 @@
       font-size: 0.68rem;
       color: var(--accent-soft);
     }
-
     .footer-note {
       margin-top: 26px;
       font-size: 0.78rem;
       color: var(--text-muted);
       text-align: right;
     }
-
-    .footer-note strong {
-      color: var(--accent-soft);
-    }
+    .footer-note strong { color: var(--accent-soft); }
   </style>
 </head>
 <body>
@@ -369,11 +274,11 @@
           <span>Final Girls</span> <span>Book Club</span>
         </div>
         <p class="subtitle">
-          Monthly horror picks for the mortally curious. One novel, one short work; all obsessed with <strong>Obsession</strong>.
+          Monthly horror picks for the mortally curious. One novel, one short work; all howling under the sign of <strong>Werewolf</strong>.
         </p>
         <div class="theme-chip">
           <span class="theme-label">Theme</span>
-          <span class="theme-value">Obsession</span>
+          <span class="theme-value">Werewolf</span>
         </div>
         <p class="month-tag">
           Current month: <span class="mono">May 2026</span> · Vote for <span class="mono">1 novel</span> and <span class="mono">1 short work</span>.
@@ -385,13 +290,13 @@
         <div class="legend-row">
           <span class="badge badge-theme">
             <span class="badge-label">Theme fit</span>
-            1–5 · How obsessed with “Obsession” it really is.
+            1–5 · How werewolf-forward the pick really is.
           </span>
         </div>
         <div class="legend-row">
           <span class="badge badge-rating">
             <span class="badge-label">Avg rating</span>
-            Goodreads‑ish community score (approximate).
+            Approximate community score.
           </span>
         </div>
         <div class="legend-row">
@@ -411,25 +316,23 @@
       </aside>
     </header>
 
-    <!-- NOVELS -->
     <section class="section">
       <div class="section-header">
         <h2 class="section-title">Novels</h2>
-        <p class="section-subtitle">Pick one to read this month.</p>
+        <p class="section-subtitle">Pick one full-length howl for the month.</p>
       </div>
 
       <div class="books-grid">
-        <!-- Bloom -->
         <article class="book-card">
           <div class="book-header">
             <div class="book-title-block">
               <div class="book-type-tag">Novel</div>
-              <div class="book-title">Bloom</div>
-              <div class="book-author">Delilah S. Dawson (2023)</div>
+              <div class="book-title">When the Wolf Comes Home</div>
+              <div class="book-author">Nat Cassidy (2025)</div>
               <div class="book-meta">
-                <span class="meta-pill">~190 pages</span>
+                <span class="meta-pill">~304 pages</span>
                 <span class="meta-pill">Debut novel: No</span>
-                <span class="meta-pill">Avg rating: 3.8★</span>
+                <span class="meta-pill">Avg rating: 4.3★</span>
               </div>
             </div>
             <div class="theme-score">
@@ -442,33 +345,32 @@
             </div>
           </div>
           <p class="vibe">
-            Vibe: A sapphic, cottagecore‑goes‑fatale nightmare that feels like Yellowjackets meets The Lighthouse in a queer art‑house horror short film.
+            Vibe: A fast, feral, cinematic werewolf nightmare that feels like a midnight creature feature with a bruised emotional core.
           </p>
           <p class="summary">
-            Rosemary “Ro” Dutton, a newly tenured literature professor, falls into a whirlwind romance with Ash, a charismatic artisan whose perfect cottagecore life hides dangerous secrets. As Ro’s life becomes increasingly entangled with Ash’s, she begins to suspect that love and obsession are indistinguishable—and that something ancient and hungry might be using their relationship to bloom.
+            A struggling actress finds herself responsible for a young boy just as a night of escalating violence and monstrous pursuit crashes into her life. What starts as a desperate attempt to survive becomes a breathless, blood-soaked chase story with strong emotional stakes, blending creature horror with grief, obligation, and chaos.
           </p>
           <p class="warnings">
             <span class="warnings-label">Content warnings:</span>
-            Psychological horror, gaslighting, obsession, manipulation, implied supernatural violence, toxic relationship dynamics, body‑centric horror.
+            Child endangerment, graphic violence, gore, grief, trauma, home invasion, body horror, animal death.
           </p>
         </article>
 
-        <!-- Brother -->
         <article class="book-card">
           <div class="book-header">
             <div class="book-title-block">
               <div class="book-type-tag">Novel</div>
-              <div class="book-title">Brother</div>
-              <div class="book-author">Ania Ahlborn (2015)</div>
+              <div class="book-title">The Howling</div>
+              <div class="book-author">Gary Brandner (1977)</div>
               <div class="book-meta">
-                <span class="meta-pill">~330 pages</span>
+                <span class="meta-pill">~194 pages</span>
                 <span class="meta-pill">Debut novel: No</span>
-                <span class="meta-pill">Avg rating: 3.8★</span>
+                <span class="meta-pill">Avg rating: 3.6★</span>
               </div>
             </div>
             <div class="theme-score">
               <div class="theme-score-label">Theme fit</div>
-              <div class="theme-score-value">4 / 5</div>
+              <div class="theme-score-value">5 / 5</div>
               <div class="badge badge-warnings extreme" style="margin-top:6px;">
                 <span class="badge-label">CW</span>
                 Extreme
@@ -476,28 +378,60 @@
             </div>
           </div>
           <p class="vibe">
-            Vibe: A relentlessly grim, rural‑slasher‑meets‑family‑drama that plays like The Texas Chainsaw Massacre filtered through Sharp Objects.
+            Vibe: A lean, pulpy werewolf classic with nasty seventies energy and a sleazy backwoods-horror edge.
           </p>
           <p class="summary">
-            In rural West Virginia, nineteen‑year‑old Michael lives with a family who abduct, torture, and murder young women while presenting as ordinary to the outside world. Groomed into complicity and terrified of breaking away, he’s torn between loyalty to his monstrous kin and a fragile, almost impossible longing for a different life, making the story a study in learned violence and the pull of familial obsession.
+            After a brutal attack leaves her traumatized, a woman retreats with her husband to a secluded community that seems designed for healing but quickly proves deeply wrong. The novel builds dread through paranoia, sexual menace, and the creeping realization that the wilderness around them may be less dangerous than the people living beside them.
           </p>
           <p class="warnings">
             <span class="warnings-label">Content warnings:</span>
-            Extreme graphic violence, serial murder, torture, sexual violence, rape, necrophilia‑adjacent imagery, kidnapping, child abuse, incest‑coded dynamics, strong body horror, animal harm, pervasive psychological abuse.
+            Sexual violence, misogyny, graphic violence, murder, animal attack, body horror, stalking, domestic abuse dynamics.
           </p>
         </article>
 
-        <!-- Misery -->
         <article class="book-card">
           <div class="book-header">
             <div class="book-title-block">
               <div class="book-type-tag">Novel</div>
-              <div class="book-title">Misery</div>
-              <div class="book-author">Stephen King (1987)</div>
+              <div class="book-title">Those Across the River</div>
+              <div class="book-author">Christopher Buehlman (2011)</div>
               <div class="book-meta">
-                <span class="meta-pill">~330 pages</span>
+                <span class="meta-pill">~357 pages</span>
+                <span class="meta-pill">Debut novel: Yes</span>
+                <span class="meta-pill">Avg rating: 4.0★</span>
+              </div>
+            </div>
+            <div class="theme-score">
+              <div class="theme-score-label">Theme fit</div>
+              <div class="theme-score-value">5 / 5</div>
+              <div class="badge badge-warnings extreme" style="margin-top:6px;">
+                <span class="badge-label">CW</span>
+                Extreme
+              </div>
+            </div>
+          </div>
+          <p class="vibe">
+            Vibe: A Southern Gothic slow-burn that feels like decaying plantation horror crossed with a literary werewolf fever dream.
+          </p>
+          <p class="summary">
+            In the 1930s, failed academic Frank Nichols and his wife move to a small Georgia town to write about his family’s troubled past, only to find the locals terrified of the woods and the people across the river. The novel mixes atmospheric historical horror with mounting dread, turning class tension, inherited violence, and rural isolation into something savage and uncanny.
+          </p>
+          <p class="warnings">
+            <span class="warnings-label">Content warnings:</span>
+            Racism, lynching and racial violence, animal harm, graphic violence, gore, body horror, sexual content, miscarriage references.
+          </p>
+        </article>
+
+        <article class="book-card">
+          <div class="book-header">
+            <div class="book-title-block">
+              <div class="book-type-tag">Novel</div>
+              <div class="book-title">Mongrels</div>
+              <div class="book-author">Stephen Graham Jones (2016)</div>
+              <div class="book-meta">
+                <span class="meta-pill">~320 pages</span>
                 <span class="meta-pill">Debut novel: No</span>
-                <span class="meta-pill">Avg rating: 4.2★</span>
+                <span class="meta-pill">Avg rating: 3.9★</span>
               </div>
             </div>
             <div class="theme-score">
@@ -510,27 +444,35 @@
             </div>
           </div>
           <p class="vibe">
-            Vibe: A bruising, chamber‑piece psychological thriller that hits like Room crossed with Fatal Attraction, set in a snow‑locked Colorado cabin.
+            Vibe: A raw, dusty, coming-of-age werewolf novel that feels like a backroads Americana survival story with teeth.
           </p>
           <p class="summary">
-            After a car crash in a blizzard, bestselling novelist Paul Sheldon is “rescued” by Annie Wilkes, his self‑proclaimed number‑one fan who keeps him bedridden, medicated, and under surveillance. When she learns he has killed off her favorite character, her devotion curdles into violence and she forces him to rewrite the story, turning the novel into a claustrophobic battle over authorship, bodily autonomy, and the horror of obsessive fandom.
+            Told through the eyes of a boy growing up in a family of werewolves on the margins of society, the novel focuses less on monster spectacle and more on hunger, shame, belonging, and survival. It’s a rough-edged, character-driven story about inheritance, poverty, and waiting to become something dangerous.
           </p>
           <p class="warnings">
             <span class="warnings-label">Content warnings:</span>
-            Kidnapping, prolonged captivity, physical torture, graphic injuries (including mutilation), implied sexual tension, psychological abuse, threat of sexual violence, isolation, substance withdrawal.
+            Poverty, animal death, gore, body horror, bullying, social exclusion, racism, family instability.
           </p>
         </article>
+      </div>
+    </section>
 
-        <!-- Cabal -->
+    <section class="section">
+      <div class="section-header">
+        <h2 class="section-title">Short works & novellas</h2>
+        <p class="section-subtitle">Pick one shorter bite to pair with the novel.</p>
+      </div>
+
+      <div class="books-grid">
         <article class="book-card">
           <div class="book-header">
             <div class="book-title-block">
-              <div class="book-type-tag">Short novel</div>
-              <div class="book-title">Cabal</div>
-              <div class="book-author">Clive Barker (1988)</div>
+              <div class="book-type-tag">Short story</div>
+              <div class="book-title">Hardshell</div>
+              <div class="book-author">Dean Koontz (1995)</div>
               <div class="book-meta">
-                <span class="meta-pill">~250 pages</span>
-                <span class="meta-pill">Debut novel: No</span>
+                <span class="meta-pill">~25 pages</span>
+                <span class="meta-pill">Debut book: No</span>
                 <span class="meta-pill">Avg rating: 3.7★</span>
               </div>
             </div>
@@ -544,97 +486,51 @@
             </div>
           </div>
           <p class="vibe">
-            Vibe: A lurid, underground‑monster fable that feels like Tales from the Crypt directing Underworld in a neon‑dyed horror‑punk club.
+            Vibe: A compact, pulpy survival-horror piece with creature-feature momentum and a sharp paperback-horror bite.
           </p>
           <p class="summary">
-            Aaron Boone, a troubled man plagued by visions of monstrous beings called the Night Breed, is manipulated by his psychiatrist into believing he’s a serial killer. As he’s hunted by both the police and the figures from his nightmares, Boone discovers a hidden city of supernatural outcasts and is forced to decide where he truly belongs, turning the story into a dark‑fantasy blend of identity crisis, persecution, and monstrous self‑acceptance.
+            This short work drops readers into a stripped-down conflict built around threat, pursuit, and physical danger, using its brief length to stay tense and propulsive. It reads like a classic horror-magazine shocker: quick, brutal, and more interested in momentum and menace than psychological depth.
           </p>
           <p class="warnings">
             <span class="warnings-label">Content warnings:</span>
-            Body horror, graphic violence, mutilation, demonic and cult imagery, implied cannibalism, sexualized horror, gore, psychological manipulation, depictions of mental‑illness stigma.
+            Graphic violence, animal threat, gore, survival horror, claustrophobic tension.
           </p>
         </article>
-      </div>
-    </section>
 
-    <!-- SHORT WORKS -->
-    <section class="section">
-      <div class="section-header">
-        <h2 class="section-title">Short works & novellas</h2>
-        <p class="section-subtitle">Pick one shorter nightmare to pair with the novel.</p>
-      </div>
-
-      <div class="books-grid">
-        <!-- Things Have Gotten Worse Since We Last Spoke -->
         <article class="book-card">
           <div class="book-header">
             <div class="book-title-block">
-              <div class="book-type-tag">Short work</div>
-              <div class="book-title">Things Have Gotten Worse Since We Last Spoke</div>
-              <div class="book-author">Eric LaRocca (2021)</div>
+              <div class="book-type-tag">Short story</div>
+              <div class="book-title">The Belonging Kind</div>
+              <div class="book-author">William Gibson and John Shirley (1981)</div>
               <div class="book-meta">
-                <span class="meta-pill">~120 pages</span>
+                <span class="meta-pill">~30 pages</span>
                 <span class="meta-pill">Debut book: No</span>
-                <span class="meta-pill">Avg rating: 3.9★</span>
+                <span class="meta-pill">Avg rating: 4.0★</span>
               </div>
             </div>
             <div class="theme-score">
               <div class="theme-score-label">Theme fit</div>
-              <div class="theme-score-value">5 / 5</div>
-              <div class="badge badge-warnings extreme" style="margin-top:6px;">
+              <div class="theme-score-value">2 / 5</div>
+              <div class="badge badge-warnings moderate" style="margin-top:6px;">
                 <span class="badge-label">CW</span>
-                Extreme
+                Heavy
               </div>
             </div>
           </div>
           <p class="vibe">
-            Vibe: A stomach‑churning, epistolary online‑relationship horror that feels like Catfish colliding with The Guilty in a very dark, early‑2000s LGBT chat‑room hellscape.
+            Vibe: A strange, stylish urban horror tale that feels like neon-bar noir drifting into shapeshifting nightmare.
           </p>
           <p class="summary">
-            The story unfolds through emails and instant messages between two lonely young women, Agnes and Zoe, who meet on an LGBT forum in 2000 and spiral into an increasingly extreme, S&amp;M‑driven relationship they never intended. Presented entirely through their digital correspondence, the novella tracks how obsession, despair, and violent fantasies bleed into their real lives, blurring the line between consent and compulsion as each pushes the other further.
+            A lonely man becomes fixated on an uncanny woman who seems able to transform herself to perfectly match every bar and crowd she enters. As his fascination deepens into obsession, the story slides from urban character study into eerie body horror and social unease, creating a sleek, unsettling portrait of hunger, reinvention, and not quite belonging.
           </p>
           <p class="warnings">
             <span class="warnings-label">Content warnings:</span>
-            Graphic sexual violence, extreme sadomasochism, self‑harm, emotional and psychological abuse, homophobia, animal death, gore, financial exploitation, online grooming, disturbing kink and bodily degradation.
-          </p>
-        </article>
-
-        <!-- The Monster of Elendhaven -->
-        <article class="book-card">
-          <div class="book-header">
-            <div class="book-title-block">
-              <div class="book-type-tag">Novella</div>
-              <div class="book-title">The Monster of Elendhaven</div>
-              <div class="book-author">Jennifer Giesbrecht (2019)</div>
-              <div class="book-meta">
-                <span class="meta-pill">~160 pages</span>
-                <span class="meta-pill">Debut book: Yes (first book‑length)</span>
-                <span class="meta-pill">Avg rating: 4.1★</span>
-              </div>
-            </div>
-            <div class="theme-score">
-              <div class="theme-score-label">Theme fit</div>
-              <div class="theme-score-value">4 / 5</div>
-              <div class="badge badge-warnings extreme" style="margin-top:6px;">
-                <span class="badge-label">CW</span>
-                Extreme
-              </div>
-            </div>
-          </div>
-          <p class="vibe">
-            Vibe: A grim, queer‑noir fairy tale that plays like Penny Dreadful co‑written with Lovecraft in a poisoned, fog‑choked coastal town.
-          </p>
-          <p class="summary">
-            Johann, a seemingly immortal creature dredged up from the polluted harbor of Elendhaven, is drawn into the schemes of Florian Leikenbloom, a frail but ruthless sorcerer bent on revenge against the prosperous South that abandoned his family. As Johann becomes Florian’s monster‑for‑hire, the two form a toxic, obsessive partnership that turns the rotting city into a stage for murder, plague magic, and class resentment.
-          </p>
-          <p class="warnings">
-            <span class="warnings-label">Content warnings:</span>
-            Explicit body horror, gore, cannibalism, sexual violence, queer‑coded predatory intimacy, murder, plague and corpse imagery, child death, toxic relationship dynamics, gaslighting, psychological abuse.
+            Obsession, stalking behavior, alcoholism, psychological deterioration, predatory dynamics, body horror.
           </p>
         </article>
       </div>
     </section>
-
   </main>
 </body>
 </html>
