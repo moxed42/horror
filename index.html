@@ -179,6 +179,21 @@
       flex-direction: column;
       gap: 10px;
     }
+    .book-card.current-pick {
+  border: 3px solid var(--accent);
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.08), 0 0 24px rgba(255, 61, 127, 0.35);
+}
+
+.book-card.current-pick::before {
+  content: "This month’s pick";
+  display: inline-block;
+  margin-bottom: 10px;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent-soft);
+}
     .book-header {
       display: flex;
       justify-content: space-between;
@@ -323,7 +338,7 @@
       </div>
 
       <div class="books-grid">
-        <article class="book-card">
+        <article class="book-card current-pick">
           <div class="book-header">
             <div class="book-title-block">
               <div class="book-type-tag">Novel</div>
@@ -497,7 +512,7 @@
           </p>
         </article>
 
-        <article class="book-card">
+        <article class="book-card current-pick">
           <div class="book-header">
             <div class="book-title-block">
               <div class="book-type-tag">Short story</div>
