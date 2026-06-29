@@ -34,6 +34,21 @@
       display: flex;
       justify-content: center;
     }
+    .book-card.selected {
+      border-color: rgba(245, 69, 69, 0.9);
+      box-shadow:
+        0 0 0 2px rgba(245, 69, 69, 0.6),
+        0 0 18px rgba(245, 69, 69, 0.45),
+        var(--shadow);
+    }
+
+    .pick-label {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--accent-soft);
+      margin-bottom: 4px;
+    }
     .page { width: 100%; max-width: 1040px; }
     header {
       display: grid;
@@ -323,7 +338,8 @@
       </div>
 
       <div class="books-grid">
-        <article class="book-card">
+        <article class="book-card selected">
+          <div class="pick-label">July’s Pick · Novel</div>
           <div class="book-header">
             <div class="book-title-block">
               <div class="book-type-tag">Novel</div>
@@ -497,7 +513,8 @@
           </p>
         </article>
 
-        <article class="book-card">
+        <article class="book-card selected">
+          <div class="pick-label">July’s Pick · Short story</div>
           <div class="book-header">
             <div class="book-title-block">
               <div class="book-type-tag">Short story</div>
