@@ -106,6 +106,13 @@ missing, which is intentional (better than silently rendering a blank).
 3. Run `python3 scripts/build.py data/months/YYYY-MM-slug.json`. This
    regenerates root `index.html`, adds an `archive/YYYY-MM-slug.html`
    snapshot, and refreshes `archive/index.html`.
+3b. Optional: the Discord/link-preview image (`assets/social-card.png`)
+   has a tagline baked in. If it's worth freshening for this month's theme
+   (e.g. translated into the theme's language, as done for Foreign Horror
+   — "Terror mensual que muerde de vuelta"), offer to run
+   `python3 scripts/gen_social_card.py "new tagline"` and mention it; skip
+   it by default otherwise, since it needs a headless Chromium binary and
+   isn't required for the site to work.
 4. Show the user `git diff --stat` and the diff on `index.html`/the new
    files so they can see exactly what changed before anything is
    committed.
