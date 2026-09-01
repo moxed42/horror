@@ -8,11 +8,37 @@ description: Generate the monthly Final Girls Book Club picks — research a lis
 Turns a raw list of horror titles for the month into finished book-club
 content: research + write-ups, and (optionally) a website update.
 
-## Step 0: find out what output the user wants
+## Step 0: get the book list and the output the user wants
 
-If not already clear from their message, ask: Discord blocks, website update,
-or both. Also confirm the month's **theme** and **month label** (e.g.
-"September 2026") if not given.
+The user gets each month's titles from two polls (novels and short
+stories), run on quiz-maker.com. Those poll URLs are **not fetchable** in
+this environment (network egress to that domain is blocked) — don't try
+WebFetch on a quiz-maker.com link, it will fail. Instead, ask the user to
+paste the poll page's text directly, e.g.:
+
+```
+SHORT STORY PICK
+Jacqueline Ess: Her Will and Testament by Clive Barker
+Spar by Kij Johnson
+Skeleton! by Ray Bradbury
+My Husband Has Taken Our Roleplaying Too Far by Christian Wallis
+
+Which book are you interested in?
+The Cipher by Kathe Koja
+The Troop by Nick Cutter
+You Weren't Meant to Be Human by Andrew Joseph White
+The Ruins by Scott Smith
+```
+
+Treat every title listed as a pasted poll's options as a pick to write up
+— the site has historically listed all poll candidates (novels and short
+works both), not just a single winner, unless the user says otherwise
+(e.g. "winner: The Cipher" — if they call out a winner, still write up all
+of them unless they say to include only the winner).
+
+If not already clear from their message, also ask: Discord blocks, website
+update, or both. And confirm the month's **theme** and **month label**
+(e.g. "September 2026") if not given.
 
 ## Step 1: research each title
 
