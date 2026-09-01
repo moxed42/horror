@@ -34,6 +34,20 @@
       display: flex;
       justify-content: center;
     }
+    .book-card.selected {
+      border-color: rgba(245, 69, 69, 0.9);
+      box-shadow:
+        0 0 0 2px rgba(245, 69, 69, 0.6),
+        0 0 18px rgba(245, 69, 69, 0.45),
+        var(--shadow);
+    }
+    .pick-label {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--accent-soft);
+      margin-bottom: 4px;
+    }
     .page { width: 100%; max-width: 1040px; }
     header {
       display: grid;

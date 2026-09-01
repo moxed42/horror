@@ -24,7 +24,8 @@ Live site: [bit.ly/chooseyourscare](https://bit.ly/chooseyourscare)
    `vote_instructions`, and the `novels`/`short_works` arrays. Each book needs:
    `type`, `title`, `author`, `pages`, `debut_label`, `avg_rating`,
    `theme_fit` (1-5), `cw_tier` (`mild`/`moderate`/`extreme`), `cw_label`
-   (`Mild`/`Heavy`/`Extreme`), `vibe`, `summary`, `warnings`.
+   (`Mild`/`Heavy`/`Extreme`), `vibe`, `summary`, `warnings`. Set
+   `is_winner: false` on every book at first (voting hasn't happened yet).
 2. Run:
    ```
    python3 scripts/build.py data/months/YYYY-MM-slug.json
@@ -32,3 +33,11 @@ Live site: [bit.ly/chooseyourscare](https://bit.ly/chooseyourscare)
 3. Review the diff on `index.html` and the new `archive/` files, then commit
    and push. GitHub Pages picks up `index.html` automatically; no build step
    needed at deploy time.
+
+## Marking the winner (once voting closes)
+
+Once you know which novel and short story won, flip `is_winner` to `true`
+on those two book entries in that month's `data/months/*.json` file, then
+re-run `python3 scripts/build.py data/months/YYYY-MM-slug.json`. The winning
+cards get a highlighted border and a "<Month>'s Winner" label — same pattern
+as previous months.

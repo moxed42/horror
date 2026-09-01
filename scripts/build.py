@@ -34,9 +34,18 @@ def load_month(path: Path) -> dict:
     return data
 
 
-def render_book_card(book: dict) -> str:
+def winner_label(month_label: str) -> str:
+    # "September 2026" -> "September’s Winner"
+    first_word = month_label.split()[0]
+    return f"{first_word}’s Winner"
+
+
+def render_book_card(book: dict, month_label: str) -> str:
     template = (TEMPLATES / "book_card.html").read_text()
+    is_winner = book.get("is_winner", False)
     replacements = {
+        "__SELECTED_CLASS__": " selected" if is_winner else "",
+        "__PICK_LABEL__": f'          <div class="pick-label">{winner_label(month_label)}</div>\n' if is_winner else "",
         "__TYPE__": book["type"],
         "__TITLE__": book["title"],
         "__AUTHOR__": book["author"],
@@ -57,8 +66,8 @@ def render_book_card(book: dict) -> str:
 
 def render_page(month: dict) -> str:
     template = (TEMPLATES / "page.html").read_text()
-    novel_cards = "\n".join(render_book_card(b) for b in month["novels"])
-    short_work_cards = "\n".join(render_book_card(b) for b in month["short_works"])
+    novel_cards = "\n".join(render_book_card(b, month["month_label"]) for b in month["novels"])
+    short_work_cards = "\n".join(render_book_card(b, month["month_label"]) for b in month["short_works"])
     replacements = {
         "__THEME__": month["theme"],
         "__THEME_LOWER__": month["theme"].lower(),

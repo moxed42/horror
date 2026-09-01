@@ -1,6 +1,6 @@
 ---
 name: fgbc-monthly-update
-description: Generate the monthly Final Girls Book Club picks — research a list of horror books/short stories the user gives you (title, author, approx page count, trigger warnings, vibe, spoiler-free summary, theme fit) and either output Discord-ready markdown blocks, update the book club website (data/months JSON + regenerated index.html/archive), or both. Use this whenever the user gives a new month's theme and book/short-story list for the book club, asks to "do this month's picks," pastes a reading list for FGBC, or asks to update the Final Girls Book Club site or Discord post — even if they don't say "skill" or name this file.
+description: Generate the monthly Final Girls Book Club picks — research a list of horror books/short stories the user gives you (title, author, approx page count, trigger warnings, vibe, spoiler-free summary, theme fit) and either output Discord-ready markdown blocks, update the book club website (data/months JSON + regenerated index.html/archive), or both. Also handles the follow-up a day or two later once poll voting closes: marking which novel and short story won on the already-published site. Use this whenever the user gives a new month's theme and book/short-story list for the book club, asks to "do this month's picks," pastes a reading list or poll results for FGBC, says which book/short story "won" this month, or asks to update the Final Girls Book Club site or Discord post — even if they don't say "skill" or name this file.
 ---
 
 # FGBC monthly update
@@ -90,16 +90,18 @@ The site is generated from JSON, not hand-edited — see `README.md` and
 it shows every field the schema needs (`slug`, `theme`, `month_label`,
 `subtitle`, `vote_instructions`, and per-book `type`, `title`, `author`,
 `pages`, `debut_label`, `avg_rating`, `theme_fit`, `cw_tier`, `cw_label`,
-`vibe`, `summary`, `warnings`). Match its structure exactly — the build
-script validates required fields and will fail loudly if one is missing,
-which is intentional (better than silently rendering a blank).
+`vibe`, `summary`, `warnings`, `is_winner`). Match its structure exactly —
+the build script validates required fields and will fail loudly if one is
+missing, which is intentional (better than silently rendering a blank).
 
 1. Pick a filename `data/months/YYYY-MM-slug.json` — `YYYY-MM` from the
    month label, `slug` a short dash-cased version of the theme (e.g.
    September 2026 + "Final Girls" → `2026-09-final-girls.json`).
 2. Write the file with the researched data from Step 1. Separate novels
    into `novels` and shorter pieces (short stories/novellas) into
-   `short_works`, matching how the reference file does it.
+   `short_works`, matching how the reference file does it. Set
+   `is_winner: false` on every book — voting hasn't happened yet at this
+   point (see Step 3 for the follow-up).
 3. Run `python3 scripts/build.py data/months/YYYY-MM-slug.json`. This
    regenerates root `index.html`, adds an `archive/YYYY-MM-slug.html`
    snapshot, and refreshes `archive/index.html`.
@@ -110,6 +112,26 @@ which is intentional (better than silently rendering a blank).
    don't push automatically. This mirrors the site's git-push guidance:
    pushing is a visible, hard-to-reverse action that the user should
    sign off on, especially for a public site.
+
+## Step 3: marking the winner (the follow-up, once voting closes)
+
+Poll results usually aren't known until a day or so after the month's
+picks are published — this is a separate, later step, not part of the
+same conversation. When the user comes back and says which novel and
+which short story won:
+
+1. Open that month's `data/months/YYYY-MM-slug.json` (the one already
+   published — if unsure which file, check `archive/index.html`'s list or
+   ask).
+2. Set `is_winner: true` on the winning novel entry and the winning
+   short-work entry. Leave every other book's `is_winner` as `false`.
+3. Re-run `python3 scripts/build.py data/months/YYYY-MM-slug.json`. The
+   winner's card gets a highlighted border and a "<Month>'s Winner" label
+   automatically — this mirrors how past months (see git history, e.g.
+   "Highlight selected book cards with styles") marked winners by hand;
+   the build script now does it from the `is_winner` flag instead.
+4. Same review-before-push rule as Step 2b: show the diff, only commit
+   and push once the user confirms.
 
 ## Notes
 
