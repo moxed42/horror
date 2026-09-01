@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Final Girls Book Club Picks</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+  <meta name="theme-color" content="#f54545">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Final Girls Book Club">
+  <meta property="og:title" content="Final Girls Book Club Picks">
+  <meta property="og:description" content="April 2025 picks are up. Vote for your favorite novel now.">
+  <meta property="og:image" content="https://moxed42.github.io/horror/assets/social-card.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:url" content="https://moxed42.github.io/horror/archive/2025-04-picks.html">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Final Girls Book Club Picks">
+  <meta name="twitter:description" content="April 2025 picks are up. Vote for your favorite novel now.">
+  <meta name="twitter:image" content="https://moxed42.github.io/horror/assets/social-card.png">
+  <style>
+    :root {
+      --bg: #04040a;
+      --bg-alt: #0b0b17;
+      --card-bg: #111221;
+      --accent: #f54545;
+      --accent-soft: #ffb4c8;
+      --accent-warn-soft: #f9d976;
+      --accent-warn-strong: #ff6b6b;
+      --text-main: #f6f6f9;
+      --text-muted: #a2a2bf;
+      --border-subtle: rgba(255, 255, 255, 0.06);
+      --shadow: 0 18px 40px rgba(0, 0, 0, 0.85);
+      --radius-lg: 20px;
+      --radius-pill: 999px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif;
+      background:
+        radial-gradient(circle at 0 0, rgba(255, 255, 255, 0.06) 0, transparent 55%),
+        radial-gradient(circle at 100% 100%, rgba(245, 69, 69, 0.18) 0, transparent 60%),
+        radial-gradient(circle at 100% 0, rgba(69, 89, 255, 0.14) 0, transparent 55%),
+        #020308;
+      color: var(--text-main);
+      min-height: 100vh;
+      padding: 24px 14px 40px;
+      display: flex;
+      justify-content: center;
+    }
+    .book-card.selected {
+      border-color: rgba(245, 69, 69, 0.9);
+      box-shadow:
+        0 0 0 2px rgba(245, 69, 69, 0.6),
+        0 0 18px rgba(245, 69, 69, 0.45),
+        var(--shadow);
+    }
+    .pick-label {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--accent-soft);
+      margin-bottom: 4px;
+    }
+    .page { width: 100%; max-width: 1040px; }
+    header {
+      display: grid;
+      grid-template-columns: minmax(0, 1.7fr) minmax(0, 1fr);
+      gap: 24px;
+      margin-bottom: 24px;
+      align-items: center;
+    }
+    @media (max-width: 800px) {
+      header { grid-template-columns: minmax(0, 1fr); }
+    }
+    .title-block { display: flex; flex-direction: column; gap: 10px; }
+    .club-name {
+      font-size: clamp(1.8rem, 3vw, 2.4rem);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .club-name span { display: inline-block; }
+    .club-name span:first-child { color: var(--accent); }
+    .club-name span:last-child { color: var(--accent-soft); }
+    .subtitle { font-size: 0.95rem; color: var(--text-muted); }
+    .theme-chip {
+      margin-top: 4px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 14px;
+      border-radius: var(--radius-pill);
+      background: linear-gradient(120deg, rgba(245, 69, 69, 0.2), rgba(47, 35, 92, 0.7));
+      border: 1px solid rgba(245, 69, 69, 0.65);
+      font-size: 0.86rem;
+    }
+    .theme-label {
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      font-size: 0.7rem;
+      color: var(--text-muted);
+    }
+    .theme-value { font-weight: 600; }
+    .month-tag { margin-top: 6px; font-size: 0.85rem; color: var(--text-muted); }
+    .month-tag .mono {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      color: var(--accent-soft);
+    }
+    .archive-link { margin-top: 6px; font-size: 0.82rem; }
+    .archive-link a { color: var(--accent-soft); }
+    .legend-card {
+      background:
+        radial-gradient(circle at 0 0, rgba(255, 255, 255, 0.06), transparent 60%),
+        radial-gradient(circle at 100% 100%, rgba(245, 69, 69, 0.18), transparent 55%),
+        var(--bg-alt);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-subtle);
+      padding: 14px 16px;
+      box-shadow: var(--shadow);
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .legend-title {
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      font-size: 0.7rem;
+      color: var(--accent-soft);
+    }
+    .legend-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px 12px;
+      align-items: center;
+    }
+    .badge {
+      border-radius: var(--radius-pill);
+      padding: 3px 10px;
+      font-size: 0.74rem;
+      border: 1px solid var(--border-subtle);
+      background: rgba(4, 4, 16, 0.8);
+      color: var(--text-main);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .badge-label {
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-size: 0.68rem;
+      color: var(--text-muted);
+    }
+    .badge-theme {
+      border-color: rgba(245, 69, 69, 0.7);
+      background: linear-gradient(120deg, rgba(245, 69, 69, 0.2), rgba(245, 69, 69, 0.05));
+      color: var(--accent-soft);
+    }
+    .badge-rating { border-color: rgba(255, 255, 255, 0.12); }
+    .badge-warnings.mild {
+      border-color: rgba(155, 199, 109, 0.7);
+      background: linear-gradient(120deg, rgba(155, 199, 109, 0.22), rgba(25, 50, 25, 0.85));
+      color: #e6fadc;
+    }
+    .badge-warnings.moderate {
+      border-color: rgba(249, 217, 118, 0.85);
+      background: linear-gradient(120deg, rgba(249, 217, 118, 0.2), rgba(60, 48, 16, 0.9));
+      color: #fff3cd;
+    }
+    .badge-warnings.extreme {
+      border-color: rgba(255, 107, 107, 0.9);
+      background: linear-gradient(120deg, rgba(255, 107, 107, 0.26), rgba(60, 10, 14, 0.96));
+      color: #ffe6e6;
+    }
+    .section { margin-top: 26px; }
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+    .section-title {
+      font-size: 1.05rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--text-muted);
+    }
+    .section-subtitle { font-size: 0.85rem; color: var(--text-muted); }
+    .books-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      gap: 18px;
+    }
+    @media (min-width: 720px) {
+      .books-grid { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+    }
+    .book-card {
+      background:
+        radial-gradient(circle at top left, rgba(245, 69, 69, 0.22), transparent 60%),
+        radial-gradient(circle at bottom right, rgba(47, 35, 92, 0.7), transparent 55%),
+        var(--card-bg);
+      border-radius: var(--radius-lg);
+      padding: 16px 18px 14px;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border-subtle);
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .book-header {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      align-items: flex-start;
+    }
+    .book-title-block { flex: 1; min-width: 0; }
+    .book-type-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 3px 9px;
+      border-radius: var(--radius-pill);
+      background: rgba(4, 4, 14, 0.9);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--text-muted);
+      margin-bottom: 6px;
+    }
+    .book-title { font-size: 1rem; font-weight: 600; }
+    .book-author {
+      font-size: 0.9rem;
+      color: var(--accent-soft);
+      margin-top: 2px;
+    }
+    .book-meta {
+      margin-top: 6px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+    .meta-pill {
+      padding: 3px 9px;
+      border-radius: var(--radius-pill);
+      background: rgba(5, 6, 16, 0.8);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+    }
+    .theme-score { text-align: right; font-size: 0.82rem; }
+    .theme-score-label {
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      font-size: 0.68rem;
+      color: var(--text-muted);
+    }
+    .theme-score-value {
+      font-weight: 600;
+      color: var(--accent);
+      font-size: 1.2rem;
+    }
+    .vibe {
+      font-size: 0.82rem;
+      font-style: italic;
+      color: var(--accent-warn-soft);
+      margin-top: 2px;
+    }
+    .summary {
+      font-size: 0.9rem;
+      line-height: 1.4;
+      color: var(--text-main);
+    }
+    .origin {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+    .origin-label {
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-size: 0.68rem;
+      color: var(--accent-soft);
+    }
+    .warnings {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      margin-top: 4px;
+      padding-top: 6px;
+    }
+    .warnings-label {
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-size: 0.68rem;
+      color: var(--accent-soft);
+    }
+    .footer-note {
+      margin-top: 26px;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      text-align: right;
+    }
+    .footer-note strong { color: var(--accent-soft); }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header>
+      <div class="title-block">
+        <div class="club-name">
+          <span>Final Girls</span> <span>Book Club</span>
+        </div>
+        <p class="subtitle">
+          Monthly horror picks for the mortally curious.
+        </p>
+        <p class="month-tag">
+          Current month: <span class="mono">April 2025</span> · Vote for your favorite novel.
+        </p>
+        <p class="archive-link">
+          <a href="index.html">Browse past months →</a>
+        </p>
+      </div>
+
+      <aside class="legend-card">
+        <div class="legend-title">How to read this page</div>
+        <div class="legend-row">
+          <span class="badge badge-rating">
+            <span class="badge-label">Avg rating</span>
+            Approximate community score.
+          </span>
+        </div>
+        <div class="legend-row">
+          <span class="badge badge-warnings mild">
+            <span class="badge-label">CW: Mild</span>
+            Some disturbing content, but relatively light.
+          </span>
+          <span class="badge badge-warnings moderate">
+            <span class="badge-label">CW: Heavy</span>
+            Graphic scenes or sustained distress.
+          </span>
+          <span class="badge badge-warnings extreme">
+            <span class="badge-label">CW: Extreme</span>
+            Very intense or potentially overwhelming material.
+          </span>
+        </div>
+      </aside>
+    </header>
+
+    <section class="section">
+      <div class="section-header">
+        <h2 class="section-title">Novels</h2>
+        <p class="section-subtitle">Choose one full‑length pick for the month.</p>
+      </div>
+
+      <div class="books-grid">
+        <article class="book-card">
+          <div class="book-header">
+            <div class="book-title-block">
+              <div class="book-type-tag">Novel</div>
+              <div class="book-title">The Call</div>
+              <div class="book-author">Peadar Ó Guilín (2016)</div>
+              <div class="book-meta">
+                <span class="meta-pill">~384 pages</span>
+                <span class="meta-pill">Debut novel: No</span>
+                <span class="meta-pill">Avg rating: 3.8★</span>
+              </div>
+            </div>
+            <div class="theme-score">
+              <div class="badge badge-warnings extreme" style="margin-top:6px;">
+                <span class="badge-label">CW</span>
+                Extreme
+              </div>
+            </div>
+          </div>
+          <p class="vibe">
+            Vibe: Irish YA survival horror where teenagers get dragged into fairyland and come back wrong, if they come back at all.
+          </p>
+          <p class="summary">
+            Every teenager in Ireland must survive being pulled into the hostile, twisted realm of the Sídhe for a few impossible minutes — most don't return, and the ones who do are often mutilated beyond recognition. Nessa, disabled from childhood polio, trains obsessively to beat a system designed to kill her, in a survival-college setting as brutal as the Call itself.
+          </p>
+          <p class="origin">
+            <span class="origin-label">Origin:</span>
+            Ireland
+          </p>
+          <p class="warnings">
+            <span class="warnings-label">Content warnings:</span>
+            Body horror, graphic and gruesome death, disability-related trauma, attempted sexual assault, violence against teenagers.
+          </p>
+        </article>
+
+        <article class="book-card">
+          <div class="book-header">
+            <div class="book-title-block">
+              <div class="book-type-tag">Novel</div>
+              <div class="book-title">Slewfoot: A Tale of Bewitchery</div>
+              <div class="book-author">Brom (2021)</div>
+              <div class="book-meta">
+                <span class="meta-pill">~305 pages</span>
+                <span class="meta-pill">Debut novel: No</span>
+                <span class="meta-pill">Avg rating: 4.2★</span>
+              </div>
+            </div>
+            <div class="theme-score">
+              <div class="badge badge-warnings extreme" style="margin-top:6px;">
+                <span class="badge-label">CW</span>
+                Extreme
+              </div>
+            </div>
+          </div>
+          <p class="vibe">
+            Vibe: Illustrated Colonial New England witch-trial horror where a widow and an ancient forest spirit both fight back.
+          </p>
+          <p class="summary">
+            Widowed and alone in a rigid Puritan colony, Abitha becomes entangled with Slewfoot, a newly awoken spirit of the wild trying to remember what he is. As accusations of witchcraft spread through the village, both of them are pushed toward violence in a story about patriarchal cruelty, folk magic, and vengeance.
+          </p>
+          <p class="origin">
+            <span class="origin-label">Origin:</span>
+            United States
+          </p>
+          <p class="warnings">
+            <span class="warnings-label">Content warnings:</span>
+            Graphic animal cruelty/death, torture, religious bigotry, gore, body horror, gun violence, confinement, murder, fire injury.
+          </p>
+        </article>
+
+        <article class="book-card">
+          <div class="book-header">
+            <div class="book-title-block">
+              <div class="book-type-tag">Novel</div>
+              <div class="book-title">Suffer the Children</div>
+              <div class="book-author">Craig DiLouie (2014)</div>
+              <div class="book-meta">
+                <span class="meta-pill">~352 pages</span>
+                <span class="meta-pill">Debut novel: No</span>
+                <span class="meta-pill">Avg rating: 4.0★</span>
+              </div>
+            </div>
+            <div class="theme-score">
+              <div class="badge badge-warnings extreme" style="margin-top:6px;">
+                <span class="badge-label">CW</span>
+                Extreme
+              </div>
+            </div>
+          </div>
+          <p class="vibe">
+            Vibe: Apocalyptic vampire-child horror that's really a gutting story about what parents will do for their kids.
+          </p>
+          <p class="summary">
+            A mysterious illness kills every child on Earth overnight — until they start coming back, animated and "alive" again as long as they're given blood. The novel follows several families forced to decide how far they'll go to keep their undead children fed, as society collapses around the impossible bargain.
+          </p>
+          <p class="origin">
+            <span class="origin-label">Origin:</span>
+            United States
+          </p>
+          <p class="warnings">
+            <span class="warnings-label">Content warnings:</span>
+            Child death, body horror, animal death (a pet), violence, themes of parental grief and moral compromise.
+          </p>
+        </article>
+
+        <article class="book-card">
+          <div class="book-header">
+            <div class="book-title-block">
+              <div class="book-type-tag">Novel</div>
+              <div class="book-title">What Lies Between Us</div>
+              <div class="book-author">John Marrs (2020)</div>
+              <div class="book-meta">
+                <span class="meta-pill">~370 pages</span>
+                <span class="meta-pill">Debut novel: No</span>
+                <span class="meta-pill">Avg rating: 4.0★</span>
+              </div>
+            </div>
+            <div class="theme-score">
+              <div class="badge badge-warnings extreme" style="margin-top:6px;">
+                <span class="badge-label">CW</span>
+                Extreme
+              </div>
+            </div>
+          </div>
+          <p class="vibe">
+            Vibe: A claustrophobic two-hander domestic thriller between a mother and daughter locked in the same house, both hiding what they did to get there.
+          </p>
+          <p class="summary">
+            Maggie has been held captive in the attic by her daughter Nina for years, and the novel alternates between their perspectives as long-buried secrets about their shared past come out. Twisty and mean-spirited by design, it's less supernatural horror than psychological/domestic thriller with genuinely disturbing reveals.
+          </p>
+          <p class="origin">
+            <span class="origin-label">Origin:</span>
+            United Kingdom
+          </p>
+          <p class="warnings">
+            <span class="warnings-label">Content warnings:</span>
+            Sexual abuse including child sexual abuse and incest, suicide, miscarriage, drug use, captivity/imprisonment, parental abuse.
+          </p>
+        </article>
+
+        <article class="book-card selected">
+          <div class="pick-label">April’s Winner</div>
+          <div class="book-header">
+            <div class="book-title-block">
+              <div class="book-type-tag">Novel</div>
+              <div class="book-title">The Last House on Needless Street</div>
+              <div class="book-author">Catriona Ward (2021)</div>
+              <div class="book-meta">
+                <span class="meta-pill">~337 pages</span>
+                <span class="meta-pill">Debut novel: No</span>
+                <span class="meta-pill">Avg rating: 3.8★</span>
+              </div>
+            </div>
+            <div class="theme-score">
+              <div class="badge badge-warnings extreme" style="margin-top:6px;">
+                <span class="badge-label">CW</span>
+                Extreme
+              </div>
+            </div>
+          </div>
+          <p class="vibe">
+            Vibe: An unreliable-narrator horror puzzle box about a strange house, a missing girl, and a cat who might be the most trustworthy narrator in the book.
+          </p>
+          <p class="summary">
+            Ted lives alone (mostly) in a boarded-up house near the site of a child's disappearance years earlier, and something is clearly very wrong with him, his daughter, and the cat who also narrates parts of the book. Told from shifting, unreliable perspectives, it builds toward a series of twists that recontextualize everything that came before.
+          </p>
+          <p class="origin">
+            <span class="origin-label">Origin:</span>
+            United Kingdom
+          </p>
+          <p class="warnings">
+            <span class="warnings-label">Content warnings:</span>
+            Child abuse and child death, sexual abuse, mental illness, captivity, animal harm (referenced), violence.
+          </p>
+        </article>
+
+      </div>
+    </section>
+
+    <p class="footer-note">
+      Highlight any card to copy–paste details into Discord, or screenshot the page to share all options at once. <strong>Updated monthly.</strong>
+    </p>
+  </main>
+</body>
+</html>

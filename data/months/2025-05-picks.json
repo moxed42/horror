@@ -1,0 +1,68 @@
+{
+  "slug": "2025-05-picks",
+  "month_label": "May 2025",
+  "subtitle": "Monthly horror picks for the mortally curious.",
+  "vote_instructions": "Vote for your favorite novel.",
+  "novels": [
+    {
+      "type": "Novel",
+      "title": "Goddess of Filth",
+      "author": "V. Castro (2021)",
+      "pages": "~156 pages",
+      "debut_label": "Debut novel: No",
+      "avg_rating": "3.6★",
+      "cw_tier": "extreme",
+      "cw_label": "Extreme",
+      "vibe": "A Chicana possession novella that's as much about generational trauma and culture as it is about a demon in a teenage girl.",
+      "summary": "Five friends hold a séance for fun before graduation, and quiet, academic Fernanda starts acting like someone — something — else. As Lourdes investigates what's taken hold of her friend, the story becomes a possession tale layered with Mexican-American identity, faith, and the things young women aren't allowed to say out loud.",
+      "origin": "United States",
+      "warnings": "Human trafficking, self-harm (brief), graphic body horror, sexual content, gun violence, misogyny, religious bigotry.",
+      "is_winner": false
+    },
+    {
+      "type": "Novel",
+      "title": "Beta: A Technological Nightmare",
+      "author": "Sammy Scott (2023)",
+      "pages": "Page count not reliably found — checked Goodreads/Amazon/B&N",
+      "debut_label": "Debut novel: Unclear — no biographical info found",
+      "avg_rating": "4.4★",
+      "cw_tier": "moderate",
+      "cw_label": "Heavy",
+      "vibe": "A smart-home-gone-wrong techno-thriller about a man who agrees to beta-test his own prison.",
+      "summary": "Reclusive Michael Danvers accepts an invitation to live in a fully automated smart home run by a sophisticated AI, at first delighted by the convenience. As the house's control over his routines and choices tightens, the story turns into a slow-building nightmare about surveillance, autonomy, and what \"smart\" technology is actually optimizing for.",
+      "origin": "Unknown — no reliable author biographical information found",
+      "warnings": "Psychological manipulation, confinement, surveillance/loss of autonomy themes, tense/claustrophobic scenes.",
+      "is_winner": true
+    },
+    {
+      "type": "Novel",
+      "title": "The Hollow Places",
+      "author": "T. Kingfisher (2020)",
+      "pages": "~341 pages",
+      "debut_label": "Debut novel: No",
+      "avg_rating": "3.7★",
+      "cw_tier": "extreme",
+      "cw_label": "Extreme",
+      "vibe": "A cozy small-town museum hides a hole into a genuinely wrong other-world in this modern Algernon Blackwood homage.",
+      "summary": "Newly divorced Kara moves into her uncle's oddball taxidermy museum, and while patching a strange hole in the wall, she and a friend step through into a world of endless, hostile willow trees. What starts whimsical curdles fast into cosmic dread as they try to find their way back before whatever lives out there notices them.",
+      "origin": "United States",
+      "warnings": "Body horror, gore, torture, death of a child, animal death, gun violence, cannibalism, forced institutionalization, ableism.",
+      "is_winner": false
+    },
+    {
+      "type": "Novel",
+      "title": "Bat Eater and Other Names for Cora Zeng",
+      "author": "Kylie Lee Baker (2025)",
+      "pages": "~304 pages",
+      "debut_label": "Debut novel: No",
+      "avg_rating": "4.1★",
+      "cw_tier": "extreme",
+      "cw_label": "Extreme",
+      "vibe": "A grief-soaked, gory mystery following a crime-scene cleaner who can't tell anymore what's real and what's the Hungry Ghost Festival catching up with her.",
+      "summary": "Cora Zeng cleans up after violent deaths in Chinatown for a living, still reeling from her sister's murder and the killer's parting slur: \"bat eater.\" As she keeps finding dead bats at crime scenes tied to East Asian victims, and the Hungry Ghost Festival closes in, the line between anti-Asian violence, grief hallucination, and something genuinely supernatural blurs.",
+      "origin": "United States",
+      "warnings": "Graphic violence and gore, anti-Asian racism/hate violence, animal death, death of a sibling, psychological distress.",
+      "is_winner": false
+    }
+  ]
+}

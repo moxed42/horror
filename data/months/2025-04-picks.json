@@ -1,0 +1,83 @@
+{
+  "slug": "2025-04-picks",
+  "month_label": "April 2025",
+  "subtitle": "Monthly horror picks for the mortally curious.",
+  "vote_instructions": "Vote for your favorite novel.",
+  "novels": [
+    {
+      "type": "Novel",
+      "title": "The Call",
+      "author": "Peadar Ó Guilín (2016)",
+      "pages": "~384 pages",
+      "debut_label": "Debut novel: No",
+      "avg_rating": "3.8★",
+      "cw_tier": "extreme",
+      "cw_label": "Extreme",
+      "vibe": "Irish YA survival horror where teenagers get dragged into fairyland and come back wrong, if they come back at all.",
+      "summary": "Every teenager in Ireland must survive being pulled into the hostile, twisted realm of the Sídhe for a few impossible minutes — most don't return, and the ones who do are often mutilated beyond recognition. Nessa, disabled from childhood polio, trains obsessively to beat a system designed to kill her, in a survival-college setting as brutal as the Call itself.",
+      "origin": "Ireland",
+      "warnings": "Body horror, graphic and gruesome death, disability-related trauma, attempted sexual assault, violence against teenagers.",
+      "is_winner": false
+    },
+    {
+      "type": "Novel",
+      "title": "Slewfoot: A Tale of Bewitchery",
+      "author": "Brom (2021)",
+      "pages": "~305 pages",
+      "debut_label": "Debut novel: No",
+      "avg_rating": "4.2★",
+      "cw_tier": "extreme",
+      "cw_label": "Extreme",
+      "vibe": "Illustrated Colonial New England witch-trial horror where a widow and an ancient forest spirit both fight back.",
+      "summary": "Widowed and alone in a rigid Puritan colony, Abitha becomes entangled with Slewfoot, a newly awoken spirit of the wild trying to remember what he is. As accusations of witchcraft spread through the village, both of them are pushed toward violence in a story about patriarchal cruelty, folk magic, and vengeance.",
+      "origin": "United States",
+      "warnings": "Graphic animal cruelty/death, torture, religious bigotry, gore, body horror, gun violence, confinement, murder, fire injury.",
+      "is_winner": false
+    },
+    {
+      "type": "Novel",
+      "title": "Suffer the Children",
+      "author": "Craig DiLouie (2014)",
+      "pages": "~352 pages",
+      "debut_label": "Debut novel: No",
+      "avg_rating": "4.0★",
+      "cw_tier": "extreme",
+      "cw_label": "Extreme",
+      "vibe": "Apocalyptic vampire-child horror that's really a gutting story about what parents will do for their kids.",
+      "summary": "A mysterious illness kills every child on Earth overnight — until they start coming back, animated and \"alive\" again as long as they're given blood. The novel follows several families forced to decide how far they'll go to keep their undead children fed, as society collapses around the impossible bargain.",
+      "origin": "United States",
+      "warnings": "Child death, body horror, animal death (a pet), violence, themes of parental grief and moral compromise.",
+      "is_winner": false
+    },
+    {
+      "type": "Novel",
+      "title": "What Lies Between Us",
+      "author": "John Marrs (2020)",
+      "pages": "~370 pages",
+      "debut_label": "Debut novel: No",
+      "avg_rating": "4.0★",
+      "cw_tier": "extreme",
+      "cw_label": "Extreme",
+      "vibe": "A claustrophobic two-hander domestic thriller between a mother and daughter locked in the same house, both hiding what they did to get there.",
+      "summary": "Maggie has been held captive in the attic by her daughter Nina for years, and the novel alternates between their perspectives as long-buried secrets about their shared past come out. Twisty and mean-spirited by design, it's less supernatural horror than psychological/domestic thriller with genuinely disturbing reveals.",
+      "origin": "United Kingdom",
+      "warnings": "Sexual abuse including child sexual abuse and incest, suicide, miscarriage, drug use, captivity/imprisonment, parental abuse.",
+      "is_winner": false
+    },
+    {
+      "type": "Novel",
+      "title": "The Last House on Needless Street",
+      "author": "Catriona Ward (2021)",
+      "pages": "~337 pages",
+      "debut_label": "Debut novel: No",
+      "avg_rating": "3.8★",
+      "cw_tier": "extreme",
+      "cw_label": "Extreme",
+      "vibe": "An unreliable-narrator horror puzzle box about a strange house, a missing girl, and a cat who might be the most trustworthy narrator in the book.",
+      "summary": "Ted lives alone (mostly) in a boarded-up house near the site of a child's disappearance years earlier, and something is clearly very wrong with him, his daughter, and the cat who also narrates parts of the book. Told from shifting, unreliable perspectives, it builds toward a series of twists that recontextualize everything that came before.",
+      "origin": "United Kingdom",
+      "warnings": "Child abuse and child death, sexual abuse, mental illness, captivity, animal harm (referenced), violence.",
+      "is_winner": true
+    }
+  ]
+}
