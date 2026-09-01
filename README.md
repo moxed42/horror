@@ -5,6 +5,8 @@ Final Girls Book Club website. `index.html` (repo root) is the current month's
 picks, served by GitHub Pages from this branch's default. Past months live
 under `archive/`.
 
+Live site: [bit.ly/chooseyourscare](https://bit.ly/chooseyourscare)
+
 ## How the site is built
 
 - `templates/page.html` and `templates/book_card.html` hold the shared HTML/CSS
