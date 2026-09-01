@@ -16,7 +16,7 @@ ARCHIVE_DIR = REPO_ROOT / "archive"
 REQUIRED_MONTH_FIELDS = ["slug", "theme", "month_label", "subtitle", "vote_instructions", "novels", "short_works"]
 REQUIRED_BOOK_FIELDS = [
     "type", "title", "author", "pages", "debut_label", "avg_rating",
-    "theme_fit", "cw_tier", "cw_label", "vibe", "summary", "warnings",
+    "theme_fit", "cw_tier", "cw_label", "vibe", "summary", "origin", "warnings",
 ]
 
 
@@ -57,6 +57,7 @@ def render_book_card(book: dict, month_label: str) -> str:
         "__CW_LABEL__": book["cw_label"],
         "__VIBE__": book["vibe"],
         "__SUMMARY__": book["summary"],
+        "__ORIGIN__": book["origin"],
         "__WARNINGS__": book["warnings"],
     }
     for token, value in replacements.items():

@@ -18,7 +18,8 @@
       "vibe": "Grimy, intimate 90s body horror about two awful people and the hole that eats them.",
       "summary": "Nicholas and his girlfriend Nakota discover a strange, pulsing black hole—“the Funhole”—in a storage room and start experimenting on it, filming what happens when they put things inside. As the hole reacts in unsettling, flesh‑adjacent ways and Nicholas’s body begins to change, the book becomes a claustrophobic spiral of obsession, abuse, and physical transformation.",
       "warnings": "Extreme body horror, self-harm, addiction, emotional abuse, obsession, misogyny, graphic violence.",
-      "is_winner": false
+      "is_winner": false,
+      "origin": "United States"
     },
     {
       "type": "Novel",
@@ -33,7 +34,8 @@
       "vibe": "Lord of the Flies with parasitic worms and no safety rails.",
       "summary": "A scoutmaster takes a small troop of boys on a routine camping trip to a remote Canadian island, only to have a starving, infected stranger stagger into camp. Once the parasite spreads, the story turns into a brutally graphic survival nightmare as hunger, infection, and cruelty strip away any veneer of civility.",
       "warnings": "Extreme gore, body horror, animal death, starvation, bullying, child endangerment.",
-      "is_winner": false
+      "is_winner": false,
+      "origin": "Canada"
     },
     {
       "type": "Novel",
@@ -48,7 +50,8 @@
       "vibe": "Queer, furious, surgical body horror that feels like Alien crashing into a trauma ward.",
       "summary": "Crane, a mute autistic trans man, works for an alien infestation known as the Hive and discovers he is unexpectedly pregnant. When the Hive insists on the birth at any cost, he fights back, triggering escalating violence and invasive procedures that turn his own body into the battleground.",
       "warnings": "Pregnancy horror, forced medical procedures, transphobia, dysphoria, extreme gore, body horror, self-harm, alien parasites.",
-      "is_winner": false
+      "is_winner": false,
+      "origin": "United States"
     },
     {
       "type": "Novel",
@@ -63,7 +66,8 @@
       "vibe": "Sunburned vacation horror where the real monster is invasive plants and your own body.",
       "summary": "A group of tourists in Mexico follow a lead to a remote hill of ruins searching for a missing friend, only to find themselves trapped by hostile locals and the sentient, invasive vines covering the site. As the plants infiltrate their bodies and their options dwindle, the novel becomes a deeply uncomfortable study in pain, infection, and the ugly side of “survival at any cost”.",
       "warnings": "Extreme gore, body horror, suicide, sexual assault, animal death, infection, starvation.",
-      "is_winner": false
+      "is_winner": false,
+      "origin": "United States"
     }
   ],
   "short_works": [
@@ -80,7 +84,8 @@
       "vibe": "Sensual, nihilistic body horror about a woman whose will reshapes flesh.",
       "summary": "After a suicide attempt, Jacqueline discovers she can reshape other people’s bodies with her mind, turning desire and anger into literal physical transformation. Her relationships—sexual and otherwise—become increasingly lethal as she tests the limits of this power, raising questions about autonomy, revenge, and how far someone might go once the body is no longer fixed.",
       "warnings": "Extreme sexual content, gendered violence, graphic body deformation, suicide.",
-      "is_winner": false
+      "is_winner": false,
+      "origin": "United Kingdom"
     },
     {
       "type": "Short story",
@@ -95,7 +100,8 @@
       "vibe": "A single locked room where sex with an alien becomes existential mutilation.",
       "summary": "A woman wakes in a tiny lifeboat with an incomprehensible alien and no shared language, trapped together in endless cycles of food, waste, and sex. The story uses repetition and visceral detail to push the idea of bodily contact, consent, and communication into a deeply uncomfortable, almost abstract horror space.",
       "warnings": "Graphic sexual content, extreme body horror, confinement, psychological breakdown.",
-      "is_winner": false
+      "is_winner": false,
+      "origin": "United States"
     },
     {
       "type": "Short story",
@@ -110,7 +116,8 @@
       "vibe": "Classic weird‑tale body horror about a man and the skeleton he can’t stop thinking about.",
       "summary": "Mr. Harris becomes obsessed with the idea that his skeleton is a separate, hostile presence inside him and seeks help after his regular doctor dismisses him. The “specialist” he finds takes a far too literal interest in Harris’s bones, leading to a quietly grotesque finale that makes everyday anatomy feel uncanny.",
       "warnings": "Body horror, medical manipulation, obsession, unsettling doctor–patient dynamics.",
-      "is_winner": false
+      "is_winner": false,
+      "origin": "United States"
     },
     {
       "type": "Short story",
@@ -125,7 +132,8 @@
       "vibe": "Modern NoSleep‑style escalation from quirky domestic roleplay to full‑blown transformation horror.",
       "summary": "A woman agrees to indulge her husband’s desire to “play pretend” as a child to help him cope, only to find his demands becoming more controlling and unsettling. As the roleplay pushes into strict rules and physical changes, the story slides from odd kink into real danger, blurring emotional manipulation with literal bodily threat.",
       "warnings": "Psychological abuse, gaslighting, body horror, marital tension, violence.",
-      "is_winner": false
+      "is_winner": false,
+      "origin": "United States"
     }
   ]
 }

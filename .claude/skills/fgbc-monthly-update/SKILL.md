@@ -46,6 +46,7 @@ For every book or short story given, look up (don't guess):
 - Author, original publication year
 - Approximate page count
 - Genre / subgenre fit
+- Country the work is originally from / originally written in (`origin`)
 - Real content/trigger warnings (violence, sexual content, self-harm, etc.)
 
 Cross-check facts where you can (e.g. publisher pages, Goodreads-style
@@ -90,7 +91,7 @@ The site is generated from JSON, not hand-edited — see `README.md` and
 it shows every field the schema needs (`slug`, `theme`, `month_label`,
 `subtitle`, `vote_instructions`, and per-book `type`, `title`, `author`,
 `pages`, `debut_label`, `avg_rating`, `theme_fit`, `cw_tier`, `cw_label`,
-`vibe`, `summary`, `warnings`, `is_winner`). Match its structure exactly —
+`vibe`, `summary`, `origin`, `warnings`, `is_winner`). Match its structure exactly —
 the build script validates required fields and will fail loudly if one is
 missing, which is intentional (better than silently rendering a blank).
 

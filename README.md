@@ -24,7 +24,8 @@ Live site: [bit.ly/chooseyourscare](https://bit.ly/chooseyourscare)
    `vote_instructions`, and the `novels`/`short_works` arrays. Each book needs:
    `type`, `title`, `author`, `pages`, `debut_label`, `avg_rating`,
    `theme_fit` (1-5), `cw_tier` (`mild`/`moderate`/`extreme`), `cw_label`
-   (`Mild`/`Heavy`/`Extreme`), `vibe`, `summary`, `warnings`. Set
+   (`Mild`/`Heavy`/`Extreme`), `vibe`, `summary`, `origin` (country the book
+   is originally from/written in), `warnings`. Set
    `is_winner: false` on every book at first (voting hasn't happened yet).
 2. Run:
    ```
