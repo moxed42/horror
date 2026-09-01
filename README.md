@@ -35,6 +35,25 @@ Live site: [bit.ly/chooseyourscare](https://bit.ly/chooseyourscare)
    and push. GitHub Pages picks up `index.html` automatically; no build step
    needed at deploy time.
 
+## Favicon and link-preview image (Discord etc.)
+
+- `assets/favicon.svg` is the browser-tab icon — a small skull, doesn't need
+  to change monthly.
+- `assets/social-card.png` is the image Discord/Slack/etc. show when the
+  site link is pasted (1200x630, generated once via headless Chromium from
+  `assets/social-card-source.html`). The page's `<meta property="og:*">` /
+  `twitter:*` tags in `templates/page.html` point at it and pick up the
+  current month's title/description automatically via `build.py` — no
+  changes needed there month to month.
+- To give the tagline in the image itself a fresh line each month (e.g. in
+  the theme's language), regenerate it:
+  ```
+  python3 scripts/gen_social_card.py "your tagline here"
+  ```
+  Requires a headless Chromium/Chrome binary; set `CHROME_PATH` if one
+  isn't found automatically. This is optional — skip it and the image just
+  keeps its current tagline.
+
 ## Marking the winner (once voting closes)
 
 Once you know which novel and short story won, flip `is_winner` to `true`

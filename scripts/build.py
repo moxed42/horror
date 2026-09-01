@@ -12,6 +12,7 @@ REPO_ROOT = Path(__file__).resolve().parent.parent
 TEMPLATES = REPO_ROOT / "templates"
 MONTHS_DIR = REPO_ROOT / "data" / "months"
 ARCHIVE_DIR = REPO_ROOT / "archive"
+BASE_URL = "https://moxed42.github.io/horror/"
 
 REQUIRED_MONTH_FIELDS = ["slug", "theme", "month_label", "subtitle", "vote_instructions", "novels", "short_works"]
 REQUIRED_BOOK_FIELDS = [
@@ -65,10 +66,14 @@ def render_book_card(book: dict, month_label: str) -> str:
     return template
 
 
-def render_page(month: dict) -> str:
+def render_page(month: dict, page_url: str, favicon_href: str) -> str:
     template = (TEMPLATES / "page.html").read_text()
     novel_cards = "\n".join(render_book_card(b, month["month_label"]) for b in month["novels"])
     short_work_cards = "\n".join(render_book_card(b, month["month_label"]) for b in month["short_works"])
+    og_description = (
+        f"{month['month_label']} theme: {month['theme']}. "
+        f"Vote for your favorite novel and short story now."
+    )
     replacements = {
         "__THEME__": month["theme"],
         "__THEME_LOWER__": month["theme"].lower(),
@@ -77,6 +82,10 @@ def render_page(month: dict) -> str:
         "__VOTE_INSTRUCTIONS__": month["vote_instructions"],
         "__NOVEL_CARDS__": novel_cards,
         "__SHORT_WORK_CARDS__": short_work_cards,
+        "__OG_DESCRIPTION__": og_description,
+        "__BASE_URL__": BASE_URL,
+        "__PAGE_URL__": page_url,
+        "__FAVICON_HREF__": favicon_href,
     }
     for token, value in replacements.items():
         template = template.replace(token, value)
@@ -93,7 +102,14 @@ def render_archive_index() -> str:
             f'      <li><a href="{month["slug"]}.html">{month["month_label"]} — {month["theme"]}</a>'
             f'<div class="theme">{len(month["novels"])} novels · {len(month["short_works"])} short works</div></li>'
         )
-    return template.replace("__ARCHIVE_ITEMS__", "\n".join(items))
+    replacements = {
+        "__ARCHIVE_ITEMS__": "\n".join(items),
+        "__BASE_URL__": BASE_URL,
+        "__PAGE_URL__": BASE_URL + "archive/index.html",
+    }
+    for token, value in replacements.items():
+        template = template.replace(token, value)
+    return template
 
 
 def main():
@@ -104,15 +120,15 @@ def main():
     month_path = Path(sys.argv[1])
     month = load_month(month_path)
 
-    page_html = render_page(month)
-
+    page_html = render_page(month, page_url=BASE_URL, favicon_href="assets/favicon.svg")
     (REPO_ROOT / "index.html").write_text(page_html)
     print(f"Wrote {REPO_ROOT / 'index.html'}")
 
     ARCHIVE_DIR.mkdir(exist_ok=True)
     archive_page_path = ARCHIVE_DIR / f"{month['slug']}.html"
-    archive_page_html = page_html.replace('href="archive/index.html"', 'href="index.html"')
-    archive_page_html = archive_page_html.replace('href="../index.html"', 'href="../index.html"')
+    archive_page_url = f"{BASE_URL}archive/{month['slug']}.html"
+    archive_page_html = render_page(month, page_url=archive_page_url, favicon_href="../assets/favicon.svg")
+    archive_page_html = archive_page_html.replace('href="archive/index.html"', 'href="index.html"')
     archive_page_path.write_text(archive_page_html)
     print(f"Wrote {archive_page_path}")
 
