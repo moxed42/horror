@@ -2,20 +2,20 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Final Girls Book Club · __THEME__ Picks</title>
+  <title>__PAGE_TITLE__</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/svg+xml" href="__FAVICON_HREF__">
   <meta name="theme-color" content="#f54545">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Final Girls Book Club">
-  <meta property="og:title" content="Final Girls Book Club · __THEME__ Picks">
+  <meta property="og:title" content="__PAGE_TITLE__">
   <meta property="og:description" content="__OG_DESCRIPTION__">
   <meta property="og:image" content="__BASE_URL__assets/social-card.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:url" content="__PAGE_URL__">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Final Girls Book Club · __THEME__ Picks">
+  <meta name="twitter:title" content="__PAGE_TITLE__">
   <meta name="twitter:description" content="__OG_DESCRIPTION__">
   <meta name="twitter:image" content="__BASE_URL__assets/social-card.png">
   <style>
@@ -317,11 +317,7 @@
         <p class="subtitle">
           __SUBTITLE__
         </p>
-        <div class="theme-chip">
-          <span class="theme-label">Theme</span>
-          <span class="theme-value">__THEME__</span>
-        </div>
-        <p class="month-tag">
+__THEME_CHIP_BLOCK__        <p class="month-tag">
           Current month: <span class="mono">__MONTH_LABEL__</span> · __VOTE_INSTRUCTIONS__
         </p>
         <p class="archive-link">
@@ -331,13 +327,7 @@
 
       <aside class="legend-card">
         <div class="legend-title">How to read this page</div>
-        <div class="legend-row">
-          <span class="badge badge-theme">
-            <span class="badge-label">Theme fit</span>
-            1–5 · How intensely the pick leans into __THEME_LOWER__.
-          </span>
-        </div>
-        <div class="legend-row">
+__THEME_FIT_LEGEND_BLOCK__        <div class="legend-row">
           <span class="badge badge-rating">
             <span class="badge-label">Avg rating</span>
             Approximate community score.
@@ -363,7 +353,7 @@
     <section class="section">
       <div class="section-header">
         <h2 class="section-title">Novels</h2>
-        <p class="section-subtitle">Choose one full‑length mutation for the month.</p>
+        <p class="section-subtitle">__NOVELS_SUBTITLE__</p>
       </div>
 
       <div class="books-grid">
@@ -371,18 +361,7 @@ __NOVEL_CARDS__
       </div>
     </section>
 
-    <section class="section">
-      <div class="section-header">
-        <h2 class="section-title">Short works & novellas</h2>
-        <p class="section-subtitle">Pick one shorter nightmare to pair with the novel.</p>
-      </div>
-
-      <div class="books-grid">
-__SHORT_WORK_CARDS__
-      </div>
-    </section>
-
-    <p class="footer-note">
+__SHORT_WORKS_SECTION__    <p class="footer-note">
       Highlight any card to copy–paste details into Discord, or screenshot the page to share all options at once. <strong>Updated monthly.</strong>
     </p>
   </main>
