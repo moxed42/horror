@@ -410,6 +410,30 @@ def render_stats_page() -> str:
         pairs = [(labels[k], counts.get(k, 0)) for k in order]
         return bar_list(pairs, max_items=len(order))
 
+    palette = ["#f54545", "#4a9dff", "#9b6bff", "#5a6178"]
+
+    def stacked_bar(counts: dict, order: list, labels: dict) -> str:
+        pairs = [(labels[k], counts.get(k, 0)) for k in order]
+        total = sum(c for _, c in pairs) or 1
+        segments = []
+        legend = []
+        for i, (label, count) in enumerate(pairs):
+            if count == 0:
+                continue
+            color = "#3a3f52" if label == "Unknown" else palette[i % len(palette)]
+            pct = round(count / total * 100)
+            segments.append(f'<span class="stack-seg" style="width:{pct}%;background:{color}"></span>')
+            legend.append(
+                f'        <li><span class="stack-dot" style="background:{color}"></span>'
+                f'{label} <span class="stack-count">{count}</span></li>'
+            )
+        segments_html = "".join(segments) if segments else '<span class="stack-seg" style="width:100%;background:#3a3f52"></span>'
+        legend_html = "\n".join(legend) if legend else '        <li class="empty">No data yet.</li>'
+        return (
+            f'          <div class="stack-bar">{segments_html}</div>\n'
+            f'          <ul class="stack-legend">\n{legend_html}\n          </ul>'
+        )
+
     def page_fact(bucket, key):
         entry = bucket[key]
         return f'{entry[0]} ({entry[1]} pages)' if entry else "N/A"
@@ -420,20 +444,21 @@ def render_stats_page() -> str:
     gender_order = ["woman", "man", "nonbinary", "unknown"]
     gender_labels = {"woman": "Woman", "man": "Man", "nonbinary": "Nonbinary", "unknown": "Unknown"}
     lgbtq_order = ["yes", "no", "unknown"]
-    lgbtq_labels = {"yes": "Publicly LGBTQ+", "no": "Not publicly LGBTQ+", "unknown": "Unknown"}
+    lgbtq_labels = {"yes": "LGBTQ+", "no": "Not", "unknown": "Unknown"}
     bipoc_order = ["yes", "no", "unknown"]
-    bipoc_labels = {"yes": "BIPOC", "no": "Not BIPOC", "unknown": "Unknown"}
+    bipoc_labels = {"yes": "BIPOC", "no": "Not", "unknown": "Unknown"}
+
+    cw_labels = {"mild": "Mild", "moderate": "Heavy", "extreme": "Extreme"}
 
     def sections_for(agg: dict) -> dict:
-        cw_pairs = [(c.capitalize(), agg["cw_counts"].get(c, 0)) for c in cw_order]
         return {
             "origin_rows": bar_list(agg["top_origins"]),
-            "cw_rows": bar_list(cw_pairs, max_items=3),
+            "cw_rows": stacked_bar(agg["cw_counts"], cw_order, cw_labels),
             "author_rows": bar_list(agg["top_authors"]),
-            "age_rows": diversity_rows(agg["age_counts"], age_order, age_labels),
-            "gender_rows": diversity_rows(agg["gender_counts"], gender_order, gender_labels),
-            "lgbtq_rows": diversity_rows(agg["lgbtq_counts"], lgbtq_order, lgbtq_labels),
-            "bipoc_rows": diversity_rows(agg["bipoc_counts"], bipoc_order, bipoc_labels),
+            "age_rows": stacked_bar(agg["age_counts"], age_order, age_labels),
+            "gender_rows": stacked_bar(agg["gender_counts"], gender_order, gender_labels),
+            "lgbtq_rows": stacked_bar(agg["lgbtq_counts"], lgbtq_order, lgbtq_labels),
+            "bipoc_rows": stacked_bar(agg["bipoc_counts"], bipoc_order, bipoc_labels),
             "avg_novel_pages": f'{agg["novel_pages"]["avg"]} pages' if agg["novel_pages"]["avg"] else "N/A",
             "avg_short_pages": f'{agg["short_pages"]["avg"]} pages' if agg["short_pages"]["avg"] else "N/A",
             "longest_novel": page_fact(agg["novel_pages"], "longest"),
