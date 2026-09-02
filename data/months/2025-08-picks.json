@@ -17,7 +17,8 @@
       "summary": "As the plague ravages 14th-century France, a disillusioned knight named Thomas falls in with Delphine, a peasant girl who claims to speak with angels \u2014 right as Lucifer makes his move to finish a war against Heaven. The novel pairs historical grimness (plague, famine, religious violence) with outright apocalyptic horror as the two travel toward Avignon.",
       "origin": "United States",
       "warnings": "Sexual assault and threat of sexual assault involving minors, child endangerment, torture, extreme body horror, religious violence, antisemitism, anti-gay bigotry, alcohol addiction.",
-      "is_winner": true
+      "is_winner": true,
+      "book_theme": "Apocalyptic Horror"
     },
     {
       "type": "Novel",
@@ -32,7 +33,8 @@
       "summary": "Jessa's rough night at the diner turns into something far worse when she finds a terrified runaway boy outside, followed almost immediately by a violent encounter with his father. As they flee together, Jessa slowly realizes the boy's fear itself is manifesting into monstrous, bloody reality behind them.",
       "origin": "United States",
       "warnings": "Graphic violence and gore, child endangerment, abuse, alcoholism, parent death, self-harm, kidnapping, body horror.",
-      "is_winner": false
+      "is_winner": false,
+      "book_theme": "Werewolf Horror"
     },
     {
       "type": "Novel",
@@ -47,7 +49,8 @@
       "summary": "A scoutmaster takes a small troop of boys on a routine camping trip to a remote Canadian island, only to have a starving, infected stranger stagger into camp. Once the parasite spreads, the story turns into a brutally graphic survival nightmare as hunger, infection, and cruelty strip away any veneer of civility.",
       "origin": "Canada",
       "warnings": "Extreme gore, body horror, animal death, starvation, bullying, child endangerment.",
-      "is_winner": false
+      "is_winner": false,
+      "book_theme": "Survival Horror"
     }
   ],
   "short_works": [
@@ -64,7 +67,8 @@
       "summary": "Soren Johansson dies expecting to reunite with his family in the afterlife, and instead finds himself condemned by an unfamiliar god to a Hell built as an endless library. His only way out is to find the one book, among an effectively infinite number, that tells the true story of his life \u2014 a existential, slow-building horror about eternity and futility rather than gore.",
       "origin": "United States",
       "warnings": "Existential dread, themes of eternal suffering and futility, brief violence, death of loved ones (referenced).",
-      "is_winner": true
+      "is_winner": true,
+      "book_theme": "Existential Horror"
     },
     {
       "type": "Short story",
@@ -79,7 +83,8 @@
       "summary": "Boone, convinced by his manipulative therapist that he's a serial killer, turns himself in and learns of Midian, a hidden refuge for shape-shifting creatures called the Nightbreed. As Boone is drawn into Midian and its inhabitants, the story flips expectations about who the real monsters are, building to a bloody confrontation with the humans hunting the Nightbreed down.",
       "origin": "United Kingdom",
       "warnings": "Graphic violence and gore, body horror, mass murder, psychological manipulation, mob violence.",
-      "is_winner": false
+      "is_winner": false,
+      "book_theme": "Monster Horror"
     },
     {
       "type": "Short story",
@@ -94,7 +99,8 @@
       "summary": "Isolated in a remote Austrian castle, Laura is captivated by Carmilla, a strange and beautiful young guest who arrives after a carriage accident. As their intense friendship deepens, Laura grows increasingly ill and haunted by nightmares, slowly realizing what \u2014 and who \u2014 Carmilla really is.",
       "origin": "Ireland",
       "warnings": "Vampirism/blood-drinking, death, illness, predatory undertones, period-typical treatment of female sexuality and class.",
-      "is_winner": false
+      "is_winner": false,
+      "book_theme": "Vampire Horror"
     }
   ]
 }
