@@ -16,7 +16,7 @@ BASE_URL = "https://moxed42.github.io/horror/"
 
 # theme and short_works are optional: some months (mostly early ones) ran
 # without a theme, or without a short-story pick alongside the novels.
-REQUIRED_MONTH_FIELDS = ["slug", "month_label", "subtitle", "vote_instructions", "novels"]
+REQUIRED_MONTH_FIELDS = ["slug", "month_label", "subtitle", "novels"]
 # theme_fit is optional per book: it only makes sense when the month has a theme.
 REQUIRED_BOOK_FIELDS = [
     "type", "title", "author", "pages", "debut_label",
@@ -130,7 +130,7 @@ def render_page(month: dict, page_url: str, favicon_href: str, nav_block: str = 
             f'        <div class="legend-row">\n'
             f'          <span class="badge badge-theme">\n'
             f'            <span class="badge-label">Theme fit</span>\n'
-            f'            1–5 · How intensely the pick leans into {theme.lower()}.\n'
+            f'            1–5 · How intensely the pick leans into the theme.\n'
             f'          </span>\n'
             f'        </div>\n'
         )
@@ -173,7 +173,6 @@ def render_page(month: dict, page_url: str, favicon_href: str, nav_block: str = 
         "__THEME_CHIP_BLOCK__": theme_chip_block,
         "__THEME_FIT_LEGEND_BLOCK__": theme_fit_legend_block,
         "__MONTH_LABEL__": month["month_label"],
-        "__VOTE_INSTRUCTIONS__": month["vote_instructions"],
         "__NOVELS_SUBTITLE__": novels_subtitle,
         "__NOVEL_CARDS__": novel_cards,
         "__SHORT_WORKS_SECTION__": short_works_section,
