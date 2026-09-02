@@ -255,6 +255,26 @@
       color: var(--text-muted);
       margin-bottom: 6px;
     }
+    .hab-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 3px 9px 3px 4px;
+      border-radius: var(--radius-pill);
+      background: rgba(245, 69, 69, 0.14);
+      border: 1px solid rgba(245, 69, 69, 0.5);
+      font-size: 0.68rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--accent-soft);
+      margin-bottom: 6px;
+    }
+    .hab-badge img {
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      display: block;
+    }
     .book-title { font-size: 1rem; font-weight: 600; }
     .book-author {
       font-size: 0.9rem;
@@ -531,7 +551,7 @@
           <div class="pick-label">January’s Winner</div>
           <div class="book-header">
             <div class="book-title-block">
-              <div class="book-type-tag">Novel</div>
+              <div class="book-type-tag">Novel</div> <span class="hab-badge" title="Homework Ass Book"><img src="../assets/hab-icon.png" alt="HAB">HAB</span>
               <div class="book-title">Frankenstein</div>
               <div class="book-author">Mary Shelley (1818)</div>
               <div class="book-meta">
