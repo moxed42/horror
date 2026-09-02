@@ -276,6 +276,16 @@
     .rank-title { color: var(--text-main); }
     .rank-title a { color: var(--text-main); text-decoration: none; border-bottom: 1px dotted var(--text-muted); }
     .rank-title a:hover { color: var(--accent-soft); border-bottom-color: var(--accent-soft); }
+    .won-tag {
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--accent-soft);
+      border: 1px solid rgba(245, 69, 69, 0.5);
+      border-radius: var(--radius-pill);
+      padding: 1px 7px;
+      margin-left: 4px;
+    }
     .rank-count { color: var(--accent-soft); white-space: nowrap; }
     .rank-list li.empty,
     .bar-list li.empty { color: var(--text-muted); font-style: italic; }
@@ -657,19 +667,20 @@
     </div>
 
     <div class="section" id="snubbed">
-      <div class="section-title">Most-snubbed repeat nominees</div>
-      <p class="not-filtered-note">Not affected by the toggle above — these are lifetime nomination counts.</p>
+      <div class="section-title">Repeat nominees</div>
+      <p class="not-filtered-note">Not affected by the toggle above — these are lifetime nomination counts, with a Won tag if it ever took the month.</p>
       <div class="panel">
         <ul class="rank-list">
-        <li><span class="rank-title"><a href="polls.html#2025-06-book">The Haunting of Hill House</a></span><span class="rank-count">3× nominated, 0 wins</span></li>
-        <li><span class="rank-title"><a href="polls.html#2025-08-book">The Troop</a></span><span class="rank-count">3× nominated, 0 wins</span></li>
-        <li><span class="rank-title"><a href="polls.html#2025-05-book">Bat Eater and Other Names for Cora Zeng</a></span><span class="rank-count">2× nominated, 0 wins</span></li>
-        <li><span class="rank-title"><a href="polls.html#2026-04-book">Let the Right One In</a></span><span class="rank-count">2× nominated, 0 wins</span></li>
-        <li><span class="rank-title"><a href="polls.html#2025-12-book">Our Share of Night</a></span><span class="rank-count">2× nominated, 0 wins</span></li>
-        <li><span class="rank-title"><a href="polls.html#2025-10-short_story">Skeleton</a></span><span class="rank-count">2× nominated, 0 wins</span></li>
-        <li><span class="rank-title"><a href="polls.html#2025-04-book">Suffer the Children</a></span><span class="rank-count">2× nominated, 0 wins</span></li>
-        <li><span class="rank-title"><a href="polls.html#2025-10-book">The Cipher</a></span><span class="rank-count">2× nominated, 0 wins</span></li>
-        <li><span class="rank-title"><a href="polls.html#2025-05-book">The Hollow Places</a></span><span class="rank-count">2× nominated, 0 wins</span></li>
+        <li><span class="rank-title"><a href="polls.html#2025-06-book">The Haunting of Hill House</a></span><span class="rank-count">3× nominated</span></li>
+        <li><span class="rank-title"><a href="polls.html#2025-08-book">The Troop</a></span><span class="rank-count">3× nominated</span></li>
+        <li><span class="rank-title"><a href="polls.html#2025-05-book">Bat Eater and Other Names for Cora Zeng</a></span><span class="rank-count">2× nominated</span></li>
+        <li><span class="rank-title"><a href="polls.html#2025-08-short_story">Cabal</a> <span class="won-tag">Won</span></span><span class="rank-count">2× nominated</span></li>
+        <li><span class="rank-title"><a href="polls.html#2025-08-short_story">Carmilla</a> <span class="won-tag">Won</span></span><span class="rank-count">2× nominated</span></li>
+        <li><span class="rank-title"><a href="polls.html#2026-04-book">Let the Right One In</a></span><span class="rank-count">2× nominated</span></li>
+        <li><span class="rank-title"><a href="polls.html#2025-12-book">Our Share of Night</a></span><span class="rank-count">2× nominated</span></li>
+        <li><span class="rank-title"><a href="polls.html#2025-06-book">Ring</a> <span class="won-tag">Won</span></span><span class="rank-count">2× nominated</span></li>
+        <li><span class="rank-title"><a href="polls.html#2025-10-short_story">Skeleton</a></span><span class="rank-count">2× nominated</span></li>
+        <li><span class="rank-title"><a href="polls.html#2025-04-book">Slewfoot: A Tale of Bewitchery</a> <span class="won-tag">Won</span></span><span class="rank-count">2× nominated</span></li>
         </ul>
       </div>
     </div>

@@ -375,13 +375,12 @@ def compute_stats() -> dict:
     total_nominations = by_type["novel"]["noms"] + by_type["short"]["noms"]
     total_winners = by_type["novel"]["winners"] + by_type["short"]["winners"]
 
-    # Most-nominated titles that never won (repeat nominees the club keeps
-    # passing over).
-    repeat_snubbed = sorted(
+    # Titles nominated more than once, with whether they ever won.
+    repeat_nominees = sorted(
         (
-            (title, count)
+            (title, count, title_ever_won[title])
             for title, count in title_appearances.items()
-            if count >= 2 and not title_ever_won[title]
+            if count >= 2
         ),
         key=lambda t: (-t[1], t[0]),
     )
@@ -392,7 +391,7 @@ def compute_stats() -> dict:
         "total_winners": total_winners,
         "hab_count": len(hab_titles),
         "hab_titles": sorted(hab_titles),
-        "repeat_snubbed": repeat_snubbed,
+        "repeat_nominees": repeat_nominees,
         "novel_noms": by_type["novel"]["noms"],
         "short_noms": by_type["short"]["noms"],
         "noms": _aggregate_books(all_books, authors),
@@ -522,18 +521,19 @@ def render_stats_page() -> str:
         for o in p["options"]:
             poll_anchor_by_title.setdefault(o["canonical_title"], anchor)
 
-    if stats["repeat_snubbed"]:
+    if stats["repeat_nominees"]:
         rows = []
-        for title, count in stats["repeat_snubbed"][:10]:
+        for title, count, won in stats["repeat_nominees"][:10]:
             anchor = poll_anchor_by_title.get(title)
             title_html = f'<a href="polls.html#{anchor}">{title}</a>' if anchor else title
+            won_tag = ' <span class="won-tag">Won</span>' if won else ""
             rows.append(
-                f'        <li><span class="rank-title">{title_html}</span>'
-                f'<span class="rank-count">{count}× nominated, 0 wins</span></li>'
+                f'        <li><span class="rank-title">{title_html}{won_tag}</span>'
+                f'<span class="rank-count">{count}× nominated</span></li>'
             )
         snubbed_rows = "\n".join(rows)
     else:
-        snubbed_rows = '        <li class="empty">No repeat nominees yet — every book nominated more than once has won at least once.</li>'
+        snubbed_rows = '        <li class="empty">No repeat nominees yet.</li>'
 
     if stats["hab_titles"]:
         hab_rows = "\n".join(f'        <li>{t}</li>' for t in stats["hab_titles"])
