@@ -141,6 +141,45 @@
       gap: 12px;
       margin: 14px 0 30px;
     }
+    .subsection-title {
+      font-size: 0.76rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--accent-soft);
+      margin-bottom: 12px;
+    }
+    .panel {
+      background: var(--bg-alt);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: 18px;
+      box-shadow: var(--shadow);
+    }
+    .trend-panel { margin-bottom: 30px; }
+    .trend-chart {
+      display: flex;
+      align-items: flex-end;
+      gap: 3px;
+      height: 100px;
+      overflow-x: auto;
+      padding-bottom: 4px;
+    }
+    .trend-bar {
+      flex: 1 0 8px;
+      min-width: 8px;
+      height: 100%;
+      display: flex;
+      align-items: flex-end;
+      background: rgba(4, 4, 16, 0.5);
+      border-radius: 3px;
+      overflow: hidden;
+    }
+    .trend-bar-fill {
+      display: block;
+      width: 100%;
+      background: linear-gradient(180deg, rgba(255, 180, 200, 0.9), rgba(245, 69, 69, 0.7));
+    }
+    .trend-caption { margin-top: 8px; font-size: 0.74rem; color: var(--text-muted); }
     .fact {
       flex: 1;
       min-width: 260px;
@@ -291,6 +330,11 @@ __POLL_TOP_CARDS__
     </div>
     <div class="fact-row">
 __POLL_RACE_CARDS__
+    </div>
+
+    <div class="panel trend-panel">
+      <div class="subsection-title">Turnout over time</div>
+__POLL_TURNOUT_CHART__
     </div>
 
 __POLL_SECTIONS__

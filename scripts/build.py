@@ -676,6 +676,35 @@ def render_polls_page() -> str:
         stat_card("Avg. votes/person", stats["avg_votes_per_person"] if stats["avg_votes_per_person"] else "N/A"),
     ])
 
+    def turnout_trend(polls: list) -> str:
+        # One point per month: average unique voters across that month's poll(s).
+        by_month = {}
+        for p in polls:
+            if p["data_quality"] == "partial":
+                continue
+            by_month.setdefault(p["archive_month"], []).append(p["unique_voters"])
+        months = sorted(by_month.keys())
+        if not months:
+            return '<p class="empty">No turnout data yet.</p>'
+        points = [(m, round(sum(v) / len(v), 1)) for m, v in by_month.items()]
+        points.sort()
+        top = max(v for _, v in points) or 1
+        bars = []
+        for month, avg_voters in points:
+            height_pct = round(avg_voters / top * 100)
+            label = month_label_for_ym(month)
+            bars.append(
+                f'<div class="trend-bar" title="{label}: {avg_voters} avg voters">'
+                f'<span class="trend-bar-fill" style="height:{height_pct}%"></span></div>'
+            )
+        return (
+            '<div class="trend-chart">' + "".join(bars) + '</div>'
+            f'<div class="trend-caption">{month_label_for_ym(points[0][0])} → {month_label_for_ym(points[-1][0])} '
+            '· hover a bar for exact turnout</div>'
+        )
+
+    turnout_chart = turnout_trend(polls)
+
     def race_card(entry, kind_label):
         if not entry:
             return f'<div class="fact"><div class="fact-label">{kind_label}</div>N/A</div>'
@@ -777,6 +806,7 @@ def render_polls_page() -> str:
 
     replacements = {
         "__POLL_TOP_CARDS__": top_cards,
+        "__POLL_TURNOUT_CHART__": turnout_chart,
         "__POLL_RACE_CARDS__": race_cards,
         "__POLL_SECTIONS__": "\n".join(sections),
         "__POLL_YEAR_LINKS__": "\n      ".join(year_links),
