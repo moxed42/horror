@@ -12,7 +12,20 @@ REPO_ROOT = Path(__file__).resolve().parent.parent
 TEMPLATES = REPO_ROOT / "templates"
 MONTHS_DIR = REPO_ROOT / "data" / "months"
 ARCHIVE_DIR = REPO_ROOT / "archive"
+AUTHORS_PATH = REPO_ROOT / "data" / "authors.json"
 BASE_URL = "https://moxed42.github.io/horror/"
+
+
+def _base_author_name(author: str) -> str:
+    # "Carmen Maria Machado (2014)" -> "Carmen Maria Machado"
+    import re
+    return re.sub(r"\s*\([^)]*\)\s*$", "", author).strip()
+
+
+def load_authors() -> dict:
+    data = json.loads(AUTHORS_PATH.read_text())
+    data.pop("_note", None)
+    return data
 
 # theme and short_works are optional: some months (mostly early ones) ran
 # without a theme, or without a short-story pick alongside the novels.
@@ -262,6 +275,14 @@ def compute_stats() -> dict:
     cw_counts = defaultdict(int)
     author_counts = defaultdict(int)
     hab_titles = set()
+    authors = load_authors()
+
+    gender_noms = defaultdict(int)
+    gender_wins = defaultdict(int)
+    lgbtq_noms = defaultdict(int)
+    lgbtq_wins = defaultdict(int)
+    bipoc_noms = defaultdict(int)
+    bipoc_wins = defaultdict(int)
 
     by_type = {
         "novel": {"noms": 0, "winners": 0, "pages": []},
@@ -274,7 +295,8 @@ def compute_stats() -> dict:
                 bucket = by_type[kind]
                 bucket["noms"] += 1
                 title_appearances[book["title"]] += 1
-                if book.get("is_winner"):
+                is_winner = bool(book.get("is_winner"))
+                if is_winner:
                     title_ever_won[book["title"]] = True
                     bucket["winners"] += 1
                 origin_counts[book.get("origin", "N/A")] += 1
@@ -285,6 +307,18 @@ def compute_stats() -> dict:
                 pages = _parse_pages(book.get("pages", ""))
                 if pages:
                     bucket["pages"].append((book["title"], pages))
+
+                info = authors.get(_base_author_name(book["author"]), {})
+                gender = info.get("gender", "unknown")
+                lgbtq = info.get("lgbtq", "unknown")
+                bipoc = info.get("bipoc", "unknown")
+                gender_noms[gender] += 1
+                lgbtq_noms[lgbtq] += 1
+                bipoc_noms[bipoc] += 1
+                if is_winner:
+                    gender_wins[gender] += 1
+                    lgbtq_wins[lgbtq] += 1
+                    bipoc_wins[bipoc] += 1
 
     total_nominations = by_type["novel"]["noms"] + by_type["short"]["noms"]
     total_winners = by_type["novel"]["winners"] + by_type["short"]["winners"]
@@ -326,6 +360,12 @@ def compute_stats() -> dict:
         "cw_counts": dict(cw_counts),
         "novel": {**by_type["novel"], **page_stats(by_type["novel"]["pages"])},
         "short": {**by_type["short"], **page_stats(by_type["short"]["pages"])},
+        "gender_noms": dict(gender_noms),
+        "gender_wins": dict(gender_wins),
+        "lgbtq_noms": dict(lgbtq_noms),
+        "lgbtq_wins": dict(lgbtq_wins),
+        "bipoc_noms": dict(bipoc_noms),
+        "bipoc_wins": dict(bipoc_wins),
     }
 
 
@@ -397,6 +437,17 @@ def render_stats_page() -> str:
     cw_rows = bar_list(cw_pairs, max_items=3)
     author_rows = bar_list(stats["top_authors"])
 
+    def diversity_rows(counts: dict, order: list, labels: dict) -> str:
+        pairs = [(labels[k], counts.get(k, 0)) for k in order]
+        return bar_list(pairs, max_items=len(order))
+
+    gender_order = ["woman", "man", "nonbinary", "unknown"]
+    gender_labels = {"woman": "Woman", "man": "Man", "nonbinary": "Nonbinary", "unknown": "Unknown"}
+    lgbtq_order = ["yes", "no", "unknown"]
+    lgbtq_labels = {"yes": "Publicly LGBTQ+", "no": "Not publicly LGBTQ+", "unknown": "Unknown"}
+    bipoc_order = ["yes", "no", "unknown"]
+    bipoc_labels = {"yes": "BIPOC", "no": "Not BIPOC", "unknown": "Unknown"}
+
     replacements = {
         "__TOP_STAT_CARDS__": top_cards,
         "__NOVEL_STAT_CARDS__": novel_cards,
@@ -411,6 +462,12 @@ def render_stats_page() -> str:
         "__ORIGIN_ROWS__": origin_rows,
         "__CW_ROWS__": cw_rows,
         "__AUTHOR_ROWS__": author_rows,
+        "__GENDER_ROWS_NOMS__": diversity_rows(stats["gender_noms"], gender_order, gender_labels),
+        "__GENDER_ROWS_WINS__": diversity_rows(stats["gender_wins"], gender_order, gender_labels),
+        "__LGBTQ_ROWS_NOMS__": diversity_rows(stats["lgbtq_noms"], lgbtq_order, lgbtq_labels),
+        "__LGBTQ_ROWS_WINS__": diversity_rows(stats["lgbtq_wins"], lgbtq_order, lgbtq_labels),
+        "__BIPOC_ROWS_NOMS__": diversity_rows(stats["bipoc_noms"], bipoc_order, bipoc_labels),
+        "__BIPOC_ROWS_WINS__": diversity_rows(stats["bipoc_wins"], bipoc_order, bipoc_labels),
         "__BASE_URL__": BASE_URL,
         "__PAGE_URL__": f"{BASE_URL}stats.html",
     }

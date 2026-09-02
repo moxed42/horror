@@ -126,9 +126,10 @@
     }
     .site-nav .visit-counter {
       margin-left: auto;
-      color: var(--text-muted);
-      font-size: 0.76rem;
+      display: flex;
+      align-items: center;
     }
+    .site-nav .visit-counter img { display: block; height: 20px; border-radius: 4px; }
     .legend-card {
       background:
         radial-gradient(circle at 0 0, rgba(255, 255, 255, 0.06), transparent 60%),
@@ -373,7 +374,9 @@
       <a href="../index.html" class="">Current</a>
       <a href="index.html" class="active">Archive</a>
       <a href="../stats.html" class="">Stats</a>
-      <span class="visit-counter" id="visit-counter"></span>
+      <span class="visit-counter">
+        <img src="https://api.visitorbadge.io/api/visitors?path=finalgirlsbookclub.moxed42&label=visits&countColor=%23f54545&style=flat" alt="visit count" loading="lazy">
+      </span>
     </nav>
     <header>
       <div class="title-block">
@@ -674,14 +677,5 @@
     </section>
 
   </main>
-  <script>
-    (function () {
-      var el = document.getElementById("visit-counter");
-      fetch("https://api.countapi.xyz/hit/finalgirlsbookclub-moxed42/visits")
-        .then(function (r) { return r.json(); })
-        .then(function (d) { el.textContent = d.value.toLocaleString() + " visits"; })
-        .catch(function () { el.textContent = ""; });
-    })();
-  </script>
 </body>
 </html>
