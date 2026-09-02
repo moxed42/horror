@@ -33,6 +33,7 @@
       --radius-pill: 999px;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
+    [hidden] { display: none !important; }
     body {
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif;
       background:
@@ -83,7 +84,25 @@
     }
     h1 span:first-child { color: var(--accent); }
     h1 span:last-child { color: var(--accent-soft); }
-    .subtitle { font-size: 0.95rem; color: var(--text-muted); margin-bottom: 24px; }
+    .subtitle { font-size: 0.95rem; color: var(--text-muted); margin-bottom: 6px; }
+    .last-updated { font-size: 0.76rem; color: var(--text-muted); margin-bottom: 14px; }
+    .jump-nav {
+      position: sticky;
+      top: 0;
+      z-index: 5;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px 14px;
+      padding: 8px 10px;
+      margin-bottom: 18px;
+      background: rgba(4, 4, 10, 0.92);
+      backdrop-filter: blur(6px);
+      border: 1px solid var(--border-subtle);
+      border-radius: 12px;
+      font-size: 0.78rem;
+    }
+    .jump-nav a { color: var(--text-muted); text-decoration: none; }
+    .jump-nav a:hover { color: var(--accent-soft); }
     .stat-grid {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -206,8 +225,14 @@
       border-radius: var(--radius-pill);
     }
     .poll-bar-row.is-winner .bar-fill {
-      background: linear-gradient(90deg, rgba(245, 69, 69, 0.9), rgba(255, 180, 200, 1));
+      background: linear-gradient(90deg, rgba(245, 69, 69, 1), rgba(255, 180, 200, 1));
     }
+    .poll-bar-row.is-winner .bar-track {
+      height: 14px;
+      border-color: rgba(245, 69, 69, 0.6);
+      box-shadow: 0 0 8px rgba(245, 69, 69, 0.5);
+    }
+    .poll-bar-row.is-winner .bar-label { font-weight: 700; }
     .bar-count { color: var(--accent-soft); text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
     .note { margin-top: 26px; font-size: 0.78rem; color: var(--text-muted); }
   </style>
@@ -225,6 +250,12 @@
     </nav>
     <h1><span>Final Girls</span> <span>Book Club</span> — Polls</h1>
     <p class="subtitle">How every monthly poll actually broke down, not just who won.</p>
+    <p class="last-updated">Last rebuilt: September 2, 2026</p>
+
+    <nav class="jump-nav">
+      <a href="#year-2026">2026</a>
+      <a href="#year-2025">2025</a>
+    </nav>
 
     <div class="stat-grid">
       <div class="stat-card">
@@ -249,8 +280,8 @@
 <div class="fact"><div class="fact-label">Closest race</div>September 2025 (Novel poll): Something Wicked This Way Comes (31%) vs. The Exorcist (31%) — 0pt gap</div><div class="fact"><div class="fact-label">Biggest landslide</div>March 2026 (Short story poll): The Fall of the House of Usher (53%) vs. The Ruins of Contracoeur (26%) — 27pt gap</div>
     </div>
 
-    <h2 class="year-heading">2026</h2>
-      <div class="poll-card">
+    <h2 class="year-heading" id="year-2026">2026</h2>
+      <div class="poll-card" id="2026-09-short_story">
         <div class="poll-card-header">
           <span class="poll-month">September 2026</span>
           <span class="poll-type-tag">Short story poll</span>
@@ -279,7 +310,7 @@
         </li>
         </ul>
       </div>
-      <div class="poll-card">
+      <div class="poll-card" id="2026-09-book">
         <div class="poll-card-header">
           <span class="poll-month">September 2026</span>
           <span class="poll-type-tag">Novel poll</span>
@@ -308,7 +339,7 @@
         </li>
         </ul>
       </div>
-      <div class="poll-card">
+      <div class="poll-card" id="2026-08-short_story">
         <div class="poll-card-header">
           <span class="poll-month">August 2026</span>
           <span class="poll-type-tag">Short story poll</span>
@@ -337,7 +368,7 @@
         </li>
         </ul>
       </div>
-      <div class="poll-card">
+      <div class="poll-card" id="2026-08-book">
         <div class="poll-card-header">
           <span class="poll-month">August 2026</span>
           <span class="poll-type-tag">Novel poll</span>
@@ -366,7 +397,7 @@
         </li>
         </ul>
       </div>
-      <div class="poll-card">
+      <div class="poll-card" id="2026-07-short_story">
         <div class="poll-card-header">
           <span class="poll-month">July 2026</span>
           <span class="poll-type-tag">Short story poll</span>
@@ -395,7 +426,7 @@
         </li>
         </ul>
       </div>
-      <div class="poll-card">
+      <div class="poll-card" id="2026-07-book">
         <div class="poll-card-header">
           <span class="poll-month">July 2026</span>
           <span class="poll-type-tag">Novel poll</span>
@@ -424,7 +455,7 @@
         </li>
         </ul>
       </div>
-      <div class="poll-card">
+      <div class="poll-card" id="2026-06-short_story">
         <div class="poll-card-header">
           <span class="poll-month">June 2026</span>
           <span class="poll-type-tag">Short story poll</span>
@@ -443,7 +474,7 @@
         </li>
         </ul>
       </div>
-      <div class="poll-card">
+      <div class="poll-card" id="2026-06-book">
         <div class="poll-card-header">
           <span class="poll-month">June 2026</span>
           <span class="poll-type-tag">Novel poll</span>
@@ -472,7 +503,7 @@
         </li>
         </ul>
       </div>
-      <div class="poll-card">
+      <div class="poll-card" id="2026-05-short_story">
         <div class="poll-card-header">
           <span class="poll-month">May 2026</span>
           <span class="poll-type-tag">Short story poll</span>
@@ -491,7 +522,7 @@
         </li>
         </ul>
       </div>
-      <div class="poll-card">
+      <div class="poll-card" id="2026-05-book">
         <div class="poll-card-header">
           <span class="poll-month">May 2026</span>
           <span class="poll-type-tag">Novel poll</span>
@@ -520,7 +551,7 @@
         </li>
         </ul>
       </div>
-      <div class="poll-card">
+      <div class="poll-card" id="2026-04-short_story">
         <div class="poll-card-header">
           <span class="poll-month">April 2026</span>
           <span class="poll-type-tag">Short story poll</span>
@@ -544,7 +575,7 @@
         </li>
         </ul>
       </div>
-      <div class="poll-card">
+      <div class="poll-card" id="2026-04-book">
         <div class="poll-card-header">
           <span class="poll-month">April 2026</span>
           <span class="poll-type-tag">Novel poll</span>
@@ -578,7 +609,7 @@
         </li>
         </ul>
       </div>
-      <div class="poll-card">
+      <div class="poll-card" id="2026-03-short_story">
         <div class="poll-card-header">
           <span class="poll-month">March 2026</span>
           <span class="poll-type-tag">Short story poll</span>
@@ -602,7 +633,7 @@
         </li>
         </ul>
       </div>
-      <div class="poll-card">
+      <div class="poll-card" id="2026-03-book">
         <div class="poll-card-header">
           <span class="poll-month">March 2026</span>
           <span class="poll-type-tag">Novel poll</span>
@@ -631,7 +662,7 @@
         </li>
         </ul>
       </div>
-      <div class="poll-card">
+      <div class="poll-card" id="2026-02-short_story">
         <div class="poll-card-header">
           <span class="poll-month">February 2026</span>
           <span class="poll-type-tag">Short story poll</span>
@@ -660,7 +691,7 @@
         </li>
         </ul>
       </div>
-      <div class="poll-card">
+      <div class="poll-card" id="2026-02-book">
         <div class="poll-card-header">
           <span class="poll-month">February 2026</span>
           <span class="poll-type-tag">Novel poll</span>
@@ -689,7 +720,7 @@
         </li>
         </ul>
       </div>
-      <div class="poll-card">
+      <div class="poll-card" id="2026-01-short_story">
         <div class="poll-card-header">
           <span class="poll-month">January 2026</span>
           <span class="poll-type-tag">Short story poll</span>
@@ -718,7 +749,7 @@
         </li>
         </ul>
       </div>
-      <div class="poll-card">
+      <div class="poll-card" id="2026-01-book">
         <div class="poll-card-header">
           <span class="poll-month">January 2026</span>
           <span class="poll-type-tag">Novel poll</span>
@@ -748,8 +779,8 @@
         </ul>
       </div>
 
-    <h2 class="year-heading">2025</h2>
-      <div class="poll-card">
+    <h2 class="year-heading" id="year-2025">2025</h2>
+      <div class="poll-card" id="2025-12-short_story">
         <div class="poll-card-header">
           <span class="poll-month">December 2025</span>
           <span class="poll-type-tag">Short story poll</span>
@@ -778,7 +809,7 @@
         </li>
         </ul>
       </div>
-      <div class="poll-card">
+      <div class="poll-card" id="2025-12-book">
         <div class="poll-card-header">
           <span class="poll-month">December 2025</span>
           <span class="poll-type-tag">Novel poll</span>
@@ -807,7 +838,7 @@
         </li>
         </ul>
       </div>
-      <div class="poll-card">
+      <div class="poll-card" id="2025-11-short_story">
         <div class="poll-card-header">
           <span class="poll-month">November 2025</span>
           <span class="poll-type-tag">Short story poll</span>
@@ -836,7 +867,7 @@
         </li>
         </ul>
       </div>
-      <div class="poll-card">
+      <div class="poll-card" id="2025-11-book">
         <div class="poll-card-header">
           <span class="poll-month">November 2025</span>
           <span class="poll-type-tag">Novel poll</span>
@@ -865,7 +896,7 @@
         </li>
         </ul>
       </div>
-      <div class="poll-card">
+      <div class="poll-card" id="2025-10-short_story">
         <div class="poll-card-header">
           <span class="poll-month">October 2025</span>
           <span class="poll-type-tag">Short story poll</span>
@@ -894,7 +925,7 @@
         </li>
         </ul>
       </div>
-      <div class="poll-card">
+      <div class="poll-card" id="2025-10-book">
         <div class="poll-card-header">
           <span class="poll-month">October 2025</span>
           <span class="poll-type-tag">Novel poll</span>
@@ -923,7 +954,7 @@
         </li>
         </ul>
       </div>
-      <div class="poll-card">
+      <div class="poll-card" id="2025-09-short_story">
         <div class="poll-card-header">
           <span class="poll-month">September 2025</span>
           <span class="poll-type-tag">Short story poll</span>
@@ -947,7 +978,7 @@
         </li>
         </ul>
       </div>
-      <div class="poll-card">
+      <div class="poll-card" id="2025-09-book">
         <div class="poll-card-header">
           <span class="poll-month">September 2025</span>
           <span class="poll-type-tag">Novel poll</span>
@@ -976,7 +1007,7 @@
         </li>
         </ul>
       </div>
-      <div class="poll-card">
+      <div class="poll-card" id="2025-08-short_story">
         <div class="poll-card-header">
           <span class="poll-month">August 2025</span>
           <span class="poll-type-tag">Short story poll</span>
@@ -1000,7 +1031,7 @@
         </li>
         </ul>
       </div>
-      <div class="poll-card">
+      <div class="poll-card" id="2025-08-book">
         <div class="poll-card-header">
           <span class="poll-month">August 2025</span>
           <span class="poll-type-tag">Novel poll</span>
@@ -1029,7 +1060,7 @@
         </li>
         </ul>
       </div>
-      <div class="poll-card">
+      <div class="poll-card" id="2025-07-book">
         <div class="poll-card-header">
           <span class="poll-month">July 2025</span>
           <span class="poll-type-tag">Novel poll</span>
@@ -1058,7 +1089,7 @@
         </li>
         </ul>
       </div>
-      <div class="poll-card">
+      <div class="poll-card" id="2025-06-book">
         <div class="poll-card-header">
           <span class="poll-month">June 2025</span>
           <span class="poll-type-tag">Novel poll</span>
@@ -1087,7 +1118,7 @@
         </li>
         </ul>
       </div>
-      <div class="poll-card">
+      <div class="poll-card" id="2025-05-book">
         <div class="poll-card-header">
           <span class="poll-month">May 2025</span>
           <span class="poll-type-tag">Novel poll</span>
@@ -1116,7 +1147,7 @@
         </li>
         </ul>
       </div>
-      <div class="poll-card">
+      <div class="poll-card" id="2025-04-book">
         <div class="poll-card-header">
           <span class="poll-month">April 2025</span>
           <span class="poll-type-tag">Novel poll</span>
