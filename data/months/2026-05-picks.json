@@ -1,0 +1,68 @@
+{
+  "slug": "2026-05-picks",
+  "month_label": "May 2026",
+  "subtitle": "Monthly horror picks for the mortally curious.",
+  "vote_instructions": "Vote for your favorite novel.",
+  "novels": [
+    {
+      "type": "Novel",
+      "title": "Bloom",
+      "author": "Delilah S. Dawson (2023)",
+      "pages": "~240 pages",
+      "debut_label": "Debut novel: No",
+      "avg_rating": "3.7★",
+      "cw_tier": "extreme",
+      "cw_label": "Extreme",
+      "vibe": "A cottagecore sapphic romance that curdles into body horror once the farmer's-market girlfriend turns out to be something else entirely.",
+      "summary": "Ro falls hard and fast for Ash, a charming stranger she meets at the local farmer's market, swept up in a whirlwind of homemade jam and infatuation. As the relationship intensifies, the story pulls back the curtain on what Ash really is and what she wants from Ro, turning cozy romance into claustrophobic body horror.",
+      "origin": "United States",
+      "warnings": "Body horror, past child abuse, animal cruelty, abusive guardian (past), abandonment, disordered eating themes.",
+      "is_winner": false
+    },
+    {
+      "type": "Novel",
+      "title": "Brother",
+      "author": "Ania Ahlborn (2015)",
+      "pages": "~315 pages",
+      "debut_label": "Debut novel: No",
+      "avg_rating": "3.9★",
+      "cw_tier": "extreme",
+      "cw_label": "Extreme",
+      "vibe": "A brutal Appalachian family-of-killers novel about a teenager trying to break away from what his family does in the woods.",
+      "summary": "Michael grows up in an isolated Appalachian farmhouse where his family's disturbing traditions have gone unnoticed by the outside world for years. As girls keep disappearing off the nearby highway, Michael is forced to reckon with what his family truly is, and whether he can escape it.",
+      "origin": "United States",
+      "warnings": "Extreme violence and gore, torture, incest, child abuse, animal cruelty/death, cannibalism, kidnapping, misogyny.",
+      "is_winner": false
+    },
+    {
+      "type": "Novel",
+      "title": "Misery",
+      "author": "Stephen King (1987)",
+      "pages": "~370 pages",
+      "debut_label": "Debut novel: No",
+      "avg_rating": "4.2★",
+      "cw_tier": "extreme",
+      "cw_label": "Extreme",
+      "vibe": "The definitive captor-and-captive horror novel — a writer at the mercy of his \"number one fan\" after a car crash.",
+      "summary": "After a near-fatal car accident, novelist Paul Sheldon wakes up in the care of former nurse Annie Wilkes, his self-proclaimed biggest fan, in her remote home. When Annie discovers Paul has killed off her favorite character, her devotion turns into escalating, sadistic captivity.",
+      "origin": "United States",
+      "warnings": "Graphic torture (including amputation), confinement, addiction, substance abuse, violence, psychological abuse.",
+      "is_winner": false
+    },
+    {
+      "type": "Novel",
+      "title": "Cabal",
+      "author": "Clive Barker (1988)",
+      "pages": "~250 pages",
+      "debut_label": "Debut novel: No",
+      "avg_rating": "3.9★",
+      "cw_tier": "extreme",
+      "cw_label": "Extreme",
+      "vibe": "A monstrous found-family horror novella where the real killers turn out to be entirely human.",
+      "summary": "Boone, convinced by his manipulative therapist that he's a serial killer, turns himself in and learns of Midian, a hidden refuge for shape-shifting creatures called the Nightbreed. As Boone is drawn into Midian and its inhabitants, the story flips expectations about who the real monsters are, building to a bloody confrontation with the humans hunting the Nightbreed down.",
+      "origin": "United Kingdom",
+      "warnings": "Graphic violence and gore, body horror, mass murder, psychological manipulation, mob violence.",
+      "is_winner": true
+    }
+  ]
+}
