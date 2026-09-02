@@ -262,6 +262,28 @@
       color: var(--accent);
       font-size: 1.2rem;
     }
+    .theme-score-value--text {
+      font-size: 0.86rem;
+      max-width: 140px;
+    }
+    .month-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      margin-top: 4px;
+      padding: 10px 14px;
+      background: var(--card-bg);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-pill);
+      font-size: 0.82rem;
+    }
+    .month-nav a { color: var(--accent-soft); text-decoration: none; }
+    .month-nav a:hover { text-decoration: underline; }
+    .month-nav .nav-index { color: var(--text-muted); }
+    .month-nav .nav-disabled { color: var(--text-muted); opacity: 0.5; }
+    .month-nav .nav-prev { flex: 1; text-align: left; }
+    .month-nav .nav-next { flex: 1; text-align: right; }
     .vibe {
       font-size: 0.82rem;
       font-style: italic;
@@ -298,13 +320,6 @@
       font-size: 0.68rem;
       color: var(--accent-soft);
     }
-    .footer-note {
-      margin-top: 26px;
-      font-size: 0.78rem;
-      color: var(--text-muted);
-      text-align: right;
-    }
-    .footer-note strong { color: var(--accent-soft); }
   </style>
 </head>
 <body>
@@ -318,7 +333,7 @@
           Monthly horror picks for the mortally curious.
         </p>
         <p class="month-tag">
-          Current month: <span class="mono">August 2025</span> · Vote for your favorite novel and short story.
+          Current month: <span class="mono">August 2025</span>
         </p>
         <p class="archive-link">
           <a href="index.html">Browse past months →</a>
@@ -344,11 +359,17 @@
           </span>
           <span class="badge badge-warnings extreme">
             <span class="badge-label">CW: Extreme</span>
-            Very intense or potentially overwhelming material.
+            Very intense or potentially overwhelming.
           </span>
         </div>
       </aside>
     </header>
+
+    <nav class="month-nav">
+      <a class="nav-prev" href="2025-07-picks.html">← July 2025</a>
+      <a class="nav-index" href="index.html">All months</a>
+      <a class="nav-next" href="2025-09-picks.html">September 2025 →</a>
+    </nav>
 
     <section class="section">
       <div class="section-header">
@@ -582,9 +603,6 @@
       </div>
     </section>
 
-    <p class="footer-note">
-      Highlight any card to copy–paste details into Discord, or screenshot the page to share all options at once. <strong>Updated monthly.</strong>
-    </p>
   </main>
 </body>
 </html>
