@@ -95,6 +95,14 @@ it shows every field the schema needs (`slug`, `theme`, `month_label`,
 the build script validates required fields and will fail loudly if one is
 missing, which is intentional (better than silently rendering a blank).
 
+`theme` and `short_works` are both optional at the month level — some
+months (mostly older ones) ran without a theme, or as novels-only with no
+short-story pick. Omit `theme` and skip `theme_fit` on every book when
+there's no theme; omit `short_works` entirely for a novels-only month. The
+page adjusts automatically (no theme chip, no "Theme fit" score, no Short
+works section) — don't force a theme or an empty short-story pick just to
+fill the schema out.
+
 1. Pick a filename `data/months/YYYY-MM-slug.json` — `YYYY-MM` from the
    month label, `slug` a short dash-cased version of the theme (e.g.
    September 2026 + "Final Girls" → `2026-09-final-girls.json`).

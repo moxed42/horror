@@ -1,0 +1,68 @@
+{
+  "slug": "2025-06-picks",
+  "month_label": "June 2025",
+  "subtitle": "Monthly horror picks for the mortally curious.",
+  "vote_instructions": "Vote for your favorite novel.",
+  "novels": [
+    {
+      "type": "Novel",
+      "title": "The Sandman: Preludes and Nocturnes",
+      "author": "Neil Gaiman (1989)",
+      "pages": "~240 pages",
+      "debut_label": "Debut novel: No",
+      "avg_rating": "4.3★",
+      "cw_tier": "extreme",
+      "cw_label": "Extreme",
+      "vibe": "The graphic novel that launched a genre-defining series — dark fantasy horror about the personification of Dream escaping a decades-long imprisonment.",
+      "summary": "An occultist trying to trap Death instead imprisons her younger brother Dream (Morpheus) for over 70 years. On his escape, Dream sets out to reclaim his stolen tools of power, crossing paths with serial killers, demons, and a descent into Hell along the way — the opening arc of Gaiman's landmark comic series.",
+      "origin": "United Kingdom",
+      "warnings": "Graphic violence, serial killer content, body horror, psychological horror, disturbing imagery (particularly the \"24 Hours\" arc).",
+      "is_winner": false
+    },
+    {
+      "type": "Novel",
+      "title": "Native Fear",
+      "author": "C.F. Page (2022)",
+      "pages": "Page count not reliably found — checked Goodreads/Amazon/B&N",
+      "debut_label": "Debut novel: Unclear — limited author info available",
+      "avg_rating": "4.1★",
+      "cw_tier": "extreme",
+      "cw_label": "Extreme",
+      "vibe": "Get Out meets The Thing — cosmic/folk horror about a cult-like family and the outsiders who stumble into their orbit.",
+      "summary": "Olly, a Japanese-American man on the run, ends up entangled with the Elkhournes, a family in the isolated Coyote Village who present as backwoods stereotypes but hide something much older and stranger. The novel blends cult horror, cosmic dread, and slasher beats into a story that deliberately subverts the tropes it opens with.",
+      "origin": "Unknown — no reliable author biographical information found",
+      "warnings": "Violence, cult/ritual content, body horror, racially charged tension (subverted), psychological dread.",
+      "is_winner": true
+    },
+    {
+      "type": "Novel",
+      "title": "Ring",
+      "author": "Kōji Suzuki (1991, tr. 2003)",
+      "pages": "~286 pages",
+      "debut_label": "Debut novel: No",
+      "avg_rating": "3.8★",
+      "cw_tier": "extreme",
+      "cw_label": "Extreme",
+      "vibe": "The techno-paranoid Japanese cursed-videotape novel that started it all, colder and more procedural than the films it spawned.",
+      "summary": "A journalist investigating the deaths of four teenagers who all watched the same mysterious videotape one week before dying races against a self-imposed deadline to break the tape's curse. What starts as a detective story about a viral urban legend turns into a bleak reckoning with a vengeful psychic ghost and the biological, almost virus-like logic of how curses spread.",
+      "origin": "Japan",
+      "warnings": "Rape and sexual assault (including a graphic backstory), misogyny, death of children, body horror, smallpox/disease imagery, medical trauma.",
+      "is_winner": false
+    },
+    {
+      "type": "Novel",
+      "title": "The Haunting of Hill House",
+      "author": "Shirley Jackson (1959)",
+      "pages": "~182 pages",
+      "debut_label": "Debut novel: No",
+      "avg_rating": "3.8★",
+      "cw_tier": "moderate",
+      "cw_label": "Heavy",
+      "vibe": "The gothic haunted-house novel every other haunted-house novel is quietly arguing with, built on dread rather than gore.",
+      "summary": "Four seekers, including a scholar of the paranormal and the fragile, lonely Eleanor, take up residence in Hill House to study its reputed hauntings. The house's influence grows increasingly personal and psychological rather than overtly supernatural, tightening around Eleanor in particular as the group's grip on reality frays.",
+      "origin": "United States",
+      "warnings": "Suicide (by hanging and by car collision), suicidal ideation, mental illness/psychosis, gaslighting, death of a parent (off-page).",
+      "is_winner": false
+    }
+  ]
+}

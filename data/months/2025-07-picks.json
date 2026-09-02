@@ -1,0 +1,68 @@
+{
+  "slug": "2025-07-picks",
+  "month_label": "July 2025",
+  "subtitle": "Monthly horror picks for the mortally curious.",
+  "vote_instructions": "Vote for your favorite novel.",
+  "novels": [
+    {
+      "type": "Novel",
+      "title": "The Haar",
+      "author": "David Sodergren (2021)",
+      "pages": "~210 pages",
+      "debut_label": "Debut novel: No",
+      "avg_rating": "4.0★",
+      "cw_tier": "extreme",
+      "cw_label": "Extreme",
+      "vibe": "A folk-horror creature feature about an elderly woman defending her Scottish coastal home, wrapped in a rolling, unnatural sea fog.",
+      "summary": "Elderly Muriel refuses to sell her home in the fishing village of Witchaven to a developer's agents, and just as the pressure peaks, a strange fog — the haar — rolls in carrying something eel-like and hungry. The novel pairs a stubborn, sympathetic heroine with escalating, visceral creature-horror set pieces.",
+      "origin": "United Kingdom",
+      "warnings": "Graphic sex scene, explicit language, self-harm and suicidal ideation (visceral depiction), body horror, gore, misogyny, violence.",
+      "is_winner": true
+    },
+    {
+      "type": "Novel",
+      "title": "Home",
+      "author": "Ben Young (2024)",
+      "pages": "~332 pages",
+      "debut_label": "Debut novel: No",
+      "avg_rating": "4.0★",
+      "cw_tier": "moderate",
+      "cw_label": "Heavy",
+      "vibe": "A slow-burn small-town supernatural horror about a haunted house that's just been turned into the local funeral home.",
+      "summary": "In the dying town of Oak Hollow, Ohio, a long-notorious haunted house is converted into a funeral home just as the town's fortunes worsen. Told through alternating perspectives — a recluse, a grieving family, a hoarder, an abandoned child — the novel builds dread around grief and decay as much as anything overtly supernatural.",
+      "origin": "United States",
+      "warnings": "Domestic violence, dementia, grief, psychological distress, references to child neglect.",
+      "is_winner": false
+    },
+    {
+      "type": "Novel",
+      "title": "Bat Eater and Other Names for Cora Zeng",
+      "author": "Kylie Lee Baker (2025)",
+      "pages": "~304 pages",
+      "debut_label": "Debut novel: No",
+      "avg_rating": "4.1★",
+      "cw_tier": "extreme",
+      "cw_label": "Extreme",
+      "vibe": "A grief-soaked, gory mystery following a crime-scene cleaner who can't tell anymore what's real and what's the Hungry Ghost Festival catching up with her.",
+      "summary": "Cora Zeng cleans up after violent deaths in Chinatown for a living, still reeling from her sister's murder and the killer's parting slur: \"bat eater.\" As she keeps finding dead bats at crime scenes tied to East Asian victims, and the Hungry Ghost Festival closes in, the line between anti-Asian violence, grief hallucination, and something genuinely supernatural blurs.",
+      "origin": "United States",
+      "warnings": "Graphic violence and gore, anti-Asian racism/hate violence, animal death, death of a sibling, psychological distress.",
+      "is_winner": false
+    },
+    {
+      "type": "Novel",
+      "title": "Suffer the Children",
+      "author": "Craig DiLouie (2014)",
+      "pages": "~352 pages",
+      "debut_label": "Debut novel: No",
+      "avg_rating": "4.0★",
+      "cw_tier": "extreme",
+      "cw_label": "Extreme",
+      "vibe": "Apocalyptic vampire-child horror that's really a gutting story about what parents will do for their kids.",
+      "summary": "A mysterious illness kills every child on Earth overnight — until they start coming back, animated and \"alive\" again as long as they're given blood. The novel follows several families forced to decide how far they'll go to keep their undead children fed, as society collapses around the impossible bargain.",
+      "origin": "United States",
+      "warnings": "Child death, body horror, animal death (a pet), violence, themes of parental grief and moral compromise.",
+      "is_winner": false
+    }
+  ]
+}

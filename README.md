@@ -20,13 +20,27 @@ Live site: [bit.ly/chooseyourscare](https://bit.ly/chooseyourscare)
 ## Updating for a new month
 
 1. Create `data/months/YYYY-MM-slug.json` (copy an existing file as a
-   starting point). Fill in `theme`, `month_label`, `subtitle`,
-   `vote_instructions`, and the `novels`/`short_works` arrays. Each book needs:
-   `type`, `title`, `author`, `pages`, `debut_label`, `avg_rating`,
-   `theme_fit` (1-5), `cw_tier` (`mild`/`moderate`/`extreme`), `cw_label`
+   starting point). Fill in `month_label`, `subtitle`, `vote_instructions`,
+   and the `novels` array (`short_works` too, if that month has one). Each
+   book needs: `type`, `title`, `author`, `pages`, `debut_label`,
+   `avg_rating`, `cw_tier` (`mild`/`moderate`/`extreme`), `cw_label`
    (`Mild`/`Heavy`/`Extreme`), `vibe`, `summary`, `origin` (country the book
    is originally from/written in), `warnings`. Set
    `is_winner: false` on every book at first (voting hasn't happened yet).
+
+   `theme` is optional — some months don't run with one. When present, set
+   `theme_fit` (1-5) on every book too; when the month has no theme, omit
+   `theme_fit` on every book (it doesn't mean anything without a theme to
+   score against) and the theme chip / "Theme fit" legend row just don't
+   render. Likewise `short_works` is optional — a novels-only month just
+   omits the field (or leaves it `[]`) and the whole "Short works" section
+   is skipped.
+
+   Two more optional fields, `novels_subtitle` and `short_works_subtitle`,
+   override the small italic line under each section header (defaults are
+   generic — "Choose one full‑length pick for the month." etc.) if you want
+   theme-flavored copy, e.g. "Choose one full‑length mutation for the
+   month." for a Body Horror month.
 2. Run:
    ```
    python3 scripts/build.py data/months/YYYY-MM-slug.json
