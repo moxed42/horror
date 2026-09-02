@@ -6,6 +6,7 @@ Usage:
 """
 import json
 import sys
+from datetime import date
 from pathlib import Path
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
@@ -322,7 +323,7 @@ def _aggregate_books(all_books: list, authors: dict) -> dict:
         }
 
     return {
-        "top_origins": sorted(origin_counts.items(), key=lambda t: -t[1])[:8],
+        "top_origins": sorted(origin_counts.items(), key=lambda t: -t[1]),
         "top_authors": sorted(
             ((a, c) for a, c in author_counts.items() if c >= 2), key=lambda t: -t[1]
         )[:8],
@@ -428,6 +429,17 @@ def render_stats_page() -> str:
             )
         return "\n".join(rows)
 
+    def origin_bar_list(pairs, top_n=5):
+        if not pairs:
+            return bar_list(pairs)
+        total = sum(c for _, c in pairs)
+        head = pairs[:top_n]
+        tail = pairs[top_n:]
+        if tail:
+            tail_count = sum(c for _, c in tail)
+            head = head + [(f"Other ({len(tail)} countries)", tail_count)]
+        return bar_list(head, max_items=len(head))
+
     def diversity_rows(counts: dict, order: list, labels: dict) -> str:
         pairs = [(labels[k], counts.get(k, 0)) for k in order]
         return bar_list(pairs, max_items=len(order))
@@ -441,12 +453,12 @@ def render_stats_page() -> str:
         legend = []
         for i, (label, count) in enumerate(pairs):
             color = "#3a3f52" if label == "Unknown" else palette[i % len(palette)]
+            pct = round(count / total * 100)
             if count > 0:
-                pct = round(count / total * 100)
                 segments.append(f'<span class="stack-seg" style="width:{pct}%;background:{color}"></span>')
             legend.append(
                 f'        <li><span class="stack-dot" style="background:{color}"></span>'
-                f'{label} <span class="stack-count">{count}</span></li>'
+                f'{label} <span class="stack-count">{count} ({pct}%)</span></li>'
             )
         segments_html = "".join(segments) if segments else '<span class="stack-seg" style="width:100%;background:#3a3f52"></span>'
         legend_html = "\n".join(legend) if legend else '        <li class="empty">No data yet.</li>'
@@ -458,6 +470,14 @@ def render_stats_page() -> str:
     def page_fact(bucket, key):
         entry = bucket[key]
         return f'{entry[0]} ({entry[1]} pages)' if entry else "N/A"
+
+    def record_table(bucket) -> str:
+        return (
+            '<table class="record-table">'
+            f'<tr><td>Longest</td><td>{page_fact(bucket, "longest")}</td></tr>'
+            f'<tr><td>Shortest</td><td>{page_fact(bucket, "shortest")}</td></tr>'
+            '</table>'
+        )
 
     cw_order = ["mild", "moderate", "extreme"]
     age_order = ["Adult", "YA", "MG", "Unknown"]
@@ -473,7 +493,7 @@ def render_stats_page() -> str:
 
     def sections_for(agg: dict) -> dict:
         return {
-            "origin_rows": bar_list(agg["top_origins"]),
+            "origin_rows": origin_bar_list(agg["top_origins"]),
             "cw_rows": stacked_bar(agg["cw_counts"], cw_order, cw_labels),
             "author_rows": bar_list(agg["top_authors"]),
             "age_rows": stacked_bar(agg["age_counts"], age_order, age_labels),
@@ -482,10 +502,8 @@ def render_stats_page() -> str:
             "bipoc_rows": stacked_bar(agg["bipoc_counts"], bipoc_order, bipoc_labels),
             "avg_novel_pages": f'{agg["novel_pages"]["avg"]} pages' if agg["novel_pages"]["avg"] else "N/A",
             "avg_short_pages": f'{agg["short_pages"]["avg"]} pages' if agg["short_pages"]["avg"] else "N/A",
-            "longest_novel": page_fact(agg["novel_pages"], "longest"),
-            "shortest_novel": page_fact(agg["novel_pages"], "shortest"),
-            "longest_short": page_fact(agg["short_pages"], "longest"),
-            "shortest_short": page_fact(agg["short_pages"], "shortest"),
+            "novel_record_table": record_table(agg["novel_pages"]),
+            "short_record_table": record_table(agg["short_pages"]),
         }
 
     noms = sections_for(stats["noms"])
@@ -497,12 +515,23 @@ def render_stats_page() -> str:
         stat_card("HAB books nominated", stats["hab_count"]),
     ])
 
+    polls = load_polls()
+    poll_anchor_by_title = {}
+    for p in polls:
+        anchor = f'{p["archive_month"]}-{p["poll_type"]}'
+        for o in p["options"]:
+            poll_anchor_by_title.setdefault(o["canonical_title"], anchor)
+
     if stats["repeat_snubbed"]:
-        snubbed_rows = "\n".join(
-            f'        <li><span class="rank-title">{title}</span>'
-            f'<span class="rank-count">{count}× nominated, 0 wins</span></li>'
-            for title, count in stats["repeat_snubbed"][:10]
-        )
+        rows = []
+        for title, count in stats["repeat_snubbed"][:10]:
+            anchor = poll_anchor_by_title.get(title)
+            title_html = f'<a href="polls.html#{anchor}">{title}</a>' if anchor else title
+            rows.append(
+                f'        <li><span class="rank-title">{title_html}</span>'
+                f'<span class="rank-count">{count}× nominated, 0 wins</span></li>'
+            )
+        snubbed_rows = "\n".join(rows)
     else:
         snubbed_rows = '        <li class="empty">No repeat nominees yet — every book nominated more than once has won at least once.</li>'
 
@@ -518,6 +547,7 @@ def render_stats_page() -> str:
         "__SNUBBED_ROWS__": snubbed_rows,
         "__HAB_ROWS__": hab_rows,
         "__HAB_COUNT__": str(stats["hab_count"]),
+        "__LAST_UPDATED__": f'{date.today():%B} {date.today().day}, {date.today():%Y}',
         "__BASE_URL__": BASE_URL,
         "__PAGE_URL__": f"{BASE_URL}stats.html",
     }
@@ -640,8 +670,9 @@ def render_polls_page() -> str:
             f'{p["unique_voters"]} voters · {p["total_option_votes"]} votes cast'
             if p["data_quality"] != "partial" else "Turnout not recorded"
         )
+        anchor = f'{p["archive_month"]}-{p["poll_type"]}'
         groups[-1][1].append(
-            f'      <div class="poll-card">\n'
+            f'      <div class="poll-card" id="{anchor}">\n'
             f'        <div class="poll-card-header">\n'
             f'          <span class="poll-month">{month_label}</span>\n'
             f'          <span class="poll-type-tag">{type_label}</span>\n'
@@ -652,13 +683,17 @@ def render_polls_page() -> str:
         )
 
     sections = []
+    year_links = []
     for year, cards in groups:
-        sections.append(f'    <h2 class="year-heading">{year}</h2>\n' + "".join(cards))
+        sections.append(f'    <h2 class="year-heading" id="year-{year}">{year}</h2>\n' + "".join(cards))
+        year_links.append(f'<a href="#year-{year}">{year}</a>')
 
     replacements = {
         "__POLL_TOP_CARDS__": top_cards,
         "__POLL_RACE_CARDS__": race_cards,
         "__POLL_SECTIONS__": "\n".join(sections),
+        "__POLL_YEAR_LINKS__": "\n      ".join(year_links),
+        "__LAST_UPDATED__": f'{date.today():%B} {date.today().day}, {date.today():%Y}',
         "__BASE_URL__": BASE_URL,
         "__PAGE_URL__": f"{BASE_URL}polls.html",
     }

@@ -33,6 +33,7 @@
       --radius-pill: 999px;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
+    [hidden] { display: none !important; }
     body {
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif;
       background:
@@ -83,7 +84,25 @@
     }
     h1 span:first-child { color: var(--accent); }
     h1 span:last-child { color: var(--accent-soft); }
-    .subtitle { font-size: 0.95rem; color: var(--text-muted); margin-bottom: 24px; }
+    .subtitle { font-size: 0.95rem; color: var(--text-muted); margin-bottom: 6px; }
+    .last-updated { font-size: 0.76rem; color: var(--text-muted); margin-bottom: 14px; }
+    .jump-nav {
+      position: sticky;
+      top: 0;
+      z-index: 5;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px 14px;
+      padding: 8px 10px;
+      margin-bottom: 18px;
+      background: rgba(4, 4, 10, 0.92);
+      backdrop-filter: blur(6px);
+      border: 1px solid var(--border-subtle);
+      border-radius: 12px;
+      font-size: 0.78rem;
+    }
+    .jump-nav a { color: var(--text-muted); text-decoration: none; }
+    .jump-nav a:hover { color: var(--accent-soft); }
     .stat-grid {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -206,8 +225,14 @@
       border-radius: var(--radius-pill);
     }
     .poll-bar-row.is-winner .bar-fill {
-      background: linear-gradient(90deg, rgba(245, 69, 69, 0.9), rgba(255, 180, 200, 1));
+      background: linear-gradient(90deg, rgba(245, 69, 69, 1), rgba(255, 180, 200, 1));
     }
+    .poll-bar-row.is-winner .bar-track {
+      height: 14px;
+      border-color: rgba(245, 69, 69, 0.6);
+      box-shadow: 0 0 8px rgba(245, 69, 69, 0.5);
+    }
+    .poll-bar-row.is-winner .bar-label { font-weight: 700; }
     .bar-count { color: var(--accent-soft); text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
     .note { margin-top: 26px; font-size: 0.78rem; color: var(--text-muted); }
   </style>
@@ -225,6 +250,11 @@
     </nav>
     <h1><span>Final Girls</span> <span>Book Club</span> — Polls</h1>
     <p class="subtitle">How every monthly poll actually broke down, not just who won.</p>
+    <p class="last-updated">Last rebuilt: __LAST_UPDATED__</p>
+
+    <nav class="jump-nav">
+      __POLL_YEAR_LINKS__
+    </nav>
 
     <div class="stat-grid">
 __POLL_TOP_CARDS__
