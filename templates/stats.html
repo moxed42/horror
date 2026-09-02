@@ -276,6 +276,16 @@
     .rank-title { color: var(--text-main); }
     .rank-title a { color: var(--text-main); text-decoration: none; border-bottom: 1px dotted var(--text-muted); }
     .rank-title a:hover { color: var(--accent-soft); border-bottom-color: var(--accent-soft); }
+    .won-tag {
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--accent-soft);
+      border: 1px solid rgba(245, 69, 69, 0.5);
+      border-radius: var(--radius-pill);
+      padding: 1px 7px;
+      margin-left: 4px;
+    }
     .rank-count { color: var(--accent-soft); white-space: nowrap; }
     .rank-list li.empty,
     .bar-list li.empty { color: var(--text-muted); font-style: italic; }
@@ -490,8 +500,8 @@ __BIPOC_ROWS_WINS__
     </div>
 
     <div class="section" id="snubbed">
-      <div class="section-title">Most-snubbed repeat nominees</div>
-      <p class="not-filtered-note">Not affected by the toggle above — these are lifetime nomination counts.</p>
+      <div class="section-title">Repeat nominees</div>
+      <p class="not-filtered-note">Not affected by the toggle above — these are lifetime nomination counts, with a Won tag if it ever took the month.</p>
       <div class="panel">
         <ul class="rank-list">
 __SNUBBED_ROWS__
