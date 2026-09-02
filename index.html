@@ -262,6 +262,28 @@
       color: var(--accent);
       font-size: 1.2rem;
     }
+    .theme-score-value--text {
+      font-size: 0.86rem;
+      max-width: 140px;
+    }
+    .month-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      margin-top: 4px;
+      padding: 10px 14px;
+      background: var(--card-bg);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-pill);
+      font-size: 0.82rem;
+    }
+    .month-nav a { color: var(--accent-soft); text-decoration: none; }
+    .month-nav a:hover { text-decoration: underline; }
+    .month-nav .nav-index { color: var(--text-muted); }
+    .month-nav .nav-disabled { color: var(--text-muted); opacity: 0.5; }
+    .month-nav .nav-prev { flex: 1; text-align: left; }
+    .month-nav .nav-next { flex: 1; text-align: right; }
     .vibe {
       font-size: 0.82rem;
       font-style: italic;
@@ -534,7 +556,7 @@
               <div class="book-meta">
                 <span class="meta-pill">~15 pages</span>
                 <span class="meta-pill">Debut book: No</span>
-                <span class="meta-pill">Avg rating: No reliable rating — checked Goodreads/StoryGraph/Amazon/B&N</span>
+                <span class="meta-pill">Avg rating: N/A</span>
               </div>
             </div>
             <div class="theme-score">
@@ -571,7 +593,7 @@
               <div class="book-meta">
                 <span class="meta-pill">~20 pages</span>
                 <span class="meta-pill">Debut book: No</span>
-                <span class="meta-pill">Avg rating: No reliable rating — checked Goodreads/StoryGraph/Amazon/B&N</span>
+                <span class="meta-pill">Avg rating: N/A</span>
               </div>
             </div>
             <div class="theme-score">
@@ -608,7 +630,7 @@
               <div class="book-meta">
                 <span class="meta-pill">~20 pages</span>
                 <span class="meta-pill">Debut book: No</span>
-                <span class="meta-pill">Avg rating: No reliable rating — checked Goodreads/StoryGraph/Amazon/B&N</span>
+                <span class="meta-pill">Avg rating: N/A</span>
               </div>
             </div>
             <div class="theme-score">
@@ -645,7 +667,7 @@
               <div class="book-meta">
                 <span class="meta-pill">~30 pages</span>
                 <span class="meta-pill">Debut book: No</span>
-                <span class="meta-pill">Avg rating: No reliable rating — checked Goodreads/StoryGraph/Amazon/B&N</span>
+                <span class="meta-pill">Avg rating: N/A</span>
               </div>
             </div>
             <div class="theme-score">
