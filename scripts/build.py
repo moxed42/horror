@@ -13,7 +13,24 @@ TEMPLATES = REPO_ROOT / "templates"
 MONTHS_DIR = REPO_ROOT / "data" / "months"
 ARCHIVE_DIR = REPO_ROOT / "archive"
 AUTHORS_PATH = REPO_ROOT / "data" / "authors.json"
+POLLS_PATH = REPO_ROOT / "data" / "polls.json"
 BASE_URL = "https://moxed42.github.io/horror/"
+
+
+def load_polls() -> list:
+    data = json.loads(POLLS_PATH.read_text())
+    return data["polls"]
+
+
+MONTH_NAMES = [
+    "January", "February", "March", "April", "May", "June",
+    "July", "August", "September", "October", "November", "December",
+]
+
+
+def month_label_for_ym(ym: str) -> str:
+    y, m = ym.split("-")
+    return f"{MONTH_NAMES[int(m) - 1]} {y}"
 
 
 def _base_author_name(author: str) -> str:
@@ -187,7 +204,10 @@ def render_page(month: dict, page_url: str, favicon_href: str, nav_block: str = 
 
     novels_subtitle = month.get("novels_subtitle", "Choose one full‑length pick for the month.")
 
-    nav_ctx = nav_ctx or {"home": "index.html", "archive": "archive/index.html", "stats": "stats.html", "active": "home"}
+    nav_ctx = nav_ctx or {
+        "home": "index.html", "archive": "archive/index.html", "stats": "stats.html",
+        "polls": "polls.html", "active": "home",
+    }
 
     replacements = {
         "__PAGE_TITLE__": page_title,
@@ -206,9 +226,11 @@ def render_page(month: dict, page_url: str, favicon_href: str, nav_block: str = 
         "__NAV_HOME__": nav_ctx["home"],
         "__NAV_ARCHIVE__": nav_ctx["archive"],
         "__NAV_STATS__": nav_ctx["stats"],
+        "__NAV_POLLS__": nav_ctx["polls"],
         "__NAV_HOME_ACTIVE__": "active" if nav_ctx["active"] == "home" else "",
         "__NAV_ARCHIVE_ACTIVE__": "active" if nav_ctx["active"] == "archive" else "",
         "__NAV_STATS_ACTIVE__": "active" if nav_ctx["active"] == "stats" else "",
+        "__NAV_POLLS_ACTIVE__": "active" if nav_ctx["active"] == "polls" else "",
     }
     for token, value in replacements.items():
         template = template.replace(token, value)
@@ -509,6 +531,142 @@ def render_stats_page() -> str:
     return template
 
 
+def compute_poll_stats(polls: list) -> dict:
+    countable = [p for p in polls if p["data_quality"] != "partial"]
+
+    total_polls = len(polls)
+    total_votes_cast = sum(p["total_option_votes"] for p in countable)
+    avg_voters = round(sum(p["unique_voters"] for p in countable) / len(countable), 1) if countable else None
+    avg_votes_per_person = (
+        round(sum(p["average_votes_per_person"] for p in countable) / len(countable), 1) if countable else None
+    )
+
+    closest = None
+    landslide = None
+    for p in countable:
+        sorted_opts = sorted(p["options"], key=lambda o: -o["percentage"])
+        if len(sorted_opts) < 2:
+            continue
+        gap = sorted_opts[0]["percentage"] - sorted_opts[1]["percentage"]
+        entry = {
+            "month": p["archive_month"],
+            "poll_type": p["poll_type"],
+            "top": sorted_opts[0],
+            "runner_up": sorted_opts[1],
+            "gap": gap,
+        }
+        if closest is None or gap < closest["gap"]:
+            closest = entry
+        if landslide is None or gap > landslide["gap"]:
+            landslide = entry
+
+    return {
+        "total_polls": total_polls,
+        "total_votes_cast": total_votes_cast,
+        "avg_voters": avg_voters,
+        "avg_votes_per_person": avg_votes_per_person,
+        "closest": closest,
+        "landslide": landslide,
+    }
+
+
+def render_polls_page() -> str:
+    polls = load_polls()
+    stats = compute_poll_stats(polls)
+    template = (TEMPLATES / "polls.html").read_text()
+
+    def stat_card(label: str, value) -> str:
+        return (
+            f'      <div class="stat-card">\n'
+            f'        <div class="stat-value">{value}</div>\n'
+            f'        <div class="stat-label">{label}</div>\n'
+            f'      </div>\n'
+        )
+
+    top_cards = "".join([
+        stat_card("Polls held", stats["total_polls"]),
+        stat_card("Total votes cast", stats["total_votes_cast"]),
+        stat_card("Avg. unique voters", stats["avg_voters"] if stats["avg_voters"] else "N/A"),
+        stat_card("Avg. votes/person", stats["avg_votes_per_person"] if stats["avg_votes_per_person"] else "N/A"),
+    ])
+
+    def race_card(entry, kind_label):
+        if not entry:
+            return f'<div class="fact"><div class="fact-label">{kind_label}</div>N/A</div>'
+        month_label = month_label_for_ym(entry["month"])
+        type_label = "Novel poll" if entry["poll_type"] == "book" else "Short story poll"
+        return (
+            f'<div class="fact"><div class="fact-label">{kind_label}</div>'
+            f'{month_label} ({type_label}): '
+            f'{entry["top"]["canonical_title"]} ({entry["top"]["percentage"]}%) vs. '
+            f'{entry["runner_up"]["canonical_title"]} ({entry["runner_up"]["percentage"]}%) '
+            f'— {entry["gap"]}pt gap</div>'
+        )
+
+    race_cards = race_card(stats["closest"], "Closest race") + race_card(stats["landslide"], "Biggest landslide")
+
+    def poll_bar_list(poll):
+        options = sorted(poll["options"], key=lambda o: -o["percentage"])
+        is_partial = poll["data_quality"] == "partial"
+        top = max((o["percentage"] for o in options), default=1) or 1
+        rows = []
+        for o in options:
+            pct_width = round(o["percentage"] / top * 100)
+            count_label = f'{o["percentage"]}%' if is_partial else f'{o["votes"]} · {o["percentage"]}%'
+            winner_mark = ' <span class="poll-winner-tag">Winner</span>' if o["is_winner"] else ""
+            row_class = "bar-row poll-bar-row is-winner" if o["is_winner"] else "bar-row poll-bar-row"
+            author = o["canonical_author"]
+            rows.append(
+                f'        <li class="{row_class}">\n'
+                f'          <span class="bar-label">{o["canonical_title"]}{winner_mark}<span class="poll-author"> — {author}</span></span>\n'
+                f'          <span class="bar-track"><span class="bar-fill" style="width:{pct_width}%"></span></span>\n'
+                f'          <span class="bar-count">{count_label}</span>\n'
+                f'        </li>'
+            )
+        return "\n".join(rows)
+
+    # Group by year, reverse chronological, matching archive index's pattern.
+    polls_sorted = sorted(polls, key=lambda p: (p["archive_month"], p["poll_type"]), reverse=True)
+    groups = []
+    current_year = None
+    for p in polls_sorted:
+        year = p["archive_month"].split("-")[0]
+        if year != current_year:
+            groups.append((year, []))
+            current_year = year
+        month_label = month_label_for_ym(p["archive_month"])
+        type_label = "Novel poll" if p["poll_type"] == "book" else "Short story poll"
+        turnout = (
+            f'{p["unique_voters"]} voters · {p["total_option_votes"]} votes cast'
+            if p["data_quality"] != "partial" else "Turnout not recorded"
+        )
+        groups[-1][1].append(
+            f'      <div class="poll-card">\n'
+            f'        <div class="poll-card-header">\n'
+            f'          <span class="poll-month">{month_label}</span>\n'
+            f'          <span class="poll-type-tag">{type_label}</span>\n'
+            f'          <span class="poll-turnout">{turnout}</span>\n'
+            f'        </div>\n'
+            f'        <ul class="bar-list">\n{poll_bar_list(p)}\n        </ul>\n'
+            f'      </div>\n'
+        )
+
+    sections = []
+    for year, cards in groups:
+        sections.append(f'    <h2 class="year-heading">{year}</h2>\n' + "".join(cards))
+
+    replacements = {
+        "__POLL_TOP_CARDS__": top_cards,
+        "__POLL_RACE_CARDS__": race_cards,
+        "__POLL_SECTIONS__": "\n".join(sections),
+        "__BASE_URL__": BASE_URL,
+        "__PAGE_URL__": f"{BASE_URL}polls.html",
+    }
+    for token, value in replacements.items():
+        template = template.replace(token, value)
+    return template
+
+
 def main():
     if len(sys.argv) != 2:
         print(f"Usage: python {sys.argv[0]} data/months/YYYY-MM-slug.json", file=sys.stderr)
@@ -549,7 +707,10 @@ def main():
         '    </nav>\n\n'
     )
 
-    archive_nav_ctx = {"home": "../index.html", "archive": "index.html", "stats": "../stats.html", "active": "archive"}
+    archive_nav_ctx = {
+        "home": "../index.html", "archive": "index.html", "stats": "../stats.html",
+        "polls": "../polls.html", "active": "archive",
+    }
     archive_page_path = ARCHIVE_DIR / f"{month['slug']}.html"
     archive_page_url = f"{BASE_URL}archive/{month['slug']}.html"
     archive_page_html = render_page(
@@ -566,6 +727,10 @@ def main():
     stats_path = REPO_ROOT / "stats.html"
     stats_path.write_text(render_stats_page())
     print(f"Wrote {stats_path}")
+
+    polls_path = REPO_ROOT / "polls.html"
+    polls_path.write_text(render_polls_page())
+    print(f"Wrote {polls_path}")
 
 
 if __name__ == "__main__":

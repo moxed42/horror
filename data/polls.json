@@ -1,0 +1,1486 @@
+{
+  "polls": [
+    {
+      "archive_month": "2025-04",
+      "poll_date": null,
+      "poll_type": "book",
+      "unique_voters": null,
+      "poll_submissions": null,
+      "total_option_votes": null,
+      "average_votes_per_person": null,
+      "data_quality": "partial",
+      "options": [
+        {
+          "title": "The Call",
+          "canonical_title": "The Call",
+          "author": "Peadar O'Guilin",
+          "canonical_author": "Peadar Ó Guilín",
+          "votes": null,
+          "percentage": 18,
+          "is_winner": false
+        },
+        {
+          "title": "Slewfoot",
+          "canonical_title": "Slewfoot: A Tale of Bewitchery",
+          "author": "Brom",
+          "canonical_author": "Brom",
+          "votes": null,
+          "percentage": 18,
+          "is_winner": false
+        },
+        {
+          "title": "Suffer the Children",
+          "canonical_title": "Suffer the Children",
+          "author": "Craig DiLouie",
+          "canonical_author": "Craig DiLouie",
+          "votes": null,
+          "percentage": 27,
+          "is_winner": false
+        },
+        {
+          "title": "What Lies Between Us",
+          "canonical_title": "What Lies Between Us",
+          "author": "John Marrs",
+          "canonical_author": "John Marrs",
+          "votes": null,
+          "percentage": 10,
+          "is_winner": false
+        },
+        {
+          "title": "The Last House on Needless Street",
+          "canonical_title": "The Last House on Needless Street",
+          "author": "Catriona Ward",
+          "canonical_author": "Catriona Ward",
+          "votes": null,
+          "percentage": 27,
+          "is_winner": true
+        }
+      ]
+    },
+    {
+      "archive_month": "2025-05",
+      "poll_date": "2025-04-22",
+      "poll_type": "book",
+      "unique_voters": 17,
+      "poll_submissions": 17,
+      "total_option_votes": 30,
+      "average_votes_per_person": 1.8,
+      "data_quality": "complete",
+      "options": [
+        {
+          "title": "Goddess of Filth",
+          "canonical_title": "Goddess of Filth",
+          "author": "V. Castro",
+          "canonical_author": "V. Castro",
+          "votes": 4,
+          "percentage": 13,
+          "is_winner": false
+        },
+        {
+          "title": "Beta: A Technological Nightmare",
+          "canonical_title": "Beta: A Technological Nightmare",
+          "author": "Sammy Scott",
+          "canonical_author": "Sammy Scott",
+          "votes": 12,
+          "percentage": 40,
+          "is_winner": true
+        },
+        {
+          "title": "The Hollow Places",
+          "canonical_title": "The Hollow Places",
+          "author": "T. Kingfisher",
+          "canonical_author": "T. Kingfisher",
+          "votes": 8,
+          "percentage": 27,
+          "is_winner": false
+        },
+        {
+          "title": "Bat Eater and Other Names for Cora Zeng",
+          "canonical_title": "Bat Eater and Other Names for Cora Zeng",
+          "author": "Kylie Lee Baker",
+          "canonical_author": "Kylie Lee Baker",
+          "votes": 6,
+          "percentage": 20,
+          "is_winner": false
+        }
+      ]
+    },
+    {
+      "archive_month": "2025-06",
+      "poll_date": "2025-05-24",
+      "poll_type": "book",
+      "unique_voters": 26,
+      "poll_submissions": 27,
+      "total_option_votes": 43,
+      "average_votes_per_person": 1.7,
+      "data_quality": "complete",
+      "options": [
+        {
+          "title": "The Sandman: Preludes and Nocturnes",
+          "canonical_title": "The Sandman: Preludes and Nocturnes",
+          "author": "Neil Gaiman",
+          "canonical_author": "Neil Gaiman",
+          "votes": 5,
+          "percentage": 12,
+          "is_winner": false
+        },
+        {
+          "title": "Native Fear",
+          "canonical_title": "Native Fear",
+          "author": "C.F. Page",
+          "canonical_author": "C.F. Page",
+          "votes": 18,
+          "percentage": 42,
+          "is_winner": true
+        },
+        {
+          "title": "Ring",
+          "canonical_title": "Ring",
+          "author": "Koji Suzuki",
+          "canonical_author": "Kōji Suzuki",
+          "votes": 11,
+          "percentage": 26,
+          "is_winner": false
+        },
+        {
+          "title": "The Haunting of Hill House",
+          "canonical_title": "The Haunting of Hill House",
+          "author": "Shirley Jackson",
+          "canonical_author": "Shirley Jackson",
+          "votes": 9,
+          "percentage": 21,
+          "is_winner": false
+        }
+      ]
+    },
+    {
+      "archive_month": "2025-07",
+      "poll_date": "2025-06-24",
+      "poll_type": "book",
+      "unique_voters": 19,
+      "poll_submissions": 19,
+      "total_option_votes": 35,
+      "average_votes_per_person": 1.8,
+      "data_quality": "complete",
+      "options": [
+        {
+          "title": "The Harr",
+          "canonical_title": "The Haar",
+          "author": "David Sodergren",
+          "canonical_author": "David Sodergren",
+          "votes": 14,
+          "percentage": 40,
+          "is_winner": true
+        },
+        {
+          "title": "Home",
+          "canonical_title": "Home",
+          "author": "Ben Young",
+          "canonical_author": "Ben Young",
+          "votes": 7,
+          "percentage": 20,
+          "is_winner": false
+        },
+        {
+          "title": "Bat Eater and Other Names for Cora Zeng",
+          "canonical_title": "Bat Eater and Other Names for Cora Zeng",
+          "author": "Kylie Lee Baker",
+          "canonical_author": "Kylie Lee Baker",
+          "votes": 7,
+          "percentage": 20,
+          "is_winner": false
+        },
+        {
+          "title": "Suffer the Children",
+          "canonical_title": "Suffer the Children",
+          "author": "Craig DiLouie",
+          "canonical_author": "Craig DiLouie",
+          "votes": 7,
+          "percentage": 20,
+          "is_winner": false
+        }
+      ]
+    },
+    {
+      "archive_month": "2025-08",
+      "poll_date": "2025-07-27",
+      "poll_type": "book",
+      "unique_voters": 22,
+      "poll_submissions": 22,
+      "total_option_votes": 34,
+      "average_votes_per_person": 1.5,
+      "data_quality": "complete",
+      "options": [
+        {
+          "title": "Between Two Fires",
+          "canonical_title": "Between Two Fires",
+          "author": "Christopher Buehlman",
+          "canonical_author": "Christopher Buehlman",
+          "votes": 13,
+          "percentage": 38,
+          "is_winner": true
+        },
+        {
+          "title": "When the Wolf Comes Home",
+          "canonical_title": "When the Wolf Comes Home",
+          "author": "Nat Cassidy",
+          "canonical_author": "Nat Cassidy",
+          "votes": 8,
+          "percentage": 24,
+          "is_winner": false
+        },
+        {
+          "title": "The Exorcist",
+          "canonical_title": "The Exorcist",
+          "author": "William Peter Blatty",
+          "canonical_author": "William Peter Blatty",
+          "votes": 8,
+          "percentage": 24,
+          "is_winner": false
+        },
+        {
+          "title": "The Troop",
+          "canonical_title": "The Troop",
+          "author": "Nick Cutter",
+          "canonical_author": "Nick Cutter",
+          "votes": 5,
+          "percentage": 15,
+          "is_winner": false
+        }
+      ]
+    },
+    {
+      "archive_month": "2025-08",
+      "poll_date": "2025-07-27",
+      "poll_type": "short_story",
+      "unique_voters": 18,
+      "poll_submissions": 19,
+      "total_option_votes": 28,
+      "average_votes_per_person": 1.6,
+      "data_quality": "complete",
+      "options": [
+        {
+          "title": "A Short Stay in Hell",
+          "canonical_title": "A Short Stay in Hell",
+          "author": "Steven L. Peck",
+          "canonical_author": "Steven L. Peck",
+          "votes": 11,
+          "percentage": 39,
+          "is_winner": true
+        },
+        {
+          "title": "Cabal",
+          "canonical_title": "Cabal",
+          "author": "Clive Barker",
+          "canonical_author": "Clive Barker",
+          "votes": 8,
+          "percentage": 29,
+          "is_winner": false
+        },
+        {
+          "title": "Carmilla",
+          "canonical_title": "Carmilla",
+          "author": "Sheridan Le Fanu",
+          "canonical_author": "Sheridan Le Fanu",
+          "votes": 9,
+          "percentage": 32,
+          "is_winner": false
+        }
+      ]
+    },
+    {
+      "archive_month": "2025-09",
+      "poll_date": "2025-08-24",
+      "poll_type": "book",
+      "unique_voters": 18,
+      "poll_submissions": 19,
+      "total_option_votes": 36,
+      "average_votes_per_person": 2.0,
+      "data_quality": "complete",
+      "options": [
+        {
+          "title": "Blood Meridian",
+          "canonical_title": "Blood Meridian",
+          "author": "Cormac McCarthy",
+          "canonical_author": "Cormac McCarthy",
+          "votes": 7,
+          "percentage": 19,
+          "is_winner": false
+        },
+        {
+          "title": "Something Wicked This Way Comes",
+          "canonical_title": "Something Wicked This Way Comes",
+          "author": "Ray Bradbury",
+          "canonical_author": "Ray Bradbury",
+          "votes": 11,
+          "percentage": 31,
+          "is_winner": false
+        },
+        {
+          "title": "The Exorcist",
+          "canonical_title": "The Exorcist",
+          "author": "William Peter Blatty",
+          "canonical_author": "William Peter Blatty",
+          "votes": 11,
+          "percentage": 31,
+          "is_winner": true
+        },
+        {
+          "title": "The Haunting of Hill House",
+          "canonical_title": "The Haunting of Hill House",
+          "author": "Shirley Jackson",
+          "canonical_author": "Shirley Jackson",
+          "votes": 7,
+          "percentage": 19,
+          "is_winner": false
+        }
+      ]
+    },
+    {
+      "archive_month": "2025-09",
+      "poll_date": "2025-08-26",
+      "poll_type": "short_story",
+      "unique_voters": 14,
+      "poll_submissions": 14,
+      "total_option_votes": 21,
+      "average_votes_per_person": 1.5,
+      "data_quality": "complete",
+      "options": [
+        {
+          "title": "The Lottery",
+          "canonical_title": "The Lottery",
+          "author": "Shirley Jackson",
+          "canonical_author": "Shirley Jackson",
+          "votes": 5,
+          "percentage": 24,
+          "is_winner": false
+        },
+        {
+          "title": "The Husband Stitch",
+          "canonical_title": "The Husband Stitch",
+          "author": "Carmen Maria Machado",
+          "canonical_author": "Carmen Maria Machado",
+          "votes": 6,
+          "percentage": 29,
+          "is_winner": false
+        },
+        {
+          "title": "Where Are You Going, Where Have You Been?",
+          "canonical_title": "Where Are You Going, Where Have You Been?",
+          "author": "Joyce Carol Oates",
+          "canonical_author": "Joyce Carol Oates",
+          "votes": 10,
+          "percentage": 48,
+          "is_winner": true
+        }
+      ]
+    },
+    {
+      "archive_month": "2025-10",
+      "poll_date": "2025-09-29",
+      "poll_type": "book",
+      "unique_voters": 20,
+      "poll_submissions": 20,
+      "total_option_votes": 36,
+      "average_votes_per_person": 1.8,
+      "data_quality": "complete",
+      "options": [
+        {
+          "title": "Exoskeleton",
+          "canonical_title": "Exoskeleton",
+          "author": "Shane Stadler",
+          "canonical_author": "Shane Stadler",
+          "votes": 9,
+          "percentage": 25,
+          "is_winner": false
+        },
+        {
+          "title": "The Troop",
+          "canonical_title": "The Troop",
+          "author": "Nick Cutter",
+          "canonical_author": "Nick Cutter",
+          "votes": 8,
+          "percentage": 22,
+          "is_winner": false
+        },
+        {
+          "title": "The Vegetarian",
+          "canonical_title": "The Vegetarian",
+          "author": "Han Kang",
+          "canonical_author": "Han Kang",
+          "votes": 10,
+          "percentage": 28,
+          "is_winner": true
+        },
+        {
+          "title": "The Cipher",
+          "canonical_title": "The Cipher",
+          "author": "Kathe Koja",
+          "canonical_author": "Kathe Koja",
+          "votes": 9,
+          "percentage": 25,
+          "is_winner": false
+        }
+      ]
+    },
+    {
+      "archive_month": "2025-10",
+      "poll_date": "2025-09-30",
+      "poll_type": "short_story",
+      "unique_voters": 20,
+      "poll_submissions": 20,
+      "total_option_votes": 38,
+      "average_votes_per_person": 1.9,
+      "data_quality": "complete",
+      "options": [
+        {
+          "title": "Skeleton",
+          "canonical_title": "Skeleton",
+          "author": "Ray Bradbury",
+          "canonical_author": "Ray Bradbury",
+          "votes": 8,
+          "percentage": 21,
+          "is_winner": false
+        },
+        {
+          "title": "The Body Politic",
+          "canonical_title": "The Body Politic",
+          "author": "Clive Barker",
+          "canonical_author": "Clive Barker",
+          "votes": 12,
+          "percentage": 32,
+          "is_winner": true
+        },
+        {
+          "title": "What Moves the Dead",
+          "canonical_title": "What Moves the Dead",
+          "author": "T. Kingfisher",
+          "canonical_author": "T. Kingfisher",
+          "votes": 9,
+          "percentage": 24,
+          "is_winner": false
+        },
+        {
+          "title": "Who Goes There?",
+          "canonical_title": "Who Goes There?",
+          "author": "John W. Campbell Jr.",
+          "canonical_author": "John W. Campbell Jr.",
+          "votes": 9,
+          "percentage": 24,
+          "is_winner": false
+        }
+      ]
+    },
+    {
+      "archive_month": "2025-11",
+      "poll_date": "2025-10-27",
+      "poll_type": "book",
+      "unique_voters": 17,
+      "poll_submissions": 18,
+      "total_option_votes": 32,
+      "average_votes_per_person": 1.9,
+      "data_quality": "complete",
+      "options": [
+        {
+          "title": "Into the Drowning Deep",
+          "canonical_title": "Into the Drowning Deep",
+          "author": "Mira Grant",
+          "canonical_author": "Mira Grant",
+          "votes": 15,
+          "percentage": 47,
+          "is_winner": true
+        },
+        {
+          "title": "The Fisherman",
+          "canonical_title": "The Fisherman",
+          "author": "John Langan",
+          "canonical_author": "John Langan",
+          "votes": 10,
+          "percentage": 31,
+          "is_winner": false
+        },
+        {
+          "title": "Whalefall",
+          "canonical_title": "Whalefall",
+          "author": "Daniel Kraus",
+          "canonical_author": "Daniel Kraus",
+          "votes": 2,
+          "percentage": 6,
+          "is_winner": false
+        },
+        {
+          "title": "Our Wives Under the Sea",
+          "canonical_title": "Our Wives Under the Sea",
+          "author": "Julia Armfield",
+          "canonical_author": "Julia Armfield",
+          "votes": 5,
+          "percentage": 16,
+          "is_winner": false
+        }
+      ]
+    },
+    {
+      "archive_month": "2025-11",
+      "poll_date": "2025-10-27",
+      "poll_type": "short_story",
+      "unique_voters": 15,
+      "poll_submissions": 16,
+      "total_option_votes": 32,
+      "average_votes_per_person": 2.1,
+      "data_quality": "complete",
+      "options": [
+        {
+          "title": "The Upper Berth",
+          "canonical_title": "The Upper Berth",
+          "author": "F. Marion Crawford",
+          "canonical_author": "F. Marion Crawford",
+          "votes": 9,
+          "percentage": 28,
+          "is_winner": false
+        },
+        {
+          "title": "The Temple",
+          "canonical_title": "The Temple",
+          "author": "H.P. Lovecraft",
+          "canonical_author": "H.P. Lovecraft",
+          "votes": 9,
+          "percentage": 28,
+          "is_winner": false
+        },
+        {
+          "title": "A Tropical Horror",
+          "canonical_title": "A Tropical Horror",
+          "author": "William Hope Hodgson",
+          "canonical_author": "William Hope Hodgson",
+          "votes": 5,
+          "percentage": 16,
+          "is_winner": false
+        },
+        {
+          "title": "The Shadow over Innsmouth",
+          "canonical_title": "The Shadow over Innsmouth",
+          "author": "H.P. Lovecraft",
+          "canonical_author": "H.P. Lovecraft",
+          "votes": 9,
+          "percentage": 28,
+          "is_winner": true
+        }
+      ]
+    },
+    {
+      "archive_month": "2025-12",
+      "poll_date": "2025-11-25",
+      "poll_type": "book",
+      "unique_voters": 13,
+      "poll_submissions": 13,
+      "total_option_votes": 27,
+      "average_votes_per_person": 2.1,
+      "data_quality": "complete",
+      "options": [
+        {
+          "title": "Annihilation",
+          "canonical_title": "Annihilation",
+          "author": "Jeff VanderMeer",
+          "canonical_author": "Jeff VanderMeer",
+          "votes": 10,
+          "percentage": 37,
+          "is_winner": true
+        },
+        {
+          "title": "Our Share of Night",
+          "canonical_title": "Our Share of Night",
+          "author": "Mariana Enriquez",
+          "canonical_author": "Mariana Enríquez",
+          "votes": 4,
+          "percentage": 15,
+          "is_winner": false
+        },
+        {
+          "title": "By the Light of Dead Stars",
+          "canonical_title": "By the Light of Dead Stars",
+          "author": "Andrew Van Wey",
+          "canonical_author": "Andrew Van Wey",
+          "votes": 6,
+          "percentage": 22,
+          "is_winner": false
+        },
+        {
+          "title": "The Hollow Places",
+          "canonical_title": "The Hollow Places",
+          "author": "T. Kingfisher",
+          "canonical_author": "T. Kingfisher",
+          "votes": 7,
+          "percentage": 26,
+          "is_winner": false
+        }
+      ]
+    },
+    {
+      "archive_month": "2025-12",
+      "poll_date": "2025-11-25",
+      "poll_type": "short_story",
+      "unique_voters": 14,
+      "poll_submissions": 14,
+      "total_option_votes": 19,
+      "average_votes_per_person": 1.4,
+      "data_quality": "complete",
+      "options": [
+        {
+          "title": "Ring Shout",
+          "canonical_title": "Ring Shout",
+          "author": "P. Djeli Clark",
+          "canonical_author": "P. Djèlí Clark",
+          "votes": 3,
+          "percentage": 16,
+          "is_winner": false
+        },
+        {
+          "title": "The Yellow Sign",
+          "canonical_title": "The Yellow Sign",
+          "author": "Robert W. Chambers",
+          "canonical_author": "Robert W. Chambers",
+          "votes": 4,
+          "percentage": 21,
+          "is_winner": false
+        },
+        {
+          "title": "The Ballad of Black Tom",
+          "canonical_title": "The Ballad of Black Tom",
+          "author": "Victor LaValle",
+          "canonical_author": "Victor LaValle",
+          "votes": 6,
+          "percentage": 32,
+          "is_winner": true
+        },
+        {
+          "title": "There Is No Antimemetics Division",
+          "canonical_title": "There Is No Antimemetics Division",
+          "author": "qntm",
+          "canonical_author": "qntm",
+          "votes": 6,
+          "percentage": 32,
+          "is_winner": false
+        }
+      ]
+    },
+    {
+      "archive_month": "2026-01",
+      "poll_date": "2025-12-23",
+      "poll_type": "book",
+      "unique_voters": 12,
+      "poll_submissions": 13,
+      "total_option_votes": 29,
+      "average_votes_per_person": 2.4,
+      "data_quality": "complete",
+      "options": [
+        {
+          "title": "Intercepts",
+          "canonical_title": "Intercepts",
+          "author": "TJ Payne",
+          "canonical_author": "T.J. Payne",
+          "votes": 7,
+          "percentage": 24,
+          "is_winner": false
+        },
+        {
+          "title": "Coma",
+          "canonical_title": "Coma",
+          "author": "Robin Cook",
+          "canonical_author": "Robin Cook",
+          "votes": 7,
+          "percentage": 24,
+          "is_winner": false
+        },
+        {
+          "title": "The Hot Zone",
+          "canonical_title": "The Hot Zone",
+          "author": "Richard Preston",
+          "canonical_author": "Richard Preston",
+          "votes": 6,
+          "percentage": 21,
+          "is_winner": false
+        },
+        {
+          "title": "Frankenstein",
+          "canonical_title": "Frankenstein",
+          "author": "Mary Shelley",
+          "canonical_author": "Mary Shelley",
+          "votes": 9,
+          "percentage": 31,
+          "is_winner": true
+        }
+      ]
+    },
+    {
+      "archive_month": "2026-01",
+      "poll_date": "2025-12-23",
+      "poll_type": "short_story",
+      "unique_voters": 11,
+      "poll_submissions": 12,
+      "total_option_votes": 25,
+      "average_votes_per_person": 2.3,
+      "data_quality": "complete",
+      "options": [
+        {
+          "title": "The Jaunt",
+          "canonical_title": "The Jaunt",
+          "author": "Stephen King",
+          "canonical_author": "Stephen King",
+          "votes": 8,
+          "percentage": 32,
+          "is_winner": true
+        },
+        {
+          "title": "Herbert West-Reanimator",
+          "canonical_title": "Herbert West–Reanimator",
+          "author": "H.P. Lovecraft",
+          "canonical_author": "H.P. Lovecraft",
+          "votes": 6,
+          "percentage": 24,
+          "is_winner": false
+        },
+        {
+          "title": "Feed Them Silence",
+          "canonical_title": "Feed Them Silence",
+          "author": "Lee Mandelo",
+          "canonical_author": "Lee Mandelo",
+          "votes": 4,
+          "percentage": 16,
+          "is_winner": false
+        },
+        {
+          "title": "It Breathes, It Bleeds, It Breeds",
+          "canonical_title": "It Breathes, It Bleeds, It Breeds",
+          "author": "EmpyrealInvective",
+          "canonical_author": "EmpyrealInvective",
+          "votes": 7,
+          "percentage": 28,
+          "is_winner": false
+        }
+      ]
+    },
+    {
+      "archive_month": "2026-02",
+      "poll_date": "2026-01-19",
+      "poll_type": "book",
+      "unique_voters": 14,
+      "poll_submissions": 17,
+      "total_option_votes": 29,
+      "average_votes_per_person": 2.1,
+      "data_quality": "complete",
+      "options": [
+        {
+          "title": "The Road",
+          "canonical_title": "The Road",
+          "author": "Cormac McCarthy",
+          "canonical_author": "Cormac McCarthy",
+          "votes": 10,
+          "percentage": 34,
+          "is_winner": true
+        },
+        {
+          "title": "Parable of the Sower",
+          "canonical_title": "Parable of the Sower",
+          "author": "Octavia E. Butler",
+          "canonical_author": "Octavia E. Butler",
+          "votes": 7,
+          "percentage": 24,
+          "is_winner": false
+        },
+        {
+          "title": "All the Fiends of Hell",
+          "canonical_title": "All the Fiends of Hell",
+          "author": "Adam Nevill",
+          "canonical_author": "Adam Nevill",
+          "votes": 9,
+          "percentage": 31,
+          "is_winner": false
+        },
+        {
+          "title": "The Book of Koli",
+          "canonical_title": "The Book of Koli",
+          "author": "M.R. Carey",
+          "canonical_author": "M.R. Carey",
+          "votes": 3,
+          "percentage": 10,
+          "is_winner": false
+        }
+      ]
+    },
+    {
+      "archive_month": "2026-02",
+      "poll_date": "2026-01-19",
+      "poll_type": "short_story",
+      "unique_voters": 13,
+      "poll_submissions": 13,
+      "total_option_votes": 29,
+      "average_votes_per_person": 2.2,
+      "data_quality": "complete",
+      "options": [
+        {
+          "title": "All Tomorrows",
+          "canonical_title": "All Tomorrows",
+          "author": "C.M. Kosemen",
+          "canonical_author": "C.M. Kośemen",
+          "votes": 4,
+          "percentage": 14,
+          "is_winner": false
+        },
+        {
+          "title": "I Have No Mouth & I Must Scream",
+          "canonical_title": "I Have No Mouth, and I Must Scream",
+          "author": "Harlan Ellison",
+          "canonical_author": "Harlan Ellison",
+          "votes": 12,
+          "percentage": 41,
+          "is_winner": true
+        },
+        {
+          "title": "There Will Come Soft Rains",
+          "canonical_title": "There Will Come Soft Rains",
+          "author": "Ray Bradbury",
+          "canonical_author": "Ray Bradbury",
+          "votes": 8,
+          "percentage": 28,
+          "is_winner": false
+        },
+        {
+          "title": "The Machine Stops",
+          "canonical_title": "The Machine Stops",
+          "author": "E.M. Forster",
+          "canonical_author": "E.M. Forster",
+          "votes": 5,
+          "percentage": 17,
+          "is_winner": false
+        }
+      ]
+    },
+    {
+      "archive_month": "2026-03",
+      "poll_date": "2026-02-16",
+      "poll_type": "book",
+      "unique_voters": 15,
+      "poll_submissions": 15,
+      "total_option_votes": 26,
+      "average_votes_per_person": 1.7,
+      "data_quality": "complete",
+      "options": [
+        {
+          "title": "Rebecca",
+          "canonical_title": "Rebecca",
+          "author": "Daphne du Maurier",
+          "canonical_author": "Daphne du Maurier",
+          "votes": 6,
+          "percentage": 23,
+          "is_winner": false
+        },
+        {
+          "title": "The Turn of the Screw",
+          "canonical_title": "The Turn of the Screw",
+          "author": "Henry James",
+          "canonical_author": "Henry James",
+          "votes": 3,
+          "percentage": 12,
+          "is_winner": false
+        },
+        {
+          "title": "Mexican Gothic",
+          "canonical_title": "Mexican Gothic",
+          "author": "Silvia Moreno-Garcia",
+          "canonical_author": "Silvia Moreno-Garcia",
+          "votes": 12,
+          "percentage": 46,
+          "is_winner": true
+        },
+        {
+          "title": "The Haunting of Hill House",
+          "canonical_title": "The Haunting of Hill House",
+          "author": "Shirley Jackson",
+          "canonical_author": "Shirley Jackson",
+          "votes": 5,
+          "percentage": 19,
+          "is_winner": false
+        }
+      ]
+    },
+    {
+      "archive_month": "2026-03",
+      "poll_date": "2026-02-16",
+      "poll_type": "short_story",
+      "unique_voters": 11,
+      "poll_submissions": 13,
+      "total_option_votes": 19,
+      "average_votes_per_person": 1.7,
+      "data_quality": "complete",
+      "options": [
+        {
+          "title": "The Fall of the House of Usher",
+          "canonical_title": "The Fall of the House of Usher",
+          "author": "Edgar Allan Poe",
+          "canonical_author": "Edgar Allan Poe",
+          "votes": 10,
+          "percentage": 53,
+          "is_winner": true
+        },
+        {
+          "title": "The Ruins of Contracoeur",
+          "canonical_title": "The Ruins of Contracoeur",
+          "author": "Joyce Carol Oates",
+          "canonical_author": "Joyce Carol Oates",
+          "votes": 5,
+          "percentage": 26,
+          "is_winner": false
+        },
+        {
+          "title": "The Judge's House",
+          "canonical_title": "The Judge's House",
+          "author": "Bram Stoker",
+          "canonical_author": "Bram Stoker",
+          "votes": 4,
+          "percentage": 21,
+          "is_winner": false
+        }
+      ]
+    },
+    {
+      "archive_month": "2026-04",
+      "poll_date": "2026-03-23",
+      "poll_type": "book",
+      "unique_voters": 13,
+      "poll_submissions": 13,
+      "total_option_votes": 28,
+      "average_votes_per_person": 2.2,
+      "data_quality": "complete",
+      "options": [
+        {
+          "title": "Hungerstone",
+          "canonical_title": "Hungerstone",
+          "author": "Kat Dunn",
+          "canonical_author": "Kat Dunn",
+          "votes": 6,
+          "percentage": 21,
+          "is_winner": true
+        },
+        {
+          "title": "Vampire Hunter D: The Rose Princess",
+          "canonical_title": "Vampire Hunter D: The Rose Princess",
+          "author": "Hideyuki Kikuchi",
+          "canonical_author": "Hideyuki Kikuchi",
+          "votes": 6,
+          "percentage": 21,
+          "is_winner": false
+        },
+        {
+          "title": "Let the Right One In",
+          "canonical_title": "Let the Right One In",
+          "author": "John Lindqvist",
+          "canonical_author": "John Ajvide Lindqvist",
+          "votes": 5,
+          "percentage": 18,
+          "is_winner": false
+        },
+        {
+          "title": "A Dowry of Blood",
+          "canonical_title": "A Dowry of Blood",
+          "author": "ST Gibson",
+          "canonical_author": "S.T. Gibson",
+          "votes": 6,
+          "percentage": 21,
+          "is_winner": false
+        },
+        {
+          "title": "House of Hunger",
+          "canonical_title": "House of Hunger",
+          "author": "Alexis Henderson",
+          "canonical_author": "Alexis Henderson",
+          "votes": 5,
+          "percentage": 18,
+          "is_winner": false
+        }
+      ]
+    },
+    {
+      "archive_month": "2026-04",
+      "poll_date": "2026-03-23",
+      "poll_type": "short_story",
+      "unique_voters": 12,
+      "poll_submissions": 12,
+      "total_option_votes": 19,
+      "average_votes_per_person": 1.6,
+      "data_quality": "complete",
+      "options": [
+        {
+          "title": "The V*mpire",
+          "canonical_title": "The V*mpire",
+          "author": "PH Lee",
+          "canonical_author": "P.H. Lee",
+          "votes": 6,
+          "percentage": 32,
+          "is_winner": false
+        },
+        {
+          "title": "Carmilla",
+          "canonical_title": "Carmilla",
+          "author": "J. Sheridan Le Fanu",
+          "canonical_author": "Sheridan Le Fanu",
+          "votes": 8,
+          "percentage": 42,
+          "is_winner": true
+        },
+        {
+          "title": "The Cloak",
+          "canonical_title": "The Cloak",
+          "author": "Robert Bloch",
+          "canonical_author": "Robert Bloch",
+          "votes": 5,
+          "percentage": 26,
+          "is_winner": false
+        }
+      ]
+    },
+    {
+      "archive_month": "2026-05",
+      "poll_date": "2026-04-27",
+      "poll_type": "book",
+      "unique_voters": 15,
+      "poll_submissions": 15,
+      "total_option_votes": 25,
+      "average_votes_per_person": 1.7,
+      "data_quality": "complete",
+      "options": [
+        {
+          "title": "Bloom",
+          "canonical_title": "Bloom",
+          "author": "Delilah S. Dawson",
+          "canonical_author": "Delilah S. Dawson",
+          "votes": 6,
+          "percentage": 24,
+          "is_winner": false
+        },
+        {
+          "title": "Brother",
+          "canonical_title": "Brother",
+          "author": "Ania Ahlborn",
+          "canonical_author": "Ania Ahlborn",
+          "votes": 5,
+          "percentage": 20,
+          "is_winner": false
+        },
+        {
+          "title": "Misery",
+          "canonical_title": "Misery",
+          "author": "Stephen King",
+          "canonical_author": "Stephen King",
+          "votes": 6,
+          "percentage": 24,
+          "is_winner": false
+        },
+        {
+          "title": "Cabal",
+          "canonical_title": "Cabal",
+          "author": "Clive Barker",
+          "canonical_author": "Clive Barker",
+          "votes": 8,
+          "percentage": 32,
+          "is_winner": true
+        }
+      ]
+    },
+    {
+      "archive_month": "2026-05",
+      "poll_date": "2026-04-27",
+      "poll_type": "short_story",
+      "unique_voters": 12,
+      "poll_submissions": 12,
+      "total_option_votes": 12,
+      "average_votes_per_person": 1.0,
+      "data_quality": "complete",
+      "options": [
+        {
+          "title": "Things Have Gotten Worse Since We Last Spoke",
+          "canonical_title": "Things Have Gotten Worse Since We Last Spoke",
+          "author": "Eric LaRocca",
+          "canonical_author": "Eric LaRocca",
+          "votes": 6,
+          "percentage": 50,
+          "is_winner": false
+        },
+        {
+          "title": "The Monster of Elendhaven",
+          "canonical_title": "The Monster of Elendhaven",
+          "author": "Jennifer Giesbrecht",
+          "canonical_author": "Jennifer Giesbrecht",
+          "votes": 6,
+          "percentage": 50,
+          "is_winner": true
+        }
+      ]
+    },
+    {
+      "archive_month": "2026-06",
+      "poll_date": "2026-05-30",
+      "poll_type": "book",
+      "unique_voters": 18,
+      "poll_submissions": 18,
+      "total_option_votes": 27,
+      "average_votes_per_person": 1.5,
+      "data_quality": "complete",
+      "options": [
+        {
+          "title": "When the Wolf Comes Home",
+          "canonical_title": "When the Wolf Comes Home",
+          "author": "Nat Cassidy",
+          "canonical_author": "Nat Cassidy",
+          "votes": 8,
+          "percentage": 30,
+          "is_winner": true
+        },
+        {
+          "title": "The Howling",
+          "canonical_title": "The Howling",
+          "author": "Gary Brandner",
+          "canonical_author": "Gary Brandner",
+          "votes": 6,
+          "percentage": 22,
+          "is_winner": false
+        },
+        {
+          "title": "Those Across the River",
+          "canonical_title": "Those Across the River",
+          "author": "Christopher Buehlman",
+          "canonical_author": "Christopher Buehlman",
+          "votes": 6,
+          "percentage": 22,
+          "is_winner": false
+        },
+        {
+          "title": "Mongrels",
+          "canonical_title": "Mongrels",
+          "author": "Stephen Graham Jones",
+          "canonical_author": "Stephen Graham Jones",
+          "votes": 7,
+          "percentage": 26,
+          "is_winner": false
+        }
+      ]
+    },
+    {
+      "archive_month": "2026-06",
+      "poll_date": "2026-05-30",
+      "poll_type": "short_story",
+      "unique_voters": 13,
+      "poll_submissions": 13,
+      "total_option_votes": 13,
+      "average_votes_per_person": 1.0,
+      "data_quality": "complete",
+      "options": [
+        {
+          "title": "Hardshell",
+          "canonical_title": "Hardshell",
+          "author": "Dean Koontz",
+          "canonical_author": "Dean Koontz",
+          "votes": 6,
+          "percentage": 46,
+          "is_winner": false
+        },
+        {
+          "title": "The Belonging Kind",
+          "canonical_title": "The Belonging Kind",
+          "author": "William Gibson and John Shirley",
+          "canonical_author": "William Gibson and John Shirley",
+          "votes": 7,
+          "percentage": 54,
+          "is_winner": true
+        }
+      ]
+    },
+    {
+      "archive_month": "2026-07",
+      "poll_date": "2026-06-29",
+      "poll_type": "book",
+      "unique_voters": 21,
+      "poll_submissions": 21,
+      "total_option_votes": 21,
+      "average_votes_per_person": 1.0,
+      "data_quality": "complete",
+      "options": [
+        {
+          "title": "Slewfoot: A Tale of Bewitchery",
+          "canonical_title": "Slewfoot: A Tale of Bewitchery",
+          "author": "Brom",
+          "canonical_author": "Brom",
+          "votes": 8,
+          "percentage": 38,
+          "is_winner": true
+        },
+        {
+          "title": "Maggie's Grave",
+          "canonical_title": "Maggie's Grave",
+          "author": "David Sodergren",
+          "canonical_author": "David Sodergren",
+          "votes": 7,
+          "percentage": 33,
+          "is_winner": false
+        },
+        {
+          "title": "The Year of the Witching",
+          "canonical_title": "The Year of the Witching",
+          "author": "Alexis Henderson",
+          "canonical_author": "Alexis Henderson",
+          "votes": 2,
+          "percentage": 10,
+          "is_winner": false
+        },
+        {
+          "title": "Red Rabbit",
+          "canonical_title": "Red Rabbit",
+          "author": "Alex Grecian",
+          "canonical_author": "Alex Grecian",
+          "votes": 4,
+          "percentage": 19,
+          "is_winner": false
+        }
+      ]
+    },
+    {
+      "archive_month": "2026-07",
+      "poll_date": "2026-06-29",
+      "poll_type": "short_story",
+      "unique_voters": 19,
+      "poll_submissions": 20,
+      "total_option_votes": 20,
+      "average_votes_per_person": 1.1,
+      "data_quality": "complete",
+      "options": [
+        {
+          "title": "The White People",
+          "canonical_title": "The White People",
+          "author": "Arthur Machen",
+          "canonical_author": "Arthur Machen",
+          "votes": 1,
+          "percentage": 5,
+          "is_winner": false
+        },
+        {
+          "title": "This Town Doesn't Exist on Any Map",
+          "canonical_title": "This Town Doesn't Exist on Any Map",
+          "author": "Tobiaswade",
+          "canonical_author": "Tobias Wade",
+          "votes": 8,
+          "percentage": 40,
+          "is_winner": true
+        },
+        {
+          "title": "Dreams in the Witch House",
+          "canonical_title": "Dreams in the Witch House",
+          "author": "H.P. Lovecraft",
+          "canonical_author": "H.P. Lovecraft",
+          "votes": 5,
+          "percentage": 25,
+          "is_winner": false
+        },
+        {
+          "title": "Viy",
+          "canonical_title": "Viy",
+          "author": "Nikolai Gogol",
+          "canonical_author": "Nikolai Gogol",
+          "votes": 6,
+          "percentage": 30,
+          "is_winner": false
+        }
+      ]
+    },
+    {
+      "archive_month": "2026-08",
+      "poll_date": "2026-07-27",
+      "poll_type": "book",
+      "unique_voters": 19,
+      "poll_submissions": 20,
+      "total_option_votes": 33,
+      "average_votes_per_person": 1.7,
+      "data_quality": "complete",
+      "options": [
+        {
+          "title": "The Cipher",
+          "canonical_title": "The Cipher",
+          "author": "Kathe Koja",
+          "canonical_author": "Kathe Koja",
+          "votes": 9,
+          "percentage": 27,
+          "is_winner": false
+        },
+        {
+          "title": "The Troop",
+          "canonical_title": "The Troop",
+          "author": "Nick Cutter",
+          "canonical_author": "Nick Cutter",
+          "votes": 5,
+          "percentage": 15,
+          "is_winner": false
+        },
+        {
+          "title": "You Weren't Meant to Be Human",
+          "canonical_title": "You Weren’t Meant to Be Human",
+          "author": "Andrew Joseph White",
+          "canonical_author": "Andrew Joseph White",
+          "votes": 12,
+          "percentage": 36,
+          "is_winner": true
+        },
+        {
+          "title": "The Ruins",
+          "canonical_title": "The Ruins",
+          "author": "Scott Smith",
+          "canonical_author": "Scott Smith",
+          "votes": 7,
+          "percentage": 21,
+          "is_winner": false
+        }
+      ]
+    },
+    {
+      "archive_month": "2026-08",
+      "poll_date": "2026-07-27",
+      "poll_type": "short_story",
+      "unique_voters": 14,
+      "poll_submissions": 14,
+      "total_option_votes": 22,
+      "average_votes_per_person": 1.6,
+      "data_quality": "complete",
+      "options": [
+        {
+          "title": "Jacqueline Ess: Her Will and Testament",
+          "canonical_title": "Jacqueline Ess: Her Will and Testament",
+          "author": "Clive Barker",
+          "canonical_author": "Clive Barker",
+          "votes": 9,
+          "percentage": 41,
+          "is_winner": true
+        },
+        {
+          "title": "Spar",
+          "canonical_title": "Spar",
+          "author": "Kij Johnson",
+          "canonical_author": "Kij Johnson",
+          "votes": 6,
+          "percentage": 27,
+          "is_winner": false
+        },
+        {
+          "title": "Skeleton!",
+          "canonical_title": "Skeleton",
+          "author": "Ray Bradbury",
+          "canonical_author": "Ray Bradbury",
+          "votes": 5,
+          "percentage": 23,
+          "is_winner": false
+        },
+        {
+          "title": "My Husband Has Taken Our Roleplaying Too Far",
+          "canonical_title": "My Husband Has Taken Our Roleplaying Too Far",
+          "author": "Christian Wallis",
+          "canonical_author": "Christian Wallis",
+          "votes": 2,
+          "percentage": 9,
+          "is_winner": false
+        }
+      ]
+    },
+    {
+      "archive_month": "2026-09",
+      "poll_date": "2026-09-02",
+      "poll_type": "book",
+      "unique_voters": 18,
+      "poll_submissions": 18,
+      "total_option_votes": 27,
+      "average_votes_per_person": 1.5,
+      "data_quality": "complete_current",
+      "options": [
+        {
+          "title": "Ring",
+          "canonical_title": "Ring",
+          "author": "Koji Suzuki",
+          "canonical_author": "Kōji Suzuki",
+          "votes": 11,
+          "percentage": 41,
+          "is_winner": true
+        },
+        {
+          "title": "Piercing",
+          "canonical_title": "Piercing",
+          "author": "Ryu Murakami",
+          "canonical_author": "Ryū Murakami",
+          "votes": 6,
+          "percentage": 22,
+          "is_winner": false
+        },
+        {
+          "title": "Let the Right One In",
+          "canonical_title": "Let the Right One In",
+          "author": "John Lindqvist",
+          "canonical_author": "John Ajvide Lindqvist",
+          "votes": 4,
+          "percentage": 15,
+          "is_winner": false
+        },
+        {
+          "title": "Our Share of Night",
+          "canonical_title": "Our Share of Night",
+          "author": "Mariana Enriquez",
+          "canonical_author": "Mariana Enríquez",
+          "votes": 6,
+          "percentage": 22,
+          "is_winner": false
+        }
+      ]
+    },
+    {
+      "archive_month": "2026-09",
+      "poll_date": "2026-09-02",
+      "poll_type": "short_story",
+      "unique_voters": 13,
+      "poll_submissions": 13,
+      "total_option_votes": 18,
+      "average_votes_per_person": 1.4,
+      "data_quality": "complete_current",
+      "options": [
+        {
+          "title": "The Secret Life of Insects",
+          "canonical_title": "The Secret Life of Insects",
+          "author": "Bernardo Esquinca",
+          "canonical_author": "Bernardo Esquinca",
+          "votes": 2,
+          "percentage": 11,
+          "is_winner": false
+        },
+        {
+          "title": "Aleph",
+          "canonical_title": "The Aleph",
+          "author": "Jorge Luis Borges",
+          "canonical_author": "Jorge Luis Borges",
+          "votes": 4,
+          "percentage": 22,
+          "is_winner": false
+        },
+        {
+          "title": "The Human Chair",
+          "canonical_title": "The Human Chair",
+          "author": "Edogawa Ranpo",
+          "canonical_author": "Edogawa Ranpo",
+          "votes": 7,
+          "percentage": 39,
+          "is_winner": true
+        },
+        {
+          "title": "The Queen of Spades",
+          "canonical_title": "The Queen of Spades",
+          "author": "Alexander Pushkin",
+          "canonical_author": "Alexander Pushkin",
+          "votes": 5,
+          "percentage": 28,
+          "is_winner": false
+        }
+      ]
+    }
+  ]
+}
