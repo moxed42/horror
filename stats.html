@@ -227,6 +227,14 @@
       text-overflow: ellipsis;
       white-space: nowrap;
     }
+    .snub-list .bar-row {
+      grid-template-columns: minmax(0, 2fr) 1fr 40px;
+    }
+    .snub-list .bar-label {
+      white-space: normal;
+      overflow: visible;
+      text-overflow: clip;
+    }
     .bar-track {
       background: rgba(4, 4, 16, 0.7);
       border-radius: var(--radius-pill);
@@ -274,8 +282,10 @@
       border: 1px solid var(--border-subtle);
     }
     .rank-title { color: var(--text-main); }
-    .rank-title a { color: var(--text-main); text-decoration: none; border-bottom: 1px dotted var(--text-muted); }
-    .rank-title a:hover { color: var(--accent-soft); border-bottom-color: var(--accent-soft); }
+    .rank-title a,
+    .bar-label a { color: var(--text-main); text-decoration: none; border-bottom: 1px dotted var(--text-muted); }
+    .rank-title a:hover,
+    .bar-label a:hover { color: var(--accent-soft); border-bottom-color: var(--accent-soft); }
     .won-tag {
       font-size: 0.65rem;
       text-transform: uppercase;
@@ -390,9 +400,9 @@
     </div>
 
     <div class="toggle-row" data-toggle-scope>
-      <button type="button" class="toggle-btn active" data-view="noms">All nominations</button>
-      <button type="button" class="toggle-btn" data-view="wins">Winners only</button>
-      <span class="toggle-state-label">Showing: all nominations</span>
+      <button type="button" class="toggle-btn" data-view="noms">All nominations</button>
+      <button type="button" class="toggle-btn active" data-view="wins">Winners only</button>
+      <span class="toggle-state-label">Showing: winners only</span>
     </div>
 
     <div class="section" id="format" data-toggle-scope>
@@ -404,43 +414,44 @@
         <div class="stat-value">74</div>
         <div class="stat-label">Nominations</div>
       </div>
-      <div class="stat-card" data-view-noms>
+      <div class="stat-card" data-view-wins hidden>
         <div class="stat-value">325 pages</div>
         <div class="stat-label">Avg. pages</div>
       </div>
-      <div class="stat-card" data-view-wins hidden>
+      <div class="stat-card" data-view-noms>
         <div class="stat-value">324 pages</div>
         <div class="stat-label">Avg. pages (winners)</div>
       </div>
         </div>
-        <div data-view-noms><table class="record-table"><tr><td>Longest</td><td>Our Share of Night (610 pages)</td></tr><tr><td>Shortest</td><td>The Turn of the Screw (120 pages)</td></tr></table></div>
-        <div data-view-wins hidden><table class="record-table"><tr><td>Longest</td><td>Native Fear (500 pages)</td></tr><tr><td>Shortest</td><td>The Vegetarian (190 pages)</td></tr></table></div>
+        <div data-view-wins hidden><table class="record-table"><tr><td>Longest</td><td>Our Share of Night (610 pages)</td></tr><tr><td>Shortest</td><td>The Turn of the Screw (120 pages)</td></tr></table></div>
+        <div data-view-noms><table class="record-table"><tr><td>Longest</td><td>Native Fear (500 pages)</td></tr><tr><td>Shortest</td><td>The Vegetarian (190 pages)</td></tr></table></div>
         <div class="subsection-title">Short works</div>
         <div class="stat-grid stat-grid-2">
       <div class="stat-card">
         <div class="stat-value">49</div>
         <div class="stat-label">Nominations</div>
       </div>
-      <div class="stat-card" data-view-noms>
+      <div class="stat-card" data-view-wins hidden>
         <div class="stat-value">61 pages</div>
         <div class="stat-label">Avg. pages</div>
       </div>
-      <div class="stat-card" data-view-wins hidden>
+      <div class="stat-card" data-view-noms>
         <div class="stat-value">59 pages</div>
         <div class="stat-label">Avg. pages (winners)</div>
       </div>
         </div>
-        <div data-view-noms><table class="record-table"><tr><td>Longest</td><td>Cabal (250 pages)</td></tr><tr><td>Shortest</td><td>A Tropical Horror (10 pages)</td></tr></table></div>
-        <div data-view-wins hidden><table class="record-table"><tr><td>Longest</td><td>The Monster of Elendhaven (180 pages)</td></tr><tr><td>Shortest</td><td>The Yellow Wallpaper (20 pages)</td></tr></table></div>
+        <div data-view-wins hidden><table class="record-table"><tr><td>Longest</td><td>Cabal (250 pages)</td></tr><tr><td>Shortest</td><td>A Tropical Horror (10 pages)</td></tr></table></div>
+        <div data-view-noms><table class="record-table"><tr><td>Longest</td><td>The Monster of Elendhaven (180 pages)</td></tr><tr><td>Shortest</td><td>The Yellow Wallpaper (20 pages)</td></tr></table></div>
       </div>
     </div>
 
     <div class="section" id="numbers" data-toggle-scope>
       <div class="section-title">By the numbers</div>
+      <p class="diversity-note">Author age is based on publicly documented birth years and each book's original publication year — "Unknown" means we don't have a confirmed birth year, not that the author's age is a mystery.</p>
       <div class="panel panel-grid">
         <div>
           <div class="subsection-title">Origin country</div>
-          <ul class="bar-list" data-view-noms>
+          <ul class="bar-list" data-view-wins hidden>
         <li class="bar-row">
           <span class="bar-label">United States</span>
           <span class="bar-track"><span class="bar-fill" style="width:100%"></span></span>
@@ -472,7 +483,7 @@
           <span class="bar-count">11</span>
         </li>
           </ul>
-          <ul class="bar-list" data-view-wins hidden>
+          <ul class="bar-list" data-view-noms>
         <li class="bar-row">
           <span class="bar-label">United States</span>
           <span class="bar-track"><span class="bar-fill" style="width:100%"></span></span>
@@ -507,7 +518,7 @@
         </div>
         <div>
           <div class="subsection-title">Content-warning intensity</div>
-          <div data-view-noms>
+          <div data-view-wins hidden>
           <div class="stack-bar"><span class="stack-seg" style="width:4%;background:#f54545"></span><span class="stack-seg" style="width:32%;background:#4a9dff"></span><span class="stack-seg" style="width:64%;background:#9b6bff"></span></div>
           <ul class="stack-legend">
         <li><span class="stack-dot" style="background:#f54545"></span>Mild <span class="stack-count">5 (4%)</span></li>
@@ -515,7 +526,7 @@
         <li><span class="stack-dot" style="background:#9b6bff"></span>Extreme <span class="stack-count">79 (64%)</span></li>
           </ul>
           </div>
-          <div data-view-wins hidden>
+          <div data-view-noms>
           <div class="stack-bar"><span class="stack-seg" style="width:30%;background:#4a9dff"></span><span class="stack-seg" style="width:70%;background:#9b6bff"></span></div>
           <ul class="stack-legend">
         <li><span class="stack-dot" style="background:#f54545"></span>Mild <span class="stack-count">0 (0%)</span></li>
@@ -525,23 +536,29 @@
           </div>
         </div>
         <div>
-          <div class="subsection-title">Age category</div>
-          <div data-view-noms>
-          <div class="stack-bar"><span class="stack-seg" style="width:99%;background:#f54545"></span><span class="stack-seg" style="width:1%;background:#4a9dff"></span></div>
+          <div class="subsection-title">Author age (at time of writing)</div>
+          <div data-view-wins hidden>
+          <div class="stack-bar"><span class="stack-seg" style="width:8%;background:#f54545"></span><span class="stack-seg" style="width:25%;background:#4a9dff"></span><span class="stack-seg" style="width:22%;background:#9b6bff"></span><span class="stack-seg" style="width:6%;background:#5a6178"></span><span class="stack-seg" style="width:2%;background:#f54545"></span><span class="stack-seg" style="width:2%;background:#4a9dff"></span><span class="stack-seg" style="width:36%;background:#3a3f52"></span></div>
           <ul class="stack-legend">
-        <li><span class="stack-dot" style="background:#f54545"></span>Adult <span class="stack-count">122 (99%)</span></li>
-        <li><span class="stack-dot" style="background:#4a9dff"></span>YA <span class="stack-count">1 (1%)</span></li>
-        <li><span class="stack-dot" style="background:#9b6bff"></span>Middle Grade <span class="stack-count">0 (0%)</span></li>
-        <li><span class="stack-dot" style="background:#3a3f52"></span>Unknown <span class="stack-count">0 (0%)</span></li>
+        <li><span class="stack-dot" style="background:#f54545"></span>20s <span class="stack-count">10 (8%)</span></li>
+        <li><span class="stack-dot" style="background:#4a9dff"></span>30s <span class="stack-count">31 (25%)</span></li>
+        <li><span class="stack-dot" style="background:#9b6bff"></span>40s <span class="stack-count">27 (22%)</span></li>
+        <li><span class="stack-dot" style="background:#5a6178"></span>50s <span class="stack-count">7 (6%)</span></li>
+        <li><span class="stack-dot" style="background:#f54545"></span>60s <span class="stack-count">2 (2%)</span></li>
+        <li><span class="stack-dot" style="background:#4a9dff"></span>70+ <span class="stack-count">2 (2%)</span></li>
+        <li><span class="stack-dot" style="background:#3a3f52"></span>Unknown <span class="stack-count">44 (36%)</span></li>
           </ul>
           </div>
-          <div data-view-wins hidden>
-          <div class="stack-bar"><span class="stack-seg" style="width:100%;background:#f54545"></span></div>
+          <div data-view-noms>
+          <div class="stack-bar"><span class="stack-seg" style="width:6%;background:#f54545"></span><span class="stack-seg" style="width:36%;background:#4a9dff"></span><span class="stack-seg" style="width:12%;background:#9b6bff"></span><span class="stack-seg" style="width:6%;background:#5a6178"></span><span class="stack-seg" style="width:3%;background:#4a9dff"></span><span class="stack-seg" style="width:36%;background:#3a3f52"></span></div>
           <ul class="stack-legend">
-        <li><span class="stack-dot" style="background:#f54545"></span>Adult <span class="stack-count">33 (100%)</span></li>
-        <li><span class="stack-dot" style="background:#4a9dff"></span>YA <span class="stack-count">0 (0%)</span></li>
-        <li><span class="stack-dot" style="background:#9b6bff"></span>Middle Grade <span class="stack-count">0 (0%)</span></li>
-        <li><span class="stack-dot" style="background:#3a3f52"></span>Unknown <span class="stack-count">0 (0%)</span></li>
+        <li><span class="stack-dot" style="background:#f54545"></span>20s <span class="stack-count">2 (6%)</span></li>
+        <li><span class="stack-dot" style="background:#4a9dff"></span>30s <span class="stack-count">12 (36%)</span></li>
+        <li><span class="stack-dot" style="background:#9b6bff"></span>40s <span class="stack-count">4 (12%)</span></li>
+        <li><span class="stack-dot" style="background:#5a6178"></span>50s <span class="stack-count">2 (6%)</span></li>
+        <li><span class="stack-dot" style="background:#f54545"></span>60s <span class="stack-count">0 (0%)</span></li>
+        <li><span class="stack-dot" style="background:#4a9dff"></span>70+ <span class="stack-count">1 (3%)</span></li>
+        <li><span class="stack-dot" style="background:#3a3f52"></span>Unknown <span class="stack-count">12 (36%)</span></li>
           </ul>
           </div>
         </div>
@@ -554,7 +571,7 @@
       <div class="panel panel-grid panel-grid-4">
         <div>
           <div class="subsection-title">Repeat authors (2+ picks)</div>
-          <ul class="bar-list" data-view-noms>
+          <ul class="bar-list" data-view-wins hidden>
         <li class="bar-row">
           <span class="bar-label">Shirley Jackson</span>
           <span class="bar-track"><span class="bar-fill" style="width:100%"></span></span>
@@ -596,7 +613,7 @@
           <span class="bar-count">2</span>
         </li>
           </ul>
-          <ul class="bar-list" data-view-wins hidden>
+          <ul class="bar-list" data-view-noms>
         <li class="bar-row">
           <span class="bar-label">Clive Barker</span>
           <span class="bar-track"><span class="bar-fill" style="width:100%"></span></span>
@@ -606,7 +623,7 @@
         </div>
         <div>
           <div class="subsection-title">Gender</div>
-          <div data-view-noms>
+          <div data-view-wins hidden>
           <div class="stack-bar"><span class="stack-seg" style="width:28%;background:#f54545"></span><span class="stack-seg" style="width:63%;background:#4a9dff"></span><span class="stack-seg" style="width:10%;background:#3a3f52"></span></div>
           <ul class="stack-legend">
         <li><span class="stack-dot" style="background:#f54545"></span>Woman <span class="stack-count">34 (28%)</span></li>
@@ -615,7 +632,7 @@
         <li><span class="stack-dot" style="background:#3a3f52"></span>Unknown <span class="stack-count">12 (10%)</span></li>
           </ul>
           </div>
-          <div data-view-wins hidden>
+          <div data-view-noms>
           <div class="stack-bar"><span class="stack-seg" style="width:27%;background:#f54545"></span><span class="stack-seg" style="width:61%;background:#4a9dff"></span><span class="stack-seg" style="width:12%;background:#3a3f52"></span></div>
           <ul class="stack-legend">
         <li><span class="stack-dot" style="background:#f54545"></span>Woman <span class="stack-count">9 (27%)</span></li>
@@ -626,39 +643,39 @@
           </div>
         </div>
         <div>
-          <div class="subsection-title">LGBTQ+</div>
-          <div data-view-noms>
-          <div class="stack-bar"><span class="stack-seg" style="width:9%;background:#f54545"></span><span class="stack-seg" style="width:91%;background:#3a3f52"></span></div>
-          <ul class="stack-legend">
-        <li><span class="stack-dot" style="background:#f54545"></span>LGBTQ+ <span class="stack-count">11 (9%)</span></li>
-        <li><span class="stack-dot" style="background:#4a9dff"></span>Not <span class="stack-count">0 (0%)</span></li>
-        <li><span class="stack-dot" style="background:#3a3f52"></span>Unknown <span class="stack-count">112 (91%)</span></li>
-          </ul>
-          </div>
+          <div class="subsection-title">LGBTQIA+</div>
           <div data-view-wins hidden>
           <div class="stack-bar"><span class="stack-seg" style="width:9%;background:#f54545"></span><span class="stack-seg" style="width:91%;background:#3a3f52"></span></div>
           <ul class="stack-legend">
-        <li><span class="stack-dot" style="background:#f54545"></span>LGBTQ+ <span class="stack-count">3 (9%)</span></li>
-        <li><span class="stack-dot" style="background:#4a9dff"></span>Not <span class="stack-count">0 (0%)</span></li>
+        <li><span class="stack-dot" style="background:#f54545"></span>LGBTQIA+ <span class="stack-count">11 (9%)</span></li>
+        <li><span class="stack-dot" style="background:#4a9dff"></span>Not publicly LGBTQIA+ <span class="stack-count">0 (0%)</span></li>
+        <li><span class="stack-dot" style="background:#3a3f52"></span>Unknown <span class="stack-count">112 (91%)</span></li>
+          </ul>
+          </div>
+          <div data-view-noms>
+          <div class="stack-bar"><span class="stack-seg" style="width:9%;background:#f54545"></span><span class="stack-seg" style="width:91%;background:#3a3f52"></span></div>
+          <ul class="stack-legend">
+        <li><span class="stack-dot" style="background:#f54545"></span>LGBTQIA+ <span class="stack-count">3 (9%)</span></li>
+        <li><span class="stack-dot" style="background:#4a9dff"></span>Not publicly LGBTQIA+ <span class="stack-count">0 (0%)</span></li>
         <li><span class="stack-dot" style="background:#3a3f52"></span>Unknown <span class="stack-count">30 (91%)</span></li>
           </ul>
           </div>
         </div>
         <div>
           <div class="subsection-title">BIPOC</div>
-          <div data-view-noms>
+          <div data-view-wins hidden>
           <div class="stack-bar"><span class="stack-seg" style="width:7%;background:#f54545"></span><span class="stack-seg" style="width:93%;background:#3a3f52"></span></div>
           <ul class="stack-legend">
         <li><span class="stack-dot" style="background:#f54545"></span>BIPOC <span class="stack-count">9 (7%)</span></li>
-        <li><span class="stack-dot" style="background:#4a9dff"></span>Not <span class="stack-count">0 (0%)</span></li>
+        <li><span class="stack-dot" style="background:#4a9dff"></span>Not BIPOC <span class="stack-count">0 (0%)</span></li>
         <li><span class="stack-dot" style="background:#3a3f52"></span>Unknown <span class="stack-count">114 (93%)</span></li>
           </ul>
           </div>
-          <div data-view-wins hidden>
+          <div data-view-noms>
           <div class="stack-bar"><span class="stack-seg" style="width:6%;background:#f54545"></span><span class="stack-seg" style="width:94%;background:#3a3f52"></span></div>
           <ul class="stack-legend">
         <li><span class="stack-dot" style="background:#f54545"></span>BIPOC <span class="stack-count">2 (6%)</span></li>
-        <li><span class="stack-dot" style="background:#4a9dff"></span>Not <span class="stack-count">0 (0%)</span></li>
+        <li><span class="stack-dot" style="background:#4a9dff"></span>Not BIPOC <span class="stack-count">0 (0%)</span></li>
         <li><span class="stack-dot" style="background:#3a3f52"></span>Unknown <span class="stack-count">31 (94%)</span></li>
           </ul>
           </div>
@@ -670,17 +687,57 @@
       <div class="section-title">Repeat nominees</div>
       <p class="not-filtered-note">Not affected by the toggle above — these are lifetime nomination counts, with a Won tag if it ever took the month.</p>
       <div class="panel">
-        <ul class="rank-list">
-        <li><span class="rank-title"><a href="polls.html#2025-06-book">The Haunting of Hill House</a></span><span class="rank-count">3× nominated</span></li>
-        <li><span class="rank-title"><a href="polls.html#2025-08-book">The Troop</a></span><span class="rank-count">3× nominated</span></li>
-        <li><span class="rank-title"><a href="polls.html#2025-05-book">Bat Eater and Other Names for Cora Zeng</a></span><span class="rank-count">2× nominated</span></li>
-        <li><span class="rank-title"><a href="polls.html#2025-08-short_story">Cabal</a> <span class="won-tag">Won</span></span><span class="rank-count">2× nominated</span></li>
-        <li><span class="rank-title"><a href="polls.html#2025-08-short_story">Carmilla</a> <span class="won-tag">Won</span></span><span class="rank-count">2× nominated</span></li>
-        <li><span class="rank-title"><a href="polls.html#2026-04-book">Let the Right One In</a></span><span class="rank-count">2× nominated</span></li>
-        <li><span class="rank-title"><a href="polls.html#2025-12-book">Our Share of Night</a></span><span class="rank-count">2× nominated</span></li>
-        <li><span class="rank-title"><a href="polls.html#2025-06-book">Ring</a> <span class="won-tag">Won</span></span><span class="rank-count">2× nominated</span></li>
-        <li><span class="rank-title"><a href="polls.html#2025-10-short_story">Skeleton</a></span><span class="rank-count">2× nominated</span></li>
-        <li><span class="rank-title"><a href="polls.html#2025-04-book">Slewfoot: A Tale of Bewitchery</a> <span class="won-tag">Won</span></span><span class="rank-count">2× nominated</span></li>
+        <ul class="bar-list snub-list">
+        <li class="bar-row">
+          <span class="bar-label"><a href="polls.html#2025-06-book">The Haunting of Hill House</a></span>
+          <span class="bar-track"><span class="bar-fill" style="width:100%"></span></span>
+          <span class="bar-count">3×</span>
+        </li>
+        <li class="bar-row">
+          <span class="bar-label"><a href="polls.html#2025-08-book">The Troop</a></span>
+          <span class="bar-track"><span class="bar-fill" style="width:100%"></span></span>
+          <span class="bar-count">3×</span>
+        </li>
+        <li class="bar-row">
+          <span class="bar-label"><a href="polls.html#2025-05-book">Bat Eater and Other Names for Cora Zeng</a></span>
+          <span class="bar-track"><span class="bar-fill" style="width:67%"></span></span>
+          <span class="bar-count">2×</span>
+        </li>
+        <li class="bar-row">
+          <span class="bar-label"><a href="polls.html#2025-08-short_story">Cabal</a> <span class="won-tag">Won</span></span>
+          <span class="bar-track"><span class="bar-fill" style="width:67%"></span></span>
+          <span class="bar-count">2×</span>
+        </li>
+        <li class="bar-row">
+          <span class="bar-label"><a href="polls.html#2025-08-short_story">Carmilla</a> <span class="won-tag">Won</span></span>
+          <span class="bar-track"><span class="bar-fill" style="width:67%"></span></span>
+          <span class="bar-count">2×</span>
+        </li>
+        <li class="bar-row">
+          <span class="bar-label"><a href="polls.html#2026-04-book">Let the Right One In</a></span>
+          <span class="bar-track"><span class="bar-fill" style="width:67%"></span></span>
+          <span class="bar-count">2×</span>
+        </li>
+        <li class="bar-row">
+          <span class="bar-label"><a href="polls.html#2025-12-book">Our Share of Night</a></span>
+          <span class="bar-track"><span class="bar-fill" style="width:67%"></span></span>
+          <span class="bar-count">2×</span>
+        </li>
+        <li class="bar-row">
+          <span class="bar-label"><a href="polls.html#2025-06-book">Ring</a> <span class="won-tag">Won</span></span>
+          <span class="bar-track"><span class="bar-fill" style="width:67%"></span></span>
+          <span class="bar-count">2×</span>
+        </li>
+        <li class="bar-row">
+          <span class="bar-label"><a href="polls.html#2025-10-short_story">Skeleton</a></span>
+          <span class="bar-track"><span class="bar-fill" style="width:67%"></span></span>
+          <span class="bar-count">2×</span>
+        </li>
+        <li class="bar-row">
+          <span class="bar-label"><a href="polls.html#2025-04-book">Slewfoot: A Tale of Bewitchery</a> <span class="won-tag">Won</span></span>
+          <span class="bar-track"><span class="bar-fill" style="width:67%"></span></span>
+          <span class="bar-count">2×</span>
+        </li>
         </ul>
       </div>
     </div>
