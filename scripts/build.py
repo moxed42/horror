@@ -130,7 +130,7 @@ def render_page(month: dict, page_url: str, favicon_href: str, nav_block: str = 
             f'        <div class="legend-row">\n'
             f'          <span class="badge badge-theme">\n'
             f'            <span class="badge-label">Theme fit</span>\n'
-            f'            1–5 · How intensely the pick leans into the theme.\n'
+            f'            1–5 · Fit to the theme.\n'
             f'          </span>\n'
             f'        </div>\n'
         )
