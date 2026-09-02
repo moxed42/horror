@@ -85,5 +85,53 @@
       "warnings": "Blood/gore, death, violence, murder, themes of exploitation and class abuse.",
       "is_winner": false
     }
+  ],
+  "short_works": [
+    {
+      "type": "Short story",
+      "title": "The V*mpire",
+      "author": "P.H. Lee (2021)",
+      "pages": "~20 pages",
+      "debut_label": "Debut book: No",
+      "avg_rating": "No reliable rating — checked Goodreads/StoryGraph/Amazon/B&N",
+      "theme_fit": 4,
+      "cw_tier": "moderate",
+      "cw_label": "Heavy",
+      "vibe": "A wry, formally inventive short story that plays with vampire tropes and the act of storytelling itself.",
+      "summary": "Structured as a self-aware, footnote-laden narrative, the story follows a small town's uneasy relationship with a local vampire while repeatedly interrupting itself to interrogate its own telling. It uses the vampire premise as a springboard for a stranger meditation on narrative, community, and appetite.",
+      "origin": "United States",
+      "warnings": "Violence, death, disturbing imagery, metafictional/unconventional structure."
+    },
+    {
+      "type": "Short story",
+      "title": "Carmilla",
+      "author": "Sheridan Le Fanu (1872)",
+      "pages": "~108 pages",
+      "debut_label": "Debut book: No",
+      "avg_rating": "3.9★",
+      "theme_fit": 5,
+      "cw_tier": "moderate",
+      "cw_label": "Heavy",
+      "vibe": "The original lesbian vampire novella, predating Dracula by decades and dripping with gothic sexual tension.",
+      "summary": "Isolated in a remote Austrian castle, Laura is captivated by Carmilla, a strange and beautiful young guest who arrives after a carriage accident. As their intense friendship deepens, Laura grows increasingly ill and haunted by nightmares, slowly realizing what — and who — Carmilla really is.",
+      "origin": "Ireland",
+      "warnings": "Vampirism/blood-drinking, death, illness, predatory undertones, period-typical treatment of female sexuality and class.",
+      "is_winner": true
+    },
+    {
+      "type": "Short story",
+      "title": "The Cloak",
+      "author": "Robert Bloch (1939)",
+      "pages": "~25 pages",
+      "debut_label": "Debut book: No",
+      "avg_rating": "3.7★",
+      "theme_fit": 4,
+      "cw_tier": "mild",
+      "cw_label": "Mild",
+      "vibe": "A darkly comic pulp-era tale about a Halloween costume shop cloak that turns its wearer into an actual vampire.",
+      "summary": "Desperate for a last-minute Halloween costume, a man rents an unusually authentic-looking vampire cloak from a strange little shop. As he wears it to a party, the cloak's influence starts turning his campy costume into something far more literal — and far less controllable.",
+      "origin": "United States",
+      "warnings": "Violence, death, dark comedic horror, transformation themes."
+    }
   ]
 }

@@ -64,5 +64,37 @@
       "warnings": "Graphic violence and gore, body horror, mass murder, psychological manipulation, mob violence.",
       "is_winner": true
     }
+  ],
+  "short_works": [
+    {
+      "type": "Short story",
+      "title": "Things Have Gotten Worse Since We Last Spoke",
+      "author": "Eric LaRocca (2021)",
+      "pages": "~112 pages",
+      "debut_label": "Debut book: No",
+      "avg_rating": "3.7★",
+      "cw_tier": "extreme",
+      "cw_label": "Extreme",
+      "vibe": "A viral, deeply disturbing epistolary novella about an online relationship that spirals into escalating psychological and physical horror.",
+      "summary": "Told through emails and chat logs, the story follows Agnes and Zoe's online relationship after Agnes buys a strange antique apple peeler from Zoe. What begins as flirtation curdles into an increasingly extreme, mutually consuming psychological and physical descent.",
+      "origin": "United States",
+      "warnings": "Extreme body horror and self-harm, graphic sexual content, psychological manipulation and abuse, animal death, suicide.",
+      "is_winner": false
+    },
+    {
+      "type": "Short story",
+      "title": "The Monster of Elendhaven",
+      "author": "Jennifer Giesbrecht (2019)",
+      "pages": "~176 pages",
+      "debut_label": "Debut book: No",
+      "avg_rating": "3.5★",
+      "cw_tier": "extreme",
+      "cw_label": "Extreme",
+      "vibe": "A grim, atmospheric novella about a plague-scarred port city, a nameless killer, and the sickly sorcerer who takes him in.",
+      "summary": "In the decaying, plague-ravaged city of Elendhaven, a mysterious and nearly unkillable man becomes the tool of a bitter, ailing sorcerer bent on revenge against the city's elite. Their dark partnership escalates into a violent, intimate horror story about power, obsession, and rot.",
+      "origin": "Canada",
+      "warnings": "Extreme graphic violence, gore, body horror, murder, disease/plague themes.",
+      "is_winner": true
+    }
   ]
 }
