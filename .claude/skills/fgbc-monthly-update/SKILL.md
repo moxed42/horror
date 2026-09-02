@@ -155,5 +155,11 @@ which short story won:
   when it isn't — flag estimates plainly. This book club uses content
   warnings to help people opt out of things that would hurt them; a wrong
   or fabricated warning is worse than an honest "couldn't verify."
+- If you can't find a reliable page count, debut-novel status, avg rating,
+  or origin country after checking Goodreads/StoryGraph/Amazon/B&N, just
+  put "N/A" in that field — don't write out a "couldn't find this"
+  explanation in the field itself (it renders awkwardly on the card). If
+  it's a field worth getting right (e.g. content warnings), ask the user
+  instead of guessing or leaving it N/A.
 - Keep Discord output free of links/citations per the original workflow —
   those belong in your research process, not the final pasted text.
