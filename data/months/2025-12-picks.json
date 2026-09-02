@@ -10,29 +10,31 @@
       "author": "Jeff VanderMeer (2014)",
       "pages": "~195 pages",
       "debut_label": "Debut novel: No",
-      "avg_rating": "3.8★",
+      "avg_rating": "3.8\u2605",
       "cw_tier": "extreme",
       "cw_label": "Extreme",
       "vibe": "A hypnotic, unsettling cosmic-horror novel about an expedition into a mysterious zone that unmakes everyone who enters it.",
-      "summary": "A team of four women — a biologist, psychologist, surveyor, and anthropologist — form the twelfth expedition into Area X, a region cut off from the rest of the world where every previous expedition ended in disaster. As the biologist narrates their descent into the zone's increasingly alien logic, the novel builds a slow, disorienting dread around identity, transformation, and what the land is actually doing to them.",
+      "summary": "A team of four women \u2014 a biologist, psychologist, surveyor, and anthropologist \u2014 form the twelfth expedition into Area X, a region cut off from the rest of the world where every previous expedition ended in disaster. As the biologist narrates their descent into the zone's increasingly alien logic, the novel builds a slow, disorienting dread around identity, transformation, and what the land is actually doing to them.",
       "origin": "United States",
       "warnings": "Body horror, suicide, gun violence, death, cancer, alcoholism, psychological horror.",
-      "is_winner": true
+      "is_winner": true,
+      "book_theme": "Cosmic Horror"
     },
     {
       "type": "Novel",
       "title": "Our Share of Night",
-      "author": "Mariana Enríquez (2019, tr. 2022)",
+      "author": "Mariana Enr\u00edquez (2019, tr. 2022)",
       "pages": "~608 pages",
       "debut_label": "Debut novel: No",
-      "avg_rating": "4.1★",
+      "avg_rating": "4.1\u2605",
       "cw_tier": "extreme",
       "cw_label": "Extreme",
       "vibe": "A sprawling, decades-spanning Argentine horror epic about a father and son trapped inside a monstrous, occult family cult.",
       "summary": "Juan, a medium capable of channeling something unspeakable that lives behind reality, tries to protect his young son Gaspar from the wealthy, murderous occult society that has used their family as living conduits for generations. Set against the backdrop of Argentina's dictatorship-era violence, it moves between road trip, family drama, and cosmic/body horror across a huge timeline.",
       "origin": "Argentina",
       "warnings": "Graphic violence, torture, child endangerment, body horror, animal sacrifice, political violence/dictatorship-era atrocities, death of parents, occult ritual abuse.",
-      "is_winner": false
+      "is_winner": false,
+      "book_theme": "Occult Horror"
     },
     {
       "type": "Novel",
@@ -40,14 +42,15 @@
       "author": "Andrew Van Wey (2022)",
       "pages": "~394 pages",
       "debut_label": "Debut novel: No",
-      "avg_rating": "4.2★",
+      "avg_rating": "4.2\u2605",
       "cw_tier": "extreme",
       "cw_label": "Extreme",
-      "vibe": "A cosmic-horror coming-of-age story in the vein of It and Stranger Things — a grieving girl and her uncle up against an ancient evil.",
+      "vibe": "A cosmic-horror coming-of-age story in the vein of It and Stranger Things \u2014 a grieving girl and her uncle up against an ancient evil.",
       "summary": "After tragedy upends thirteen-year-old Zelda Ruiz's life, she and her uncle Mark relocate to the small town of Greywood Bay hoping to rebuild. What they find instead is a community shaped for generations by something ancient and malevolent lurking just beneath the surface.",
       "origin": "United States",
       "warnings": "Death of a family member, grief/trauma, violence, cosmic horror themes, child endangerment.",
-      "is_winner": false
+      "is_winner": false,
+      "book_theme": "Cosmic Horror"
     },
     {
       "type": "Novel",
@@ -55,30 +58,32 @@
       "author": "T. Kingfisher (2020)",
       "pages": "~341 pages",
       "debut_label": "Debut novel: No",
-      "avg_rating": "3.7★",
+      "avg_rating": "3.7\u2605",
       "cw_tier": "extreme",
       "cw_label": "Extreme",
       "vibe": "A cozy small-town museum hides a hole into a genuinely wrong other-world in this modern Algernon Blackwood homage.",
       "summary": "Newly divorced Kara moves into her uncle's oddball taxidermy museum, and while patching a strange hole in the wall, she and a friend step through into a world of endless, hostile willow trees. What starts whimsical curdles fast into cosmic dread as they try to find their way back before whatever lives out there notices them.",
       "origin": "United States",
       "warnings": "Body horror, gore, torture, death of a child, animal death, gun violence, cannibalism, forced institutionalization, ableism.",
-      "is_winner": false
+      "is_winner": false,
+      "book_theme": "Cosmic Horror"
     }
   ],
   "short_works": [
     {
       "type": "Short story",
       "title": "Ring Shout",
-      "author": "P. Djèlí Clark (2020)",
+      "author": "P. Dj\u00e8l\u00ed Clark (2020)",
       "pages": "~192 pages",
       "debut_label": "Debut book: No",
-      "avg_rating": "4.3★",
+      "avg_rating": "4.3\u2605",
       "cw_tier": "extreme",
       "cw_label": "Extreme",
       "vibe": "A furious, propulsive alt-history novella where the KKK are literally demons wearing human skin, and a Black monster-hunter is out to stop them.",
-      "summary": "Set in 1920s Macon, Georgia, monster slayer Maryse Boudreaux hunts Ku Kluxes — hate-fueled demons who crossed into our world through a rift opened by the film Birth of a Nation. Armed with a magic sword and her friends, Maryse wages open war on the Klan and the ancient evil animating its worst members.",
+      "summary": "Set in 1920s Macon, Georgia, monster slayer Maryse Boudreaux hunts Ku Kluxes \u2014 hate-fueled demons who crossed into our world through a rift opened by the film Birth of a Nation. Armed with a magic sword and her friends, Maryse wages open war on the Klan and the ancient evil animating its worst members.",
       "origin": "United States",
-      "warnings": "Racism and racial slurs, lynching, arson, body horror, dismemberment, gore, torture (implied), sexual assault (referenced), animal cruelty."
+      "warnings": "Racism and racial slurs, lynching, arson, body horror, dismemberment, gore, torture (implied), sexual assault (referenced), animal cruelty.",
+      "book_theme": "Alt-History Horror"
     },
     {
       "type": "Short story",
@@ -86,13 +91,14 @@
       "author": "Robert W. Chambers (1895)",
       "pages": "~20 pages",
       "debut_label": "Debut book: No",
-      "avg_rating": "4.0★",
+      "avg_rating": "4.0\u2605",
       "cw_tier": "moderate",
       "cw_label": "Heavy",
-      "vibe": "The eerie proto-cosmic-horror story behind The King in Yellow mythos — a painter, his model, and a churchyard watchman who shouldn't exist.",
+      "vibe": "The eerie proto-cosmic-horror story behind The King in Yellow mythos \u2014 a painter, his model, and a churchyard watchman who shouldn't exist.",
       "summary": "An artist becomes fixated on a disturbing watchman with a corpse-like face who keeps appearing outside his studio, while his model reveals unsettling premonitions about his death. As both become drawn toward a forbidden play and its titular \"Yellow Sign,\" reality starts to come apart around them.",
       "origin": "United States",
-      "warnings": "Death, psychological horror, disturbing imagery, themes of forbidden/maddening knowledge."
+      "warnings": "Death, psychological horror, disturbing imagery, themes of forbidden/maddening knowledge.",
+      "book_theme": "Cosmic Horror"
     },
     {
       "type": "Short story",
@@ -100,14 +106,15 @@
       "author": "Victor LaValle (2016)",
       "pages": "~149 pages",
       "debut_label": "Debut book: No",
-      "avg_rating": "3.8★",
+      "avg_rating": "3.8\u2605",
       "cw_tier": "extreme",
       "cw_label": "Extreme",
       "vibe": "A blistering Lovecraft retelling (The Horror at Red Hook) centering the Black hustler protagonists Lovecraft's original erased and demonized.",
-      "summary": "Charles Thomas Tester, a small-time con man and musician in 1920s Harlem, gets pulled into a wealthy occultist's dangerous scheme involving forbidden texts and something ancient beneath New York. After a brutal act of racist police violence, Tommy's path toward vengeance and cosmic power converges directly with Lovecraft's original, deeply racist source story — retold from the other side.",
+      "summary": "Charles Thomas Tester, a small-time con man and musician in 1920s Harlem, gets pulled into a wealthy occultist's dangerous scheme involving forbidden texts and something ancient beneath New York. After a brutal act of racist police violence, Tommy's path toward vengeance and cosmic power converges directly with Lovecraft's original, deeply racist source story \u2014 retold from the other side.",
       "origin": "United States",
       "warnings": "Racism and racial violence, police brutality, death of a parent, torture, occult/body horror, gore.",
-      "is_winner": true
+      "is_winner": true,
+      "book_theme": "Cosmic Horror"
     },
     {
       "type": "Short story",
@@ -115,13 +122,14 @@
       "author": "qntm (2020)",
       "pages": "~200 pages",
       "debut_label": "Debut book: No",
-      "avg_rating": "4.2★",
+      "avg_rating": "4.2\u2605",
       "cw_tier": "moderate",
       "cw_label": "Heavy",
       "vibe": "A mind-bending sci-fi horror novel about a team fighting monsters that erase themselves from memory the moment you notice them.",
-      "summary": "The Antimemetics Division fights entities that are inherently unmemorable — creatures and ideas that actively resist being remembered, forcing the team to constantly relearn a war most of them can't recall fighting. Told in fragmented vignettes, it builds a genuinely unsettling take on memory, identity, and institutional horror.",
+      "summary": "The Antimemetics Division fights entities that are inherently unmemorable \u2014 creatures and ideas that actively resist being remembered, forcing the team to constantly relearn a war most of them can't recall fighting. Told in fragmented vignettes, it builds a genuinely unsettling take on memory, identity, and institutional horror.",
       "origin": "United Kingdom",
-      "warnings": "Memory loss/erasure themes, psychological horror, body horror (referenced), existential dread."
+      "warnings": "Memory loss/erasure themes, psychological horror, body horror (referenced), existential dread.",
+      "book_theme": "Sci-Fi Horror"
     }
   ]
 }
