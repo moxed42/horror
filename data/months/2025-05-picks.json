@@ -18,7 +18,8 @@
       "origin": "United States",
       "warnings": "Human trafficking, self-harm (brief), graphic body horror, sexual content, gun violence, misogyny, religious bigotry.",
       "is_winner": false,
-      "book_theme": "Possession"
+      "book_theme": "Possession",
+      "age_category": "Adult"
     },
     {
       "type": "Novel",
@@ -34,7 +35,8 @@
       "origin": "United States",
       "warnings": "Psychological manipulation, confinement, surveillance/loss of autonomy themes, tense/claustrophobic scenes.",
       "is_winner": true,
-      "book_theme": "Techno-Horror"
+      "book_theme": "Techno-Horror",
+      "age_category": "Adult"
     },
     {
       "type": "Novel",
@@ -50,7 +52,8 @@
       "origin": "United States",
       "warnings": "Body horror, gore, torture, death of a child, animal death, gun violence, cannibalism, forced institutionalization, ableism.",
       "is_winner": false,
-      "book_theme": "Cosmic Horror"
+      "book_theme": "Cosmic Horror",
+      "age_category": "Adult"
     },
     {
       "type": "Novel",
@@ -66,7 +69,8 @@
       "origin": "United States",
       "warnings": "Graphic violence and gore, anti-Asian racism/hate violence, animal death, death of a sibling, psychological distress.",
       "is_winner": false,
-      "book_theme": "Grief Horror"
+      "book_theme": "Grief Horror",
+      "age_category": "Adult"
     }
   ]
 }

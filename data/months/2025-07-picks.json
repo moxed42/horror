@@ -18,7 +18,8 @@
       "origin": "United Kingdom",
       "warnings": "Graphic sex scene, explicit language, self-harm and suicidal ideation (visceral depiction), body horror, gore, misogyny, violence.",
       "is_winner": true,
-      "book_theme": "Folk Horror"
+      "book_theme": "Folk Horror",
+      "age_category": "Adult"
     },
     {
       "type": "Novel",
@@ -34,7 +35,8 @@
       "origin": "United States",
       "warnings": "Domestic violence, dementia, grief, psychological distress, references to child neglect.",
       "is_winner": false,
-      "book_theme": "Haunted House"
+      "book_theme": "Haunted House",
+      "age_category": "Adult"
     },
     {
       "type": "Novel",
@@ -50,7 +52,8 @@
       "origin": "United States",
       "warnings": "Graphic violence and gore, anti-Asian racism/hate violence, animal death, death of a sibling, psychological distress.",
       "is_winner": false,
-      "book_theme": "Grief Horror"
+      "book_theme": "Grief Horror",
+      "age_category": "Adult"
     },
     {
       "type": "Novel",
@@ -66,7 +69,8 @@
       "origin": "United States",
       "warnings": "Child death, body horror, animal death (a pet), violence, themes of parental grief and moral compromise.",
       "is_winner": false,
-      "book_theme": "Apocalyptic Horror"
+      "book_theme": "Apocalyptic Horror",
+      "age_category": "Adult"
     }
   ],
   "short_works": [
@@ -85,7 +89,8 @@
       "warnings": "Psychological horror, postpartum depression and mental illness, medical control/gaslighting, isolation.",
       "is_winner": true,
       "book_theme": "Psychological Horror",
-      "is_hab": true
+      "is_hab": true,
+      "age_category": "Adult"
     }
   ]
 }

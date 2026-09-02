@@ -18,7 +18,8 @@
       "origin": "United States",
       "warnings": "Extreme graphic violence, genocide, racism, child endangerment and death, sexual violence (referenced), animal death.",
       "is_winner": false,
-      "book_theme": "Historical Horror"
+      "book_theme": "Historical Horror",
+      "age_category": "Adult"
     },
     {
       "type": "Novel",
@@ -34,7 +35,8 @@
       "origin": "United States",
       "warnings": "Body horror (aging/transformation), period-typical sexism, mild violence, thematic dread rather than graphic content.",
       "is_winner": false,
-      "book_theme": "Dark Carnival"
+      "book_theme": "Dark Carnival",
+      "age_category": "Adult"
     },
     {
       "type": "Novel",
@@ -50,7 +52,8 @@
       "origin": "United States",
       "warnings": "Graphic violence against a child, blasphemy/religious desecration, disturbing sexual content, profanity, body horror.",
       "is_winner": true,
-      "book_theme": "Possession"
+      "book_theme": "Possession",
+      "age_category": "Adult"
     },
     {
       "type": "Novel",
@@ -66,7 +69,8 @@
       "origin": "United States",
       "warnings": "Suicide (by hanging and by car collision), suicidal ideation, mental illness/psychosis, gaslighting, death of a parent (off-page).",
       "is_winner": false,
-      "book_theme": "Haunted House"
+      "book_theme": "Haunted House",
+      "age_category": "Adult"
     }
   ],
   "short_works": [
@@ -84,7 +88,8 @@
       "origin": "United States",
       "warnings": "Stoning/mob violence, animal cruelty (referenced), death.",
       "book_theme": "Folk Horror",
-      "is_hab": true
+      "is_hab": true,
+      "age_category": "Adult"
     },
     {
       "type": "Short story",
@@ -99,7 +104,8 @@
       "summary": "A woman narrates her life and marriage, folk-tale style, centered on a green ribbon tied around her neck that her husband is never permitted to touch. Interweaving classic ghost-story tropes with a story about bodily autonomy and consent, it builds to the ribbon's inevitable, devastating unraveling.",
       "origin": "United States",
       "warnings": "Sexual content and sexual abuse, body horror, medical content/childbirth, domestic abuse, brief cannibalism reference.",
-      "book_theme": "Body Horror"
+      "book_theme": "Body Horror",
+      "age_category": "Adult"
     },
     {
       "type": "Short story",
@@ -116,7 +122,8 @@
       "warnings": "Sexual predation/grooming of a minor, psychological threat and coercion, implied violence.",
       "is_winner": true,
       "book_theme": "Psychological Horror",
-      "is_hab": true
+      "is_hab": true,
+      "age_category": "Adult"
     }
   ]
 }

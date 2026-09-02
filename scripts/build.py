@@ -262,32 +262,76 @@ def _parse_pages(pages: str) -> int | None:
     return int(m.group(1).replace(",", ""))
 
 
+def _aggregate_books(all_books: list, authors: dict) -> dict:
+    """Aggregate origin/CW/author/age/diversity/page stats over a list of
+    (kind, book) tuples. Called once for all nominations and once for
+    winners only, so the stats page toggle can filter every section."""
+    from collections import defaultdict
+
+    origin_counts = defaultdict(int)
+    cw_counts = defaultdict(int)
+    author_counts = defaultdict(int)
+    age_counts = defaultdict(int)
+    gender_counts = defaultdict(int)
+    lgbtq_counts = defaultdict(int)
+    bipoc_counts = defaultdict(int)
+    pages_by_kind = {"novel": [], "short": []}
+
+    for kind, book in all_books:
+        origin_counts[book.get("origin", "N/A")] += 1
+        cw_counts[book.get("cw_tier", "unknown")] += 1
+        author_counts[_base_author_name(book["author"])] += 1
+        age_counts[book.get("age_category", "Unknown")] += 1
+        info = authors.get(_base_author_name(book["author"]), {})
+        gender_counts[info.get("gender", "unknown")] += 1
+        lgbtq_counts[info.get("lgbtq", "unknown")] += 1
+        bipoc_counts[info.get("bipoc", "unknown")] += 1
+        pages = _parse_pages(book.get("pages", ""))
+        if pages:
+            pages_by_kind[kind].append((book["title"], pages))
+
+    def page_stats(pages):
+        if not pages:
+            return {"avg": None, "longest": None, "shortest": None}
+        return {
+            "avg": round(sum(p for _, p in pages) / len(pages)),
+            "longest": max(pages, key=lambda t: t[1]),
+            "shortest": min(pages, key=lambda t: t[1]),
+        }
+
+    return {
+        "top_origins": sorted(origin_counts.items(), key=lambda t: -t[1])[:8],
+        "top_authors": sorted(
+            ((a, c) for a, c in author_counts.items() if c >= 2), key=lambda t: -t[1]
+        )[:8],
+        "cw_counts": dict(cw_counts),
+        "age_counts": dict(age_counts),
+        "gender_counts": dict(gender_counts),
+        "lgbtq_counts": dict(lgbtq_counts),
+        "bipoc_counts": dict(bipoc_counts),
+        "novel_pages": page_stats(pages_by_kind["novel"]),
+        "short_pages": page_stats(pages_by_kind["short"]),
+    }
+
+
 def compute_stats() -> dict:
     from collections import defaultdict
 
     month_files = sorted(MONTHS_DIR.glob("*.json"))
     months = [json.loads(p.read_text()) for p in month_files]
+    authors = load_authors()
 
     total_months = len(months)
     title_appearances = defaultdict(int)
     title_ever_won = defaultdict(bool)
-    origin_counts = defaultdict(int)
-    cw_counts = defaultdict(int)
-    author_counts = defaultdict(int)
     hab_titles = set()
-    authors = load_authors()
-
-    gender_noms = defaultdict(int)
-    gender_wins = defaultdict(int)
-    lgbtq_noms = defaultdict(int)
-    lgbtq_wins = defaultdict(int)
-    bipoc_noms = defaultdict(int)
-    bipoc_wins = defaultdict(int)
 
     by_type = {
-        "novel": {"noms": 0, "winners": 0, "pages": []},
-        "short": {"noms": 0, "winners": 0, "pages": []},
+        "novel": {"noms": 0, "winners": 0},
+        "short": {"noms": 0, "winners": 0},
     }
+    all_books = []
+    winning_books = []
 
     for month in months:
         for section, kind in (("novels", "novel"), ("short_works", "short")):
@@ -299,26 +343,11 @@ def compute_stats() -> dict:
                 if is_winner:
                     title_ever_won[book["title"]] = True
                     bucket["winners"] += 1
-                origin_counts[book.get("origin", "N/A")] += 1
-                cw_counts[book.get("cw_tier", "unknown")] += 1
-                author_counts[book["author"]] += 1
                 if book.get("is_hab"):
                     hab_titles.add(book["title"])
-                pages = _parse_pages(book.get("pages", ""))
-                if pages:
-                    bucket["pages"].append((book["title"], pages))
-
-                info = authors.get(_base_author_name(book["author"]), {})
-                gender = info.get("gender", "unknown")
-                lgbtq = info.get("lgbtq", "unknown")
-                bipoc = info.get("bipoc", "unknown")
-                gender_noms[gender] += 1
-                lgbtq_noms[lgbtq] += 1
-                bipoc_noms[bipoc] += 1
+                all_books.append((kind, book))
                 if is_winner:
-                    gender_wins[gender] += 1
-                    lgbtq_wins[lgbtq] += 1
-                    bipoc_wins[bipoc] += 1
+                    winning_books.append((kind, book))
 
     total_nominations = by_type["novel"]["noms"] + by_type["short"]["noms"]
     total_winners = by_type["novel"]["winners"] + by_type["short"]["winners"]
@@ -334,20 +363,6 @@ def compute_stats() -> dict:
         key=lambda t: (-t[1], t[0]),
     )
 
-    top_origins = sorted(origin_counts.items(), key=lambda t: -t[1])[:8]
-    top_authors = sorted(
-        ((a, c) for a, c in author_counts.items() if c >= 2), key=lambda t: -t[1]
-    )[:8]
-
-    def page_stats(pages):
-        if not pages:
-            return {"avg": None, "longest": None, "shortest": None}
-        return {
-            "avg": round(sum(p for _, p in pages) / len(pages)),
-            "longest": max(pages, key=lambda t: t[1]),
-            "shortest": min(pages, key=lambda t: t[1]),
-        }
-
     return {
         "total_months": total_months,
         "total_nominations": total_nominations,
@@ -355,17 +370,10 @@ def compute_stats() -> dict:
         "hab_count": len(hab_titles),
         "hab_titles": sorted(hab_titles),
         "repeat_snubbed": repeat_snubbed,
-        "top_origins": top_origins,
-        "top_authors": top_authors,
-        "cw_counts": dict(cw_counts),
-        "novel": {**by_type["novel"], **page_stats(by_type["novel"]["pages"])},
-        "short": {**by_type["short"], **page_stats(by_type["short"]["pages"])},
-        "gender_noms": dict(gender_noms),
-        "gender_wins": dict(gender_wins),
-        "lgbtq_noms": dict(lgbtq_noms),
-        "lgbtq_wins": dict(lgbtq_wins),
-        "bipoc_noms": dict(bipoc_noms),
-        "bipoc_wins": dict(bipoc_wins),
+        "novel_noms": by_type["novel"]["noms"],
+        "short_noms": by_type["short"]["noms"],
+        "noms": _aggregate_books(all_books, authors),
+        "wins": _aggregate_books(winning_books, authors),
     }
 
 
@@ -398,20 +406,50 @@ def render_stats_page() -> str:
             )
         return "\n".join(rows)
 
+    def diversity_rows(counts: dict, order: list, labels: dict) -> str:
+        pairs = [(labels[k], counts.get(k, 0)) for k in order]
+        return bar_list(pairs, max_items=len(order))
+
+    def page_fact(bucket, key):
+        entry = bucket[key]
+        return f'{entry[0]} ({entry[1]} pages)' if entry else "N/A"
+
+    cw_order = ["mild", "moderate", "extreme"]
+    age_order = ["Adult", "YA", "MG", "Unknown"]
+    age_labels = {"Adult": "Adult", "YA": "YA", "MG": "Middle Grade", "Unknown": "Unknown"}
+    gender_order = ["woman", "man", "nonbinary", "unknown"]
+    gender_labels = {"woman": "Woman", "man": "Man", "nonbinary": "Nonbinary", "unknown": "Unknown"}
+    lgbtq_order = ["yes", "no", "unknown"]
+    lgbtq_labels = {"yes": "Publicly LGBTQ+", "no": "Not publicly LGBTQ+", "unknown": "Unknown"}
+    bipoc_order = ["yes", "no", "unknown"]
+    bipoc_labels = {"yes": "BIPOC", "no": "Not BIPOC", "unknown": "Unknown"}
+
+    def sections_for(agg: dict) -> dict:
+        cw_pairs = [(c.capitalize(), agg["cw_counts"].get(c, 0)) for c in cw_order]
+        return {
+            "origin_rows": bar_list(agg["top_origins"]),
+            "cw_rows": bar_list(cw_pairs, max_items=3),
+            "author_rows": bar_list(agg["top_authors"]),
+            "age_rows": diversity_rows(agg["age_counts"], age_order, age_labels),
+            "gender_rows": diversity_rows(agg["gender_counts"], gender_order, gender_labels),
+            "lgbtq_rows": diversity_rows(agg["lgbtq_counts"], lgbtq_order, lgbtq_labels),
+            "bipoc_rows": diversity_rows(agg["bipoc_counts"], bipoc_order, bipoc_labels),
+            "avg_novel_pages": f'{agg["novel_pages"]["avg"]} pages' if agg["novel_pages"]["avg"] else "N/A",
+            "avg_short_pages": f'{agg["short_pages"]["avg"]} pages' if agg["short_pages"]["avg"] else "N/A",
+            "longest_novel": page_fact(agg["novel_pages"], "longest"),
+            "shortest_novel": page_fact(agg["novel_pages"], "shortest"),
+            "longest_short": page_fact(agg["short_pages"], "longest"),
+            "shortest_short": page_fact(agg["short_pages"], "shortest"),
+        }
+
+    noms = sections_for(stats["noms"])
+    wins = sections_for(stats["wins"])
+
     top_cards = "".join([
         stat_card("Months run", stats["total_months"]),
         stat_card("Total nominations", stats["total_nominations"]),
         stat_card("HAB books nominated", stats["hab_count"]),
     ])
-
-    def type_cards(bucket):
-        return "".join([
-            stat_card("Nominations", bucket["noms"]),
-            stat_card("Avg. pages", f'{bucket["avg"]} pages' if bucket["avg"] else "N/A"),
-        ])
-
-    novel_cards = type_cards(stats["novel"])
-    short_cards = type_cards(stats["short"])
 
     if stats["repeat_snubbed"]:
         snubbed_rows = "\n".join(
@@ -427,50 +465,21 @@ def render_stats_page() -> str:
     else:
         hab_rows = '        <li class="empty">None tagged yet.</li>'
 
-    def page_fact(bucket, key):
-        entry = bucket[key]
-        return f'{entry[0]} ({entry[1]} pages)' if entry else "N/A"
-
-    origin_rows = bar_list(stats["top_origins"])
-    cw_order = ["mild", "moderate", "extreme"]
-    cw_pairs = [(c.capitalize(), stats["cw_counts"].get(c, 0)) for c in cw_order]
-    cw_rows = bar_list(cw_pairs, max_items=3)
-    author_rows = bar_list(stats["top_authors"])
-
-    def diversity_rows(counts: dict, order: list, labels: dict) -> str:
-        pairs = [(labels[k], counts.get(k, 0)) for k in order]
-        return bar_list(pairs, max_items=len(order))
-
-    gender_order = ["woman", "man", "nonbinary", "unknown"]
-    gender_labels = {"woman": "Woman", "man": "Man", "nonbinary": "Nonbinary", "unknown": "Unknown"}
-    lgbtq_order = ["yes", "no", "unknown"]
-    lgbtq_labels = {"yes": "Publicly LGBTQ+", "no": "Not publicly LGBTQ+", "unknown": "Unknown"}
-    bipoc_order = ["yes", "no", "unknown"]
-    bipoc_labels = {"yes": "BIPOC", "no": "Not BIPOC", "unknown": "Unknown"}
-
     replacements = {
         "__TOP_STAT_CARDS__": top_cards,
-        "__NOVEL_STAT_CARDS__": novel_cards,
-        "__SHORT_STAT_CARDS__": short_cards,
+        "__NOVEL_NOMS__": str(stats["novel_noms"]),
+        "__SHORT_NOMS__": str(stats["short_noms"]),
         "__SNUBBED_ROWS__": snubbed_rows,
         "__HAB_ROWS__": hab_rows,
         "__HAB_COUNT__": str(stats["hab_count"]),
-        "__LONGEST_NOVEL__": page_fact(stats["novel"], "longest"),
-        "__SHORTEST_NOVEL__": page_fact(stats["novel"], "shortest"),
-        "__LONGEST_SHORT__": page_fact(stats["short"], "longest"),
-        "__SHORTEST_SHORT__": page_fact(stats["short"], "shortest"),
-        "__ORIGIN_ROWS__": origin_rows,
-        "__CW_ROWS__": cw_rows,
-        "__AUTHOR_ROWS__": author_rows,
-        "__GENDER_ROWS_NOMS__": diversity_rows(stats["gender_noms"], gender_order, gender_labels),
-        "__GENDER_ROWS_WINS__": diversity_rows(stats["gender_wins"], gender_order, gender_labels),
-        "__LGBTQ_ROWS_NOMS__": diversity_rows(stats["lgbtq_noms"], lgbtq_order, lgbtq_labels),
-        "__LGBTQ_ROWS_WINS__": diversity_rows(stats["lgbtq_wins"], lgbtq_order, lgbtq_labels),
-        "__BIPOC_ROWS_NOMS__": diversity_rows(stats["bipoc_noms"], bipoc_order, bipoc_labels),
-        "__BIPOC_ROWS_WINS__": diversity_rows(stats["bipoc_wins"], bipoc_order, bipoc_labels),
         "__BASE_URL__": BASE_URL,
         "__PAGE_URL__": f"{BASE_URL}stats.html",
     }
+    for key, value in noms.items():
+        replacements[f"__{key.upper()}_NOMS__"] = value
+    for key, value in wins.items():
+        replacements[f"__{key.upper()}_WINS__"] = value
+
     for token, value in replacements.items():
         template = template.replace(token, value)
     return template

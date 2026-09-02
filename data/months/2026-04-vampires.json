@@ -19,7 +19,8 @@
       "summary": "Ten years into a hollowed-out marriage to an ambitious steel magnate, Lenore relocates with her husband to the remote British moorlands, where a carriage accident brings the mysterious Carmilla into her life. As Carmilla awakens Lenore's long-suppressed hunger and rage, the novel becomes a gothic industrial-era vampire story about desire, class, and self-erasure.",
       "origin": "United Kingdom",
       "warnings": "Violence, death, workplace injury, themes of repression and emotional neglect.",
-      "is_winner": true
+      "is_winner": true,
+      "age_category": "Adult"
     },
     {
       "type": "Novel",
@@ -35,7 +36,8 @@
       "summary": "A young woman is about to be sacrificed to a vampiric Noblewoman ruling over a remote village, before a would-be hero's failed rescue draws in the legendary Vampire Hunter D. With the village's pact broken, D must face down the vampire's monstrous bodyguards to save the survivors \u2014 classic sword-and-fang dark fantasy from the long-running series.",
       "origin": "Japan",
       "warnings": "Violence, gore, body horror, sacrifice/ritual themes, monster combat.",
-      "is_winner": false
+      "is_winner": false,
+      "age_category": "Adult"
     },
     {
       "type": "Novel",
@@ -51,7 +53,8 @@
       "summary": "Oskar, a bullied twelve-year-old in a bleak Stockholm suburb, befriends Eli, the strange new child next door who only comes out at night \u2014 right as a string of brutal murders starts up nearby. Their friendship, tender and unsettling in equal measure, unfolds alongside a much colder, uglier story about the adults around them and what Eli actually is.",
       "origin": "Sweden",
       "warnings": "Child abuse, pedophilia (a major adult character), graphic violence, animal death, self-harm, body horror, bullying.",
-      "is_winner": false
+      "is_winner": false,
+      "age_category": "Adult"
     },
     {
       "type": "Novel",
@@ -67,7 +70,8 @@
       "summary": "Constanta narrates centuries by her vampire master's side, tracing how she became his bride and helped him claim two more members for their immortal, tangled family across Europe. The gothic romance curdles as the story goes, exposing the abuse and control underneath the seduction.",
       "origin": "United States",
       "warnings": "Intimate partner abuse (emotional, verbal, physical), gaslighting, self-harm, body horror, sexual content, references to sexual assault and child abuse (off-page).",
-      "is_winner": false
+      "is_winner": false,
+      "age_category": "Adult"
     },
     {
       "type": "Novel",
@@ -83,7 +87,8 @@
       "summary": "Marion leaves the slums to become a bloodmaid at the House of Hunger, a lavish estate where wealthy nobles are sustained by the blood of those in their service. Drawn deeper into the orbit of the house's ruler, Countess Lisavet, Marion starts uncovering a pattern of bloodmaids who vanished before her \u2014 and what's really happening within the house's walls.",
       "origin": "United States",
       "warnings": "Blood/gore, death, violence, murder, themes of exploitation and class abuse.",
-      "is_winner": false
+      "is_winner": false,
+      "age_category": "Adult"
     }
   ],
   "short_works": [
@@ -100,7 +105,8 @@
       "summary": "Structured as a self-aware, footnote-laden narrative, the story follows a small town's uneasy relationship with a local vampire while repeatedly interrupting itself to interrogate its own telling. It uses the vampire premise as a springboard for a stranger meditation on narrative, community, and appetite.",
       "origin": "United States",
       "warnings": "Violence, death, disturbing imagery, metafictional/unconventional structure.",
-      "avg_rating": "3.8\u2605"
+      "avg_rating": "3.8\u2605",
+      "age_category": "Adult"
     },
     {
       "type": "Short story",
@@ -116,7 +122,8 @@
       "summary": "Isolated in a remote Austrian castle, Laura is captivated by Carmilla, a strange and beautiful young guest who arrives after a carriage accident. As their intense friendship deepens, Laura grows increasingly ill and haunted by nightmares, slowly realizing what \u2014 and who \u2014 Carmilla really is.",
       "origin": "Ireland",
       "warnings": "Vampirism/blood-drinking, death, illness, predatory undertones, period-typical treatment of female sexuality and class.",
-      "is_winner": true
+      "is_winner": true,
+      "age_category": "Adult"
     },
     {
       "type": "Short story",
@@ -131,7 +138,8 @@
       "vibe": "A darkly comic pulp-era tale about a Halloween costume shop cloak that turns its wearer into an actual vampire.",
       "summary": "Desperate for a last-minute Halloween costume, a man rents an unusually authentic-looking vampire cloak from a strange little shop. As he wears it to a party, the cloak's influence starts turning his campy costume into something far more literal \u2014 and far less controllable.",
       "origin": "United States",
-      "warnings": "Violence, death, dark comedic horror, transformation themes."
+      "warnings": "Violence, death, dark comedic horror, transformation themes.",
+      "age_category": "Adult"
     }
   ]
 }

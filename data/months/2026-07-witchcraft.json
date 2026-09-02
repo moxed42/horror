@@ -19,7 +19,8 @@
       "summary": "In 1666 colonial Connecticut, newly widowed Abitha is targeted by her suspicious, hostile community right as a strange, ancient being awakens in the nearby woods and offers her his power. As Abitha embraces witchcraft to survive, the story builds toward a bloody reckoning between the Puritan settlement and the older, wilder forces it displaced.",
       "origin": "United States",
       "warnings": "Graphic violence, sexual assault, religious persecution, animal death, torture, colonial-era brutality.",
-      "is_winner": true
+      "is_winner": true,
+      "age_category": "Adult"
     },
     {
       "type": "Novel",
@@ -35,7 +36,8 @@
       "summary": "Centuries after being murdered by a Scottish village as a witch, Maggie Wall's grave is disturbed, resurrecting her and her fury at the descendants of those responsible. The novel turns into an over-the-top, deliriously violent revenge rampage through the modern-day town.",
       "origin": "United Kingdom",
       "warnings": "Extreme graphic violence and gore, sexual assault, torture, animal death, dismemberment.",
-      "is_winner": false
+      "is_winner": false,
+      "age_category": "Adult"
     },
     {
       "type": "Novel",
@@ -51,7 +53,8 @@
       "summary": "In the strict, patriarchal settlement of Bethel, Immanuelle stumbles into the cursed forest bordering town and discovers her dead mother's journal, hinting at forbidden secrets. As she's drawn deeper into the witches' power and the truth behind Bethel's founding, she becomes a threat to the church that rules it.",
       "origin": "United States",
       "warnings": "Graphic violence, religious abuse and extremism, sexual assault, self-harm, body horror, misogyny.",
-      "is_winner": false
+      "is_winner": false,
+      "age_category": "Adult"
     },
     {
       "type": "Novel",
@@ -67,7 +70,8 @@
       "summary": "A witch and a gunslinger reluctantly team up with a ragtag group crossing the post-Civil War Kansas plains, hunting a powerful and monstrous witch responsible for a string of horrors. Along the way the group encounters a string of supernatural threats that turn the journey into a violent, episodic nightmare.",
       "origin": "United States",
       "warnings": "Graphic violence and gore, body horror, animal death, racism (period-typical), sexual content.",
-      "is_winner": false
+      "is_winner": false,
+      "age_category": "Adult"
     }
   ],
   "short_works": [
@@ -84,7 +88,8 @@
       "vibe": "A hallucinatory, dreamlike weird-fiction classic told through a young girl's increasingly disturbing secret diary of witchcraft and hidden rites.",
       "summary": "Framed by a philosophical discussion of true evil, the story presents the diary of a young girl who is gradually initiated into a secret, ancient tradition of witchcraft and folklore by her nurse. The diary's dreamlike, fragmented prose builds an atmosphere of creeping wrongness rather than explicit horror.",
       "origin": "United Kingdom",
-      "warnings": "Disturbing/ambiguous themes of ritual abuse, child endangerment, unsettling occult imagery."
+      "warnings": "Disturbing/ambiguous themes of ritual abuse, child endangerment, unsettling occult imagery.",
+      "age_category": "Adult"
     },
     {
       "type": "Short story",
@@ -99,7 +104,8 @@
       "summary": "A late-night wrong turn leads the narrator into a strange small town with no cell signal, no visible way out, and an escalating sense that something is deeply, deliberately wrong with its residents. As the narrator tries to find a way back to the highway, the town's true, witchcraft-tinged nature closes in.",
       "origin": "United States",
       "warnings": "Psychological horror, disturbing imagery, implied violence, isolation/entrapment themes.",
-      "is_winner": true
+      "is_winner": true,
+      "age_category": "Adult"
     },
     {
       "type": "Short story",
@@ -114,7 +120,8 @@
       "vibe": "A cosmic-horror take on witchcraft \u2014 a student's rented room in a crooked old house opens onto other dimensions, and a witch who never really left.",
       "summary": "A mathematics student rents a room in a notoriously crooked old Arkham house once inhabited by an executed witch, drawn by the building's strange non-Euclidean geometry. His studies of the room's angles begin to open dream-visions of other realities, and of the witch and her monstrous familiar, still very much active.",
       "origin": "United States",
-      "warnings": "Child sacrifice, graphic violence, body horror, disturbing occult imagery, period-typical racism."
+      "warnings": "Child sacrifice, graphic violence, body horror, disturbing occult imagery, period-typical racism.",
+      "age_category": "Adult"
     },
     {
       "type": "Short story",
@@ -129,7 +136,8 @@
       "vibe": "A Ukrainian folk-horror classic about a seminary student trapped reciting prayers over the corpse of a witch for three increasingly terrifying nights.",
       "summary": "After a fatal encounter with an old woman who turns out to be a witch, seminarian Khoma Brutus is ordered to keep vigil over her body in a remote church for three nights. Each night grows more nightmarish as the witch's corpse and the demonic forces she commands close in around him.",
       "origin": "Ukraine",
-      "warnings": "Death, supernatural/demonic threat, disturbing imagery, religious horror."
+      "warnings": "Death, supernatural/demonic threat, disturbing imagery, religious horror.",
+      "age_category": "Adult"
     }
   ]
 }

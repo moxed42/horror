@@ -19,7 +19,8 @@
       "summary": "A shy young woman marries the wealthy widower Maxim de Winter and moves into his grand estate, Manderley, only to find herself living in the constant shadow of his glamorous first wife, Rebecca. As the sinister housekeeper Mrs. Danvers keeps Rebecca's memory alive, the new Mrs. de Winter uncovers dark secrets behind Rebecca's death.",
       "origin": "United Kingdom",
       "warnings": "Death, psychological manipulation and gaslighting, domestic abuse themes, suicide (referenced), fire.",
-      "is_winner": false
+      "is_winner": false,
+      "age_category": "Adult"
     },
     {
       "type": "Novel",
@@ -36,7 +37,8 @@
       "origin": "United States",
       "warnings": "Death of children (implied/ambiguous), psychological horror, child endangerment, ambiguous supernatural threat.",
       "is_winner": false,
-      "is_hab": true
+      "is_hab": true,
+      "age_category": "Adult"
     },
     {
       "type": "Novel",
@@ -52,7 +54,8 @@
       "summary": "Noem\u00ed travels to the remote, decaying mansion High Place to check on her newly married cousin, whose unsettling letters hint that something is deeply wrong with her new husband's family. As Noem\u00ed digs into the house's history of colonialism, eugenics, and rot, she uncovers a body-horror secret literally growing in the walls.",
       "origin": "Mexico",
       "warnings": "Body horror, sexual assault (attempted), incest themes, colonial/eugenics themes, gore, drug use (non-consensual).",
-      "is_winner": true
+      "is_winner": true,
+      "age_category": "Adult"
     },
     {
       "type": "Novel",
@@ -68,7 +71,8 @@
       "summary": "Four seekers, including a scholar of the paranormal and the fragile, lonely Eleanor, take up residence in Hill House to study its reputed hauntings. The house's influence grows increasingly personal and psychological rather than overtly supernatural, tightening around Eleanor in particular as the group's grip on reality frays.",
       "origin": "United States",
       "warnings": "Suicide (by hanging and by car collision), suicidal ideation, mental illness/psychosis, gaslighting, death of a parent (off-page).",
-      "is_winner": false
+      "is_winner": false,
+      "age_category": "Adult"
     }
   ],
   "short_works": [
@@ -87,7 +91,8 @@
       "origin": "United States",
       "warnings": "Death, premature burial, mental illness/psychological horror, familial decline, implied incestuous undertones.",
       "is_winner": true,
-      "is_hab": true
+      "is_hab": true,
+      "age_category": "Adult"
     },
     {
       "type": "Short story",
@@ -102,7 +107,8 @@
       "summary": "Teenager Rowan Hess and her friends explore the crumbling, long-abandoned Contracoeur estate on a dare, drawn in by local legends about the mansion's disappeared original owners. As they dig deeper into the ruins and the town's buried history, they uncover secrets the Contracoeur family \u2014 and the town itself \u2014 worked hard to forget.",
       "origin": "United States",
       "warnings": "Death, family tragedy, mild peril, themes of grief and disappearance.",
-      "avg_rating": "3.9\u2605"
+      "avg_rating": "3.9\u2605",
+      "age_category": "Adult"
     },
     {
       "type": "Short story",
@@ -117,7 +123,8 @@
       "vibe": "A classic haunted-house short from the author of Dracula \u2014 a student's isolated study retreat in a shunned old mansion goes very wrong.",
       "summary": "Seeking peace and quiet to study for exams, Malcolm Malcolmson rents a long-vacant, ill-reputed old house once owned by a cruel hanging judge, ignoring the locals' warnings. As strange occurrences mount around an unshakeable rat and a mysterious old chair, the house's grim history reasserts itself.",
       "origin": "Ireland",
-      "warnings": "Death, hanging/execution themes, supernatural threat, disturbing imagery."
+      "warnings": "Death, hanging/execution themes, supernatural threat, disturbing imagery.",
+      "age_category": "Adult"
     }
   ]
 }

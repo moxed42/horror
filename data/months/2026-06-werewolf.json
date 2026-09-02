@@ -20,7 +20,8 @@
       "summary": "Jessa's rough night at the diner turns into something far worse when she finds a terrified runaway boy outside, followed almost immediately by a violent encounter with his father. As they flee together, Jessa slowly realizes the boy's fear itself is manifesting into monstrous, bloody reality behind them.",
       "origin": "United States",
       "warnings": "Graphic violence and gore, child endangerment, abuse, alcoholism, parent death, self-harm, kidnapping, body horror.",
-      "is_winner": true
+      "is_winner": true,
+      "age_category": "Adult"
     },
     {
       "type": "Novel",
@@ -36,7 +37,8 @@
       "summary": "After surviving a traumatic assault, Karyn and her husband retreat to the isolated mountain town of Drago to recover, but the unnervingly friendly locals are hiding something. As Karyn digs into the town's secrets, the novel escalates into a violent werewolf horror story that leans hard into pulp-era gore.",
       "origin": "United States",
       "warnings": "Graphic rape scene, home invasion, animal dismemberment, extreme violence and gore, disembowelment.",
-      "is_winner": false
+      "is_winner": false,
+      "age_category": "Adult"
     },
     {
       "type": "Novel",
@@ -52,7 +54,8 @@
       "summary": "A wounded WWI veteran and his wife settle in a small Southern town to write about his family's dark plantation history, only to discover the town's unsettling monthly tradition: sending decorated pigs across the river, never to be seen again. As Frank digs into local legend about a devil in the woods, old racial violence and a very real monster both close in.",
       "origin": "United States",
       "warnings": "Animal death/torture, Jim Crow-era racism and vigilante violence, graphic violence, sexual content.",
-      "is_winner": false
+      "is_winner": false,
+      "age_category": "Adult"
     },
     {
       "type": "Novel",
@@ -68,7 +71,8 @@
       "summary": "A boy grows up on the run with his werewolf family, drifting through trailers and odd jobs across the rural South while waiting for his own first transformation. Told in interconnected vignettes, the novel is as much about class, family loyalty, and growing up different as it is about werewolves.",
       "origin": "United States",
       "warnings": "Violence, animal death, poverty and family dysfunction, body horror, alcohol use.",
-      "is_winner": false
+      "is_winner": false,
+      "age_category": "Adult"
     }
   ],
   "short_works": [
@@ -85,7 +89,8 @@
       "vibe": "A tense Koontz novella about a woman on the run who finds unlikely shelter with a reclusive, secretive neighbor.",
       "summary": "Fleeing a dangerous past, Sparkle Sommers takes refuge in a quiet coastal town, drawn into an uneasy friendship with a strange, isolated man hiding a dark secret of his own. As threats close in from her old life, the two are forced to rely on each other in ways neither expected.",
       "origin": "United States",
-      "warnings": "Violence, stalking/threat of harm, past trauma (referenced), body horror elements."
+      "warnings": "Violence, stalking/threat of harm, past trauma (referenced), body horror elements.",
+      "age_category": "Adult"
     },
     {
       "type": "Short story",
@@ -101,7 +106,8 @@
       "summary": "A lonely academic becomes fixated on a mysterious woman he keeps encountering in different nightclubs, each time seemingly a completely different person suited perfectly to her surroundings. His pursuit of her draws him into a strange, predatory subculture of beings who change themselves to belong.",
       "origin": "United States",
       "warnings": "Psychological horror, stalking, disturbing transformation themes, alcohol use.",
-      "is_winner": true
+      "is_winner": true,
+      "age_category": "Adult"
     }
   ]
 }

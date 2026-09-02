@@ -18,7 +18,8 @@
       "origin": "United States",
       "warnings": "Sexual assault and threat of sexual assault involving minors, child endangerment, torture, extreme body horror, religious violence, antisemitism, anti-gay bigotry, alcohol addiction.",
       "is_winner": true,
-      "book_theme": "Apocalyptic Horror"
+      "book_theme": "Apocalyptic Horror",
+      "age_category": "Adult"
     },
     {
       "type": "Novel",
@@ -34,7 +35,8 @@
       "origin": "United States",
       "warnings": "Graphic violence and gore, child endangerment, abuse, alcoholism, parent death, self-harm, kidnapping, body horror.",
       "is_winner": false,
-      "book_theme": "Werewolf Horror"
+      "book_theme": "Werewolf Horror",
+      "age_category": "Adult"
     },
     {
       "type": "Novel",
@@ -50,7 +52,8 @@
       "origin": "Canada",
       "warnings": "Extreme gore, body horror, animal death, starvation, bullying, child endangerment.",
       "is_winner": false,
-      "book_theme": "Survival Horror"
+      "book_theme": "Survival Horror",
+      "age_category": "Adult"
     }
   ],
   "short_works": [
@@ -68,7 +71,8 @@
       "origin": "United States",
       "warnings": "Existential dread, themes of eternal suffering and futility, brief violence, death of loved ones (referenced).",
       "is_winner": true,
-      "book_theme": "Existential Horror"
+      "book_theme": "Existential Horror",
+      "age_category": "Adult"
     },
     {
       "type": "Short story",
@@ -84,7 +88,8 @@
       "origin": "United Kingdom",
       "warnings": "Graphic violence and gore, body horror, mass murder, psychological manipulation, mob violence.",
       "is_winner": false,
-      "book_theme": "Monster Horror"
+      "book_theme": "Monster Horror",
+      "age_category": "Adult"
     },
     {
       "type": "Short story",
@@ -100,7 +105,8 @@
       "origin": "Ireland",
       "warnings": "Vampirism/blood-drinking, death, illness, predatory undertones, period-typical treatment of female sexuality and class.",
       "is_winner": false,
-      "book_theme": "Vampire Horror"
+      "book_theme": "Vampire Horror",
+      "age_category": "Adult"
     }
   ]
 }

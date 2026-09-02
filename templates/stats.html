@@ -70,7 +70,13 @@
       display: flex;
       align-items: center;
     }
-    .site-nav .visit-counter img { display: block; height: 20px; border-radius: 4px; }
+    .site-nav .visit-counter {
+      padding: 3px;
+      background: rgba(4, 4, 16, 0.6);
+      border: 1px solid var(--border-subtle);
+      border-radius: 6px;
+    }
+    .site-nav .visit-counter img { display: block; height: 18px; border-radius: 3px; opacity: 0.9; }
     h1 {
       font-size: clamp(1.8rem, 3vw, 2.4rem);
       letter-spacing: 0.08em;
@@ -273,7 +279,7 @@
       <a href="archive/index.html">Archive</a>
       <a href="stats.html" class="active">Stats</a>
       <span class="visit-counter">
-        <img src="https://api.visitorbadge.io/api/visitors?path=finalgirlsbookclub.moxed42&label=visits&countColor=%23f54545&style=flat" alt="visit count" loading="lazy">
+        <img src="https://api.visitorbadge.io/api/visitors?path=finalgirlsbookclub.moxed42&label=visits&labelColor=%23111221&countColor=%23f54545&style=flat-square" alt="visit count" loading="lazy">
       </span>
     </nav>
     <h1><span>Final Girls</span> <span>Book Club</span> — Stats</h1>
@@ -283,53 +289,108 @@
 __TOP_STAT_CARDS__
     </div>
 
-    <div class="section">
+    <div class="toggle-row" data-toggle-scope>
+      <button type="button" class="toggle-btn active" data-view="noms">All nominations</button>
+      <button type="button" class="toggle-btn" data-view="wins">Winners only</button>
+    </div>
+
+    <div class="section" data-toggle-scope>
       <div class="section-title">Novels vs. Short Works</div>
       <div class="panel">
         <div class="subsection-title">Novels</div>
         <div class="stat-grid stat-grid-2">
-__NOVEL_STAT_CARDS__
+      <div class="stat-card">
+        <div class="stat-value">__NOVEL_NOMS__</div>
+        <div class="stat-label">Nominations</div>
+      </div>
+      <div class="stat-card" data-view-noms>
+        <div class="stat-value">__AVG_NOVEL_PAGES_NOMS__</div>
+        <div class="stat-label">Avg. pages</div>
+      </div>
+      <div class="stat-card" data-view-wins hidden>
+        <div class="stat-value">__AVG_NOVEL_PAGES_WINS__</div>
+        <div class="stat-label">Avg. pages (winners)</div>
+      </div>
         </div>
-        <div class="fact-row">
-          <div class="fact"><div class="fact-label">Longest novel</div>__LONGEST_NOVEL__</div>
-          <div class="fact"><div class="fact-label">Shortest novel</div>__SHORTEST_NOVEL__</div>
+        <div class="fact-row" data-view-noms>
+          <div class="fact"><div class="fact-label">Longest novel</div>__LONGEST_NOVEL_NOMS__</div>
+          <div class="fact"><div class="fact-label">Shortest novel</div>__SHORTEST_NOVEL_NOMS__</div>
+        </div>
+        <div class="fact-row" data-view-wins hidden>
+          <div class="fact"><div class="fact-label">Longest winning novel</div>__LONGEST_NOVEL_WINS__</div>
+          <div class="fact"><div class="fact-label">Shortest winning novel</div>__SHORTEST_NOVEL_WINS__</div>
         </div>
         <div class="subsection-title">Short works</div>
         <div class="stat-grid stat-grid-2">
-__SHORT_STAT_CARDS__
+      <div class="stat-card">
+        <div class="stat-value">__SHORT_NOMS__</div>
+        <div class="stat-label">Nominations</div>
+      </div>
+      <div class="stat-card" data-view-noms>
+        <div class="stat-value">__AVG_SHORT_PAGES_NOMS__</div>
+        <div class="stat-label">Avg. pages</div>
+      </div>
+      <div class="stat-card" data-view-wins hidden>
+        <div class="stat-value">__AVG_SHORT_PAGES_WINS__</div>
+        <div class="stat-label">Avg. pages (winners)</div>
+      </div>
         </div>
-        <div class="fact-row">
-          <div class="fact"><div class="fact-label">Longest short work</div>__LONGEST_SHORT__</div>
-          <div class="fact"><div class="fact-label">Shortest short work</div>__SHORTEST_SHORT__</div>
+        <div class="fact-row" data-view-noms>
+          <div class="fact"><div class="fact-label">Longest short work</div>__LONGEST_SHORT_NOMS__</div>
+          <div class="fact"><div class="fact-label">Shortest short work</div>__SHORTEST_SHORT_NOMS__</div>
+        </div>
+        <div class="fact-row" data-view-wins hidden>
+          <div class="fact"><div class="fact-label">Longest winning short work</div>__LONGEST_SHORT_WINS__</div>
+          <div class="fact"><div class="fact-label">Shortest winning short work</div>__SHORTEST_SHORT_WINS__</div>
         </div>
       </div>
     </div>
 
-    <div class="section">
+    <div class="section" data-toggle-scope>
       <div class="section-title">By the numbers</div>
       <div class="panel panel-grid">
         <div>
-          <div class="subsection-title">Nominations by origin country</div>
-          <ul class="bar-list">
-__ORIGIN_ROWS__
+          <div class="subsection-title">Origin country</div>
+          <ul class="bar-list" data-view-noms>
+__ORIGIN_ROWS_NOMS__
+          </ul>
+          <ul class="bar-list" data-view-wins hidden>
+__ORIGIN_ROWS_WINS__
           </ul>
         </div>
         <div>
           <div class="subsection-title">Content-warning intensity</div>
-          <ul class="bar-list">
-__CW_ROWS__
+          <ul class="bar-list" data-view-noms>
+__CW_ROWS_NOMS__
+          </ul>
+          <ul class="bar-list" data-view-wins hidden>
+__CW_ROWS_WINS__
+          </ul>
+        </div>
+        <div>
+          <div class="subsection-title">Age category</div>
+          <ul class="bar-list" data-view-noms>
+__AGE_ROWS_NOMS__
+          </ul>
+          <ul class="bar-list" data-view-wins hidden>
+__AGE_ROWS_WINS__
+          </ul>
+        </div>
+        <div>
+          <div class="subsection-title">Repeat authors (2+ picks)</div>
+          <ul class="bar-list" data-view-noms>
+__AUTHOR_ROWS_NOMS__
+          </ul>
+          <ul class="bar-list" data-view-wins hidden>
+__AUTHOR_ROWS_WINS__
           </ul>
         </div>
       </div>
     </div>
 
-    <div class="section" data-diversity-section>
+    <div class="section" data-toggle-scope>
       <div class="section-title">Author diversity</div>
       <p class="diversity-note">Based only on publicly self-identified info (author bios/interviews) — "Unknown" means we haven't found a public statement either way, not that the author isn't part of that group.</p>
-      <div class="toggle-row">
-        <button type="button" class="toggle-btn active" data-view="noms">All nominations</button>
-        <button type="button" class="toggle-btn" data-view="wins">Winners only</button>
-      </div>
       <div class="panel panel-grid panel-grid-3">
         <div>
           <div class="subsection-title">Gender</div>
@@ -371,15 +432,6 @@ __SNUBBED_ROWS__
     </div>
 
     <div class="section">
-      <div class="section-title">Repeat authors</div>
-      <div class="panel">
-        <ul class="bar-list">
-__AUTHOR_ROWS__
-        </ul>
-      </div>
-    </div>
-
-    <div class="section">
       <div class="section-title"><img src="assets/hab-icon.png" alt="" class="hab-mascot"> HAB books nominated (__HAB_COUNT__)</div>
       <div class="panel">
         <ul class="hab-list">
@@ -388,21 +440,19 @@ __HAB_ROWS__
       </div>
     </div>
 
-    <p class="note">Stats regenerate whenever the site rebuilds, pulled straight from every month's nomination data.</p>
+    <p class="note">"All nominations" vs. "Winners only" up top filters every toggle-aware section on this page. Most-snubbed and HAB lists aren't filtered since they're inherently about specific subsets. Stats regenerate whenever the site rebuilds.</p>
   </main>
   <script>
     (function () {
-      var section = document.querySelector("[data-diversity-section]");
-      if (!section) return;
-      var buttons = section.querySelectorAll(".toggle-btn");
-      buttons.forEach(function (btn) {
+      var toggleButtons = document.querySelectorAll(".toggle-btn");
+      toggleButtons.forEach(function (btn) {
         btn.addEventListener("click", function () {
           var view = btn.getAttribute("data-view");
-          buttons.forEach(function (b) { b.classList.toggle("active", b === btn); });
-          section.querySelectorAll("[data-view-noms]").forEach(function (el) {
+          toggleButtons.forEach(function (b) { b.classList.toggle("active", b === btn); });
+          document.querySelectorAll("[data-view-noms]").forEach(function (el) {
             el.hidden = view !== "noms";
           });
-          section.querySelectorAll("[data-view-wins]").forEach(function (el) {
+          document.querySelectorAll("[data-view-wins]").forEach(function (el) {
             el.hidden = view !== "wins";
           });
         });

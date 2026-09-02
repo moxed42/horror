@@ -19,7 +19,8 @@
       "summary": "Nicholas and his girlfriend Nakota discover a strange, pulsing black hole\u2014\u201cthe Funhole\u201d\u2014in a storage room and start experimenting on it, filming what happens when they put things inside. As the hole reacts in unsettling, flesh\u2011adjacent ways and Nicholas\u2019s body begins to change, the book becomes a claustrophobic spiral of obsession, abuse, and physical transformation.",
       "warnings": "Extreme body horror, self-harm, addiction, emotional abuse, obsession, misogyny, graphic violence.",
       "is_winner": false,
-      "origin": "United States"
+      "origin": "United States",
+      "age_category": "Adult"
     },
     {
       "type": "Novel",
@@ -35,7 +36,8 @@
       "summary": "A scoutmaster takes a small troop of boys on a routine camping trip to a remote Canadian island, only to have a starving, infected stranger stagger into camp. Once the parasite spreads, the story turns into a brutally graphic survival nightmare as hunger, infection, and cruelty strip away any veneer of civility.",
       "warnings": "Extreme gore, body horror, animal death, starvation, bullying, child endangerment.",
       "is_winner": false,
-      "origin": "Canada"
+      "origin": "Canada",
+      "age_category": "Adult"
     },
     {
       "type": "Novel",
@@ -51,7 +53,8 @@
       "summary": "Crane, a mute autistic trans man, works for an alien infestation known as the Hive and discovers he is unexpectedly pregnant. When the Hive insists on the birth at any cost, he fights back, triggering escalating violence and invasive procedures that turn his own body into the battleground.",
       "warnings": "Pregnancy horror, forced medical procedures, transphobia, dysphoria, extreme gore, body horror, self-harm, alien parasites.",
       "is_winner": true,
-      "origin": "United States"
+      "origin": "United States",
+      "age_category": "Adult"
     },
     {
       "type": "Novel",
@@ -67,7 +70,8 @@
       "summary": "A group of tourists in Mexico follow a lead to a remote hill of ruins searching for a missing friend, only to find themselves trapped by hostile locals and the sentient, invasive vines covering the site. As the plants infiltrate their bodies and their options dwindle, the novel becomes a deeply uncomfortable study in pain, infection, and the ugly side of \u201csurvival at any cost\u201d.",
       "warnings": "Extreme gore, body horror, suicide, sexual assault, animal death, infection, starvation.",
       "is_winner": false,
-      "origin": "United States"
+      "origin": "United States",
+      "age_category": "Adult"
     }
   ],
   "short_works": [
@@ -85,7 +89,8 @@
       "summary": "After a suicide attempt, Jacqueline discovers she can reshape other people\u2019s bodies with her mind, turning desire and anger into literal physical transformation. Her relationships\u2014sexual and otherwise\u2014become increasingly lethal as she tests the limits of this power, raising questions about autonomy, revenge, and how far someone might go once the body is no longer fixed.",
       "warnings": "Extreme sexual content, gendered violence, graphic body deformation, suicide.",
       "is_winner": true,
-      "origin": "United Kingdom"
+      "origin": "United Kingdom",
+      "age_category": "Adult"
     },
     {
       "type": "Short story",
@@ -101,7 +106,8 @@
       "summary": "A woman wakes in a tiny lifeboat with an incomprehensible alien and no shared language, trapped together in endless cycles of food, waste, and sex. The story uses repetition and visceral detail to push the idea of bodily contact, consent, and communication into a deeply uncomfortable, almost abstract horror space.",
       "warnings": "Graphic sexual content, extreme body horror, confinement, psychological breakdown.",
       "is_winner": false,
-      "origin": "United States"
+      "origin": "United States",
+      "age_category": "Adult"
     },
     {
       "type": "Short story",
@@ -117,7 +123,8 @@
       "summary": "Mr. Harris becomes obsessed with the idea that his skeleton is a separate, hostile presence inside him and seeks help after his regular doctor dismisses him. The \u201cspecialist\u201d he finds takes a far too literal interest in Harris\u2019s bones, leading to a quietly grotesque finale that makes everyday anatomy feel uncanny.",
       "warnings": "Body horror, medical manipulation, obsession, unsettling doctor\u2013patient dynamics.",
       "is_winner": false,
-      "origin": "United States"
+      "origin": "United States",
+      "age_category": "Adult"
     },
     {
       "type": "Short story",
@@ -133,7 +140,8 @@
       "summary": "A woman agrees to indulge her husband\u2019s desire to \u201cplay pretend\u201d as a child to help him cope, only to find his demands becoming more controlling and unsettling. As the roleplay pushes into strict rules and physical changes, the story slides from odd kink into real danger, blurring emotional manipulation with literal bodily threat.",
       "warnings": "Psychological abuse, gaslighting, body horror, marital tension, violence.",
       "is_winner": false,
-      "origin": "United States"
+      "origin": "United States",
+      "age_category": "Adult"
     }
   ],
   "novels_subtitle": "Choose one full\u2011length mutation for the month."

@@ -70,7 +70,13 @@
       display: flex;
       align-items: center;
     }
-    .site-nav .visit-counter img { display: block; height: 20px; border-radius: 4px; }
+    .site-nav .visit-counter {
+      padding: 3px;
+      background: rgba(4, 4, 16, 0.6);
+      border: 1px solid var(--border-subtle);
+      border-radius: 6px;
+    }
+    .site-nav .visit-counter img { display: block; height: 18px; border-radius: 3px; opacity: 0.9; }
     h1 {
       font-size: clamp(1.8rem, 3vw, 2.4rem);
       letter-spacing: 0.08em;
@@ -273,7 +279,7 @@
       <a href="archive/index.html">Archive</a>
       <a href="stats.html" class="active">Stats</a>
       <span class="visit-counter">
-        <img src="https://api.visitorbadge.io/api/visitors?path=finalgirlsbookclub.moxed42&label=visits&countColor=%23f54545&style=flat" alt="visit count" loading="lazy">
+        <img src="https://api.visitorbadge.io/api/visitors?path=finalgirlsbookclub.moxed42&label=visits&labelColor=%23111221&countColor=%23f54545&style=flat-square" alt="visit count" loading="lazy">
       </span>
     </nav>
     <h1><span>Final Girls</span> <span>Book Club</span> — Stats</h1>
@@ -295,7 +301,12 @@
 
     </div>
 
-    <div class="section">
+    <div class="toggle-row" data-toggle-scope>
+      <button type="button" class="toggle-btn active" data-view="noms">All nominations</button>
+      <button type="button" class="toggle-btn" data-view="wins">Winners only</button>
+    </div>
+
+    <div class="section" data-toggle-scope>
       <div class="section-title">Novels vs. Short Works</div>
       <div class="panel">
         <div class="subsection-title">Novels</div>
@@ -304,15 +315,22 @@
         <div class="stat-value">73</div>
         <div class="stat-label">Nominations</div>
       </div>
-      <div class="stat-card">
+      <div class="stat-card" data-view-noms>
         <div class="stat-value">327 pages</div>
         <div class="stat-label">Avg. pages</div>
       </div>
-
+      <div class="stat-card" data-view-wins hidden>
+        <div class="stat-value">337 pages</div>
+        <div class="stat-label">Avg. pages (winners)</div>
+      </div>
         </div>
-        <div class="fact-row">
+        <div class="fact-row" data-view-noms>
           <div class="fact"><div class="fact-label">Longest novel</div>Our Share of Night (608 pages)</div>
           <div class="fact"><div class="fact-label">Shortest novel</div>The Turn of the Screw (120 pages)</div>
+        </div>
+        <div class="fact-row" data-view-wins hidden>
+          <div class="fact"><div class="fact-label">Longest winning novel</div>Slewfoot: A Tale of Bewitchery (512 pages)</div>
+          <div class="fact"><div class="fact-label">Shortest winning novel</div>The Vegetarian (188 pages)</div>
         </div>
         <div class="subsection-title">Short works</div>
         <div class="stat-grid stat-grid-2">
@@ -320,25 +338,32 @@
         <div class="stat-value">49</div>
         <div class="stat-label">Nominations</div>
       </div>
-      <div class="stat-card">
+      <div class="stat-card" data-view-noms>
         <div class="stat-value">60 pages</div>
         <div class="stat-label">Avg. pages</div>
       </div>
-
+      <div class="stat-card" data-view-wins hidden>
+        <div class="stat-value">61 pages</div>
+        <div class="stat-label">Avg. pages (winners)</div>
+      </div>
         </div>
-        <div class="fact-row">
+        <div class="fact-row" data-view-noms>
           <div class="fact"><div class="fact-label">Longest short work</div>Cabal (250 pages)</div>
           <div class="fact"><div class="fact-label">Shortest short work</div>A Tropical Horror (10 pages)</div>
+        </div>
+        <div class="fact-row" data-view-wins hidden>
+          <div class="fact"><div class="fact-label">Longest winning short work</div>The Monster of Elendhaven (176 pages)</div>
+          <div class="fact"><div class="fact-label">Shortest winning short work</div>The Belonging Kind (15 pages)</div>
         </div>
       </div>
     </div>
 
-    <div class="section">
+    <div class="section" data-toggle-scope>
       <div class="section-title">By the numbers</div>
       <div class="panel panel-grid">
         <div>
-          <div class="subsection-title">Nominations by origin country</div>
-          <ul class="bar-list">
+          <div class="subsection-title">Origin country</div>
+          <ul class="bar-list" data-view-noms>
         <li class="bar-row">
           <span class="bar-label">United States</span>
           <span class="bar-track"><span class="bar-fill" style="width:100%"></span></span>
@@ -380,10 +405,42 @@
           <span class="bar-count">2</span>
         </li>
           </ul>
+          <ul class="bar-list" data-view-wins hidden>
+        <li class="bar-row">
+          <span class="bar-label">United States</span>
+          <span class="bar-track"><span class="bar-fill" style="width:100%"></span></span>
+          <span class="bar-count">20</span>
+        </li>
+        <li class="bar-row">
+          <span class="bar-label">United Kingdom</span>
+          <span class="bar-track"><span class="bar-fill" style="width:35%"></span></span>
+          <span class="bar-count">7</span>
+        </li>
+        <li class="bar-row">
+          <span class="bar-label">South Korea</span>
+          <span class="bar-track"><span class="bar-fill" style="width:5%"></span></span>
+          <span class="bar-count">1</span>
+        </li>
+        <li class="bar-row">
+          <span class="bar-label">Mexico</span>
+          <span class="bar-track"><span class="bar-fill" style="width:5%"></span></span>
+          <span class="bar-count">1</span>
+        </li>
+        <li class="bar-row">
+          <span class="bar-label">Ireland</span>
+          <span class="bar-track"><span class="bar-fill" style="width:5%"></span></span>
+          <span class="bar-count">1</span>
+        </li>
+        <li class="bar-row">
+          <span class="bar-label">Canada</span>
+          <span class="bar-track"><span class="bar-fill" style="width:5%"></span></span>
+          <span class="bar-count">1</span>
+        </li>
+          </ul>
         </div>
         <div>
           <div class="subsection-title">Content-warning intensity</div>
-          <ul class="bar-list">
+          <ul class="bar-list" data-view-noms>
         <li class="bar-row">
           <span class="bar-label">Mild</span>
           <span class="bar-track"><span class="bar-fill" style="width:6%"></span></span>
@@ -400,52 +457,142 @@
           <span class="bar-count">78</span>
         </li>
           </ul>
+          <ul class="bar-list" data-view-wins hidden>
+        <li class="bar-row">
+          <span class="bar-label">Mild</span>
+          <span class="bar-track"><span class="bar-fill" style="width:0%"></span></span>
+          <span class="bar-count">0</span>
+        </li>
+        <li class="bar-row">
+          <span class="bar-label">Moderate</span>
+          <span class="bar-track"><span class="bar-fill" style="width:41%"></span></span>
+          <span class="bar-count">9</span>
+        </li>
+        <li class="bar-row">
+          <span class="bar-label">Extreme</span>
+          <span class="bar-track"><span class="bar-fill" style="width:100%"></span></span>
+          <span class="bar-count">22</span>
+        </li>
+          </ul>
+        </div>
+        <div>
+          <div class="subsection-title">Age category</div>
+          <ul class="bar-list" data-view-noms>
+        <li class="bar-row">
+          <span class="bar-label">Adult</span>
+          <span class="bar-track"><span class="bar-fill" style="width:100%"></span></span>
+          <span class="bar-count">121</span>
+        </li>
+        <li class="bar-row">
+          <span class="bar-label">YA</span>
+          <span class="bar-track"><span class="bar-fill" style="width:1%"></span></span>
+          <span class="bar-count">1</span>
+        </li>
+        <li class="bar-row">
+          <span class="bar-label">Middle Grade</span>
+          <span class="bar-track"><span class="bar-fill" style="width:0%"></span></span>
+          <span class="bar-count">0</span>
+        </li>
+        <li class="bar-row">
+          <span class="bar-label">Unknown</span>
+          <span class="bar-track"><span class="bar-fill" style="width:0%"></span></span>
+          <span class="bar-count">0</span>
+        </li>
+          </ul>
+          <ul class="bar-list" data-view-wins hidden>
+        <li class="bar-row">
+          <span class="bar-label">Adult</span>
+          <span class="bar-track"><span class="bar-fill" style="width:100%"></span></span>
+          <span class="bar-count">31</span>
+        </li>
+        <li class="bar-row">
+          <span class="bar-label">YA</span>
+          <span class="bar-track"><span class="bar-fill" style="width:0%"></span></span>
+          <span class="bar-count">0</span>
+        </li>
+        <li class="bar-row">
+          <span class="bar-label">Middle Grade</span>
+          <span class="bar-track"><span class="bar-fill" style="width:0%"></span></span>
+          <span class="bar-count">0</span>
+        </li>
+        <li class="bar-row">
+          <span class="bar-label">Unknown</span>
+          <span class="bar-track"><span class="bar-fill" style="width:0%"></span></span>
+          <span class="bar-count">0</span>
+        </li>
+          </ul>
+        </div>
+        <div>
+          <div class="subsection-title">Repeat authors (2+ picks)</div>
+          <ul class="bar-list" data-view-noms>
+        <li class="bar-row">
+          <span class="bar-label">Shirley Jackson</span>
+          <span class="bar-track"><span class="bar-fill" style="width:100%"></span></span>
+          <span class="bar-count">4</span>
+        </li>
+        <li class="bar-row">
+          <span class="bar-label">Clive Barker</span>
+          <span class="bar-track"><span class="bar-fill" style="width:100%"></span></span>
+          <span class="bar-count">4</span>
+        </li>
+        <li class="bar-row">
+          <span class="bar-label">Ray Bradbury</span>
+          <span class="bar-track"><span class="bar-fill" style="width:100%"></span></span>
+          <span class="bar-count">4</span>
+        </li>
+        <li class="bar-row">
+          <span class="bar-label">H.P. Lovecraft</span>
+          <span class="bar-track"><span class="bar-fill" style="width:100%"></span></span>
+          <span class="bar-count">4</span>
+        </li>
+        <li class="bar-row">
+          <span class="bar-label">T. Kingfisher</span>
+          <span class="bar-track"><span class="bar-fill" style="width:75%"></span></span>
+          <span class="bar-count">3</span>
+        </li>
+        <li class="bar-row">
+          <span class="bar-label">Nick Cutter</span>
+          <span class="bar-track"><span class="bar-fill" style="width:75%"></span></span>
+          <span class="bar-count">3</span>
+        </li>
+        <li class="bar-row">
+          <span class="bar-label">Brom</span>
+          <span class="bar-track"><span class="bar-fill" style="width:50%"></span></span>
+          <span class="bar-count">2</span>
+        </li>
+        <li class="bar-row">
+          <span class="bar-label">Craig DiLouie</span>
+          <span class="bar-track"><span class="bar-fill" style="width:50%"></span></span>
+          <span class="bar-count">2</span>
+        </li>
+          </ul>
+          <ul class="bar-list" data-view-wins hidden>
+        <li class="bar-row">
+          <span class="bar-label">Clive Barker</span>
+          <span class="bar-track"><span class="bar-fill" style="width:100%"></span></span>
+          <span class="bar-count">3</span>
+        </li>
+          </ul>
         </div>
       </div>
     </div>
 
-    <div class="section" data-diversity-section>
+    <div class="section" data-toggle-scope>
       <div class="section-title">Author diversity</div>
       <p class="diversity-note">Based only on publicly self-identified info (author bios/interviews) — "Unknown" means we haven't found a public statement either way, not that the author isn't part of that group.</p>
-      <div class="toggle-row">
-        <button type="button" class="toggle-btn active" data-view="noms">All nominations</button>
-        <button type="button" class="toggle-btn" data-view="wins">Winners only</button>
-      </div>
       <div class="panel panel-grid panel-grid-3">
         <div>
           <div class="subsection-title">Gender</div>
           <ul class="bar-list" data-view-noms>
         <li class="bar-row">
           <span class="bar-label">Woman</span>
-          <span class="bar-track"><span class="bar-fill" style="width:44%"></span></span>
+          <span class="bar-track"><span class="bar-fill" style="width:45%"></span></span>
           <span class="bar-count">34</span>
         </li>
         <li class="bar-row">
           <span class="bar-label">Man</span>
           <span class="bar-track"><span class="bar-fill" style="width:100%"></span></span>
-          <span class="bar-count">77</span>
-        </li>
-        <li class="bar-row">
-          <span class="bar-label">Nonbinary</span>
-          <span class="bar-track"><span class="bar-fill" style="width:0%"></span></span>
-          <span class="bar-count">0</span>
-        </li>
-        <li class="bar-row">
-          <span class="bar-label">Unknown</span>
-          <span class="bar-track"><span class="bar-fill" style="width:14%"></span></span>
-          <span class="bar-count">11</span>
-        </li>
-          </ul>
-          <ul class="bar-list" data-view-wins hidden>
-        <li class="bar-row">
-          <span class="bar-label">Woman</span>
-          <span class="bar-track"><span class="bar-fill" style="width:47%"></span></span>
-          <span class="bar-count">9</span>
-        </li>
-        <li class="bar-row">
-          <span class="bar-label">Man</span>
-          <span class="bar-track"><span class="bar-fill" style="width:100%"></span></span>
-          <span class="bar-count">19</span>
+          <span class="bar-count">76</span>
         </li>
         <li class="bar-row">
           <span class="bar-label">Nonbinary</span>
@@ -455,7 +602,29 @@
         <li class="bar-row">
           <span class="bar-label">Unknown</span>
           <span class="bar-track"><span class="bar-fill" style="width:16%"></span></span>
-          <span class="bar-count">3</span>
+          <span class="bar-count">12</span>
+        </li>
+          </ul>
+          <ul class="bar-list" data-view-wins hidden>
+        <li class="bar-row">
+          <span class="bar-label">Woman</span>
+          <span class="bar-track"><span class="bar-fill" style="width:50%"></span></span>
+          <span class="bar-count">9</span>
+        </li>
+        <li class="bar-row">
+          <span class="bar-label">Man</span>
+          <span class="bar-track"><span class="bar-fill" style="width:100%"></span></span>
+          <span class="bar-count">18</span>
+        </li>
+        <li class="bar-row">
+          <span class="bar-label">Nonbinary</span>
+          <span class="bar-track"><span class="bar-fill" style="width:0%"></span></span>
+          <span class="bar-count">0</span>
+        </li>
+        <li class="bar-row">
+          <span class="bar-label">Unknown</span>
+          <span class="bar-track"><span class="bar-fill" style="width:22%"></span></span>
+          <span class="bar-count">4</span>
         </li>
           </ul>
         </div>
@@ -464,8 +633,8 @@
           <ul class="bar-list" data-view-noms>
         <li class="bar-row">
           <span class="bar-label">Publicly LGBTQ+</span>
-          <span class="bar-track"><span class="bar-fill" style="width:11%"></span></span>
-          <span class="bar-count">12</span>
+          <span class="bar-track"><span class="bar-fill" style="width:10%"></span></span>
+          <span class="bar-count">11</span>
         </li>
         <li class="bar-row">
           <span class="bar-label">Not publicly LGBTQ+</span>
@@ -475,14 +644,14 @@
         <li class="bar-row">
           <span class="bar-label">Unknown</span>
           <span class="bar-track"><span class="bar-fill" style="width:100%"></span></span>
-          <span class="bar-count">110</span>
+          <span class="bar-count">111</span>
         </li>
           </ul>
           <ul class="bar-list" data-view-wins hidden>
         <li class="bar-row">
           <span class="bar-label">Publicly LGBTQ+</span>
-          <span class="bar-track"><span class="bar-fill" style="width:15%"></span></span>
-          <span class="bar-count">4</span>
+          <span class="bar-track"><span class="bar-fill" style="width:11%"></span></span>
+          <span class="bar-count">3</span>
         </li>
         <li class="bar-row">
           <span class="bar-label">Not publicly LGBTQ+</span>
@@ -492,7 +661,7 @@
         <li class="bar-row">
           <span class="bar-label">Unknown</span>
           <span class="bar-track"><span class="bar-fill" style="width:100%"></span></span>
-          <span class="bar-count">27</span>
+          <span class="bar-count">28</span>
         </li>
           </ul>
         </div>
@@ -555,54 +724,6 @@
     </div>
 
     <div class="section">
-      <div class="section-title">Repeat authors</div>
-      <div class="panel">
-        <ul class="bar-list">
-        <li class="bar-row">
-          <span class="bar-label">Shirley Jackson (1959)</span>
-          <span class="bar-track"><span class="bar-fill" style="width:100%"></span></span>
-          <span class="bar-count">3</span>
-        </li>
-        <li class="bar-row">
-          <span class="bar-label">Nick Cutter (2014)</span>
-          <span class="bar-track"><span class="bar-fill" style="width:100%"></span></span>
-          <span class="bar-count">3</span>
-        </li>
-        <li class="bar-row">
-          <span class="bar-label">Brom (2021)</span>
-          <span class="bar-track"><span class="bar-fill" style="width:67%"></span></span>
-          <span class="bar-count">2</span>
-        </li>
-        <li class="bar-row">
-          <span class="bar-label">Craig DiLouie (2014)</span>
-          <span class="bar-track"><span class="bar-fill" style="width:67%"></span></span>
-          <span class="bar-count">2</span>
-        </li>
-        <li class="bar-row">
-          <span class="bar-label">T. Kingfisher (2020)</span>
-          <span class="bar-track"><span class="bar-fill" style="width:67%"></span></span>
-          <span class="bar-count">2</span>
-        </li>
-        <li class="bar-row">
-          <span class="bar-label">Kylie Lee Baker (2025)</span>
-          <span class="bar-track"><span class="bar-fill" style="width:67%"></span></span>
-          <span class="bar-count">2</span>
-        </li>
-        <li class="bar-row">
-          <span class="bar-label">Kōji Suzuki (1991, tr. 2003)</span>
-          <span class="bar-track"><span class="bar-fill" style="width:67%"></span></span>
-          <span class="bar-count">2</span>
-        </li>
-        <li class="bar-row">
-          <span class="bar-label">David Sodergren (2021)</span>
-          <span class="bar-track"><span class="bar-fill" style="width:67%"></span></span>
-          <span class="bar-count">2</span>
-        </li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="section">
       <div class="section-title"><img src="assets/hab-icon.png" alt="" class="hab-mascot"> HAB books nominated (7)</div>
       <div class="panel">
         <ul class="hab-list">
@@ -617,21 +738,19 @@
       </div>
     </div>
 
-    <p class="note">Stats regenerate whenever the site rebuilds, pulled straight from every month's nomination data.</p>
+    <p class="note">"All nominations" vs. "Winners only" up top filters every toggle-aware section on this page. Most-snubbed and HAB lists aren't filtered since they're inherently about specific subsets. Stats regenerate whenever the site rebuilds.</p>
   </main>
   <script>
     (function () {
-      var section = document.querySelector("[data-diversity-section]");
-      if (!section) return;
-      var buttons = section.querySelectorAll(".toggle-btn");
-      buttons.forEach(function (btn) {
+      var toggleButtons = document.querySelectorAll(".toggle-btn");
+      toggleButtons.forEach(function (btn) {
         btn.addEventListener("click", function () {
           var view = btn.getAttribute("data-view");
-          buttons.forEach(function (b) { b.classList.toggle("active", b === btn); });
-          section.querySelectorAll("[data-view-noms]").forEach(function (el) {
+          toggleButtons.forEach(function (b) { b.classList.toggle("active", b === btn); });
+          document.querySelectorAll("[data-view-noms]").forEach(function (el) {
             el.hidden = view !== "noms";
           });
-          section.querySelectorAll("[data-view-wins]").forEach(function (el) {
+          document.querySelectorAll("[data-view-wins]").forEach(function (el) {
             el.hidden = view !== "wins";
           });
         });

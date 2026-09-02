@@ -18,7 +18,8 @@
       "origin": "United States",
       "warnings": "Extreme gore and body horror, multiple graphic deaths, gun violence, animal death, an abusive ex-partner subplot.",
       "is_winner": true,
-      "theme_fit": 5
+      "theme_fit": 5,
+      "age_category": "Adult"
     },
     {
       "type": "Novel",
@@ -34,7 +35,8 @@
       "origin": "United States",
       "warnings": "Graphic violence, child death, sexual content, emotional abuse, suicide, substance use, mental illness, racism (period-typical).",
       "is_winner": false,
-      "theme_fit": 5
+      "theme_fit": 5,
+      "age_category": "Adult"
     },
     {
       "type": "Novel",
@@ -50,7 +52,8 @@
       "origin": "United States",
       "warnings": "Graphic bodily/visceral imagery, death of a parent, near-death experience, claustrophobia/confinement.",
       "is_winner": false,
-      "theme_fit": 5
+      "theme_fit": 5,
+      "age_category": "Adult"
     },
     {
       "type": "Novel",
@@ -66,7 +69,8 @@
       "origin": "United Kingdom",
       "warnings": "Graphic body horror, grief, terminal illness, suicide, confinement, loss of a parent, disordered eating themes.",
       "is_winner": false,
-      "theme_fit": 5
+      "theme_fit": 5,
+      "age_category": "Adult"
     }
   ],
   "short_works": [
@@ -83,7 +87,8 @@
       "summary": "A seasoned traveler books passage on a transatlantic steamer and is assigned an upper berth in a cabin with an inexplicably damp, cold porthole that won't stay shut. As previous occupants' fates come to light, the story builds toward a confrontation with whatever haunts the cabin at sea.",
       "origin": "United States",
       "warnings": "Death, drowning (implied), supernatural threat/confrontation, period-typical seafaring peril.",
-      "theme_fit": 5
+      "theme_fit": 5,
+      "age_category": "Adult"
     },
     {
       "type": "Short story",
@@ -98,7 +103,8 @@
       "summary": "Told as the recovered log of a German U-boat commander, the story follows his crew's unraveling sanity after they sink a ship and begin experiencing inexplicable, escalating horrors at sea. As the crew dwindles, the captain becomes fixated on a strange submerged temple that seems to be calling to him.",
       "origin": "United States",
       "warnings": "Violence, executions/summary killings, madness/psychological breakdown, wartime brutality.",
-      "theme_fit": 5
+      "theme_fit": 5,
+      "age_category": "Adult"
     },
     {
       "type": "Short story",
@@ -113,7 +119,8 @@
       "summary": "A young ship's apprentice narrates the aftermath of a giant sea creature climbing aboard his vessel in the night, killing and devouring the crew over several harrowing days. The survivors' increasingly desperate attempts to fight back build to a violent final confrontation with the thing.",
       "origin": "United Kingdom",
       "warnings": "Graphic violence, body horror, character deaths, sustained dread/threat.",
-      "theme_fit": 5
+      "theme_fit": 5,
+      "age_category": "Adult"
     },
     {
       "type": "Short story",
@@ -129,7 +136,8 @@
       "origin": "United States",
       "warnings": "Xenophobic and racially-coded \"degeneration\" themes (a well-documented issue in Lovecraft's work), body horror, mob violence, pursuit/chase horror.",
       "is_winner": true,
-      "theme_fit": 5
+      "theme_fit": 5,
+      "age_category": "Adult"
     }
   ],
   "theme": "Nautical Horror"

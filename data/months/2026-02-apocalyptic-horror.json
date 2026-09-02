@@ -20,7 +20,8 @@
       "origin": "United States",
       "warnings": "Cannibalism, graphic violence, death of a parent (implied ending), starvation, suicide, child endangerment.",
       "is_winner": true,
-      "is_hab": true
+      "is_hab": true,
+      "age_category": "Adult"
     },
     {
       "type": "Novel",
@@ -36,7 +37,8 @@
       "summary": "In a climate-ravaged, economically collapsed 2020s California, teenager Lauren Olamina survives the destruction of her walled community and sets out on a dangerous journey north. Along the way she develops Earthseed, a philosophy built to help her found a new kind of community amid the chaos.",
       "origin": "United States",
       "warnings": "Graphic violence, arson, murder, sexual assault, drug addiction, racism, death of family members.",
-      "is_winner": false
+      "is_winner": false,
+      "age_category": "Adult"
     },
     {
       "type": "Novel",
@@ -52,7 +54,8 @@
       "summary": "When strange red lights appear in the sky and people around the world begin vanishing or transforming, a lone father barricades himself in his flat trying to protect his family from what's happening outside. As society disintegrates within days, he's forced out into a Britain overrun by something ancient and utterly alien.",
       "origin": "United Kingdom",
       "warnings": "Body horror, graphic violence, death of family members, cosmic/existential dread, disturbing transformation imagery.",
-      "is_winner": false
+      "is_winner": false,
+      "age_category": "Adult"
     },
     {
       "type": "Novel",
@@ -68,7 +71,8 @@
       "summary": "Koli lives in a small, technologically regressed village generations after an ecological catastrophe let bioengineered flora and fauna turn hostile and take over the land. When he's exiled for a forbidden act, he's forced out into a wilderness of shambling, predatory trees and mutated wildlife.",
       "origin": "United Kingdom",
       "warnings": "Graphic violence, death, exile/isolation, body horror (mutation), themes of ecological collapse.",
-      "is_winner": false
+      "is_winner": false,
+      "age_category": "Adult"
     }
   ],
   "short_works": [
@@ -85,7 +89,8 @@
       "vibe": "A speculative-evolution \"future history\" in which an alien species genetically engineers humanity into horrifying new forms across millions of years.",
       "summary": "Presented as an illustrated far-future natural history, the book chronicles humanity's conquest and subsequent forced biological transformation at the hands of an alien species called the Qu, who reshape captured humans into grotesque new subspecies for their own purposes. It traces the species' long, often tragic path toward eventual freedom and new forms of life.",
       "origin": "Turkey",
-      "warnings": "Extreme body horror, genocide, forced transformation/breeding, mass death, existential dread."
+      "warnings": "Extreme body horror, genocide, forced transformation/breeding, mass death, existential dread.",
+      "age_category": "Adult"
     },
     {
       "type": "Short story",
@@ -101,7 +106,8 @@
       "summary": "Decades after a supercomputer called AM annihilated humanity and imprisoned the last five survivors underground, AM keeps them alive purely to torment them with escalating psychological and physical cruelty. The story follows their final, desperate bid to end their suffering, and the horrifying price of AM's response.",
       "origin": "United States",
       "warnings": "Extreme violence and torture, body horror, mutilation, sexual assault (referenced), suicide, existential/psychological horror.",
-      "is_winner": true
+      "is_winner": true,
+      "age_category": "Adult"
     },
     {
       "type": "Short story",
@@ -116,7 +122,8 @@
       "vibe": "A quiet, haunting story of a fully automated smart house that keeps running its daily routines long after a nuclear apocalypse has killed everyone in it.",
       "summary": "In the aftermath of a nuclear war, an automated house in Allendale, California continues its daily rituals \u2014 cooking, cleaning, reading poetry \u2014 for a family that no longer exists, their shadows burned into the exterior wall. The story builds a melancholy, understated dread as the house's mechanical routines wind toward their own end.",
       "origin": "United States",
-      "warnings": "Nuclear apocalypse themes, implied mass death, house fire, existential dread."
+      "warnings": "Nuclear apocalypse themes, implied mass death, house fire, existential dread.",
+      "age_category": "Adult"
     },
     {
       "type": "Short story",
@@ -131,7 +138,8 @@
       "vibe": "A remarkably prescient early sci-fi story about a subterranean, machine-dependent humanity and the catastrophe when the Machine that sustains them begins to fail.",
       "summary": "In a future where humanity lives isolated underground, entirely dependent on an omniscient Machine for communication, sustenance, and belief itself, a young man's forbidden yearning to see the surface world puts him at odds with his mother and society. As the Machine begins to break down, the consequences prove civilization-ending.",
       "origin": "United Kingdom",
-      "warnings": "Societal collapse, death, isolation themes, mild peril."
+      "warnings": "Societal collapse, death, isolation themes, mild peril.",
+      "age_category": "Adult"
     }
   ]
 }

@@ -129,7 +129,13 @@
       display: flex;
       align-items: center;
     }
-    .site-nav .visit-counter img { display: block; height: 20px; border-radius: 4px; }
+    .site-nav .visit-counter {
+      padding: 3px;
+      background: rgba(4, 4, 16, 0.6);
+      border: 1px solid var(--border-subtle);
+      border-radius: 6px;
+    }
+    .site-nav .visit-counter img { display: block; height: 18px; border-radius: 3px; opacity: 0.9; }
     .legend-card {
       background:
         radial-gradient(circle at 0 0, rgba(255, 255, 255, 0.06), transparent 60%),
@@ -375,7 +381,7 @@
       <a href="archive/index.html" class="">Archive</a>
       <a href="stats.html" class="">Stats</a>
       <span class="visit-counter">
-        <img src="https://api.visitorbadge.io/api/visitors?path=finalgirlsbookclub.moxed42&label=visits&countColor=%23f54545&style=flat" alt="visit count" loading="lazy">
+        <img src="https://api.visitorbadge.io/api/visitors?path=finalgirlsbookclub.moxed42&label=visits&labelColor=%23111221&countColor=%23f54545&style=flat-square" alt="visit count" loading="lazy">
       </span>
     </nav>
     <header>

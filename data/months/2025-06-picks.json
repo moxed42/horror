@@ -18,7 +18,8 @@
       "origin": "United Kingdom",
       "warnings": "Graphic violence, serial killer content, body horror, psychological horror, disturbing imagery (particularly the \"24 Hours\" arc).",
       "is_winner": false,
-      "book_theme": "Dark Fantasy"
+      "book_theme": "Dark Fantasy",
+      "age_category": "Adult"
     },
     {
       "type": "Novel",
@@ -34,7 +35,8 @@
       "origin": "United States",
       "warnings": "Violence, cult/ritual content, body horror, racially charged tension (subverted), psychological dread.",
       "is_winner": true,
-      "book_theme": "Cult Horror"
+      "book_theme": "Cult Horror",
+      "age_category": "Adult"
     },
     {
       "type": "Novel",
@@ -50,7 +52,8 @@
       "origin": "Japan",
       "warnings": "Rape and sexual assault (including a graphic backstory), misogyny, death of children, body horror, smallpox/disease imagery, medical trauma.",
       "is_winner": false,
-      "book_theme": "Cursed Media"
+      "book_theme": "Cursed Media",
+      "age_category": "Adult"
     },
     {
       "type": "Novel",
@@ -66,7 +69,8 @@
       "origin": "United States",
       "warnings": "Suicide (by hanging and by car collision), suicidal ideation, mental illness/psychosis, gaslighting, death of a parent (off-page).",
       "is_winner": false,
-      "book_theme": "Haunted House"
+      "book_theme": "Haunted House",
+      "age_category": "Adult"
     }
   ]
 }

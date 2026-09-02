@@ -19,7 +19,8 @@
       "summary": "Facing 25 years behind bars, a convict instead volunteers for an experimental corrections program, believing it's his best shot at redemption. What follows is an escalating series of physical and psychological trials that transform him into something no longer entirely human.",
       "origin": "United States",
       "warnings": "Extreme graphic torture (including dental/bone-related content), body horror, psychological abuse, confinement.",
-      "is_winner": false
+      "is_winner": false,
+      "age_category": "Adult"
     },
     {
       "type": "Novel",
@@ -35,7 +36,8 @@
       "summary": "A scoutmaster takes a small troop of boys on a routine camping trip to a remote Canadian island, only to have a starving, infected stranger stagger into camp. Once the parasite spreads, the story turns into a brutally graphic survival nightmare as hunger, infection, and cruelty strip away any veneer of civility.",
       "origin": "Canada",
       "warnings": "Extreme gore, body horror, animal death, starvation, bullying, child endangerment.",
-      "is_winner": false
+      "is_winner": false,
+      "age_category": "Adult"
     },
     {
       "type": "Novel",
@@ -51,7 +53,8 @@
       "summary": "After a disturbing dream, Yeong-hye renounces meat entirely, a choice her husband and family meet with escalating incomprehension, control, and violence. Told across three shifting perspectives, the novel follows her withdrawal from her own body and eventual desire to become something else \u2014 plant, not person.",
       "origin": "South Korea",
       "warnings": "Sexual violence, force-feeding, self-harm, domestic and family violence, disordered eating, psychiatric institutionalization.",
-      "is_winner": true
+      "is_winner": true,
+      "age_category": "Adult"
     },
     {
       "type": "Novel",
@@ -67,7 +70,8 @@
       "summary": "Nicholas and his girlfriend Nakota discover a strange, pulsing black hole\u2014\u201cthe Funhole\u201d\u2014in a storage room and start experimenting on it, filming what happens when they put things inside. As the hole reacts in unsettling, flesh\u2011adjacent ways and Nicholas\u2019s body begins to change, the book becomes a claustrophobic spiral of obsession, abuse, and physical transformation.",
       "origin": "United States",
       "warnings": "Extreme body horror, self-harm, addiction, emotional abuse, obsession, misogyny, graphic violence.",
-      "is_winner": false
+      "is_winner": false,
+      "age_category": "Adult"
     }
   ],
   "short_works": [
@@ -85,7 +89,8 @@
       "summary": "Mr. Harris becomes obsessed with the idea that his skeleton is a separate, hostile presence inside him and seeks help after his regular doctor dismisses him. The \u201cspecialist\u201d he finds takes a far too literal interest in Harris\u2019s bones, leading to a quietly grotesque finale that makes everyday anatomy feel uncanny.",
       "origin": "United States",
       "warnings": "Body horror, medical manipulation, obsession, unsettling doctor\u2013patient dynamics.",
-      "is_winner": false
+      "is_winner": false,
+      "age_category": "Adult"
     },
     {
       "type": "Short story",
@@ -101,7 +106,8 @@
       "summary": "Charlie's hands have started to feel like they don't belong to the rest of him, and it turns out they agree \u2014 plotting, along with hands everywhere, to free themselves from human bodies entirely. What starts as a strange domestic unease escalates into a citywide uprising of body parts against the people they're attached to.",
       "origin": "United Kingdom",
       "warnings": "Body horror, dismemberment, graphic violence, disturbing/surreal imagery.",
-      "is_winner": true
+      "is_winner": true,
+      "age_category": "Adult"
     },
     {
       "type": "Short story",
@@ -117,7 +123,8 @@
       "summary": "A former soldier arrives at the crumbling Usher estate to see an old friend through a mysterious wasting illness, only to find the surrounding land \u2014 and the house itself \u2014 thick with an unsettling fungal presence. As the sickness and the fungus intertwine, the story builds toward a genuinely unnerving, body-horror-inflected explanation for the Usher family's decline.",
       "origin": "United States",
       "warnings": "Body horror, decomposition/gore, suicide, animal death, possession, discriminatory language (period-typical), guns.",
-      "is_winner": false
+      "is_winner": false,
+      "age_category": "Adult"
     },
     {
       "type": "Short story",
@@ -133,7 +140,8 @@
       "summary": "An Antarctic research team thaws out the frozen body of a crashed alien, only to discover it can perfectly imitate and replace any living thing it consumes. As the crew realizes anyone among them could already be the creature in disguise, the story becomes a claustrophobic, body-horror-driven exercise in paranoia.",
       "origin": "United States",
       "warnings": "Body horror, graphic violence, identity/body-snatching themes, period-typical racial homogeneity in characterization.",
-      "is_winner": false
+      "is_winner": false,
+      "age_category": "Adult"
     }
   ]
 }
