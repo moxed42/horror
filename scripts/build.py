@@ -418,11 +418,10 @@ def render_stats_page() -> str:
         segments = []
         legend = []
         for i, (label, count) in enumerate(pairs):
-            if count == 0:
-                continue
             color = "#3a3f52" if label == "Unknown" else palette[i % len(palette)]
-            pct = round(count / total * 100)
-            segments.append(f'<span class="stack-seg" style="width:{pct}%;background:{color}"></span>')
+            if count > 0:
+                pct = round(count / total * 100)
+                segments.append(f'<span class="stack-seg" style="width:{pct}%;background:{color}"></span>')
             legend.append(
                 f'        <li><span class="stack-dot" style="background:{color}"></span>'
                 f'{label} <span class="stack-count">{count}</span></li>'
