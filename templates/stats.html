@@ -227,6 +227,14 @@
       text-overflow: ellipsis;
       white-space: nowrap;
     }
+    .snub-list .bar-row {
+      grid-template-columns: minmax(0, 2fr) 1fr 40px;
+    }
+    .snub-list .bar-label {
+      white-space: normal;
+      overflow: visible;
+      text-overflow: clip;
+    }
     .bar-track {
       background: rgba(4, 4, 16, 0.7);
       border-radius: var(--radius-pill);
@@ -274,8 +282,10 @@
       border: 1px solid var(--border-subtle);
     }
     .rank-title { color: var(--text-main); }
-    .rank-title a { color: var(--text-main); text-decoration: none; border-bottom: 1px dotted var(--text-muted); }
-    .rank-title a:hover { color: var(--accent-soft); border-bottom-color: var(--accent-soft); }
+    .rank-title a,
+    .bar-label a { color: var(--text-main); text-decoration: none; border-bottom: 1px dotted var(--text-muted); }
+    .rank-title a:hover,
+    .bar-label a:hover { color: var(--accent-soft); border-bottom-color: var(--accent-soft); }
     .won-tag {
       font-size: 0.65rem;
       text-transform: uppercase;
@@ -378,9 +388,9 @@ __TOP_STAT_CARDS__
     </div>
 
     <div class="toggle-row" data-toggle-scope>
-      <button type="button" class="toggle-btn active" data-view="noms">All nominations</button>
-      <button type="button" class="toggle-btn" data-view="wins">Winners only</button>
-      <span class="toggle-state-label">Showing: all nominations</span>
+      <button type="button" class="toggle-btn" data-view="noms">All nominations</button>
+      <button type="button" class="toggle-btn active" data-view="wins">Winners only</button>
+      <span class="toggle-state-label">Showing: winners only</span>
     </div>
 
     <div class="section" id="format" data-toggle-scope>
@@ -392,64 +402,65 @@ __TOP_STAT_CARDS__
         <div class="stat-value">__NOVEL_NOMS__</div>
         <div class="stat-label">Nominations</div>
       </div>
-      <div class="stat-card" data-view-noms>
+      <div class="stat-card" data-view-wins hidden>
         <div class="stat-value">__AVG_NOVEL_PAGES_NOMS__</div>
         <div class="stat-label">Avg. pages</div>
       </div>
-      <div class="stat-card" data-view-wins hidden>
+      <div class="stat-card" data-view-noms>
         <div class="stat-value">__AVG_NOVEL_PAGES_WINS__</div>
         <div class="stat-label">Avg. pages (winners)</div>
       </div>
         </div>
-        <div data-view-noms>__NOVEL_RECORD_TABLE_NOMS__</div>
-        <div data-view-wins hidden>__NOVEL_RECORD_TABLE_WINS__</div>
+        <div data-view-wins hidden>__NOVEL_RECORD_TABLE_NOMS__</div>
+        <div data-view-noms>__NOVEL_RECORD_TABLE_WINS__</div>
         <div class="subsection-title">Short works</div>
         <div class="stat-grid stat-grid-2">
       <div class="stat-card">
         <div class="stat-value">__SHORT_NOMS__</div>
         <div class="stat-label">Nominations</div>
       </div>
-      <div class="stat-card" data-view-noms>
+      <div class="stat-card" data-view-wins hidden>
         <div class="stat-value">__AVG_SHORT_PAGES_NOMS__</div>
         <div class="stat-label">Avg. pages</div>
       </div>
-      <div class="stat-card" data-view-wins hidden>
+      <div class="stat-card" data-view-noms>
         <div class="stat-value">__AVG_SHORT_PAGES_WINS__</div>
         <div class="stat-label">Avg. pages (winners)</div>
       </div>
         </div>
-        <div data-view-noms>__SHORT_RECORD_TABLE_NOMS__</div>
-        <div data-view-wins hidden>__SHORT_RECORD_TABLE_WINS__</div>
+        <div data-view-wins hidden>__SHORT_RECORD_TABLE_NOMS__</div>
+        <div data-view-noms>__SHORT_RECORD_TABLE_WINS__</div>
       </div>
     </div>
 
     <div class="section" id="numbers" data-toggle-scope>
       <div class="section-title">By the numbers</div>
+      <p class="diversity-note">Author age is based on publicly documented birth years and each book's original publication year — "Unknown" means we don't have a confirmed birth year, not that the author's age is a mystery.</p>
       <div class="panel panel-grid">
         <div>
           <div class="subsection-title">Origin country</div>
-          <ul class="bar-list" data-view-noms>
+          <ul class="bar-list" data-view-wins hidden>
 __ORIGIN_ROWS_NOMS__
           </ul>
-          <ul class="bar-list" data-view-wins hidden>
+          <ul class="bar-list" data-view-noms>
 __ORIGIN_ROWS_WINS__
           </ul>
         </div>
         <div>
           <div class="subsection-title">Content-warning intensity</div>
-          <div data-view-noms>
+          <div data-view-wins hidden>
 __CW_ROWS_NOMS__
           </div>
-          <div data-view-wins hidden>
+          <div data-view-noms>
 __CW_ROWS_WINS__
           </div>
         </div>
         <div>
-          <div class="subsection-title">Age category</div>
-          <div data-view-noms>
+          <div class="subsection-title">Author age (at time of writing)</div>
+          <div data-view-wins hidden>
 __AGE_ROWS_NOMS__
           </div>
-          <div data-view-wins hidden>
+          <div data-view-noms>
 __AGE_ROWS_WINS__
           </div>
         </div>
@@ -462,37 +473,37 @@ __AGE_ROWS_WINS__
       <div class="panel panel-grid panel-grid-4">
         <div>
           <div class="subsection-title">Repeat authors (2+ picks)</div>
-          <ul class="bar-list" data-view-noms>
+          <ul class="bar-list" data-view-wins hidden>
 __AUTHOR_ROWS_NOMS__
           </ul>
-          <ul class="bar-list" data-view-wins hidden>
+          <ul class="bar-list" data-view-noms>
 __AUTHOR_ROWS_WINS__
           </ul>
         </div>
         <div>
           <div class="subsection-title">Gender</div>
-          <div data-view-noms>
+          <div data-view-wins hidden>
 __GENDER_ROWS_NOMS__
           </div>
-          <div data-view-wins hidden>
+          <div data-view-noms>
 __GENDER_ROWS_WINS__
           </div>
         </div>
         <div>
-          <div class="subsection-title">LGBTQ+</div>
-          <div data-view-noms>
+          <div class="subsection-title">LGBTQIA+</div>
+          <div data-view-wins hidden>
 __LGBTQ_ROWS_NOMS__
           </div>
-          <div data-view-wins hidden>
+          <div data-view-noms>
 __LGBTQ_ROWS_WINS__
           </div>
         </div>
         <div>
           <div class="subsection-title">BIPOC</div>
-          <div data-view-noms>
+          <div data-view-wins hidden>
 __BIPOC_ROWS_NOMS__
           </div>
-          <div data-view-wins hidden>
+          <div data-view-noms>
 __BIPOC_ROWS_WINS__
           </div>
         </div>
@@ -503,7 +514,7 @@ __BIPOC_ROWS_WINS__
       <div class="section-title">Repeat nominees</div>
       <p class="not-filtered-note">Not affected by the toggle above — these are lifetime nomination counts, with a Won tag if it ever took the month.</p>
       <div class="panel">
-        <ul class="rank-list">
+        <ul class="bar-list snub-list">
 __SNUBBED_ROWS__
         </ul>
       </div>

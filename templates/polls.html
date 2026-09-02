@@ -103,6 +103,12 @@
     }
     .jump-nav a { color: var(--text-muted); text-decoration: none; }
     .jump-nav a:hover { color: var(--accent-soft); }
+    .month-jump-nav {
+      top: 40px;
+      max-height: 64px;
+      overflow-y: auto;
+      font-size: 0.74rem;
+    }
     .stat-grid {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -166,15 +172,25 @@
       padding: 16px 18px;
       box-shadow: var(--shadow);
       margin-bottom: 14px;
+      scroll-margin-top: 60px;
     }
-    .poll-card-header {
+    .poll-month { font-weight: 700; font-size: 0.95rem; margin-bottom: 12px; }
+    .poll-columns {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      gap: 18px;
+    }
+    @media (min-width: 700px) {
+      .poll-columns { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+    }
+    .poll-column { scroll-margin-top: 60px; }
+    .poll-column-header {
       display: flex;
       flex-wrap: wrap;
       align-items: center;
       gap: 8px 12px;
-      margin-bottom: 12px;
+      margin-bottom: 10px;
     }
-    .poll-month { font-weight: 700; font-size: 0.95rem; }
     .poll-type-tag {
       font-size: 0.68rem;
       text-transform: uppercase;
@@ -202,13 +218,9 @@
     }
     .poll-author { color: var(--text-muted); font-weight: 400; }
     .poll-winner-tag {
-      font-size: 0.65rem;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: var(--accent-soft);
-      border: 1px solid rgba(245, 69, 69, 0.5);
-      border-radius: var(--radius-pill);
-      padding: 1px 7px;
+      width: 15px;
+      height: 15px;
+      vertical-align: middle;
       margin-left: 4px;
     }
     .bar-track {
@@ -254,6 +266,9 @@
 
     <nav class="jump-nav">
       __POLL_YEAR_LINKS__
+    </nav>
+    <nav class="jump-nav month-jump-nav">
+      __POLL_MONTH_LINKS__
     </nav>
 
     <div class="stat-grid">
