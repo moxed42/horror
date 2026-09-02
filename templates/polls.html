@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Final Girls Book Club · Polls</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <meta name="theme-color" content="#f54545">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Final Girls Book Club">
+  <meta property="og:title" content="Final Girls Book Club · Polls">
+  <meta property="og:description" content="How every monthly poll actually broke down, vote by vote.">
+  <meta property="og:image" content="__BASE_URL__assets/social-card.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:url" content="__PAGE_URL__">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Final Girls Book Club · Polls">
+  <meta name="twitter:description" content="How every monthly poll actually broke down, vote by vote.">
+  <meta name="twitter:image" content="__BASE_URL__assets/social-card.png">
+  <style>
+    :root {
+      --bg: #04040a;
+      --bg-alt: #0b0b17;
+      --card-bg: #111221;
+      --accent: #f54545;
+      --accent-soft: #ffb4c8;
+      --text-main: #f6f6f9;
+      --text-muted: #a2a2bf;
+      --border-subtle: rgba(255, 255, 255, 0.06);
+      --shadow: 0 18px 40px rgba(0, 0, 0, 0.85);
+      --radius-lg: 20px;
+      --radius-pill: 999px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif;
+      background:
+        radial-gradient(circle at 0 0, rgba(255, 255, 255, 0.06) 0, transparent 55%),
+        radial-gradient(circle at 100% 100%, rgba(245, 69, 69, 0.18) 0, transparent 60%),
+        radial-gradient(circle at 100% 0, rgba(69, 89, 255, 0.14) 0, transparent 55%),
+        #020308;
+      color: var(--text-main);
+      min-height: 100vh;
+      padding: 24px 14px 40px;
+      display: flex;
+      justify-content: center;
+    }
+    .page { width: 100%; max-width: 1040px; }
+    .site-nav {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 18px;
+      font-size: 0.82rem;
+    }
+    .site-nav a {
+      color: var(--text-muted);
+      text-decoration: none;
+      padding: 4px 0;
+      border-bottom: 2px solid transparent;
+    }
+    .site-nav a:hover { color: var(--accent-soft); }
+    .site-nav a.active {
+      color: var(--text-main);
+      border-bottom-color: var(--accent);
+    }
+    .site-nav .visit-counter {
+      margin-left: auto;
+      display: flex;
+      align-items: center;
+      padding: 3px;
+      background: rgba(4, 4, 16, 0.6);
+      border: 1px solid var(--border-subtle);
+      border-radius: 6px;
+    }
+    .site-nav .visit-counter img { display: block; height: 18px; border-radius: 3px; opacity: 0.9; }
+    h1 {
+      font-size: clamp(1.8rem, 3vw, 2.4rem);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+    h1 span:first-child { color: var(--accent); }
+    h1 span:last-child { color: var(--accent-soft); }
+    .subtitle { font-size: 0.95rem; color: var(--text-muted); margin-bottom: 24px; }
+    .stat-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      margin-bottom: 14px;
+    }
+    @media (min-width: 700px) {
+      .stat-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+    }
+    .stat-card {
+      background:
+        radial-gradient(circle at top left, rgba(245, 69, 69, 0.2), transparent 60%),
+        var(--card-bg);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-subtle);
+      padding: 16px;
+      box-shadow: var(--shadow);
+    }
+    .stat-value { font-size: 1.5rem; font-weight: 700; color: var(--accent-soft); }
+    .stat-label {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+    .fact-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin: 14px 0 30px;
+    }
+    .fact {
+      flex: 1;
+      min-width: 260px;
+      background: rgba(4, 4, 16, 0.6);
+      border-radius: 12px;
+      border: 1px solid var(--border-subtle);
+      padding: 12px 14px;
+      font-size: 0.85rem;
+    }
+    .fact .fact-label {
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      font-size: 0.68rem;
+      color: var(--text-muted);
+      margin-bottom: 4px;
+    }
+    .year-heading {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--accent-soft);
+      margin: 26px 2px 12px;
+    }
+    .year-heading:first-of-type { margin-top: 0; }
+    .poll-card {
+      background: var(--bg-alt);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: 16px 18px;
+      box-shadow: var(--shadow);
+      margin-bottom: 14px;
+    }
+    .poll-card-header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px 12px;
+      margin-bottom: 12px;
+    }
+    .poll-month { font-weight: 700; font-size: 0.95rem; }
+    .poll-type-tag {
+      font-size: 0.68rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      padding: 3px 9px;
+      border-radius: var(--radius-pill);
+      background: rgba(245, 69, 69, 0.14);
+      border: 1px solid rgba(245, 69, 69, 0.4);
+      color: var(--accent-soft);
+    }
+    .poll-turnout { margin-left: auto; font-size: 0.76rem; color: var(--text-muted); }
+    ul.bar-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+    .bar-row {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 1fr 90px;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.82rem;
+    }
+    .bar-label {
+      color: var(--text-main);
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    .poll-author { color: var(--text-muted); font-weight: 400; }
+    .poll-winner-tag {
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--accent-soft);
+      border: 1px solid rgba(245, 69, 69, 0.5);
+      border-radius: var(--radius-pill);
+      padding: 1px 7px;
+      margin-left: 4px;
+    }
+    .bar-track {
+      background: rgba(4, 4, 16, 0.7);
+      border-radius: var(--radius-pill);
+      height: 10px;
+      overflow: hidden;
+      border: 1px solid var(--border-subtle);
+    }
+    .bar-fill {
+      display: block;
+      height: 100%;
+      background: linear-gradient(90deg, rgba(245, 69, 69, 0.55), rgba(255, 180, 200, 0.85));
+      border-radius: var(--radius-pill);
+    }
+    .poll-bar-row.is-winner .bar-fill {
+      background: linear-gradient(90deg, rgba(245, 69, 69, 0.9), rgba(255, 180, 200, 1));
+    }
+    .bar-count { color: var(--accent-soft); text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+    .note { margin-top: 26px; font-size: 0.78rem; color: var(--text-muted); }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <nav class="site-nav">
+      <a href="index.html">Current</a>
+      <a href="archive/index.html">Archive</a>
+      <a href="stats.html">Stats</a>
+      <a href="polls.html" class="active">Polls</a>
+      <span class="visit-counter">
+        <img src="https://api.visitorbadge.io/api/visitors?path=finalgirlsbookclub.moxed42&label=visits&labelColor=%23111221&countColor=%23f54545&style=flat-square" alt="visit count" loading="lazy">
+      </span>
+    </nav>
+    <h1><span>Final Girls</span> <span>Book Club</span> — Polls</h1>
+    <p class="subtitle">How every monthly poll actually broke down, not just who won.</p>
+
+    <div class="stat-grid">
+__POLL_TOP_CARDS__
+    </div>
+    <div class="fact-row">
+__POLL_RACE_CARDS__
+    </div>
+
+__POLL_SECTIONS__
+
+    <p class="note">Vote counts and turnout come from the club's poll screenshots; the March 2025 poll only recorded percentages, so it shows without vote counts. Site-wide averages exclude that poll.</p>
+  </main>
+</body>
+</html>

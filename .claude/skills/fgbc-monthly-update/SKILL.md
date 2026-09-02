@@ -71,6 +71,10 @@ For each title, also produce:
 For each book, output a separate fenced `md` code block, under 2000
 characters, in this exact format:
 
+Round every page count to the nearest 10 (e.g. an actual count of 217
+becomes `~220 pages`) — this applies everywhere pages are recorded, both
+in Discord output and the `pages` field in JSON.
+
 ```md
 **Title by Author**
 - *Page count*: ~XXX pages
