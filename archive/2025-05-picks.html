@@ -106,8 +106,29 @@
       font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
       color: var(--accent-soft);
     }
-    .archive-link { margin-top: 6px; font-size: 0.82rem; }
-    .archive-link a { color: var(--accent-soft); }
+    .site-nav {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 18px;
+      font-size: 0.82rem;
+    }
+    .site-nav a {
+      color: var(--text-muted);
+      text-decoration: none;
+      padding: 4px 0;
+      border-bottom: 2px solid transparent;
+    }
+    .site-nav a:hover { color: var(--accent-soft); }
+    .site-nav a.active {
+      color: var(--text-main);
+      border-bottom-color: var(--accent);
+    }
+    .site-nav .visit-counter {
+      margin-left: auto;
+      color: var(--text-muted);
+      font-size: 0.76rem;
+    }
     .legend-card {
       background:
         radial-gradient(circle at 0 0, rgba(255, 255, 255, 0.06), transparent 60%),
@@ -328,6 +349,12 @@
 </head>
 <body>
   <main class="page">
+    <nav class="site-nav">
+      <a href="../index.html" class="">Current</a>
+      <a href="index.html" class="active">Archive</a>
+      <a href="../stats.html" class="">Stats</a>
+      <span class="visit-counter" id="visit-counter"></span>
+    </nav>
     <header>
       <div class="title-block">
         <div class="club-name">
@@ -338,9 +365,6 @@
         </p>
         <p class="month-tag">
           Current month: <span class="mono">May 2025</span>
-        </p>
-        <p class="archive-link">
-          <a href="index.html">Browse past months →</a>
         </p>
       </div>
 
@@ -535,5 +559,14 @@
     </section>
 
   </main>
+  <script>
+    (function () {
+      var el = document.getElementById("visit-counter");
+      fetch("https://api.countapi.xyz/hit/finalgirlsbookclub-moxed42/visits")
+        .then(function (r) { return r.json(); })
+        .then(function (d) { el.textContent = d.value.toLocaleString() + " visits"; })
+        .catch(function () { el.textContent = ""; });
+    })();
+  </script>
 </body>
 </html>

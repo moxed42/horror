@@ -67,7 +67,8 @@
       "summary": "Victor Frankenstein, obsessed with conquering death, assembles and animates a creature from scavenged human remains, then abandons it in horror at what he's made. The creature's search for connection and revenge against his creator spirals into tragedy across the frozen reaches of Europe.",
       "origin": "United Kingdom",
       "warnings": "Death, grief, murder, themes of abandonment and isolation, mob violence.",
-      "is_winner": true
+      "is_winner": true,
+      "is_hab": true
     }
   ],
   "short_works": [
