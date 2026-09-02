@@ -25,7 +25,7 @@
       "type": "Novel",
       "title": "Vampire Hunter D: The Rose Princess",
       "author": "Hideyuki Kikuchi (1990, tr. English ed.)",
-      "pages": "N/A",
+      "pages": "~220 pages",
       "debut_label": "Debut novel: No",
       "avg_rating": "4.1\u2605",
       "theme_fit": 5,
@@ -99,7 +99,8 @@
       "vibe": "A wry, formally inventive short story that plays with vampire tropes and the act of storytelling itself.",
       "summary": "Structured as a self-aware, footnote-laden narrative, the story follows a small town's uneasy relationship with a local vampire while repeatedly interrupting itself to interrogate its own telling. It uses the vampire premise as a springboard for a stranger meditation on narrative, community, and appetite.",
       "origin": "United States",
-      "warnings": "Violence, death, disturbing imagery, metafictional/unconventional structure."
+      "warnings": "Violence, death, disturbing imagery, metafictional/unconventional structure.",
+      "avg_rating": "3.8\u2605"
     },
     {
       "type": "Short story",
