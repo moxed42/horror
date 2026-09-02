@@ -214,6 +214,27 @@
       border-radius: var(--radius-pill);
     }
     .bar-count { color: var(--accent-soft); text-align: right; font-variant-numeric: tabular-nums; }
+    .stack-bar {
+      display: flex;
+      height: 22px;
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid var(--border-subtle);
+      background: rgba(4, 4, 16, 0.7);
+    }
+    .stack-seg { display: block; height: 100%; }
+    ul.stack-legend {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px 16px;
+      margin-top: 10px;
+      font-size: 0.82rem;
+    }
+    .stack-legend li { display: flex; align-items: center; gap: 6px; color: var(--text-main); }
+    .stack-legend li.empty { color: var(--text-muted); font-style: italic; }
+    .stack-dot { width: 10px; height: 10px; border-radius: 50%; display: inline-block; flex-shrink: 0; }
+    .stack-count { color: var(--accent-soft); font-variant-numeric: tabular-nums; }
     ul.rank-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
     .rank-list li {
       display: flex;
@@ -360,21 +381,21 @@ __ORIGIN_ROWS_WINS__
         </div>
         <div>
           <div class="subsection-title">Content-warning intensity</div>
-          <ul class="bar-list" data-view-noms>
+          <div data-view-noms>
 __CW_ROWS_NOMS__
-          </ul>
-          <ul class="bar-list" data-view-wins hidden>
+          </div>
+          <div data-view-wins hidden>
 __CW_ROWS_WINS__
-          </ul>
+          </div>
         </div>
         <div>
           <div class="subsection-title">Age category</div>
-          <ul class="bar-list" data-view-noms>
+          <div data-view-noms>
 __AGE_ROWS_NOMS__
-          </ul>
-          <ul class="bar-list" data-view-wins hidden>
+          </div>
+          <div data-view-wins hidden>
 __AGE_ROWS_WINS__
-          </ul>
+          </div>
         </div>
         <div>
           <div class="subsection-title">Repeat authors (2+ picks)</div>
@@ -394,30 +415,30 @@ __AUTHOR_ROWS_WINS__
       <div class="panel panel-grid panel-grid-3">
         <div>
           <div class="subsection-title">Gender</div>
-          <ul class="bar-list" data-view-noms>
+          <div data-view-noms>
 __GENDER_ROWS_NOMS__
-          </ul>
-          <ul class="bar-list" data-view-wins hidden>
+          </div>
+          <div data-view-wins hidden>
 __GENDER_ROWS_WINS__
-          </ul>
+          </div>
         </div>
         <div>
           <div class="subsection-title">LGBTQ+</div>
-          <ul class="bar-list" data-view-noms>
+          <div data-view-noms>
 __LGBTQ_ROWS_NOMS__
-          </ul>
-          <ul class="bar-list" data-view-wins hidden>
+          </div>
+          <div data-view-wins hidden>
 __LGBTQ_ROWS_WINS__
-          </ul>
+          </div>
         </div>
         <div>
           <div class="subsection-title">BIPOC</div>
-          <ul class="bar-list" data-view-noms>
+          <div data-view-noms>
 __BIPOC_ROWS_NOMS__
-          </ul>
-          <ul class="bar-list" data-view-wins hidden>
+          </div>
+          <div data-view-wins hidden>
 __BIPOC_ROWS_WINS__
-          </ul>
+          </div>
         </div>
       </div>
     </div>

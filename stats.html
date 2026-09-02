@@ -214,6 +214,27 @@
       border-radius: var(--radius-pill);
     }
     .bar-count { color: var(--accent-soft); text-align: right; font-variant-numeric: tabular-nums; }
+    .stack-bar {
+      display: flex;
+      height: 22px;
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid var(--border-subtle);
+      background: rgba(4, 4, 16, 0.7);
+    }
+    .stack-seg { display: block; height: 100%; }
+    ul.stack-legend {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px 16px;
+      margin-top: 10px;
+      font-size: 0.82rem;
+    }
+    .stack-legend li { display: flex; align-items: center; gap: 6px; color: var(--text-main); }
+    .stack-legend li.empty { color: var(--text-muted); font-style: italic; }
+    .stack-dot { width: 10px; height: 10px; border-radius: 50%; display: inline-block; flex-shrink: 0; }
+    .stack-count { color: var(--accent-soft); font-variant-numeric: tabular-nums; }
     ul.rank-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
     .rank-list li {
       display: flex;
@@ -316,11 +337,11 @@
         <div class="stat-label">Nominations</div>
       </div>
       <div class="stat-card" data-view-noms>
-        <div class="stat-value">327 pages</div>
+        <div class="stat-value">325 pages</div>
         <div class="stat-label">Avg. pages</div>
       </div>
       <div class="stat-card" data-view-wins hidden>
-        <div class="stat-value">337 pages</div>
+        <div class="stat-value">325 pages</div>
         <div class="stat-label">Avg. pages (winners)</div>
       </div>
         </div>
@@ -329,7 +350,7 @@
           <div class="fact"><div class="fact-label">Shortest novel</div>The Turn of the Screw (120 pages)</div>
         </div>
         <div class="fact-row" data-view-wins hidden>
-          <div class="fact"><div class="fact-label">Longest winning novel</div>Slewfoot: A Tale of Bewitchery (512 pages)</div>
+          <div class="fact"><div class="fact-label">Longest winning novel</div>Native Fear (500 pages)</div>
           <div class="fact"><div class="fact-label">Shortest winning novel</div>The Vegetarian (188 pages)</div>
         </div>
         <div class="subsection-title">Short works</div>
@@ -440,87 +461,37 @@
         </div>
         <div>
           <div class="subsection-title">Content-warning intensity</div>
-          <ul class="bar-list" data-view-noms>
-        <li class="bar-row">
-          <span class="bar-label">Mild</span>
-          <span class="bar-track"><span class="bar-fill" style="width:6%"></span></span>
-          <span class="bar-count">5</span>
-        </li>
-        <li class="bar-row">
-          <span class="bar-label">Moderate</span>
-          <span class="bar-track"><span class="bar-fill" style="width:50%"></span></span>
-          <span class="bar-count">39</span>
-        </li>
-        <li class="bar-row">
-          <span class="bar-label">Extreme</span>
-          <span class="bar-track"><span class="bar-fill" style="width:100%"></span></span>
-          <span class="bar-count">78</span>
-        </li>
+          <div data-view-noms>
+          <div class="stack-bar"><span class="stack-seg" style="width:4%;background:#f54545"></span><span class="stack-seg" style="width:32%;background:#4a9dff"></span><span class="stack-seg" style="width:64%;background:#9b6bff"></span></div>
+          <ul class="stack-legend">
+        <li><span class="stack-dot" style="background:#f54545"></span>Mild <span class="stack-count">5</span></li>
+        <li><span class="stack-dot" style="background:#4a9dff"></span>Heavy <span class="stack-count">39</span></li>
+        <li><span class="stack-dot" style="background:#9b6bff"></span>Extreme <span class="stack-count">78</span></li>
           </ul>
-          <ul class="bar-list" data-view-wins hidden>
-        <li class="bar-row">
-          <span class="bar-label">Mild</span>
-          <span class="bar-track"><span class="bar-fill" style="width:0%"></span></span>
-          <span class="bar-count">0</span>
-        </li>
-        <li class="bar-row">
-          <span class="bar-label">Moderate</span>
-          <span class="bar-track"><span class="bar-fill" style="width:41%"></span></span>
-          <span class="bar-count">9</span>
-        </li>
-        <li class="bar-row">
-          <span class="bar-label">Extreme</span>
-          <span class="bar-track"><span class="bar-fill" style="width:100%"></span></span>
-          <span class="bar-count">22</span>
-        </li>
+          </div>
+          <div data-view-wins hidden>
+          <div class="stack-bar"><span class="stack-seg" style="width:29%;background:#4a9dff"></span><span class="stack-seg" style="width:71%;background:#9b6bff"></span></div>
+          <ul class="stack-legend">
+        <li><span class="stack-dot" style="background:#4a9dff"></span>Heavy <span class="stack-count">9</span></li>
+        <li><span class="stack-dot" style="background:#9b6bff"></span>Extreme <span class="stack-count">22</span></li>
           </ul>
+          </div>
         </div>
         <div>
           <div class="subsection-title">Age category</div>
-          <ul class="bar-list" data-view-noms>
-        <li class="bar-row">
-          <span class="bar-label">Adult</span>
-          <span class="bar-track"><span class="bar-fill" style="width:100%"></span></span>
-          <span class="bar-count">121</span>
-        </li>
-        <li class="bar-row">
-          <span class="bar-label">YA</span>
-          <span class="bar-track"><span class="bar-fill" style="width:1%"></span></span>
-          <span class="bar-count">1</span>
-        </li>
-        <li class="bar-row">
-          <span class="bar-label">Middle Grade</span>
-          <span class="bar-track"><span class="bar-fill" style="width:0%"></span></span>
-          <span class="bar-count">0</span>
-        </li>
-        <li class="bar-row">
-          <span class="bar-label">Unknown</span>
-          <span class="bar-track"><span class="bar-fill" style="width:0%"></span></span>
-          <span class="bar-count">0</span>
-        </li>
+          <div data-view-noms>
+          <div class="stack-bar"><span class="stack-seg" style="width:99%;background:#f54545"></span><span class="stack-seg" style="width:1%;background:#4a9dff"></span></div>
+          <ul class="stack-legend">
+        <li><span class="stack-dot" style="background:#f54545"></span>Adult <span class="stack-count">121</span></li>
+        <li><span class="stack-dot" style="background:#4a9dff"></span>YA <span class="stack-count">1</span></li>
           </ul>
-          <ul class="bar-list" data-view-wins hidden>
-        <li class="bar-row">
-          <span class="bar-label">Adult</span>
-          <span class="bar-track"><span class="bar-fill" style="width:100%"></span></span>
-          <span class="bar-count">31</span>
-        </li>
-        <li class="bar-row">
-          <span class="bar-label">YA</span>
-          <span class="bar-track"><span class="bar-fill" style="width:0%"></span></span>
-          <span class="bar-count">0</span>
-        </li>
-        <li class="bar-row">
-          <span class="bar-label">Middle Grade</span>
-          <span class="bar-track"><span class="bar-fill" style="width:0%"></span></span>
-          <span class="bar-count">0</span>
-        </li>
-        <li class="bar-row">
-          <span class="bar-label">Unknown</span>
-          <span class="bar-track"><span class="bar-fill" style="width:0%"></span></span>
-          <span class="bar-count">0</span>
-        </li>
+          </div>
+          <div data-view-wins hidden>
+          <div class="stack-bar"><span class="stack-seg" style="width:100%;background:#f54545"></span></div>
+          <ul class="stack-legend">
+        <li><span class="stack-dot" style="background:#f54545"></span>Adult <span class="stack-count">31</span></li>
           </ul>
+          </div>
         </div>
         <div>
           <div class="subsection-title">Repeat authors (2+ picks)</div>
@@ -583,124 +554,56 @@
       <div class="panel panel-grid panel-grid-3">
         <div>
           <div class="subsection-title">Gender</div>
-          <ul class="bar-list" data-view-noms>
-        <li class="bar-row">
-          <span class="bar-label">Woman</span>
-          <span class="bar-track"><span class="bar-fill" style="width:45%"></span></span>
-          <span class="bar-count">34</span>
-        </li>
-        <li class="bar-row">
-          <span class="bar-label">Man</span>
-          <span class="bar-track"><span class="bar-fill" style="width:100%"></span></span>
-          <span class="bar-count">76</span>
-        </li>
-        <li class="bar-row">
-          <span class="bar-label">Nonbinary</span>
-          <span class="bar-track"><span class="bar-fill" style="width:0%"></span></span>
-          <span class="bar-count">0</span>
-        </li>
-        <li class="bar-row">
-          <span class="bar-label">Unknown</span>
-          <span class="bar-track"><span class="bar-fill" style="width:16%"></span></span>
-          <span class="bar-count">12</span>
-        </li>
+          <div data-view-noms>
+          <div class="stack-bar"><span class="stack-seg" style="width:28%;background:#f54545"></span><span class="stack-seg" style="width:62%;background:#4a9dff"></span><span class="stack-seg" style="width:10%;background:#3a3f52"></span></div>
+          <ul class="stack-legend">
+        <li><span class="stack-dot" style="background:#f54545"></span>Woman <span class="stack-count">34</span></li>
+        <li><span class="stack-dot" style="background:#4a9dff"></span>Man <span class="stack-count">76</span></li>
+        <li><span class="stack-dot" style="background:#3a3f52"></span>Unknown <span class="stack-count">12</span></li>
           </ul>
-          <ul class="bar-list" data-view-wins hidden>
-        <li class="bar-row">
-          <span class="bar-label">Woman</span>
-          <span class="bar-track"><span class="bar-fill" style="width:50%"></span></span>
-          <span class="bar-count">9</span>
-        </li>
-        <li class="bar-row">
-          <span class="bar-label">Man</span>
-          <span class="bar-track"><span class="bar-fill" style="width:100%"></span></span>
-          <span class="bar-count">18</span>
-        </li>
-        <li class="bar-row">
-          <span class="bar-label">Nonbinary</span>
-          <span class="bar-track"><span class="bar-fill" style="width:0%"></span></span>
-          <span class="bar-count">0</span>
-        </li>
-        <li class="bar-row">
-          <span class="bar-label">Unknown</span>
-          <span class="bar-track"><span class="bar-fill" style="width:22%"></span></span>
-          <span class="bar-count">4</span>
-        </li>
+          </div>
+          <div data-view-wins hidden>
+          <div class="stack-bar"><span class="stack-seg" style="width:29%;background:#f54545"></span><span class="stack-seg" style="width:58%;background:#4a9dff"></span><span class="stack-seg" style="width:13%;background:#3a3f52"></span></div>
+          <ul class="stack-legend">
+        <li><span class="stack-dot" style="background:#f54545"></span>Woman <span class="stack-count">9</span></li>
+        <li><span class="stack-dot" style="background:#4a9dff"></span>Man <span class="stack-count">18</span></li>
+        <li><span class="stack-dot" style="background:#3a3f52"></span>Unknown <span class="stack-count">4</span></li>
           </ul>
+          </div>
         </div>
         <div>
           <div class="subsection-title">LGBTQ+</div>
-          <ul class="bar-list" data-view-noms>
-        <li class="bar-row">
-          <span class="bar-label">Publicly LGBTQ+</span>
-          <span class="bar-track"><span class="bar-fill" style="width:10%"></span></span>
-          <span class="bar-count">11</span>
-        </li>
-        <li class="bar-row">
-          <span class="bar-label">Not publicly LGBTQ+</span>
-          <span class="bar-track"><span class="bar-fill" style="width:0%"></span></span>
-          <span class="bar-count">0</span>
-        </li>
-        <li class="bar-row">
-          <span class="bar-label">Unknown</span>
-          <span class="bar-track"><span class="bar-fill" style="width:100%"></span></span>
-          <span class="bar-count">111</span>
-        </li>
+          <div data-view-noms>
+          <div class="stack-bar"><span class="stack-seg" style="width:9%;background:#f54545"></span><span class="stack-seg" style="width:91%;background:#3a3f52"></span></div>
+          <ul class="stack-legend">
+        <li><span class="stack-dot" style="background:#f54545"></span>LGBTQ+ <span class="stack-count">11</span></li>
+        <li><span class="stack-dot" style="background:#3a3f52"></span>Unknown <span class="stack-count">111</span></li>
           </ul>
-          <ul class="bar-list" data-view-wins hidden>
-        <li class="bar-row">
-          <span class="bar-label">Publicly LGBTQ+</span>
-          <span class="bar-track"><span class="bar-fill" style="width:11%"></span></span>
-          <span class="bar-count">3</span>
-        </li>
-        <li class="bar-row">
-          <span class="bar-label">Not publicly LGBTQ+</span>
-          <span class="bar-track"><span class="bar-fill" style="width:0%"></span></span>
-          <span class="bar-count">0</span>
-        </li>
-        <li class="bar-row">
-          <span class="bar-label">Unknown</span>
-          <span class="bar-track"><span class="bar-fill" style="width:100%"></span></span>
-          <span class="bar-count">28</span>
-        </li>
+          </div>
+          <div data-view-wins hidden>
+          <div class="stack-bar"><span class="stack-seg" style="width:10%;background:#f54545"></span><span class="stack-seg" style="width:90%;background:#3a3f52"></span></div>
+          <ul class="stack-legend">
+        <li><span class="stack-dot" style="background:#f54545"></span>LGBTQ+ <span class="stack-count">3</span></li>
+        <li><span class="stack-dot" style="background:#3a3f52"></span>Unknown <span class="stack-count">28</span></li>
           </ul>
+          </div>
         </div>
         <div>
           <div class="subsection-title">BIPOC</div>
-          <ul class="bar-list" data-view-noms>
-        <li class="bar-row">
-          <span class="bar-label">BIPOC</span>
-          <span class="bar-track"><span class="bar-fill" style="width:8%"></span></span>
-          <span class="bar-count">9</span>
-        </li>
-        <li class="bar-row">
-          <span class="bar-label">Not BIPOC</span>
-          <span class="bar-track"><span class="bar-fill" style="width:0%"></span></span>
-          <span class="bar-count">0</span>
-        </li>
-        <li class="bar-row">
-          <span class="bar-label">Unknown</span>
-          <span class="bar-track"><span class="bar-fill" style="width:100%"></span></span>
-          <span class="bar-count">113</span>
-        </li>
+          <div data-view-noms>
+          <div class="stack-bar"><span class="stack-seg" style="width:7%;background:#f54545"></span><span class="stack-seg" style="width:93%;background:#3a3f52"></span></div>
+          <ul class="stack-legend">
+        <li><span class="stack-dot" style="background:#f54545"></span>BIPOC <span class="stack-count">9</span></li>
+        <li><span class="stack-dot" style="background:#3a3f52"></span>Unknown <span class="stack-count">113</span></li>
           </ul>
-          <ul class="bar-list" data-view-wins hidden>
-        <li class="bar-row">
-          <span class="bar-label">BIPOC</span>
-          <span class="bar-track"><span class="bar-fill" style="width:7%"></span></span>
-          <span class="bar-count">2</span>
-        </li>
-        <li class="bar-row">
-          <span class="bar-label">Not BIPOC</span>
-          <span class="bar-track"><span class="bar-fill" style="width:0%"></span></span>
-          <span class="bar-count">0</span>
-        </li>
-        <li class="bar-row">
-          <span class="bar-label">Unknown</span>
-          <span class="bar-track"><span class="bar-fill" style="width:100%"></span></span>
-          <span class="bar-count">29</span>
-        </li>
+          </div>
+          <div data-view-wins hidden>
+          <div class="stack-bar"><span class="stack-seg" style="width:6%;background:#f54545"></span><span class="stack-seg" style="width:94%;background:#3a3f52"></span></div>
+          <ul class="stack-legend">
+        <li><span class="stack-dot" style="background:#f54545"></span>BIPOC <span class="stack-count">2</span></li>
+        <li><span class="stack-dot" style="background:#3a3f52"></span>Unknown <span class="stack-count">29</span></li>
           </ul>
+          </div>
         </div>
       </div>
     </div>
