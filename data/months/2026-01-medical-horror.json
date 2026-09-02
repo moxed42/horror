@@ -51,7 +51,7 @@
       "summary": "A true account of the emergence of Ebola and Marburg viruses in Africa, and the terrifying 1989 outbreak of a related filovirus among lab monkeys just outside Washington, D.C. Preston renders the biology and human toll of hemorrhagic fever in unflinching, stomach-churning detail.",
       "origin": "United States",
       "warnings": "Graphic descriptions of illness, bodily fluids, and death; animal death; medical/biohazard horror.",
-      "is_winner": true
+      "is_winner": false
     },
     {
       "type": "Novel",
@@ -67,7 +67,7 @@
       "summary": "Victor Frankenstein, obsessed with conquering death, assembles and animates a creature from scavenged human remains, then abandons it in horror at what he's made. The creature's search for connection and revenge against his creator spirals into tragedy across the frozen reaches of Europe.",
       "origin": "United Kingdom",
       "warnings": "Death, grief, murder, themes of abandonment and isolation, mob violence.",
-      "is_winner": false
+      "is_winner": true
     }
   ],
   "short_works": [
@@ -84,7 +84,8 @@
       "vibe": "A sci-fi horror short about teleportation, anesthesia, and what happens to a mind left conscious across the void.",
       "summary": "A father explains the family-friendly history of \"the Jaunt,\" a teleportation technology that requires travelers to be sedated before use, to his children before their first trip. The story builds to a horrifying account of what happens to anyone who stays conscious during the jaunt \u2014 and what that means for the family's own journey.",
       "origin": "United States",
-      "warnings": "Body horror, psychological horror, death, disturbing implied violence, medical/anesthesia themes."
+      "warnings": "Body horror, psychological horror, death, disturbing implied violence, medical/anesthesia themes.",
+      "is_winner": true
     },
     {
       "type": "Short story",
@@ -99,7 +100,8 @@
       "vibe": "The pulpy, episodic mad-scientist novella that inspired Re-Animator \u2014 a medical student obsessed with reviving the dead.",
       "summary": "Herbert West, a brilliant and morally unmoored medical student, spends years perfecting a reagent that can reanimate dead tissue, with escalating and increasingly monstrous results. Told by his horrified assistant across a series of gruesome experiments, the story follows West's relentless pursuit of his research at any cost.",
       "origin": "United States",
-      "warnings": "Graphic body horror, gore, grave robbing, violence, disturbing medical experimentation, period-typical racism."
+      "warnings": "Graphic body horror, gore, grave robbing, violence, disturbing medical experimentation, period-typical racism.",
+      "is_winner": false
     },
     {
       "type": "Short story",
@@ -114,7 +116,8 @@
       "vibe": "A near-future sci-fi novella about a neuroscientist who implants herself with tech to experience a wild wolf's mind \u2014 and can't fully leave it behind.",
       "summary": "Dr. Sean Kell-Luddon uses experimental neural implant technology to link her mind to a wild wolf's, hoping to understand animal consciousness before the species disappears entirely. As the boundary between her human and lupine perspectives erodes, the experiment starts consuming her marriage, her ethics, and her sense of self.",
       "origin": "United States",
-      "warnings": "Body/mind horror themes, animal death (referenced), relationship breakdown, ethical violation, addiction-like compulsion."
+      "warnings": "Body/mind horror themes, animal death (referenced), relationship breakdown, ethical violation, addiction-like compulsion.",
+      "is_winner": false
     },
     {
       "type": "Short story",
@@ -128,7 +131,8 @@
       "vibe": "A viscerally gross SCP Foundation piece about an anomalous, aggressively invasive parasitic organism and the horror of containing something that wants inside you.",
       "summary": "Foundation researchers document containment procedures for an anomalous creature whose primary threat is a relentless, body-horror-driven urge to physically merge with and colonize other organisms. Told through clinical incident reports, the story builds dread through procedure and consequence rather than narrative.",
       "origin": "United States",
-      "warnings": "Extreme body horror, parasitic/invasive imagery, graphic violence, medical/clinical horror."
+      "warnings": "Extreme body horror, parasitic/invasive imagery, graphic violence, medical/clinical horror.",
+      "is_winner": false
     }
   ]
 }
