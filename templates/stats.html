@@ -80,6 +80,14 @@
     h1 span:first-child { color: var(--accent); }
     h1 span:last-child { color: var(--accent-soft); }
     .subtitle { font-size: 0.95rem; color: var(--text-muted); margin-bottom: 24px; }
+    .hab-mascot {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      vertical-align: middle;
+      margin-right: 4px;
+      border: 1px solid var(--border-subtle);
+    }
     .stat-grid {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -196,7 +204,7 @@
       <span class="visit-counter" id="visit-counter"></span>
     </nav>
     <h1><span>Final Girls</span> <span>Book Club</span> — Stats</h1>
-    <p class="subtitle">HAB stands for "Homework Ass Book" — a nominee that's the kind of classic you might've been assigned in high school English.</p>
+    <p class="subtitle"><img src="assets/hab-icon.png" alt="" class="hab-mascot"> HAB stands for "Homework Ass Book" — a nominee that's the kind of classic you might've been assigned in high school English.</p>
 
     <div class="stat-grid">
 __TOP_STAT_CARDS__
@@ -231,7 +239,7 @@ __SNUBBED_ROWS__
     </div>
 
     <div class="section">
-      <div class="section-title">HAB books nominated (__HAB_COUNT__)</div>
+      <div class="section-title"><img src="assets/hab-icon.png" alt="" class="hab-mascot"> HAB books nominated (__HAB_COUNT__)</div>
       <div class="panel">
         <ul class="hab-list">
 __HAB_ROWS__
