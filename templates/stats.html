@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Final Girls Book Club · Stats</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <meta name="theme-color" content="#f54545">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Final Girls Book Club">
+  <meta property="og:title" content="Final Girls Book Club · Stats">
+  <meta property="og:description" content="Nomination history, HAB counts, and other stats from the Final Girls Book Club.">
+  <meta property="og:image" content="__BASE_URL__assets/social-card.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:url" content="__PAGE_URL__">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Final Girls Book Club · Stats">
+  <meta name="twitter:description" content="Nomination history, HAB counts, and other stats from the Final Girls Book Club.">
+  <meta name="twitter:image" content="__BASE_URL__assets/social-card.png">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.4/chart.umd.min.js"></script>
+  <style>
+    :root {
+      --bg: #04040a;
+      --bg-alt: #0b0b17;
+      --card-bg: #111221;
+      --accent: #f54545;
+      --accent-soft: #ffb4c8;
+      --text-main: #f6f6f9;
+      --text-muted: #a2a2bf;
+      --border-subtle: rgba(255, 255, 255, 0.06);
+      --shadow: 0 18px 40px rgba(0, 0, 0, 0.85);
+      --radius-lg: 20px;
+      --radius-pill: 999px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif;
+      background:
+        radial-gradient(circle at 0 0, rgba(255, 255, 255, 0.06) 0, transparent 55%),
+        radial-gradient(circle at 100% 100%, rgba(245, 69, 69, 0.18) 0, transparent 60%),
+        radial-gradient(circle at 100% 0, rgba(69, 89, 255, 0.14) 0, transparent 55%),
+        #020308;
+      color: var(--text-main);
+      min-height: 100vh;
+      padding: 24px 14px 40px;
+      display: flex;
+      justify-content: center;
+    }
+    .page { width: 100%; max-width: 1040px; }
+    .site-nav {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 18px;
+      font-size: 0.82rem;
+    }
+    .site-nav a {
+      color: var(--text-muted);
+      text-decoration: none;
+      padding: 4px 0;
+      border-bottom: 2px solid transparent;
+    }
+    .site-nav a:hover { color: var(--accent-soft); }
+    .site-nav a.active {
+      color: var(--text-main);
+      border-bottom-color: var(--accent);
+    }
+    .site-nav .visit-counter {
+      margin-left: auto;
+      color: var(--text-muted);
+      font-size: 0.76rem;
+    }
+    h1 {
+      font-size: clamp(1.8rem, 3vw, 2.4rem);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+    h1 span:first-child { color: var(--accent); }
+    h1 span:last-child { color: var(--accent-soft); }
+    .subtitle { font-size: 0.95rem; color: var(--text-muted); margin-bottom: 24px; }
+    .stat-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      margin-bottom: 30px;
+    }
+    @media (min-width: 700px) {
+      .stat-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    }
+    .stat-card {
+      background:
+        radial-gradient(circle at top left, rgba(245, 69, 69, 0.2), transparent 60%),
+        var(--card-bg);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-subtle);
+      padding: 16px;
+      box-shadow: var(--shadow);
+    }
+    .stat-value { font-size: 1.5rem; font-weight: 700; color: var(--accent-soft); }
+    .stat-label {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+    .section { margin-top: 30px; }
+    .section-title {
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--text-muted);
+      margin-bottom: 12px;
+    }
+    .panel {
+      background: var(--bg-alt);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: 18px;
+      box-shadow: var(--shadow);
+    }
+    .panel-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      gap: 18px;
+    }
+    @media (min-width: 800px) {
+      .panel-grid { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+    }
+    .chart-wrap { position: relative; height: 260px; }
+    ul.rank-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+    .rank-list li {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      font-size: 0.88rem;
+      padding: 8px 10px;
+      background: rgba(4, 4, 16, 0.6);
+      border-radius: 10px;
+      border: 1px solid var(--border-subtle);
+    }
+    .rank-title { color: var(--text-main); }
+    .rank-count { color: var(--accent-soft); white-space: nowrap; }
+    .rank-list li.empty { color: var(--text-muted); font-style: italic; }
+    ul.hab-list {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .hab-list li {
+      font-size: 0.82rem;
+      padding: 6px 12px;
+      border-radius: var(--radius-pill);
+      background: rgba(245, 69, 69, 0.12);
+      border: 1px solid rgba(245, 69, 69, 0.4);
+      color: var(--accent-soft);
+    }
+    .fact-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 12px;
+    }
+    .fact {
+      flex: 1;
+      min-width: 220px;
+      background: rgba(4, 4, 16, 0.6);
+      border-radius: 12px;
+      border: 1px solid var(--border-subtle);
+      padding: 12px 14px;
+      font-size: 0.85rem;
+    }
+    .fact .fact-label {
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      font-size: 0.68rem;
+      color: var(--text-muted);
+      margin-bottom: 4px;
+    }
+    .note {
+      margin-top: 30px;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <nav class="site-nav">
+      <a href="index.html">Current</a>
+      <a href="archive/index.html">Archive</a>
+      <a href="stats.html" class="active">Stats</a>
+      <span class="visit-counter" id="visit-counter"></span>
+    </nav>
+    <h1><span>Final Girls</span> <span>Book Club</span> — Stats</h1>
+    <p class="subtitle">HAB stands for "Homework Ass Book" — a nominee that's the kind of classic you might've been assigned in high school English.</p>
+
+    <div class="stat-grid">
+__TOP_STAT_CARDS__
+    </div>
+
+    <div class="section">
+      <div class="section-title">By the numbers</div>
+      <div class="panel panel-grid">
+        <div class="chart-wrap"><canvas id="originChart"></canvas></div>
+        <div class="chart-wrap"><canvas id="cwChart"></canvas></div>
+      </div>
+      <div class="fact-row">
+        <div class="fact"><div class="fact-label">Longest pick</div>__LONGEST_BOOK__</div>
+        <div class="fact"><div class="fact-label">Shortest pick</div>__SHORTEST_BOOK__</div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">Most-snubbed repeat nominees</div>
+      <div class="panel">
+        <ul class="rank-list">
+__SNUBBED_ROWS__
+        </ul>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">Repeat authors</div>
+      <div class="panel">
+        <div class="chart-wrap"><canvas id="authorChart"></canvas></div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">HAB books nominated (__HAB_COUNT__)</div>
+      <div class="panel">
+        <ul class="hab-list">
+__HAB_ROWS__
+        </ul>
+      </div>
+    </div>
+
+    <p class="note">Stats regenerate whenever the site rebuilds, pulled straight from every month's nomination data.</p>
+  </main>
+  <script>
+    (function () {
+      var el = document.getElementById("visit-counter");
+      fetch("https://api.countapi.xyz/hit/finalgirlsbookclub-moxed42/visits")
+        .then(function (r) { return r.json(); })
+        .then(function (d) { el.textContent = d.value.toLocaleString() + " visits"; })
+        .catch(function () { el.textContent = ""; });
+    })();
+
+    var chartDefaults = {
+      color: "#a2a2bf",
+      borderColor: "rgba(255,255,255,0.08)",
+    };
+    Chart.defaults.color = chartDefaults.color;
+    Chart.defaults.borderColor = chartDefaults.borderColor;
+
+    new Chart(document.getElementById("originChart"), {
+      type: "bar",
+      data: {
+        labels: __ORIGIN_LABELS__,
+        datasets: [{
+          label: "Nominations by origin",
+          data: __ORIGIN_DATA__,
+          backgroundColor: "rgba(245, 69, 69, 0.55)",
+          borderRadius: 6,
+        }],
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: { legend: { display: false }, title: { display: true, text: "Nominations by origin country" } },
+        scales: { y: { beginAtZero: true, ticks: { precision: 0 } } },
+      },
+    });
+
+    new Chart(document.getElementById("cwChart"), {
+      type: "doughnut",
+      data: {
+        labels: __CW_LABELS__,
+        datasets: [{
+          data: __CW_DATA__,
+          backgroundColor: ["rgba(155, 199, 109, 0.75)", "rgba(249, 217, 118, 0.8)", "rgba(255, 107, 107, 0.85)"],
+          borderWidth: 0,
+        }],
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: { title: { display: true, text: "Content-warning intensity" } },
+      },
+    });
+
+    new Chart(document.getElementById("authorChart"), {
+      type: "bar",
+      data: {
+        labels: __AUTHOR_LABELS__,
+        datasets: [{
+          label: "Nominations",
+          data: __AUTHOR_DATA__,
+          backgroundColor: "rgba(255, 180, 200, 0.55)",
+          borderRadius: 6,
+        }],
+      },
+      options: {
+        indexAxis: "y",
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: { legend: { display: false }, title: { display: true, text: "Authors nominated more than once" } },
+        scales: { x: { beginAtZero: true, ticks: { precision: 0 } } },
+      },
+    });
+  </script>
+</body>
+</html>

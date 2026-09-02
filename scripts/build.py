@@ -110,7 +110,7 @@ def month_winners_label(month: dict) -> str:
     return " · ".join(parts) if parts else "Winner TBD"
 
 
-def render_page(month: dict, page_url: str, favicon_href: str, nav_block: str = "") -> str:
+def render_page(month: dict, page_url: str, favicon_href: str, nav_block: str = "", nav_ctx: dict | None = None) -> str:
     template = (TEMPLATES / "page.html").read_text()
     theme = month.get("theme")
 
@@ -167,6 +167,8 @@ def render_page(month: dict, page_url: str, favicon_href: str, nav_block: str = 
 
     novels_subtitle = month.get("novels_subtitle", "Choose one full‑length pick for the month.")
 
+    nav_ctx = nav_ctx or {"home": "index.html", "archive": "archive/index.html", "stats": "stats.html", "active": "home"}
+
     replacements = {
         "__PAGE_TITLE__": page_title,
         "__SUBTITLE__": month["subtitle"],
@@ -181,6 +183,12 @@ def render_page(month: dict, page_url: str, favicon_href: str, nav_block: str = 
         "__PAGE_URL__": page_url,
         "__FAVICON_HREF__": favicon_href,
         "__MONTH_NAV_BLOCK__": nav_block,
+        "__NAV_HOME__": nav_ctx["home"],
+        "__NAV_ARCHIVE__": nav_ctx["archive"],
+        "__NAV_STATS__": nav_ctx["stats"],
+        "__NAV_HOME_ACTIVE__": "active" if nav_ctx["active"] == "home" else "",
+        "__NAV_ARCHIVE_ACTIVE__": "active" if nav_ctx["active"] == "archive" else "",
+        "__NAV_STATS_ACTIVE__": "active" if nav_ctx["active"] == "stats" else "",
     }
     for token, value in replacements.items():
         template = template.replace(token, value)
@@ -218,6 +226,169 @@ def render_archive_index() -> str:
         "__ARCHIVE_SECTIONS__": "\n".join(sections),
         "__BASE_URL__": BASE_URL,
         "__PAGE_URL__": BASE_URL + "archive/index.html",
+    }
+    for token, value in replacements.items():
+        template = template.replace(token, value)
+    return template
+
+
+def _parse_pages(pages: str) -> int | None:
+    import re
+    if not pages:
+        return None
+    m = re.search(r"(\d[\d,]*)", pages)
+    if not m:
+        return None
+    return int(m.group(1).replace(",", ""))
+
+
+def compute_stats() -> dict:
+    from collections import defaultdict
+
+    month_files = sorted(MONTHS_DIR.glob("*.json"))
+    months = [json.loads(p.read_text()) for p in month_files]
+
+    total_months = len(months)
+    total_novel_noms = 0
+    total_short_noms = 0
+    title_appearances = defaultdict(int)
+    title_ever_won = defaultdict(bool)
+    origin_counts = defaultdict(int)
+    cw_counts = defaultdict(int)
+    author_counts = defaultdict(int)
+    hab_titles = set()
+    hab_appearances = 0
+    page_counts = []  # (title, pages)
+    total_winners = 0
+
+    for month in months:
+        for section, counter_attr in (("novels", "novel"), ("short_works", "short")):
+            for book in month.get(section, []):
+                if counter_attr == "novel":
+                    total_novel_noms += 1
+                else:
+                    total_short_noms += 1
+                title_appearances[book["title"]] += 1
+                if book.get("is_winner"):
+                    title_ever_won[book["title"]] = True
+                    total_winners += 1
+                origin_counts[book.get("origin", "N/A")] += 1
+                cw_counts[book.get("cw_tier", "unknown")] += 1
+                author_counts[book["author"]] += 1
+                if book.get("is_hab"):
+                    hab_titles.add(book["title"])
+                    hab_appearances += 1
+                pages = _parse_pages(book.get("pages", ""))
+                if pages:
+                    page_counts.append((book["title"], pages))
+
+    total_nominations = total_novel_noms + total_short_noms
+
+    # Most-nominated titles that never won (repeat nominees the club keeps
+    # passing over).
+    repeat_snubbed = sorted(
+        (
+            (title, count)
+            for title, count in title_appearances.items()
+            if count >= 2 and not title_ever_won[title]
+        ),
+        key=lambda t: (-t[1], t[0]),
+    )
+
+    top_origins = sorted(origin_counts.items(), key=lambda t: -t[1])[:8]
+    top_authors = sorted(
+        ((a, c) for a, c in author_counts.items() if c >= 2), key=lambda t: -t[1]
+    )[:8]
+
+    avg_pages = round(sum(p for _, p in page_counts) / len(page_counts)) if page_counts else None
+    longest = max(page_counts, key=lambda t: t[1]) if page_counts else None
+    shortest = min(page_counts, key=lambda t: t[1]) if page_counts else None
+
+    return {
+        "total_months": total_months,
+        "total_nominations": total_nominations,
+        "total_novel_noms": total_novel_noms,
+        "total_short_noms": total_short_noms,
+        "total_winners": total_winners,
+        "hab_count": len(hab_titles),
+        "hab_appearances": hab_appearances,
+        "hab_titles": sorted(hab_titles),
+        "repeat_snubbed": repeat_snubbed,
+        "top_origins": top_origins,
+        "top_authors": top_authors,
+        "cw_counts": dict(cw_counts),
+        "avg_pages": avg_pages,
+        "longest": longest,
+        "shortest": shortest,
+    }
+
+
+def render_stats_page() -> str:
+    stats = compute_stats()
+    template = (TEMPLATES / "stats.html").read_text()
+
+    def stat_card(label: str, value) -> str:
+        return (
+            f'      <div class="stat-card">\n'
+            f'        <div class="stat-value">{value}</div>\n'
+            f'        <div class="stat-label">{label}</div>\n'
+            f'      </div>\n'
+        )
+
+    top_cards = "".join([
+        stat_card("Months run", stats["total_months"]),
+        stat_card("Total nominations", stats["total_nominations"]),
+        stat_card("Novels · Short works", f'{stats["total_novel_noms"]} · {stats["total_short_noms"]}'),
+        stat_card("Winners crowned", stats["total_winners"]),
+        stat_card("HAB books nominated", stats["hab_count"]),
+        stat_card(
+            "Avg. page count",
+            f'{stats["avg_pages"]} pages' if stats["avg_pages"] else "N/A",
+        ),
+    ])
+
+    if stats["repeat_snubbed"]:
+        snubbed_rows = "\n".join(
+            f'        <li><span class="rank-title">{title}</span>'
+            f'<span class="rank-count">{count}× nominated, 0 wins</span></li>'
+            for title, count in stats["repeat_snubbed"][:10]
+        )
+    else:
+        snubbed_rows = '        <li class="empty">No repeat nominees yet — every book nominated more than once has won at least once.</li>'
+
+    if stats["hab_titles"]:
+        hab_rows = "\n".join(f'        <li>{t}</li>' for t in stats["hab_titles"])
+    else:
+        hab_rows = '        <li class="empty">None tagged yet.</li>'
+
+    longest = stats["longest"]
+    shortest = stats["shortest"]
+    longest_label = f'{longest[0]} ({longest[1]} pages)' if longest else "N/A"
+    shortest_label = f'{shortest[0]} ({shortest[1]} pages)' if shortest else "N/A"
+
+    origin_labels = json.dumps([o for o, _ in stats["top_origins"]])
+    origin_data = json.dumps([c for _, c in stats["top_origins"]])
+    cw_order = ["mild", "moderate", "extreme"]
+    cw_labels = json.dumps([c.capitalize() for c in cw_order])
+    cw_data = json.dumps([stats["cw_counts"].get(c, 0) for c in cw_order])
+    author_labels = json.dumps([a for a, _ in stats["top_authors"]])
+    author_data = json.dumps([c for _, c in stats["top_authors"]])
+
+    replacements = {
+        "__TOP_STAT_CARDS__": top_cards,
+        "__SNUBBED_ROWS__": snubbed_rows,
+        "__HAB_ROWS__": hab_rows,
+        "__HAB_COUNT__": str(stats["hab_count"]),
+        "__LONGEST_BOOK__": longest_label,
+        "__SHORTEST_BOOK__": shortest_label,
+        "__ORIGIN_LABELS__": origin_labels,
+        "__ORIGIN_DATA__": origin_data,
+        "__CW_LABELS__": cw_labels,
+        "__CW_DATA__": cw_data,
+        "__AUTHOR_LABELS__": author_labels,
+        "__AUTHOR_DATA__": author_data,
+        "__BASE_URL__": BASE_URL,
+        "__PAGE_URL__": f"{BASE_URL}stats.html",
     }
     for token, value in replacements.items():
         template = template.replace(token, value)
@@ -264,18 +435,23 @@ def main():
         '    </nav>\n\n'
     )
 
+    archive_nav_ctx = {"home": "../index.html", "archive": "index.html", "stats": "../stats.html", "active": "archive"}
     archive_page_path = ARCHIVE_DIR / f"{month['slug']}.html"
     archive_page_url = f"{BASE_URL}archive/{month['slug']}.html"
     archive_page_html = render_page(
-        month, page_url=archive_page_url, favicon_href="../assets/favicon.svg", nav_block=nav_block
+        month, page_url=archive_page_url, favicon_href="../assets/favicon.svg",
+        nav_block=nav_block, nav_ctx=archive_nav_ctx,
     )
-    archive_page_html = archive_page_html.replace('href="archive/index.html"', 'href="index.html"')
     archive_page_path.write_text(archive_page_html)
     print(f"Wrote {archive_page_path}")
 
     archive_index_path = ARCHIVE_DIR / "index.html"
     archive_index_path.write_text(render_archive_index())
     print(f"Wrote {archive_index_path}")
+
+    stats_path = REPO_ROOT / "stats.html"
+    stats_path.write_text(render_stats_page())
+    print(f"Wrote {stats_path}")
 
 
 if __name__ == "__main__":

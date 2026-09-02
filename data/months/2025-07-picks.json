@@ -84,7 +84,8 @@
       "origin": "United States",
       "warnings": "Psychological horror, postpartum depression and mental illness, medical control/gaslighting, isolation.",
       "is_winner": true,
-      "book_theme": "Psychological Horror"
+      "book_theme": "Psychological Horror",
+      "is_hab": true
     }
   ]
 }

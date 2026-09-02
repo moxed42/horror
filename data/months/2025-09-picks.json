@@ -83,7 +83,8 @@
       "summary": "Every year, the residents of a small American town gather for an annual lottery, presented at first as an unremarkable civic tradition. As the ritual unfolds, the story reveals exactly what \"winning\" the lottery means, and how easily ordinary people participate in cruelty when it's sanctioned by custom.",
       "origin": "United States",
       "warnings": "Stoning/mob violence, animal cruelty (referenced), death.",
-      "book_theme": "Folk Horror"
+      "book_theme": "Folk Horror",
+      "is_hab": true
     },
     {
       "type": "Short story",
@@ -114,7 +115,8 @@
       "origin": "United States",
       "warnings": "Sexual predation/grooming of a minor, psychological threat and coercion, implied violence.",
       "is_winner": true,
-      "book_theme": "Psychological Horror"
+      "book_theme": "Psychological Horror",
+      "is_hab": true
     }
   ]
 }

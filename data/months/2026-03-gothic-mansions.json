@@ -35,7 +35,8 @@
       "summary": "A young governess takes a position at an isolated country house, caring for two children who seem increasingly under the influence of the ghosts of two former servants. As she becomes convinced the children are in supernatural danger, the story leaves deliberately unclear whether the haunting is real or a symptom of her own unraveling.",
       "origin": "United States",
       "warnings": "Death of children (implied/ambiguous), psychological horror, child endangerment, ambiguous supernatural threat.",
-      "is_winner": false
+      "is_winner": false,
+      "is_hab": true
     },
     {
       "type": "Novel",
@@ -85,7 +86,8 @@
       "summary": "A visitor arrives at the ancestral home of his old friend Roderick Usher, finding both the man and his house in advanced states of decay, seemingly bound to each other's decline. As Roderick's twin sister Madeline succumbs to a mysterious illness, the family's collapse and the house's collapse converge in a single catastrophic night.",
       "origin": "United States",
       "warnings": "Death, premature burial, mental illness/psychological horror, familial decline, implied incestuous undertones.",
-      "is_winner": true
+      "is_winner": true,
+      "is_hab": true
     },
     {
       "type": "Short story",
