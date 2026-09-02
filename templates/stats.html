@@ -156,6 +156,29 @@
     }
     @media (min-width: 800px) {
       .panel-grid { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+      .panel-grid.panel-grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    }
+    .diversity-note {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      margin-bottom: 12px;
+      max-width: 640px;
+    }
+    .toggle-row { display: flex; gap: 8px; margin-bottom: 14px; }
+    .toggle-btn {
+      font: inherit;
+      font-size: 0.78rem;
+      padding: 6px 14px;
+      border-radius: var(--radius-pill);
+      border: 1px solid var(--border-subtle);
+      background: rgba(4, 4, 16, 0.6);
+      color: var(--text-muted);
+      cursor: pointer;
+    }
+    .toggle-btn.active {
+      color: var(--text-main);
+      border-color: rgba(245, 69, 69, 0.7);
+      background: linear-gradient(120deg, rgba(245, 69, 69, 0.2), rgba(245, 69, 69, 0.05));
     }
     ul.bar-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
     .bar-row {
@@ -300,6 +323,44 @@ __CW_ROWS__
       </div>
     </div>
 
+    <div class="section" data-diversity-section>
+      <div class="section-title">Author diversity</div>
+      <p class="diversity-note">Based only on publicly self-identified info (author bios/interviews) — "Unknown" means we haven't found a public statement either way, not that the author isn't part of that group.</p>
+      <div class="toggle-row">
+        <button type="button" class="toggle-btn active" data-view="noms">All nominations</button>
+        <button type="button" class="toggle-btn" data-view="wins">Winners only</button>
+      </div>
+      <div class="panel panel-grid panel-grid-3">
+        <div>
+          <div class="subsection-title">Gender</div>
+          <ul class="bar-list" data-view-noms>
+__GENDER_ROWS_NOMS__
+          </ul>
+          <ul class="bar-list" data-view-wins hidden>
+__GENDER_ROWS_WINS__
+          </ul>
+        </div>
+        <div>
+          <div class="subsection-title">LGBTQ+</div>
+          <ul class="bar-list" data-view-noms>
+__LGBTQ_ROWS_NOMS__
+          </ul>
+          <ul class="bar-list" data-view-wins hidden>
+__LGBTQ_ROWS_WINS__
+          </ul>
+        </div>
+        <div>
+          <div class="subsection-title">BIPOC</div>
+          <ul class="bar-list" data-view-noms>
+__BIPOC_ROWS_NOMS__
+          </ul>
+          <ul class="bar-list" data-view-wins hidden>
+__BIPOC_ROWS_WINS__
+          </ul>
+        </div>
+      </div>
+    </div>
+
     <div class="section">
       <div class="section-title">Most-snubbed repeat nominees</div>
       <div class="panel">
@@ -329,5 +390,24 @@ __HAB_ROWS__
 
     <p class="note">Stats regenerate whenever the site rebuilds, pulled straight from every month's nomination data.</p>
   </main>
+  <script>
+    (function () {
+      var section = document.querySelector("[data-diversity-section]");
+      if (!section) return;
+      var buttons = section.querySelectorAll(".toggle-btn");
+      buttons.forEach(function (btn) {
+        btn.addEventListener("click", function () {
+          var view = btn.getAttribute("data-view");
+          buttons.forEach(function (b) { b.classList.toggle("active", b === btn); });
+          section.querySelectorAll("[data-view-noms]").forEach(function (el) {
+            el.hidden = view !== "noms";
+          });
+          section.querySelectorAll("[data-view-wins]").forEach(function (el) {
+            el.hidden = view !== "wins";
+          });
+        });
+      });
+    })();
+  </script>
 </body>
 </html>
