@@ -183,6 +183,7 @@
       .panel-grid { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
       .panel-grid.panel-grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
       .panel-grid.panel-grid-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+      .panel-grid.panel-grid-5 { grid-template-columns: repeat(5, minmax(0, 1fr)); }
     }
     .diversity-note {
       font-size: 0.78rem;
@@ -377,7 +378,7 @@
 
     <nav class="jump-nav">
       <a href="#format">Format</a>
-      <a href="#numbers">By the numbers</a>
+      <a href="#numbers">Content &amp; Era</a>
       <a href="#diversity">Diversity</a>
       <a href="#snubbed">Snubbed</a>
       <a href="#hab">HAB</a>
@@ -434,8 +435,7 @@ __TOP_STAT_CARDS__
     </div>
 
     <div class="section" id="numbers" data-toggle-scope>
-      <div class="section-title">By the numbers</div>
-      <p class="diversity-note">Author age is based on publicly documented birth years and each book's original publication year — "Unknown" means we don't have a confirmed birth year, not that the author's age is a mystery.</p>
+      <div class="section-title">Content &amp; Era</div>
       <div class="panel panel-grid">
         <div>
           <div class="subsection-title">Origin country</div>
@@ -456,12 +456,12 @@ __CW_ROWS_WINS__
           </div>
         </div>
         <div>
-          <div class="subsection-title">Author age (at time of writing)</div>
+          <div class="subsection-title">When it was written</div>
           <div data-view-wins hidden>
-__AGE_ROWS_NOMS__
+__ERA_ROWS_NOMS__
           </div>
           <div data-view-noms>
-__AGE_ROWS_WINS__
+__ERA_ROWS_WINS__
           </div>
         </div>
       </div>
@@ -469,8 +469,8 @@ __AGE_ROWS_WINS__
 
     <div class="section" id="diversity" data-toggle-scope>
       <div class="section-title">Author diversity</div>
-      <p class="diversity-note">Based only on publicly self-identified info (author bios/interviews) — "Unknown" means we haven't found a public statement either way, not that the author isn't part of that group.</p>
-      <div class="panel panel-grid panel-grid-4">
+      <p class="diversity-note">Based only on publicly self-identified info (author bios/interviews, birth years) — "Unknown" means we haven't found public info either way, not that it doesn't exist.</p>
+      <div class="panel panel-grid panel-grid-5">
         <div>
           <div class="subsection-title">Repeat authors (2+ picks)</div>
           <ul class="bar-list" data-view-wins hidden>
@@ -507,6 +507,15 @@ __BIPOC_ROWS_NOMS__
 __BIPOC_ROWS_WINS__
           </div>
         </div>
+        <div>
+          <div class="subsection-title">Author age (at writing)</div>
+          <div data-view-wins hidden>
+__AGE_ROWS_NOMS__
+          </div>
+          <div data-view-noms>
+__AGE_ROWS_WINS__
+          </div>
+        </div>
       </div>
     </div>
 
@@ -530,7 +539,6 @@ __HAB_ROWS__
       </div>
     </div>
 
-    <p class="note">Stats regenerate whenever the site rebuilds.</p>
   </main>
   <script>
     (function () {

@@ -175,6 +175,8 @@
       scroll-margin-top: 60px;
     }
     .poll-month { font-weight: 700; font-size: 0.95rem; margin-bottom: 12px; }
+    .poll-month-link { color: var(--text-main); text-decoration: none; }
+    .poll-month-link:hover { color: var(--accent-soft); }
     .poll-columns {
       display: grid;
       grid-template-columns: minmax(0, 1fr);
@@ -212,15 +214,29 @@
     }
     .bar-label {
       color: var(--text-main);
+      display: flex;
+      align-items: center;
+      min-width: 0;
+    }
+    .poll-title-text {
       overflow: hidden;
       text-overflow: ellipsis;
       white-space: nowrap;
+      min-width: 0;
+      flex-shrink: 1;
     }
-    .poll-author { color: var(--text-muted); font-weight: 400; }
+    .poll-author {
+      color: var(--text-muted);
+      font-weight: 400;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      flex-shrink: 1;
+    }
     .poll-winner-tag {
       width: 15px;
       height: 15px;
-      vertical-align: middle;
+      flex-shrink: 0;
       margin-left: 4px;
     }
     .bar-track {
@@ -261,7 +277,6 @@
       </span>
     </nav>
     <h1><span>Final Girls</span> <span>Book Club</span> — Polls</h1>
-    <p class="subtitle">How every monthly poll actually broke down, not just who won.</p>
     <p class="last-updated">Last rebuilt: __LAST_UPDATED__</p>
 
     <nav class="jump-nav">
@@ -279,8 +294,6 @@ __POLL_RACE_CARDS__
     </div>
 
 __POLL_SECTIONS__
-
-    <p class="note">Vote counts and turnout come from the club's poll screenshots; the March 2025 poll only recorded percentages, so it shows without vote counts. Site-wide averages exclude that poll.</p>
   </main>
 </body>
 </html>
