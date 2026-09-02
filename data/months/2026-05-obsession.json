@@ -18,7 +18,8 @@
       "summary": "Ro falls hard and fast for Ash, a charming stranger she meets at the local farmer's market, swept up in a whirlwind of homemade jam and infatuation. As the relationship intensifies, the story pulls back the curtain on what Ash really is and what she wants from Ro, turning cozy romance into claustrophobic body horror.",
       "origin": "United States",
       "warnings": "Body horror, past child abuse, animal cruelty, abusive guardian (past), abandonment, disordered eating themes.",
-      "is_winner": false
+      "is_winner": false,
+      "age_category": "Adult"
     },
     {
       "type": "Novel",
@@ -33,7 +34,8 @@
       "summary": "Michael grows up in an isolated Appalachian farmhouse where his family's disturbing traditions have gone unnoticed by the outside world for years. As girls keep disappearing off the nearby highway, Michael is forced to reckon with what his family truly is, and whether he can escape it.",
       "origin": "United States",
       "warnings": "Extreme violence and gore, torture, incest, child abuse, animal cruelty/death, cannibalism, kidnapping, misogyny.",
-      "is_winner": false
+      "is_winner": false,
+      "age_category": "Adult"
     },
     {
       "type": "Novel",
@@ -48,7 +50,8 @@
       "summary": "After a near-fatal car accident, novelist Paul Sheldon wakes up in the care of former nurse Annie Wilkes, his self-proclaimed biggest fan, in her remote home. When Annie discovers Paul has killed off her favorite character, her devotion turns into escalating, sadistic captivity.",
       "origin": "United States",
       "warnings": "Graphic torture (including amputation), confinement, addiction, substance abuse, violence, psychological abuse.",
-      "is_winner": false
+      "is_winner": false,
+      "age_category": "Adult"
     },
     {
       "type": "Novel",
@@ -63,7 +66,8 @@
       "summary": "Boone, convinced by his manipulative therapist that he's a serial killer, turns himself in and learns of Midian, a hidden refuge for shape-shifting creatures called the Nightbreed. As Boone is drawn into Midian and its inhabitants, the story flips expectations about who the real monsters are, building to a bloody confrontation with the humans hunting the Nightbreed down.",
       "origin": "United Kingdom",
       "warnings": "Graphic violence and gore, body horror, mass murder, psychological manipulation, mob violence.",
-      "is_winner": true
+      "is_winner": true,
+      "age_category": "Adult"
     }
   ],
   "short_works": [
@@ -80,7 +84,8 @@
       "summary": "Told through emails and chat logs, the story follows Agnes and Zoe's online relationship after Agnes buys a strange antique apple peeler from Zoe. What begins as flirtation curdles into an increasingly extreme, mutually consuming psychological and physical descent.",
       "origin": "United States",
       "warnings": "Extreme body horror and self-harm, graphic sexual content, psychological manipulation and abuse, animal death, suicide.",
-      "is_winner": false
+      "is_winner": false,
+      "age_category": "Adult"
     },
     {
       "type": "Short story",
@@ -95,7 +100,8 @@
       "summary": "In the decaying, plague-ravaged city of Elendhaven, a mysterious and nearly unkillable man becomes the tool of a bitter, ailing sorcerer bent on revenge against the city's elite. Their dark partnership escalates into a violent, intimate horror story about power, obsession, and rot.",
       "origin": "Canada",
       "warnings": "Extreme graphic violence, gore, body horror, murder, disease/plague themes.",
-      "is_winner": true
+      "is_winner": true,
+      "age_category": "Adult"
     }
   ]
 }

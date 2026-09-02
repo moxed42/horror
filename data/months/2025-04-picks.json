@@ -18,7 +18,8 @@
       "origin": "Ireland",
       "warnings": "Body horror, graphic and gruesome death, disability-related trauma, attempted sexual assault, violence against teenagers.",
       "is_winner": false,
-      "book_theme": "Survival Horror"
+      "book_theme": "Survival Horror",
+      "age_category": "YA"
     },
     {
       "type": "Novel",
@@ -34,7 +35,8 @@
       "origin": "United States",
       "warnings": "Graphic animal cruelty/death, torture, religious bigotry, gore, body horror, gun violence, confinement, murder, fire injury.",
       "is_winner": false,
-      "book_theme": "Witchcraft"
+      "book_theme": "Witchcraft",
+      "age_category": "Adult"
     },
     {
       "type": "Novel",
@@ -50,7 +52,8 @@
       "origin": "United States",
       "warnings": "Child death, body horror, animal death (a pet), violence, themes of parental grief and moral compromise.",
       "is_winner": false,
-      "book_theme": "Apocalyptic Horror"
+      "book_theme": "Apocalyptic Horror",
+      "age_category": "Adult"
     },
     {
       "type": "Novel",
@@ -66,7 +69,8 @@
       "origin": "United Kingdom",
       "warnings": "Sexual abuse including child sexual abuse and incest, suicide, miscarriage, drug use, captivity/imprisonment, parental abuse.",
       "is_winner": false,
-      "book_theme": "Psychological Thriller"
+      "book_theme": "Psychological Thriller",
+      "age_category": "Adult"
     },
     {
       "type": "Novel",
@@ -82,7 +86,8 @@
       "origin": "United Kingdom",
       "warnings": "Child abuse and child death, sexual abuse, mental illness, captivity, animal harm (referenced), violence.",
       "is_winner": true,
-      "book_theme": "Unreliable Narrator"
+      "book_theme": "Unreliable Narrator",
+      "age_category": "Adult"
     }
   ]
 }

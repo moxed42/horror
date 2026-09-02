@@ -18,7 +18,8 @@
       "origin": "United States",
       "warnings": "Body horror, suicide, gun violence, death, cancer, alcoholism, psychological horror.",
       "is_winner": true,
-      "book_theme": "Cosmic Horror"
+      "book_theme": "Cosmic Horror",
+      "age_category": "Adult"
     },
     {
       "type": "Novel",
@@ -34,7 +35,8 @@
       "origin": "Argentina",
       "warnings": "Graphic violence, torture, child endangerment, body horror, animal sacrifice, political violence/dictatorship-era atrocities, death of parents, occult ritual abuse.",
       "is_winner": false,
-      "book_theme": "Occult Horror"
+      "book_theme": "Occult Horror",
+      "age_category": "Adult"
     },
     {
       "type": "Novel",
@@ -50,7 +52,8 @@
       "origin": "United States",
       "warnings": "Death of a family member, grief/trauma, violence, cosmic horror themes, child endangerment.",
       "is_winner": false,
-      "book_theme": "Cosmic Horror"
+      "book_theme": "Cosmic Horror",
+      "age_category": "Adult"
     },
     {
       "type": "Novel",
@@ -66,7 +69,8 @@
       "origin": "United States",
       "warnings": "Body horror, gore, torture, death of a child, animal death, gun violence, cannibalism, forced institutionalization, ableism.",
       "is_winner": false,
-      "book_theme": "Cosmic Horror"
+      "book_theme": "Cosmic Horror",
+      "age_category": "Adult"
     }
   ],
   "short_works": [
@@ -83,7 +87,8 @@
       "summary": "Set in 1920s Macon, Georgia, monster slayer Maryse Boudreaux hunts Ku Kluxes \u2014 hate-fueled demons who crossed into our world through a rift opened by the film Birth of a Nation. Armed with a magic sword and her friends, Maryse wages open war on the Klan and the ancient evil animating its worst members.",
       "origin": "United States",
       "warnings": "Racism and racial slurs, lynching, arson, body horror, dismemberment, gore, torture (implied), sexual assault (referenced), animal cruelty.",
-      "book_theme": "Alt-History Horror"
+      "book_theme": "Alt-History Horror",
+      "age_category": "Adult"
     },
     {
       "type": "Short story",
@@ -98,7 +103,8 @@
       "summary": "An artist becomes fixated on a disturbing watchman with a corpse-like face who keeps appearing outside his studio, while his model reveals unsettling premonitions about his death. As both become drawn toward a forbidden play and its titular \"Yellow Sign,\" reality starts to come apart around them.",
       "origin": "United States",
       "warnings": "Death, psychological horror, disturbing imagery, themes of forbidden/maddening knowledge.",
-      "book_theme": "Cosmic Horror"
+      "book_theme": "Cosmic Horror",
+      "age_category": "Adult"
     },
     {
       "type": "Short story",
@@ -114,7 +120,8 @@
       "origin": "United States",
       "warnings": "Racism and racial violence, police brutality, death of a parent, torture, occult/body horror, gore.",
       "is_winner": true,
-      "book_theme": "Cosmic Horror"
+      "book_theme": "Cosmic Horror",
+      "age_category": "Adult"
     },
     {
       "type": "Short story",
@@ -129,7 +136,8 @@
       "summary": "The Antimemetics Division fights entities that are inherently unmemorable \u2014 creatures and ideas that actively resist being remembered, forcing the team to constantly relearn a war most of them can't recall fighting. Told in fragmented vignettes, it builds a genuinely unsettling take on memory, identity, and institutional horror.",
       "origin": "United Kingdom",
       "warnings": "Memory loss/erasure themes, psychological horror, body horror (referenced), existential dread.",
-      "book_theme": "Sci-Fi Horror"
+      "book_theme": "Sci-Fi Horror",
+      "age_category": "Adult"
     }
   ]
 }
