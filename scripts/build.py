@@ -45,7 +45,7 @@ def winner_label(month_label: str) -> str:
     return f"{first_word}’s Winner"
 
 
-def render_book_card(book: dict, month_label: str) -> str:
+def render_book_card(book: dict, month_label: str, assets_prefix: str = "assets/") -> str:
     template = (TEMPLATES / "book_card.html").read_text()
     is_winner = book.get("is_winner", False)
     theme_fit = book.get("theme_fit")
@@ -70,9 +70,15 @@ def render_book_card(book: dict, month_label: str) -> str:
         f'                <span class="meta-pill">Avg rating: N/A</span>\n'
     )
 
+    hab_badge = (
+        f' <span class="hab-badge" title="Homework Ass Book"><img src="{assets_prefix}hab-icon.png" alt="HAB">HAB</span>'
+        if book.get("is_hab") else ""
+    )
+
     replacements = {
         "__SELECTED_CLASS__": " selected" if is_winner else "",
         "__PICK_LABEL__": f'          <div class="pick-label">{winner_label(month_label)}</div>\n' if is_winner else "",
+        "__HAB_BADGE__": hab_badge,
         "__TYPE__": book["type"],
         "__TITLE__": book["title"],
         "__AUTHOR__": book["author"],
@@ -113,8 +119,9 @@ def month_winners_label(month: dict) -> str:
 def render_page(month: dict, page_url: str, favicon_href: str, nav_block: str = "", nav_ctx: dict | None = None) -> str:
     template = (TEMPLATES / "page.html").read_text()
     theme = month.get("theme")
+    assets_prefix = favicon_href.rsplit("/", 1)[0] + "/" if "/" in favicon_href else ""
 
-    novel_cards = "\n".join(render_book_card(b, month["month_label"]) for b in month["novels"])
+    novel_cards = "\n".join(render_book_card(b, month["month_label"], assets_prefix) for b in month["novels"])
     short_works = month.get("short_works", [])
 
     page_title = f"Final Girls Book Club · {theme} Picks" if theme else "Final Girls Book Club Picks"
@@ -149,7 +156,7 @@ def render_page(month: dict, page_url: str, favicon_href: str, nav_block: str = 
         )
 
     if short_works:
-        short_work_cards = "\n".join(render_book_card(b, month["month_label"]) for b in short_works)
+        short_work_cards = "\n".join(render_book_card(b, month["month_label"], assets_prefix) for b in short_works)
         short_works_subtitle = month.get("short_works_subtitle", "Pick one shorter nightmare to pair with the novel.")
         short_works_section = (
             f'    <section class="section">\n'
@@ -249,40 +256,38 @@ def compute_stats() -> dict:
     months = [json.loads(p.read_text()) for p in month_files]
 
     total_months = len(months)
-    total_novel_noms = 0
-    total_short_noms = 0
     title_appearances = defaultdict(int)
     title_ever_won = defaultdict(bool)
     origin_counts = defaultdict(int)
     cw_counts = defaultdict(int)
     author_counts = defaultdict(int)
     hab_titles = set()
-    hab_appearances = 0
-    page_counts = []  # (title, pages)
-    total_winners = 0
+
+    by_type = {
+        "novel": {"noms": 0, "winners": 0, "pages": []},
+        "short": {"noms": 0, "winners": 0, "pages": []},
+    }
 
     for month in months:
-        for section, counter_attr in (("novels", "novel"), ("short_works", "short")):
+        for section, kind in (("novels", "novel"), ("short_works", "short")):
             for book in month.get(section, []):
-                if counter_attr == "novel":
-                    total_novel_noms += 1
-                else:
-                    total_short_noms += 1
+                bucket = by_type[kind]
+                bucket["noms"] += 1
                 title_appearances[book["title"]] += 1
                 if book.get("is_winner"):
                     title_ever_won[book["title"]] = True
-                    total_winners += 1
+                    bucket["winners"] += 1
                 origin_counts[book.get("origin", "N/A")] += 1
                 cw_counts[book.get("cw_tier", "unknown")] += 1
                 author_counts[book["author"]] += 1
                 if book.get("is_hab"):
                     hab_titles.add(book["title"])
-                    hab_appearances += 1
                 pages = _parse_pages(book.get("pages", ""))
                 if pages:
-                    page_counts.append((book["title"], pages))
+                    bucket["pages"].append((book["title"], pages))
 
-    total_nominations = total_novel_noms + total_short_noms
+    total_nominations = by_type["novel"]["noms"] + by_type["short"]["noms"]
+    total_winners = by_type["novel"]["winners"] + by_type["short"]["winners"]
 
     # Most-nominated titles that never won (repeat nominees the club keeps
     # passing over).
@@ -300,26 +305,27 @@ def compute_stats() -> dict:
         ((a, c) for a, c in author_counts.items() if c >= 2), key=lambda t: -t[1]
     )[:8]
 
-    avg_pages = round(sum(p for _, p in page_counts) / len(page_counts)) if page_counts else None
-    longest = max(page_counts, key=lambda t: t[1]) if page_counts else None
-    shortest = min(page_counts, key=lambda t: t[1]) if page_counts else None
+    def page_stats(pages):
+        if not pages:
+            return {"avg": None, "longest": None, "shortest": None}
+        return {
+            "avg": round(sum(p for _, p in pages) / len(pages)),
+            "longest": max(pages, key=lambda t: t[1]),
+            "shortest": min(pages, key=lambda t: t[1]),
+        }
 
     return {
         "total_months": total_months,
         "total_nominations": total_nominations,
-        "total_novel_noms": total_novel_noms,
-        "total_short_noms": total_short_noms,
         "total_winners": total_winners,
         "hab_count": len(hab_titles),
-        "hab_appearances": hab_appearances,
         "hab_titles": sorted(hab_titles),
         "repeat_snubbed": repeat_snubbed,
         "top_origins": top_origins,
         "top_authors": top_authors,
         "cw_counts": dict(cw_counts),
-        "avg_pages": avg_pages,
-        "longest": longest,
-        "shortest": shortest,
+        "novel": {**by_type["novel"], **page_stats(by_type["novel"]["pages"])},
+        "short": {**by_type["short"], **page_stats(by_type["short"]["pages"])},
     }
 
 
@@ -335,17 +341,37 @@ def render_stats_page() -> str:
             f'      </div>\n'
         )
 
+    def bar_list(pairs, max_items=8):
+        pairs = pairs[:max_items]
+        if not pairs:
+            return '        <li class="empty">No data yet.</li>'
+        top = max(c for _, c in pairs) or 1
+        rows = []
+        for label, count in pairs:
+            pct = round(count / top * 100)
+            rows.append(
+                f'        <li class="bar-row">\n'
+                f'          <span class="bar-label">{label}</span>\n'
+                f'          <span class="bar-track"><span class="bar-fill" style="width:{pct}%"></span></span>\n'
+                f'          <span class="bar-count">{count}</span>\n'
+                f'        </li>'
+            )
+        return "\n".join(rows)
+
     top_cards = "".join([
         stat_card("Months run", stats["total_months"]),
         stat_card("Total nominations", stats["total_nominations"]),
-        stat_card("Novels · Short works", f'{stats["total_novel_noms"]} · {stats["total_short_noms"]}'),
-        stat_card("Winners crowned", stats["total_winners"]),
         stat_card("HAB books nominated", stats["hab_count"]),
-        stat_card(
-            "Avg. page count",
-            f'{stats["avg_pages"]} pages' if stats["avg_pages"] else "N/A",
-        ),
     ])
+
+    def type_cards(bucket):
+        return "".join([
+            stat_card("Nominations", bucket["noms"]),
+            stat_card("Avg. pages", f'{bucket["avg"]} pages' if bucket["avg"] else "N/A"),
+        ])
+
+    novel_cards = type_cards(stats["novel"])
+    short_cards = type_cards(stats["short"])
 
     if stats["repeat_snubbed"]:
         snubbed_rows = "\n".join(
@@ -361,32 +387,30 @@ def render_stats_page() -> str:
     else:
         hab_rows = '        <li class="empty">None tagged yet.</li>'
 
-    longest = stats["longest"]
-    shortest = stats["shortest"]
-    longest_label = f'{longest[0]} ({longest[1]} pages)' if longest else "N/A"
-    shortest_label = f'{shortest[0]} ({shortest[1]} pages)' if shortest else "N/A"
+    def page_fact(bucket, key):
+        entry = bucket[key]
+        return f'{entry[0]} ({entry[1]} pages)' if entry else "N/A"
 
-    origin_labels = json.dumps([o for o, _ in stats["top_origins"]])
-    origin_data = json.dumps([c for _, c in stats["top_origins"]])
+    origin_rows = bar_list(stats["top_origins"])
     cw_order = ["mild", "moderate", "extreme"]
-    cw_labels = json.dumps([c.capitalize() for c in cw_order])
-    cw_data = json.dumps([stats["cw_counts"].get(c, 0) for c in cw_order])
-    author_labels = json.dumps([a for a, _ in stats["top_authors"]])
-    author_data = json.dumps([c for _, c in stats["top_authors"]])
+    cw_pairs = [(c.capitalize(), stats["cw_counts"].get(c, 0)) for c in cw_order]
+    cw_rows = bar_list(cw_pairs, max_items=3)
+    author_rows = bar_list(stats["top_authors"])
 
     replacements = {
         "__TOP_STAT_CARDS__": top_cards,
+        "__NOVEL_STAT_CARDS__": novel_cards,
+        "__SHORT_STAT_CARDS__": short_cards,
         "__SNUBBED_ROWS__": snubbed_rows,
         "__HAB_ROWS__": hab_rows,
         "__HAB_COUNT__": str(stats["hab_count"]),
-        "__LONGEST_BOOK__": longest_label,
-        "__SHORTEST_BOOK__": shortest_label,
-        "__ORIGIN_LABELS__": origin_labels,
-        "__ORIGIN_DATA__": origin_data,
-        "__CW_LABELS__": cw_labels,
-        "__CW_DATA__": cw_data,
-        "__AUTHOR_LABELS__": author_labels,
-        "__AUTHOR_DATA__": author_data,
+        "__LONGEST_NOVEL__": page_fact(stats["novel"], "longest"),
+        "__SHORTEST_NOVEL__": page_fact(stats["novel"], "shortest"),
+        "__LONGEST_SHORT__": page_fact(stats["short"], "longest"),
+        "__SHORTEST_SHORT__": page_fact(stats["short"], "shortest"),
+        "__ORIGIN_ROWS__": origin_rows,
+        "__CW_ROWS__": cw_rows,
+        "__AUTHOR_ROWS__": author_rows,
         "__BASE_URL__": BASE_URL,
         "__PAGE_URL__": f"{BASE_URL}stats.html",
     }
