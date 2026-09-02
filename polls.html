@@ -175,6 +175,8 @@
       scroll-margin-top: 60px;
     }
     .poll-month { font-weight: 700; font-size: 0.95rem; margin-bottom: 12px; }
+    .poll-month-link { color: var(--text-main); text-decoration: none; }
+    .poll-month-link:hover { color: var(--accent-soft); }
     .poll-columns {
       display: grid;
       grid-template-columns: minmax(0, 1fr);
@@ -212,15 +214,29 @@
     }
     .bar-label {
       color: var(--text-main);
+      display: flex;
+      align-items: center;
+      min-width: 0;
+    }
+    .poll-title-text {
       overflow: hidden;
       text-overflow: ellipsis;
       white-space: nowrap;
+      min-width: 0;
+      flex-shrink: 1;
     }
-    .poll-author { color: var(--text-muted); font-weight: 400; }
+    .poll-author {
+      color: var(--text-muted);
+      font-weight: 400;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      flex-shrink: 1;
+    }
     .poll-winner-tag {
       width: 15px;
       height: 15px;
-      vertical-align: middle;
+      flex-shrink: 0;
       margin-left: 4px;
     }
     .bar-track {
@@ -261,7 +277,6 @@
       </span>
     </nav>
     <h1><span>Final Girls</span> <span>Book Club</span> — Polls</h1>
-    <p class="subtitle">How every monthly poll actually broke down, not just who won.</p>
     <p class="last-updated">Last rebuilt: September 2, 2026</p>
 
     <nav class="jump-nav">
@@ -309,12 +324,12 @@
 
     </div>
     <div class="fact-row">
-<div class="fact"><div class="fact-label">Closest race</div>September 2025 (Novel poll): Something Wicked This Way Comes (31%) vs. The Exorcist (31%) — 0pt gap</div><div class="fact"><div class="fact-label">Biggest landslide</div>March 2026 (Short story poll): The Fall of the House of Usher (53%) vs. The Ruins of Contracoeur (26%) — 27pt gap</div>
+<div class="fact"><div class="fact-label">Closest race</div>September 2025 (Novel poll): Something Wicked This Way Comes (11 votes) vs. The Exorcist (11 votes) — 0-vote gap</div><div class="fact"><div class="fact-label">Biggest landslide</div>June 2025 (Novel poll): Native Fear (18 votes) vs. Ring (11 votes) — 7-vote gap</div>
     </div>
 
     <h2 class="year-heading" id="year-2026">2026</h2>
       <div class="poll-card" id="2026-09">
-        <div class="poll-month">September 2026</div>
+        <div class="poll-month"><a class="poll-month-link" href="archive/2026-09-foreign-horror.html">September 2026 →</a></div>
         <div class="poll-columns">
         <div class="poll-column" id="2026-09-book">
           <div class="poll-column-header">
@@ -323,22 +338,22 @@
           </div>
           <ul class="bar-list">
         <li class="bar-row poll-bar-row is-winner">
-          <span class="bar-label">Ring <img src="assets/favicon.svg" alt="Winner" class="poll-winner-tag" title="Winner"><span class="poll-author"> — Kōji Suzuki</span></span>
+          <span class="bar-label"><span class="poll-title-text">Ring</span> <img src="assets/favicon.svg" alt="Winner" class="poll-winner-tag" title="Winner"><span class="poll-author"> — Kōji Suzuki</span></span>
           <span class="bar-track"><span class="bar-fill" style="width:100%"></span></span>
           <span class="bar-count">11 · 41%</span>
         </li>
         <li class="bar-row poll-bar-row">
-          <span class="bar-label">Piercing<span class="poll-author"> — Ryū Murakami</span></span>
+          <span class="bar-label"><span class="poll-title-text">Piercing</span><span class="poll-author"> — Ryū Murakami</span></span>
           <span class="bar-track"><span class="bar-fill" style="width:54%"></span></span>
           <span class="bar-count">6 · 22%</span>
         </li>
         <li class="bar-row poll-bar-row">
-          <span class="bar-label">Our Share of Night<span class="poll-author"> — Mariana Enríquez</span></span>
+          <span class="bar-label"><span class="poll-title-text">Our Share of Night</span><span class="poll-author"> — Mariana Enríquez</span></span>
           <span class="bar-track"><span class="bar-fill" style="width:54%"></span></span>
           <span class="bar-count">6 · 22%</span>
         </li>
         <li class="bar-row poll-bar-row">
-          <span class="bar-label">Let the Right One In<span class="poll-author"> — John Ajvide Lindqvist</span></span>
+          <span class="bar-label"><span class="poll-title-text">Let the Right One In</span><span class="poll-author"> — John Ajvide Lindqvist</span></span>
           <span class="bar-track"><span class="bar-fill" style="width:37%"></span></span>
           <span class="bar-count">4 · 15%</span>
         </li>
@@ -351,22 +366,22 @@
           </div>
           <ul class="bar-list">
         <li class="bar-row poll-bar-row is-winner">
-          <span class="bar-label">The Human Chair <img src="assets/favicon.svg" alt="Winner" class="poll-winner-tag" title="Winner"><span class="poll-author"> — Edogawa Ranpo</span></span>
+          <span class="bar-label"><span class="poll-title-text">The Human Chair</span> <img src="assets/favicon.svg" alt="Winner" class="poll-winner-tag" title="Winner"><span class="poll-author"> — Edogawa Ranpo</span></span>
           <span class="bar-track"><span class="bar-fill" style="width:100%"></span></span>
           <span class="bar-count">7 · 39%</span>
         </li>
         <li class="bar-row poll-bar-row">
-          <span class="bar-label">The Queen of Spades<span class="poll-author"> — Alexander Pushkin</span></span>
+          <span class="bar-label"><span class="poll-title-text">The Queen of Spades</span><span class="poll-author"> — Alexander Pushkin</span></span>
           <span class="bar-track"><span class="bar-fill" style="width:72%"></span></span>
           <span class="bar-count">5 · 28%</span>
         </li>
         <li class="bar-row poll-bar-row">
-          <span class="bar-label">The Aleph<span class="poll-author"> — Jorge Luis Borges</span></span>
+          <span class="bar-label"><span class="poll-title-text">The Aleph</span><span class="poll-author"> — Jorge Luis Borges</span></span>
           <span class="bar-track"><span class="bar-fill" style="width:56%"></span></span>
           <span class="bar-count">4 · 22%</span>
         </li>
         <li class="bar-row poll-bar-row">
-          <span class="bar-label">The Secret Life of Insects<span class="poll-author"> — Bernardo Esquinca</span></span>
+          <span class="bar-label"><span class="poll-title-text">The Secret Life of Insects</span><span class="poll-author"> — Bernardo Esquinca</span></span>
           <span class="bar-track"><span class="bar-fill" style="width:28%"></span></span>
           <span class="bar-count">2 · 11%</span>
         </li>
@@ -375,7 +390,7 @@
         </div>
       </div>
       <div class="poll-card" id="2026-08">
-        <div class="poll-month">August 2026</div>
+        <div class="poll-month"><a class="poll-month-link" href="archive/2026-08-body-horror.html">August 2026 →</a></div>
         <div class="poll-columns">
         <div class="poll-column" id="2026-08-book">
           <div class="poll-column-header">
@@ -384,22 +399,22 @@
           </div>
           <ul class="bar-list">
         <li class="bar-row poll-bar-row is-winner">
-          <span class="bar-label">You Weren’t Meant to Be Human <img src="assets/favicon.svg" alt="Winner" class="poll-winner-tag" title="Winner"><span class="poll-author"> — Andrew Joseph White</span></span>
+          <span class="bar-label"><span class="poll-title-text">You Weren’t Meant to Be Human</span> <img src="assets/favicon.svg" alt="Winner" class="poll-winner-tag" title="Winner"><span class="poll-author"> — Andrew Joseph White</span></span>
           <span class="bar-track"><span class="bar-fill" style="width:100%"></span></span>
           <span class="bar-count">12 · 36%</span>
         </li>
         <li class="bar-row poll-bar-row">
-          <span class="bar-label">The Cipher<span class="poll-author"> — Kathe Koja</span></span>
+          <span class="bar-label"><span class="poll-title-text">The Cipher</span><span class="poll-author"> — Kathe Koja</span></span>
           <span class="bar-track"><span class="bar-fill" style="width:75%"></span></span>
           <span class="bar-count">9 · 27%</span>
         </li>
         <li class="bar-row poll-bar-row">
-          <span class="bar-label">The Ruins<span class="poll-author"> — Scott Smith</span></span>
+          <span class="bar-label"><span class="poll-title-text">The Ruins</span><span class="poll-author"> — Scott Smith</span></span>
           <span class="bar-track"><span class="bar-fill" style="width:58%"></span></span>
           <span class="bar-count">7 · 21%</span>
         </li>
         <li class="bar-row poll-bar-row">
-          <span class="bar-label">The Troop<span class="poll-author"> — Nick Cutter</span></span>
+          <span class="bar-label"><span class="poll-title-text">The Troop</span><span class="poll-author"> — Nick Cutter</span></span>
           <span class="bar-track"><span class="bar-fill" style="width:42%"></span></span>
           <span class="bar-count">5 · 15%</span>
         </li>
@@ -412,22 +427,22 @@
           </div>
           <ul class="bar-list">
         <li class="bar-row poll-bar-row is-winner">
-          <span class="bar-label">Jacqueline Ess: Her Will and Testament <img src="assets/favicon.svg" alt="Winner" class="poll-winner-tag" title="Winner"><span class="poll-author"> — Clive Barker</span></span>
+          <span class="bar-label"><span class="poll-title-text">Jacqueline Ess: Her Will and Testament</span> <img src="assets/favicon.svg" alt="Winner" class="poll-winner-tag" title="Winner"><span class="poll-author"> — Clive Barker</span></span>
           <span class="bar-track"><span class="bar-fill" style="width:100%"></span></span>
           <span class="bar-count">9 · 41%</span>
         </li>
         <li class="bar-row poll-bar-row">
-          <span class="bar-label">Spar<span class="poll-author"> — Kij Johnson</span></span>
+          <span class="bar-label"><span class="poll-title-text">Spar</span><span class="poll-author"> — Kij Johnson</span></span>
           <span class="bar-track"><span class="bar-fill" style="width:66%"></span></span>
           <span class="bar-count">6 · 27%</span>
         </li>
         <li class="bar-row poll-bar-row">
-          <span class="bar-label">Skeleton<span class="poll-author"> — Ray Bradbury</span></span>
+          <span class="bar-label"><span class="poll-title-text">Skeleton</span><span class="poll-author"> — Ray Bradbury</span></span>
           <span class="bar-track"><span class="bar-fill" style="width:56%"></span></span>
           <span class="bar-count">5 · 23%</span>
         </li>
         <li class="bar-row poll-bar-row">
-          <span class="bar-label">My Husband Has Taken Our Roleplaying Too Far<span class="poll-author"> — Christian Wallis</span></span>
+          <span class="bar-label"><span class="poll-title-text">My Husband Has Taken Our Roleplaying Too Far</span><span class="poll-author"> — Christian Wallis</span></span>
           <span class="bar-track"><span class="bar-fill" style="width:22%"></span></span>
           <span class="bar-count">2 · 9%</span>
         </li>
@@ -436,7 +451,7 @@
         </div>
       </div>
       <div class="poll-card" id="2026-07">
-        <div class="poll-month">July 2026</div>
+        <div class="poll-month"><a class="poll-month-link" href="archive/2026-07-witchcraft.html">July 2026 →</a></div>
         <div class="poll-columns">
         <div class="poll-column" id="2026-07-book">
           <div class="poll-column-header">
@@ -445,22 +460,22 @@
           </div>
           <ul class="bar-list">
         <li class="bar-row poll-bar-row is-winner">
-          <span class="bar-label">Slewfoot: A Tale of Bewitchery <img src="assets/favicon.svg" alt="Winner" class="poll-winner-tag" title="Winner"><span class="poll-author"> — Brom</span></span>
+          <span class="bar-label"><span class="poll-title-text">Slewfoot: A Tale of Bewitchery</span> <img src="assets/favicon.svg" alt="Winner" class="poll-winner-tag" title="Winner"><span class="poll-author"> — Brom</span></span>
           <span class="bar-track"><span class="bar-fill" style="width:100%"></span></span>
           <span class="bar-count">8 · 38%</span>
         </li>
         <li class="bar-row poll-bar-row">
-          <span class="bar-label">Maggie's Grave<span class="poll-author"> — David Sodergren</span></span>
+          <span class="bar-label"><span class="poll-title-text">Maggie's Grave</span><span class="poll-author"> — David Sodergren</span></span>
           <span class="bar-track"><span class="bar-fill" style="width:87%"></span></span>
           <span class="bar-count">7 · 33%</span>
         </li>
         <li class="bar-row poll-bar-row">
-          <span class="bar-label">Red Rabbit<span class="poll-author"> — Alex Grecian</span></span>
+          <span class="bar-label"><span class="poll-title-text">Red Rabbit</span><span class="poll-author"> — Alex Grecian</span></span>
           <span class="bar-track"><span class="bar-fill" style="width:50%"></span></span>
           <span class="bar-count">4 · 19%</span>
         </li>
         <li class="bar-row poll-bar-row">
-          <span class="bar-label">The Year of the Witching<span class="poll-author"> — Alexis Henderson</span></span>
+          <span class="bar-label"><span class="poll-title-text">The Year of the Witching</span><span class="poll-author"> — Alexis Henderson</span></span>
           <span class="bar-track"><span class="bar-fill" style="width:26%"></span></span>
           <span class="bar-count">2 · 10%</span>
         </li>
@@ -473,22 +488,22 @@
           </div>
           <ul class="bar-list">
         <li class="bar-row poll-bar-row is-winner">
-          <span class="bar-label">This Town Doesn't Exist on Any Map <img src="assets/favicon.svg" alt="Winner" class="poll-winner-tag" title="Winner"><span class="poll-author"> — Tobias Wade</span></span>
+          <span class="bar-label"><span class="poll-title-text">This Town Doesn't Exist on Any Map</span> <img src="assets/favicon.svg" alt="Winner" class="poll-winner-tag" title="Winner"><span class="poll-author"> — Tobias Wade</span></span>
           <span class="bar-track"><span class="bar-fill" style="width:100%"></span></span>
           <span class="bar-count">8 · 40%</span>
         </li>
         <li class="bar-row poll-bar-row">
-          <span class="bar-label">Viy<span class="poll-author"> — Nikolai Gogol</span></span>
+          <span class="bar-label"><span class="poll-title-text">Viy</span><span class="poll-author"> — Nikolai Gogol</span></span>
           <span class="bar-track"><span class="bar-fill" style="width:75%"></span></span>
           <span class="bar-count">6 · 30%</span>
         </li>
         <li class="bar-row poll-bar-row">
-          <span class="bar-label">Dreams in the Witch House<span class="poll-author"> — H.P. Lovecraft</span></span>
+          <span class="bar-label"><span class="poll-title-text">Dreams in the Witch House</span><span class="poll-author"> — H.P. Lovecraft</span></span>
           <span class="bar-track"><span class="bar-fill" style="width:62%"></span></span>
           <span class="bar-count">5 · 25%</span>
         </li>
         <li class="bar-row poll-bar-row">
-          <span class="bar-label">The White People<span class="poll-author"> — Arthur Machen</span></span>
+          <span class="bar-label"><span class="poll-title-text">The White People</span><span class="poll-author"> — Arthur Machen</span></span>
           <span class="bar-track"><span class="bar-fill" style="width:12%"></span></span>
           <span class="bar-count">1 · 5%</span>
         </li>
@@ -497,7 +512,7 @@
         </div>
       </div>
       <div class="poll-card" id="2026-06">
-        <div class="poll-month">June 2026</div>
+        <div class="poll-month"><a class="poll-month-link" href="archive/2026-06-werewolf.html">June 2026 →</a></div>
         <div class="poll-columns">
         <div class="poll-column" id="2026-06-book">
           <div class="poll-column-header">
@@ -506,22 +521,22 @@
           </div>
           <ul class="bar-list">
         <li class="bar-row poll-bar-row is-winner">
-          <span class="bar-label">When the Wolf Comes Home <img src="assets/favicon.svg" alt="Winner" class="poll-winner-tag" title="Winner"><span class="poll-author"> — Nat Cassidy</span></span>
+          <span class="bar-label"><span class="poll-title-text">When the Wolf Comes Home</span> <img src="assets/favicon.svg" alt="Winner" class="poll-winner-tag" title="Winner"><span class="poll-author"> — Nat Cassidy</span></span>
           <span class="bar-track"><span class="bar-fill" style="width:100%"></span></span>
           <span class="bar-count">8 · 30%</span>
         </li>
         <li class="bar-row poll-bar-row">
-          <span class="bar-label">Mongrels<span class="poll-author"> — Stephen Graham Jones</span></span>
+          <span class="bar-label"><span class="poll-title-text">Mongrels</span><span class="poll-author"> — Stephen Graham Jones</span></span>
           <span class="bar-track"><span class="bar-fill" style="width:87%"></span></span>
           <span class="bar-count">7 · 26%</span>
         </li>
         <li class="bar-row poll-bar-row">
-          <span class="bar-label">The Howling<span class="poll-author"> — Gary Brandner</span></span>
+          <span class="bar-label"><span class="poll-title-text">The Howling</span><span class="poll-author"> — Gary Brandner</span></span>
           <span class="bar-track"><span class="bar-fill" style="width:73%"></span></span>
           <span class="bar-count">6 · 22%</span>
         </li>
         <li class="bar-row poll-bar-row">
-          <span class="bar-label">Those Across the River<span class="poll-author"> — Christopher Buehlman</span></span>
+          <span class="bar-label"><span class="poll-title-text">Those Across the River</span><span class="poll-author"> — Christopher Buehlman</span></span>
           <span class="bar-track"><span class="bar-fill" style="width:73%"></span></span>
           <span class="bar-count">6 · 22%</span>
         </li>
@@ -534,12 +549,12 @@
           </div>
           <ul class="bar-list">
         <li class="bar-row poll-bar-row is-winner">
-          <span class="bar-label">The Belonging Kind <img src="assets/favicon.svg" alt="Winner" class="poll-winner-tag" title="Winner"><span class="poll-author"> — William Gibson and John Shirley</span></span>
+          <span class="bar-label"><span class="poll-title-text">The Belonging Kind</span> <img src="assets/favicon.svg" alt="Winner" class="poll-winner-tag" title="Winner"><span class="poll-author"> — William Gibson and John Shirley</span></span>
           <span class="bar-track"><span class="bar-fill" style="width:100%"></span></span>
           <span class="bar-count">7 · 54%</span>
         </li>
         <li class="bar-row poll-bar-row">
-          <span class="bar-label">Hardshell<span class="poll-author"> — Dean Koontz</span></span>
+          <span class="bar-label"><span class="poll-title-text">Hardshell</span><span class="poll-author"> — Dean Koontz</span></span>
           <span class="bar-track"><span class="bar-fill" style="width:85%"></span></span>
           <span class="bar-count">6 · 46%</span>
         </li>
@@ -548,7 +563,7 @@
         </div>
       </div>
       <div class="poll-card" id="2026-05">
-        <div class="poll-month">May 2026</div>
+        <div class="poll-month"><a class="poll-month-link" href="archive/2026-05-obsession.html">May 2026 →</a></div>
         <div class="poll-columns">
         <div class="poll-column" id="2026-05-book">
           <div class="poll-column-header">
@@ -557,22 +572,22 @@
           </div>
           <ul class="bar-list">
         <li class="bar-row poll-bar-row is-winner">
-          <span class="bar-label">Cabal <img src="assets/favicon.svg" alt="Winner" class="poll-winner-tag" title="Winner"><span class="poll-author"> — Clive Barker</span></span>
+          <span class="bar-label"><span class="poll-title-text">Cabal</span> <img src="assets/favicon.svg" alt="Winner" class="poll-winner-tag" title="Winner"><span class="poll-author"> — Clive Barker</span></span>
           <span class="bar-track"><span class="bar-fill" style="width:100%"></span></span>
           <span class="bar-count">8 · 32%</span>
         </li>
         <li class="bar-row poll-bar-row">
-          <span class="bar-label">Bloom<span class="poll-author"> — Delilah S. Dawson</span></span>
+          <span class="bar-label"><span class="poll-title-text">Bloom</span><span class="poll-author"> — Delilah S. Dawson</span></span>
           <span class="bar-track"><span class="bar-fill" style="width:75%"></span></span>
           <span class="bar-count">6 · 24%</span>
         </li>
         <li class="bar-row poll-bar-row">
-          <span class="bar-label">Misery<span class="poll-author"> — Stephen King</span></span>
+          <span class="bar-label"><span class="poll-title-text">Misery</span><span class="poll-author"> — Stephen King</span></span>
           <span class="bar-track"><span class="bar-fill" style="width:75%"></span></span>
           <span class="bar-count">6 · 24%</span>
         </li>
         <li class="bar-row poll-bar-row">
-          <span class="bar-label">Brother<span class="poll-author"> — Ania Ahlborn</span></span>
+          <span class="bar-label"><span class="poll-title-text">Brother</span><span class="poll-author"> — Ania Ahlborn</span></span>
           <span class="bar-track"><span class="bar-fill" style="width:62%"></span></span>
           <span class="bar-count">5 · 20%</span>
         </li>
@@ -585,12 +600,12 @@
           </div>
           <ul class="bar-list">
         <li class="bar-row poll-bar-row">
-          <span class="bar-label">Things Have Gotten Worse Since We Last Spoke<span class="poll-author"> — Eric LaRocca</span></span>
+          <span class="bar-label"><span class="poll-title-text">Things Have Gotten Worse Since We Last Spoke</span><span class="poll-author"> — Eric LaRocca</span></span>
           <span class="bar-track"><span class="bar-fill" style="width:100%"></span></span>
           <span class="bar-count">6 · 50%</span>
         </li>
         <li class="bar-row poll-bar-row is-winner">
-          <span class="bar-label">The Monster of Elendhaven <img src="assets/favicon.svg" alt="Winner" class="poll-winner-tag" title="Winner"><span class="poll-author"> — Jennifer Giesbrecht</span></span>
+          <span class="bar-label"><span class="poll-title-text">The Monster of Elendhaven</span> <img src="assets/favicon.svg" alt="Winner" class="poll-winner-tag" title="Winner"><span class="poll-author"> — Jennifer Giesbrecht</span></span>
           <span class="bar-track"><span class="bar-fill" style="width:100%"></span></span>
           <span class="bar-count">6 · 50%</span>
         </li>
@@ -599,7 +614,7 @@
         </div>
       </div>
       <div class="poll-card" id="2026-04">
-        <div class="poll-month">April 2026</div>
+        <div class="poll-month"><a class="poll-month-link" href="archive/2026-04-vampires.html">April 2026 →</a></div>
         <div class="poll-columns">
         <div class="poll-column" id="2026-04-book">
           <div class="poll-column-header">
@@ -608,27 +623,27 @@
           </div>
           <ul class="bar-list">
         <li class="bar-row poll-bar-row is-winner">
-          <span class="bar-label">Hungerstone <img src="assets/favicon.svg" alt="Winner" class="poll-winner-tag" title="Winner"><span class="poll-author"> — Kat Dunn</span></span>
+          <span class="bar-label"><span class="poll-title-text">Hungerstone</span> <img src="assets/favicon.svg" alt="Winner" class="poll-winner-tag" title="Winner"><span class="poll-author"> — Kat Dunn</span></span>
           <span class="bar-track"><span class="bar-fill" style="width:100%"></span></span>
           <span class="bar-count">6 · 21%</span>
         </li>
         <li class="bar-row poll-bar-row">
-          <span class="bar-label">Vampire Hunter D: The Rose Princess<span class="poll-author"> — Hideyuki Kikuchi</span></span>
+          <span class="bar-label"><span class="poll-title-text">Vampire Hunter D: The Rose Princess</span><span class="poll-author"> — Hideyuki Kikuchi</span></span>
           <span class="bar-track"><span class="bar-fill" style="width:100%"></span></span>
           <span class="bar-count">6 · 21%</span>
         </li>
         <li class="bar-row poll-bar-row">
-          <span class="bar-label">A Dowry of Blood<span class="poll-author"> — S.T. Gibson</span></span>
+          <span class="bar-label"><span class="poll-title-text">A Dowry of Blood</span><span class="poll-author"> — S.T. Gibson</span></span>
           <span class="bar-track"><span class="bar-fill" style="width:100%"></span></span>
           <span class="bar-count">6 · 21%</span>
         </li>
         <li class="bar-row poll-bar-row">
-          <span class="bar-label">Let the Right One In<span class="poll-author"> — John Ajvide Lindqvist</span></span>
+          <span class="bar-label"><span class="poll-title-text">Let the Right One In</span><span class="poll-author"> — John Ajvide Lindqvist</span></span>
           <span class="bar-track"><span class="bar-fill" style="width:86%"></span></span>
           <span class="bar-count">5 · 18%</span>
         </li>
         <li class="bar-row poll-bar-row">
-          <span class="bar-label">House of Hunger<span class="poll-author"> — Alexis Henderson</span></span>
+          <span class="bar-label"><span class="poll-title-text">House of Hunger</span><span class="poll-author"> — Alexis Henderson</span></span>
           <span class="bar-track"><span class="bar-fill" style="width:86%"></span></span>
           <span class="bar-count">5 · 18%</span>
         </li>
@@ -641,17 +656,17 @@
           </div>
           <ul class="bar-list">
         <li class="bar-row poll-bar-row is-winner">
-          <span class="bar-label">Carmilla <img src="assets/favicon.svg" alt="Winner" class="poll-winner-tag" title="Winner"><span class="poll-author"> — Sheridan Le Fanu</span></span>
+          <span class="bar-label"><span class="poll-title-text">Carmilla</span> <img src="assets/favicon.svg" alt="Winner" class="poll-winner-tag" title="Winner"><span class="poll-author"> — Sheridan Le Fanu</span></span>
           <span class="bar-track"><span class="bar-fill" style="width:100%"></span></span>
           <span class="bar-count">8 · 42%</span>
         </li>
         <li class="bar-row poll-bar-row">
-          <span class="bar-label">The V*mpire<span class="poll-author"> — P.H. Lee</span></span>
+          <span class="bar-label"><span class="poll-title-text">The V*mpire</span><span class="poll-author"> — P.H. Lee</span></span>
           <span class="bar-track"><span class="bar-fill" style="width:76%"></span></span>
           <span class="bar-count">6 · 32%</span>
         </li>
         <li class="bar-row poll-bar-row">
-          <span class="bar-label">The Cloak<span class="poll-author"> — Robert Bloch</span></span>
+          <span class="bar-label"><span class="poll-title-text">The Cloak</span><span class="poll-author"> — Robert Bloch</span></span>
           <span class="bar-track"><span class="bar-fill" style="width:62%"></span></span>
           <span class="bar-count">5 · 26%</span>
         </li>
@@ -660,7 +675,7 @@
         </div>
       </div>
       <div class="poll-card" id="2026-03">
-        <div class="poll-month">March 2026</div>
+        <div class="poll-month"><a class="poll-month-link" href="archive/2026-03-gothic-mansions.html">March 2026 →</a></div>
         <div class="poll-columns">
         <div class="poll-column" id="2026-03-book">
           <div class="poll-column-header">
@@ -669,22 +684,22 @@
           </div>
           <ul class="bar-list">
         <li class="bar-row poll-bar-row is-winner">
-          <span class="bar-label">Mexican Gothic <img src="assets/favicon.svg" alt="Winner" class="poll-winner-tag" title="Winner"><span class="poll-author"> — Silvia Moreno-Garcia</span></span>
+          <span class="bar-label"><span class="poll-title-text">Mexican Gothic</span> <img src="assets/favicon.svg" alt="Winner" class="poll-winner-tag" title="Winner"><span class="poll-author"> — Silvia Moreno-Garcia</span></span>
           <span class="bar-track"><span class="bar-fill" style="width:100%"></span></span>
           <span class="bar-count">12 · 46%</span>
         </li>
         <li class="bar-row poll-bar-row">
-          <span class="bar-label">Rebecca<span class="poll-author"> — Daphne du Maurier</span></span>
+          <span class="bar-label"><span class="poll-title-text">Rebecca</span><span class="poll-author"> — Daphne du Maurier</span></span>
           <span class="bar-track"><span class="bar-fill" style="width:50%"></span></span>
           <span class="bar-count">6 · 23%</span>
         </li>
         <li class="bar-row poll-bar-row">
-          <span class="bar-label">The Haunting of Hill House<span class="poll-author"> — Shirley Jackson</span></span>
+          <span class="bar-label"><span class="poll-title-text">The Haunting of Hill House</span><span class="poll-author"> — Shirley Jackson</span></span>
           <span class="bar-track"><span class="bar-fill" style="width:41%"></span></span>
           <span class="bar-count">5 · 19%</span>
         </li>
         <li class="bar-row poll-bar-row">
-          <span class="bar-label">The Turn of the Screw<span class="poll-author"> — Henry James</span></span>
+          <span class="bar-label"><span class="poll-title-text">The Turn of the Screw</span><span class="poll-author"> — Henry James</span></span>
           <span class="bar-track"><span class="bar-fill" style="width:26%"></span></span>
           <span class="bar-count">3 · 12%</span>
         </li>
@@ -697,17 +712,17 @@
           </div>
           <ul class="bar-list">
         <li class="bar-row poll-bar-row is-winner">
-          <span class="bar-label">The Fall of the House of Usher <img src="assets/favicon.svg" alt="Winner" class="poll-winner-tag" title="Winner"><span class="poll-author"> — Edgar Allan Poe</span></span>
+          <span class="bar-label"><span class="poll-title-text">The Fall of the House of Usher</span> <img src="assets/favicon.svg" alt="Winner" class="poll-winner-tag" title="Winner"><span class="poll-author"> — Edgar Allan Poe</span></span>
           <span class="bar-track"><span class="bar-fill" style="width:100%"></span></span>
           <span class="bar-count">10 · 53%</span>
         </li>
         <li class="bar-row poll-bar-row">
-          <span class="bar-label">The Ruins of Contracoeur<span class="poll-author"> — Joyce Carol Oates</span></span>
+          <span class="bar-label"><span class="poll-title-text">The Ruins of Contracoeur</span><span class="poll-author"> — Joyce Carol Oates</span></span>
           <span class="bar-track"><span class="bar-fill" style="width:49%"></span></span>
           <span class="bar-count">5 · 26%</span>
         </li>
         <li class="bar-row poll-bar-row">
-          <span class="bar-label">The Judge's House<span class="poll-author"> — Bram Stoker</span></span>
+          <span class="bar-label"><span class="poll-title-text">The Judge's House</span><span class="poll-author"> — Bram Stoker</span></span>
           <span class="bar-track"><span class="bar-fill" style="width:40%"></span></span>
           <span class="bar-count">4 · 21%</span>
         </li>
@@ -716,7 +731,7 @@
         </div>
       </div>
       <div class="poll-card" id="2026-02">
-        <div class="poll-month">February 2026</div>
+        <div class="poll-month"><a class="poll-month-link" href="archive/2026-02-apocalyptic-horror.html">February 2026 →</a></div>
         <div class="poll-columns">
         <div class="poll-column" id="2026-02-book">
           <div class="poll-column-header">
@@ -725,22 +740,22 @@
           </div>
           <ul class="bar-list">
         <li class="bar-row poll-bar-row is-winner">
-          <span class="bar-label">The Road <img src="assets/favicon.svg" alt="Winner" class="poll-winner-tag" title="Winner"><span class="poll-author"> — Cormac McCarthy</span></span>
+          <span class="bar-label"><span class="poll-title-text">The Road</span> <img src="assets/favicon.svg" alt="Winner" class="poll-winner-tag" title="Winner"><span class="poll-author"> — Cormac McCarthy</span></span>
           <span class="bar-track"><span class="bar-fill" style="width:100%"></span></span>
           <span class="bar-count">10 · 34%</span>
         </li>
         <li class="bar-row poll-bar-row">
-          <span class="bar-label">All the Fiends of Hell<span class="poll-author"> — Adam Nevill</span></span>
+          <span class="bar-label"><span class="poll-title-text">All the Fiends of Hell</span><span class="poll-author"> — Adam Nevill</span></span>
           <span class="bar-track"><span class="bar-fill" style="width:91%"></span></span>
           <span class="bar-count">9 · 31%</span>
         </li>
         <li class="bar-row poll-bar-row">
-          <span class="bar-label">Parable of the Sower<span class="poll-author"> — Octavia E. Butler</span></span>
+          <span class="bar-label"><span class="poll-title-text">Parable of the Sower</span><span class="poll-author"> — Octavia E. Butler</span></span>
           <span class="bar-track"><span class="bar-fill" style="width:71%"></span></span>
           <span class="bar-count">7 · 24%</span>
         </li>
         <li class="bar-row poll-bar-row">
-          <span class="bar-label">The Book of Koli<span class="poll-author"> — M.R. Carey</span></span>
+          <span class="bar-label"><span class="poll-title-text">The Book of Koli</span><span class="poll-author"> — M.R. Carey</span></span>
           <span class="bar-track"><span class="bar-fill" style="width:29%"></span></span>
           <span class="bar-count">3 · 10%</span>
         </li>
@@ -753,22 +768,22 @@
           </div>
           <ul class="bar-list">
         <li class="bar-row poll-bar-row is-winner">
-          <span class="bar-label">I Have No Mouth, and I Must Scream <img src="assets/favicon.svg" alt="Winner" class="poll-winner-tag" title="Winner"><span class="poll-author"> — Harlan Ellison</span></span>
+          <span class="bar-label"><span class="poll-title-text">I Have No Mouth, and I Must Scream</span> <img src="assets/favicon.svg" alt="Winner" class="poll-winner-tag" title="Winner"><span class="poll-author"> — Harlan Ellison</span></span>
           <span class="bar-track"><span class="bar-fill" style="width:100%"></span></span>
           <span class="bar-count">12 · 41%</span>
         </li>
         <li class="bar-row poll-bar-row">
-          <span class="bar-label">There Will Come Soft Rains<span class="poll-author"> — Ray Bradbury</span></span>
+          <span class="bar-label"><span class="poll-title-text">There Will Come Soft Rains</span><span class="poll-author"> — Ray Bradbury</span></span>
           <span class="bar-track"><span class="bar-fill" style="width:68%"></span></span>
           <span class="bar-count">8 · 28%</span>
         </li>
         <li class="bar-row poll-bar-row">
-          <span class="bar-label">The Machine Stops<span class="poll-author"> — E.M. Forster</span></span>
+          <span class="bar-label"><span class="poll-title-text">The Machine Stops</span><span class="poll-author"> — E.M. Forster</span></span>
           <span class="bar-track"><span class="bar-fill" style="width:41%"></span></span>
           <span class="bar-count">5 · 17%</span>
         </li>
         <li class="bar-row poll-bar-row">
-          <span class="bar-label">All Tomorrows<span class="poll-author"> — C.M. Kośemen</span></span>
+          <span class="bar-label"><span class="poll-title-text">All Tomorrows</span><span class="poll-author"> — C.M. Kośemen</span></span>
           <span class="bar-track"><span class="bar-fill" style="width:34%"></span></span>
           <span class="bar-count">4 · 14%</span>
         </li>
@@ -777,7 +792,7 @@
         </div>
       </div>
       <div class="poll-card" id="2026-01">
-        <div class="poll-month">January 2026</div>
+        <div class="poll-month"><a class="poll-month-link" href="archive/2026-01-medical-horror.html">January 2026 →</a></div>
         <div class="poll-columns">
         <div class="poll-column" id="2026-01-book">
           <div class="poll-column-header">
@@ -786,22 +801,22 @@
           </div>
           <ul class="bar-list">
         <li class="bar-row poll-bar-row is-winner">
-          <span class="bar-label">Frankenstein <img src="assets/favicon.svg" alt="Winner" class="poll-winner-tag" title="Winner"><span class="poll-author"> — Mary Shelley</span></span>
+          <span class="bar-label"><span class="poll-title-text">Frankenstein</span> <img src="assets/favicon.svg" alt="Winner" class="poll-winner-tag" title="Winner"><span class="poll-author"> — Mary Shelley</span></span>
           <span class="bar-track"><span class="bar-fill" style="width:100%"></span></span>
           <span class="bar-count">9 · 31%</span>
         </li>
         <li class="bar-row poll-bar-row">
-          <span class="bar-label">Intercepts<span class="poll-author"> — T.J. Payne</span></span>
+          <span class="bar-label"><span class="poll-title-text">Intercepts</span><span class="poll-author"> — T.J. Payne</span></span>
           <span class="bar-track"><span class="bar-fill" style="width:77%"></span></span>
           <span class="bar-count">7 · 24%</span>
         </li>
         <li class="bar-row poll-bar-row">
-          <span class="bar-label">Coma<span class="poll-author"> — Robin Cook</span></span>
+          <span class="bar-label"><span class="poll-title-text">Coma</span><span class="poll-author"> — Robin Cook</span></span>
           <span class="bar-track"><span class="bar-fill" style="width:77%"></span></span>
           <span class="bar-count">7 · 24%</span>
         </li>
         <li class="bar-row poll-bar-row">
-          <span class="bar-label">The Hot Zone<span class="poll-author"> — Richard Preston</span></span>
+          <span class="bar-label"><span class="poll-title-text">The Hot Zone</span><span class="poll-author"> — Richard Preston</span></span>
           <span class="bar-track"><span class="bar-fill" style="width:68%"></span></span>
           <span class="bar-count">6 · 21%</span>
         </li>
@@ -814,22 +829,22 @@
           </div>
           <ul class="bar-list">
         <li class="bar-row poll-bar-row is-winner">
-          <span class="bar-label">The Jaunt <img src="assets/favicon.svg" alt="Winner" class="poll-winner-tag" title="Winner"><span class="poll-author"> — Stephen King</span></span>
+          <span class="bar-label"><span class="poll-title-text">The Jaunt</span> <img src="assets/favicon.svg" alt="Winner" class="poll-winner-tag" title="Winner"><span class="poll-author"> — Stephen King</span></span>
           <span class="bar-track"><span class="bar-fill" style="width:100%"></span></span>
           <span class="bar-count">8 · 32%</span>
         </li>
         <li class="bar-row poll-bar-row">
-          <span class="bar-label">It Breathes, It Bleeds, It Breeds<span class="poll-author"> — EmpyrealInvective</span></span>
+          <span class="bar-label"><span class="poll-title-text">It Breathes, It Bleeds, It Breeds</span><span class="poll-author"> — EmpyrealInvective</span></span>
           <span class="bar-track"><span class="bar-fill" style="width:88%"></span></span>
           <span class="bar-count">7 · 28%</span>
         </li>
         <li class="bar-row poll-bar-row">
-          <span class="bar-label">Herbert West–Reanimator<span class="poll-author"> — H.P. Lovecraft</span></span>
+          <span class="bar-label"><span class="poll-title-text">Herbert West–Reanimator</span><span class="poll-author"> — H.P. Lovecraft</span></span>
           <span class="bar-track"><span class="bar-fill" style="width:75%"></span></span>
           <span class="bar-count">6 · 24%</span>
         </li>
         <li class="bar-row poll-bar-row">
-          <span class="bar-label">Feed Them Silence<span class="poll-author"> — Lee Mandelo</span></span>
+          <span class="bar-label"><span class="poll-title-text">Feed Them Silence</span><span class="poll-author"> — Lee Mandelo</span></span>
           <span class="bar-track"><span class="bar-fill" style="width:50%"></span></span>
           <span class="bar-count">4 · 16%</span>
         </li>
@@ -840,7 +855,7 @@
 
     <h2 class="year-heading" id="year-2025">2025</h2>
       <div class="poll-card" id="2025-12">
-        <div class="poll-month">December 2025</div>
+        <div class="poll-month"><a class="poll-month-link" href="archive/2025-12-picks.html">December 2025 →</a></div>
         <div class="poll-columns">
         <div class="poll-column" id="2025-12-book">
           <div class="poll-column-header">
@@ -849,22 +864,22 @@
           </div>
           <ul class="bar-list">
         <li class="bar-row poll-bar-row is-winner">
-          <span class="bar-label">Annihilation <img src="assets/favicon.svg" alt="Winner" class="poll-winner-tag" title="Winner"><span class="poll-author"> — Jeff VanderMeer</span></span>
+          <span class="bar-label"><span class="poll-title-text">Annihilation</span> <img src="assets/favicon.svg" alt="Winner" class="poll-winner-tag" title="Winner"><span class="poll-author"> — Jeff VanderMeer</span></span>
           <span class="bar-track"><span class="bar-fill" style="width:100%"></span></span>
           <span class="bar-count">10 · 37%</span>
         </li>
         <li class="bar-row poll-bar-row">
-          <span class="bar-label">The Hollow Places<span class="poll-author"> — T. Kingfisher</span></span>
+          <span class="bar-label"><span class="poll-title-text">The Hollow Places</span><span class="poll-author"> — T. Kingfisher</span></span>
           <span class="bar-track"><span class="bar-fill" style="width:70%"></span></span>
           <span class="bar-count">7 · 26%</span>
         </li>
         <li class="bar-row poll-bar-row">
-          <span class="bar-label">By the Light of Dead Stars<span class="poll-author"> — Andrew Van Wey</span></span>
+          <span class="bar-label"><span class="poll-title-text">By the Light of Dead Stars</span><span class="poll-author"> — Andrew Van Wey</span></span>
           <span class="bar-track"><span class="bar-fill" style="width:59%"></span></span>
           <span class="bar-count">6 · 22%</span>
         </li>
         <li class="bar-row poll-bar-row">
-          <span class="bar-label">Our Share of Night<span class="poll-author"> — Mariana Enríquez</span></span>
+          <span class="bar-label"><span class="poll-title-text">Our Share of Night</span><span class="poll-author"> — Mariana Enríquez</span></span>
           <span class="bar-track"><span class="bar-fill" style="width:41%"></span></span>
           <span class="bar-count">4 · 15%</span>
         </li>
@@ -877,22 +892,22 @@
           </div>
           <ul class="bar-list">
         <li class="bar-row poll-bar-row is-winner">
-          <span class="bar-label">The Ballad of Black Tom <img src="assets/favicon.svg" alt="Winner" class="poll-winner-tag" title="Winner"><span class="poll-author"> — Victor LaValle</span></span>
+          <span class="bar-label"><span class="poll-title-text">The Ballad of Black Tom</span> <img src="assets/favicon.svg" alt="Winner" class="poll-winner-tag" title="Winner"><span class="poll-author"> — Victor LaValle</span></span>
           <span class="bar-track"><span class="bar-fill" style="width:100%"></span></span>
           <span class="bar-count">6 · 32%</span>
         </li>
         <li class="bar-row poll-bar-row">
-          <span class="bar-label">There Is No Antimemetics Division<span class="poll-author"> — qntm</span></span>
+          <span class="bar-label"><span class="poll-title-text">There Is No Antimemetics Division</span><span class="poll-author"> — qntm</span></span>
           <span class="bar-track"><span class="bar-fill" style="width:100%"></span></span>
           <span class="bar-count">6 · 32%</span>
         </li>
         <li class="bar-row poll-bar-row">
-          <span class="bar-label">The Yellow Sign<span class="poll-author"> — Robert W. Chambers</span></span>
+          <span class="bar-label"><span class="poll-title-text">The Yellow Sign</span><span class="poll-author"> — Robert W. Chambers</span></span>
           <span class="bar-track"><span class="bar-fill" style="width:66%"></span></span>
           <span class="bar-count">4 · 21%</span>
         </li>
         <li class="bar-row poll-bar-row">
-          <span class="bar-label">Ring Shout<span class="poll-author"> — P. Djèlí Clark</span></span>
+          <span class="bar-label"><span class="poll-title-text">Ring Shout</span><span class="poll-author"> — P. Djèlí Clark</span></span>
           <span class="bar-track"><span class="bar-fill" style="width:50%"></span></span>
           <span class="bar-count">3 · 16%</span>
         </li>
@@ -901,7 +916,7 @@
         </div>
       </div>
       <div class="poll-card" id="2025-11">
-        <div class="poll-month">November 2025</div>
+        <div class="poll-month"><a class="poll-month-link" href="archive/2025-11-nautical-horror.html">November 2025 →</a></div>
         <div class="poll-columns">
         <div class="poll-column" id="2025-11-book">
           <div class="poll-column-header">
@@ -910,22 +925,22 @@
           </div>
           <ul class="bar-list">
         <li class="bar-row poll-bar-row is-winner">
-          <span class="bar-label">Into the Drowning Deep <img src="assets/favicon.svg" alt="Winner" class="poll-winner-tag" title="Winner"><span class="poll-author"> — Mira Grant</span></span>
+          <span class="bar-label"><span class="poll-title-text">Into the Drowning Deep</span> <img src="assets/favicon.svg" alt="Winner" class="poll-winner-tag" title="Winner"><span class="poll-author"> — Mira Grant</span></span>
           <span class="bar-track"><span class="bar-fill" style="width:100%"></span></span>
           <span class="bar-count">15 · 47%</span>
         </li>
         <li class="bar-row poll-bar-row">
-          <span class="bar-label">The Fisherman<span class="poll-author"> — John Langan</span></span>
+          <span class="bar-label"><span class="poll-title-text">The Fisherman</span><span class="poll-author"> — John Langan</span></span>
           <span class="bar-track"><span class="bar-fill" style="width:66%"></span></span>
           <span class="bar-count">10 · 31%</span>
         </li>
         <li class="bar-row poll-bar-row">
-          <span class="bar-label">Our Wives Under the Sea<span class="poll-author"> — Julia Armfield</span></span>
+          <span class="bar-label"><span class="poll-title-text">Our Wives Under the Sea</span><span class="poll-author"> — Julia Armfield</span></span>
           <span class="bar-track"><span class="bar-fill" style="width:34%"></span></span>
           <span class="bar-count">5 · 16%</span>
         </li>
         <li class="bar-row poll-bar-row">
-          <span class="bar-label">Whalefall<span class="poll-author"> — Daniel Kraus</span></span>
+          <span class="bar-label"><span class="poll-title-text">Whalefall</span><span class="poll-author"> — Daniel Kraus</span></span>
           <span class="bar-track"><span class="bar-fill" style="width:13%"></span></span>
           <span class="bar-count">2 · 6%</span>
         </li>
@@ -938,22 +953,22 @@
           </div>
           <ul class="bar-list">
         <li class="bar-row poll-bar-row">
-          <span class="bar-label">The Upper Berth<span class="poll-author"> — F. Marion Crawford</span></span>
+          <span class="bar-label"><span class="poll-title-text">The Upper Berth</span><span class="poll-author"> — F. Marion Crawford</span></span>
           <span class="bar-track"><span class="bar-fill" style="width:100%"></span></span>
           <span class="bar-count">9 · 28%</span>
         </li>
         <li class="bar-row poll-bar-row">
-          <span class="bar-label">The Temple<span class="poll-author"> — H.P. Lovecraft</span></span>
+          <span class="bar-label"><span class="poll-title-text">The Temple</span><span class="poll-author"> — H.P. Lovecraft</span></span>
           <span class="bar-track"><span class="bar-fill" style="width:100%"></span></span>
           <span class="bar-count">9 · 28%</span>
         </li>
         <li class="bar-row poll-bar-row is-winner">
-          <span class="bar-label">The Shadow over Innsmouth <img src="assets/favicon.svg" alt="Winner" class="poll-winner-tag" title="Winner"><span class="poll-author"> — H.P. Lovecraft</span></span>
+          <span class="bar-label"><span class="poll-title-text">The Shadow over Innsmouth</span> <img src="assets/favicon.svg" alt="Winner" class="poll-winner-tag" title="Winner"><span class="poll-author"> — H.P. Lovecraft</span></span>
           <span class="bar-track"><span class="bar-fill" style="width:100%"></span></span>
           <span class="bar-count">9 · 28%</span>
         </li>
         <li class="bar-row poll-bar-row">
-          <span class="bar-label">A Tropical Horror<span class="poll-author"> — William Hope Hodgson</span></span>
+          <span class="bar-label"><span class="poll-title-text">A Tropical Horror</span><span class="poll-author"> — William Hope Hodgson</span></span>
           <span class="bar-track"><span class="bar-fill" style="width:57%"></span></span>
           <span class="bar-count">5 · 16%</span>
         </li>
@@ -962,7 +977,7 @@
         </div>
       </div>
       <div class="poll-card" id="2025-10">
-        <div class="poll-month">October 2025</div>
+        <div class="poll-month"><a class="poll-month-link" href="archive/2025-10-body-horror.html">October 2025 →</a></div>
         <div class="poll-columns">
         <div class="poll-column" id="2025-10-book">
           <div class="poll-column-header">
@@ -971,22 +986,22 @@
           </div>
           <ul class="bar-list">
         <li class="bar-row poll-bar-row is-winner">
-          <span class="bar-label">The Vegetarian <img src="assets/favicon.svg" alt="Winner" class="poll-winner-tag" title="Winner"><span class="poll-author"> — Han Kang</span></span>
+          <span class="bar-label"><span class="poll-title-text">The Vegetarian</span> <img src="assets/favicon.svg" alt="Winner" class="poll-winner-tag" title="Winner"><span class="poll-author"> — Han Kang</span></span>
           <span class="bar-track"><span class="bar-fill" style="width:100%"></span></span>
           <span class="bar-count">10 · 28%</span>
         </li>
         <li class="bar-row poll-bar-row">
-          <span class="bar-label">Exoskeleton<span class="poll-author"> — Shane Stadler</span></span>
+          <span class="bar-label"><span class="poll-title-text">Exoskeleton</span><span class="poll-author"> — Shane Stadler</span></span>
           <span class="bar-track"><span class="bar-fill" style="width:89%"></span></span>
           <span class="bar-count">9 · 25%</span>
         </li>
         <li class="bar-row poll-bar-row">
-          <span class="bar-label">The Cipher<span class="poll-author"> — Kathe Koja</span></span>
+          <span class="bar-label"><span class="poll-title-text">The Cipher</span><span class="poll-author"> — Kathe Koja</span></span>
           <span class="bar-track"><span class="bar-fill" style="width:89%"></span></span>
           <span class="bar-count">9 · 25%</span>
         </li>
         <li class="bar-row poll-bar-row">
-          <span class="bar-label">The Troop<span class="poll-author"> — Nick Cutter</span></span>
+          <span class="bar-label"><span class="poll-title-text">The Troop</span><span class="poll-author"> — Nick Cutter</span></span>
           <span class="bar-track"><span class="bar-fill" style="width:79%"></span></span>
           <span class="bar-count">8 · 22%</span>
         </li>
@@ -999,22 +1014,22 @@
           </div>
           <ul class="bar-list">
         <li class="bar-row poll-bar-row is-winner">
-          <span class="bar-label">The Body Politic <img src="assets/favicon.svg" alt="Winner" class="poll-winner-tag" title="Winner"><span class="poll-author"> — Clive Barker</span></span>
+          <span class="bar-label"><span class="poll-title-text">The Body Politic</span> <img src="assets/favicon.svg" alt="Winner" class="poll-winner-tag" title="Winner"><span class="poll-author"> — Clive Barker</span></span>
           <span class="bar-track"><span class="bar-fill" style="width:100%"></span></span>
           <span class="bar-count">12 · 32%</span>
         </li>
         <li class="bar-row poll-bar-row">
-          <span class="bar-label">What Moves the Dead<span class="poll-author"> — T. Kingfisher</span></span>
+          <span class="bar-label"><span class="poll-title-text">What Moves the Dead</span><span class="poll-author"> — T. Kingfisher</span></span>
           <span class="bar-track"><span class="bar-fill" style="width:75%"></span></span>
           <span class="bar-count">9 · 24%</span>
         </li>
         <li class="bar-row poll-bar-row">
-          <span class="bar-label">Who Goes There?<span class="poll-author"> — John W. Campbell Jr.</span></span>
+          <span class="bar-label"><span class="poll-title-text">Who Goes There?</span><span class="poll-author"> — John W. Campbell Jr.</span></span>
           <span class="bar-track"><span class="bar-fill" style="width:75%"></span></span>
           <span class="bar-count">9 · 24%</span>
         </li>
         <li class="bar-row poll-bar-row">
-          <span class="bar-label">Skeleton<span class="poll-author"> — Ray Bradbury</span></span>
+          <span class="bar-label"><span class="poll-title-text">Skeleton</span><span class="poll-author"> — Ray Bradbury</span></span>
           <span class="bar-track"><span class="bar-fill" style="width:66%"></span></span>
           <span class="bar-count">8 · 21%</span>
         </li>
@@ -1023,7 +1038,7 @@
         </div>
       </div>
       <div class="poll-card" id="2025-09">
-        <div class="poll-month">September 2025</div>
+        <div class="poll-month"><a class="poll-month-link" href="archive/2025-09-picks.html">September 2025 →</a></div>
         <div class="poll-columns">
         <div class="poll-column" id="2025-09-book">
           <div class="poll-column-header">
@@ -1032,22 +1047,22 @@
           </div>
           <ul class="bar-list">
         <li class="bar-row poll-bar-row">
-          <span class="bar-label">Something Wicked This Way Comes<span class="poll-author"> — Ray Bradbury</span></span>
+          <span class="bar-label"><span class="poll-title-text">Something Wicked This Way Comes</span><span class="poll-author"> — Ray Bradbury</span></span>
           <span class="bar-track"><span class="bar-fill" style="width:100%"></span></span>
           <span class="bar-count">11 · 31%</span>
         </li>
         <li class="bar-row poll-bar-row is-winner">
-          <span class="bar-label">The Exorcist <img src="assets/favicon.svg" alt="Winner" class="poll-winner-tag" title="Winner"><span class="poll-author"> — William Peter Blatty</span></span>
+          <span class="bar-label"><span class="poll-title-text">The Exorcist</span> <img src="assets/favicon.svg" alt="Winner" class="poll-winner-tag" title="Winner"><span class="poll-author"> — William Peter Blatty</span></span>
           <span class="bar-track"><span class="bar-fill" style="width:100%"></span></span>
           <span class="bar-count">11 · 31%</span>
         </li>
         <li class="bar-row poll-bar-row">
-          <span class="bar-label">Blood Meridian<span class="poll-author"> — Cormac McCarthy</span></span>
+          <span class="bar-label"><span class="poll-title-text">Blood Meridian</span><span class="poll-author"> — Cormac McCarthy</span></span>
           <span class="bar-track"><span class="bar-fill" style="width:61%"></span></span>
           <span class="bar-count">7 · 19%</span>
         </li>
         <li class="bar-row poll-bar-row">
-          <span class="bar-label">The Haunting of Hill House<span class="poll-author"> — Shirley Jackson</span></span>
+          <span class="bar-label"><span class="poll-title-text">The Haunting of Hill House</span><span class="poll-author"> — Shirley Jackson</span></span>
           <span class="bar-track"><span class="bar-fill" style="width:61%"></span></span>
           <span class="bar-count">7 · 19%</span>
         </li>
@@ -1060,17 +1075,17 @@
           </div>
           <ul class="bar-list">
         <li class="bar-row poll-bar-row is-winner">
-          <span class="bar-label">Where Are You Going, Where Have You Been? <img src="assets/favicon.svg" alt="Winner" class="poll-winner-tag" title="Winner"><span class="poll-author"> — Joyce Carol Oates</span></span>
+          <span class="bar-label"><span class="poll-title-text">Where Are You Going, Where Have You Been?</span> <img src="assets/favicon.svg" alt="Winner" class="poll-winner-tag" title="Winner"><span class="poll-author"> — Joyce Carol Oates</span></span>
           <span class="bar-track"><span class="bar-fill" style="width:100%"></span></span>
           <span class="bar-count">10 · 48%</span>
         </li>
         <li class="bar-row poll-bar-row">
-          <span class="bar-label">The Husband Stitch<span class="poll-author"> — Carmen Maria Machado</span></span>
+          <span class="bar-label"><span class="poll-title-text">The Husband Stitch</span><span class="poll-author"> — Carmen Maria Machado</span></span>
           <span class="bar-track"><span class="bar-fill" style="width:60%"></span></span>
           <span class="bar-count">6 · 29%</span>
         </li>
         <li class="bar-row poll-bar-row">
-          <span class="bar-label">The Lottery<span class="poll-author"> — Shirley Jackson</span></span>
+          <span class="bar-label"><span class="poll-title-text">The Lottery</span><span class="poll-author"> — Shirley Jackson</span></span>
           <span class="bar-track"><span class="bar-fill" style="width:50%"></span></span>
           <span class="bar-count">5 · 24%</span>
         </li>
@@ -1079,7 +1094,7 @@
         </div>
       </div>
       <div class="poll-card" id="2025-08">
-        <div class="poll-month">August 2025</div>
+        <div class="poll-month"><a class="poll-month-link" href="archive/2025-08-picks.html">August 2025 →</a></div>
         <div class="poll-columns">
         <div class="poll-column" id="2025-08-book">
           <div class="poll-column-header">
@@ -1088,22 +1103,22 @@
           </div>
           <ul class="bar-list">
         <li class="bar-row poll-bar-row is-winner">
-          <span class="bar-label">Between Two Fires <img src="assets/favicon.svg" alt="Winner" class="poll-winner-tag" title="Winner"><span class="poll-author"> — Christopher Buehlman</span></span>
+          <span class="bar-label"><span class="poll-title-text">Between Two Fires</span> <img src="assets/favicon.svg" alt="Winner" class="poll-winner-tag" title="Winner"><span class="poll-author"> — Christopher Buehlman</span></span>
           <span class="bar-track"><span class="bar-fill" style="width:100%"></span></span>
           <span class="bar-count">13 · 38%</span>
         </li>
         <li class="bar-row poll-bar-row">
-          <span class="bar-label">When the Wolf Comes Home<span class="poll-author"> — Nat Cassidy</span></span>
+          <span class="bar-label"><span class="poll-title-text">When the Wolf Comes Home</span><span class="poll-author"> — Nat Cassidy</span></span>
           <span class="bar-track"><span class="bar-fill" style="width:63%"></span></span>
           <span class="bar-count">8 · 24%</span>
         </li>
         <li class="bar-row poll-bar-row">
-          <span class="bar-label">The Exorcist<span class="poll-author"> — William Peter Blatty</span></span>
+          <span class="bar-label"><span class="poll-title-text">The Exorcist</span><span class="poll-author"> — William Peter Blatty</span></span>
           <span class="bar-track"><span class="bar-fill" style="width:63%"></span></span>
           <span class="bar-count">8 · 24%</span>
         </li>
         <li class="bar-row poll-bar-row">
-          <span class="bar-label">The Troop<span class="poll-author"> — Nick Cutter</span></span>
+          <span class="bar-label"><span class="poll-title-text">The Troop</span><span class="poll-author"> — Nick Cutter</span></span>
           <span class="bar-track"><span class="bar-fill" style="width:39%"></span></span>
           <span class="bar-count">5 · 15%</span>
         </li>
@@ -1116,17 +1131,17 @@
           </div>
           <ul class="bar-list">
         <li class="bar-row poll-bar-row is-winner">
-          <span class="bar-label">A Short Stay in Hell <img src="assets/favicon.svg" alt="Winner" class="poll-winner-tag" title="Winner"><span class="poll-author"> — Steven L. Peck</span></span>
+          <span class="bar-label"><span class="poll-title-text">A Short Stay in Hell</span> <img src="assets/favicon.svg" alt="Winner" class="poll-winner-tag" title="Winner"><span class="poll-author"> — Steven L. Peck</span></span>
           <span class="bar-track"><span class="bar-fill" style="width:100%"></span></span>
           <span class="bar-count">11 · 39%</span>
         </li>
         <li class="bar-row poll-bar-row">
-          <span class="bar-label">Carmilla<span class="poll-author"> — Sheridan Le Fanu</span></span>
+          <span class="bar-label"><span class="poll-title-text">Carmilla</span><span class="poll-author"> — Sheridan Le Fanu</span></span>
           <span class="bar-track"><span class="bar-fill" style="width:82%"></span></span>
           <span class="bar-count">9 · 32%</span>
         </li>
         <li class="bar-row poll-bar-row">
-          <span class="bar-label">Cabal<span class="poll-author"> — Clive Barker</span></span>
+          <span class="bar-label"><span class="poll-title-text">Cabal</span><span class="poll-author"> — Clive Barker</span></span>
           <span class="bar-track"><span class="bar-fill" style="width:74%"></span></span>
           <span class="bar-count">8 · 29%</span>
         </li>
@@ -1135,7 +1150,7 @@
         </div>
       </div>
       <div class="poll-card" id="2025-07">
-        <div class="poll-month">July 2025</div>
+        <div class="poll-month"><a class="poll-month-link" href="archive/2025-07-picks.html">July 2025 →</a></div>
         <div class="poll-columns">
         <div class="poll-column" id="2025-07-book">
           <div class="poll-column-header">
@@ -1144,22 +1159,22 @@
           </div>
           <ul class="bar-list">
         <li class="bar-row poll-bar-row is-winner">
-          <span class="bar-label">The Haar <img src="assets/favicon.svg" alt="Winner" class="poll-winner-tag" title="Winner"><span class="poll-author"> — David Sodergren</span></span>
+          <span class="bar-label"><span class="poll-title-text">The Haar</span> <img src="assets/favicon.svg" alt="Winner" class="poll-winner-tag" title="Winner"><span class="poll-author"> — David Sodergren</span></span>
           <span class="bar-track"><span class="bar-fill" style="width:100%"></span></span>
           <span class="bar-count">14 · 40%</span>
         </li>
         <li class="bar-row poll-bar-row">
-          <span class="bar-label">Home<span class="poll-author"> — Ben Young</span></span>
+          <span class="bar-label"><span class="poll-title-text">Home</span><span class="poll-author"> — Ben Young</span></span>
           <span class="bar-track"><span class="bar-fill" style="width:50%"></span></span>
           <span class="bar-count">7 · 20%</span>
         </li>
         <li class="bar-row poll-bar-row">
-          <span class="bar-label">Bat Eater and Other Names for Cora Zeng<span class="poll-author"> — Kylie Lee Baker</span></span>
+          <span class="bar-label"><span class="poll-title-text">Bat Eater and Other Names for Cora Zeng</span><span class="poll-author"> — Kylie Lee Baker</span></span>
           <span class="bar-track"><span class="bar-fill" style="width:50%"></span></span>
           <span class="bar-count">7 · 20%</span>
         </li>
         <li class="bar-row poll-bar-row">
-          <span class="bar-label">Suffer the Children<span class="poll-author"> — Craig DiLouie</span></span>
+          <span class="bar-label"><span class="poll-title-text">Suffer the Children</span><span class="poll-author"> — Craig DiLouie</span></span>
           <span class="bar-track"><span class="bar-fill" style="width:50%"></span></span>
           <span class="bar-count">7 · 20%</span>
         </li>
@@ -1168,7 +1183,7 @@
         </div>
       </div>
       <div class="poll-card" id="2025-06">
-        <div class="poll-month">June 2025</div>
+        <div class="poll-month"><a class="poll-month-link" href="archive/2025-06-picks.html">June 2025 →</a></div>
         <div class="poll-columns">
         <div class="poll-column" id="2025-06-book">
           <div class="poll-column-header">
@@ -1177,22 +1192,22 @@
           </div>
           <ul class="bar-list">
         <li class="bar-row poll-bar-row is-winner">
-          <span class="bar-label">Native Fear <img src="assets/favicon.svg" alt="Winner" class="poll-winner-tag" title="Winner"><span class="poll-author"> — C.F. Page</span></span>
+          <span class="bar-label"><span class="poll-title-text">Native Fear</span> <img src="assets/favicon.svg" alt="Winner" class="poll-winner-tag" title="Winner"><span class="poll-author"> — C.F. Page</span></span>
           <span class="bar-track"><span class="bar-fill" style="width:100%"></span></span>
           <span class="bar-count">18 · 42%</span>
         </li>
         <li class="bar-row poll-bar-row">
-          <span class="bar-label">Ring<span class="poll-author"> — Kōji Suzuki</span></span>
+          <span class="bar-label"><span class="poll-title-text">Ring</span><span class="poll-author"> — Kōji Suzuki</span></span>
           <span class="bar-track"><span class="bar-fill" style="width:62%"></span></span>
           <span class="bar-count">11 · 26%</span>
         </li>
         <li class="bar-row poll-bar-row">
-          <span class="bar-label">The Haunting of Hill House<span class="poll-author"> — Shirley Jackson</span></span>
+          <span class="bar-label"><span class="poll-title-text">The Haunting of Hill House</span><span class="poll-author"> — Shirley Jackson</span></span>
           <span class="bar-track"><span class="bar-fill" style="width:50%"></span></span>
           <span class="bar-count">9 · 21%</span>
         </li>
         <li class="bar-row poll-bar-row">
-          <span class="bar-label">The Sandman: Preludes and Nocturnes<span class="poll-author"> — Neil Gaiman</span></span>
+          <span class="bar-label"><span class="poll-title-text">The Sandman: Preludes and Nocturnes</span><span class="poll-author"> — Neil Gaiman</span></span>
           <span class="bar-track"><span class="bar-fill" style="width:29%"></span></span>
           <span class="bar-count">5 · 12%</span>
         </li>
@@ -1201,7 +1216,7 @@
         </div>
       </div>
       <div class="poll-card" id="2025-05">
-        <div class="poll-month">May 2025</div>
+        <div class="poll-month"><a class="poll-month-link" href="archive/2025-05-picks.html">May 2025 →</a></div>
         <div class="poll-columns">
         <div class="poll-column" id="2025-05-book">
           <div class="poll-column-header">
@@ -1210,22 +1225,22 @@
           </div>
           <ul class="bar-list">
         <li class="bar-row poll-bar-row is-winner">
-          <span class="bar-label">Beta: A Technological Nightmare <img src="assets/favicon.svg" alt="Winner" class="poll-winner-tag" title="Winner"><span class="poll-author"> — Sammy Scott</span></span>
+          <span class="bar-label"><span class="poll-title-text">Beta: A Technological Nightmare</span> <img src="assets/favicon.svg" alt="Winner" class="poll-winner-tag" title="Winner"><span class="poll-author"> — Sammy Scott</span></span>
           <span class="bar-track"><span class="bar-fill" style="width:100%"></span></span>
           <span class="bar-count">12 · 40%</span>
         </li>
         <li class="bar-row poll-bar-row">
-          <span class="bar-label">The Hollow Places<span class="poll-author"> — T. Kingfisher</span></span>
+          <span class="bar-label"><span class="poll-title-text">The Hollow Places</span><span class="poll-author"> — T. Kingfisher</span></span>
           <span class="bar-track"><span class="bar-fill" style="width:68%"></span></span>
           <span class="bar-count">8 · 27%</span>
         </li>
         <li class="bar-row poll-bar-row">
-          <span class="bar-label">Bat Eater and Other Names for Cora Zeng<span class="poll-author"> — Kylie Lee Baker</span></span>
+          <span class="bar-label"><span class="poll-title-text">Bat Eater and Other Names for Cora Zeng</span><span class="poll-author"> — Kylie Lee Baker</span></span>
           <span class="bar-track"><span class="bar-fill" style="width:50%"></span></span>
           <span class="bar-count">6 · 20%</span>
         </li>
         <li class="bar-row poll-bar-row">
-          <span class="bar-label">Goddess of Filth<span class="poll-author"> — V. Castro</span></span>
+          <span class="bar-label"><span class="poll-title-text">Goddess of Filth</span><span class="poll-author"> — V. Castro</span></span>
           <span class="bar-track"><span class="bar-fill" style="width:32%"></span></span>
           <span class="bar-count">4 · 13%</span>
         </li>
@@ -1234,7 +1249,7 @@
         </div>
       </div>
       <div class="poll-card" id="2025-04">
-        <div class="poll-month">April 2025</div>
+        <div class="poll-month"><a class="poll-month-link" href="archive/2025-04-picks.html">April 2025 →</a></div>
         <div class="poll-columns">
         <div class="poll-column" id="2025-04-book">
           <div class="poll-column-header">
@@ -1243,27 +1258,27 @@
           </div>
           <ul class="bar-list">
         <li class="bar-row poll-bar-row">
-          <span class="bar-label">Suffer the Children<span class="poll-author"> — Craig DiLouie</span></span>
+          <span class="bar-label"><span class="poll-title-text">Suffer the Children</span><span class="poll-author"> — Craig DiLouie</span></span>
           <span class="bar-track"><span class="bar-fill" style="width:100%"></span></span>
           <span class="bar-count">27%</span>
         </li>
         <li class="bar-row poll-bar-row is-winner">
-          <span class="bar-label">The Last House on Needless Street <img src="assets/favicon.svg" alt="Winner" class="poll-winner-tag" title="Winner"><span class="poll-author"> — Catriona Ward</span></span>
+          <span class="bar-label"><span class="poll-title-text">The Last House on Needless Street</span> <img src="assets/favicon.svg" alt="Winner" class="poll-winner-tag" title="Winner"><span class="poll-author"> — Catriona Ward</span></span>
           <span class="bar-track"><span class="bar-fill" style="width:100%"></span></span>
           <span class="bar-count">27%</span>
         </li>
         <li class="bar-row poll-bar-row">
-          <span class="bar-label">The Call<span class="poll-author"> — Peadar Ó Guilín</span></span>
+          <span class="bar-label"><span class="poll-title-text">The Call</span><span class="poll-author"> — Peadar Ó Guilín</span></span>
           <span class="bar-track"><span class="bar-fill" style="width:67%"></span></span>
           <span class="bar-count">18%</span>
         </li>
         <li class="bar-row poll-bar-row">
-          <span class="bar-label">Slewfoot: A Tale of Bewitchery<span class="poll-author"> — Brom</span></span>
+          <span class="bar-label"><span class="poll-title-text">Slewfoot: A Tale of Bewitchery</span><span class="poll-author"> — Brom</span></span>
           <span class="bar-track"><span class="bar-fill" style="width:67%"></span></span>
           <span class="bar-count">18%</span>
         </li>
         <li class="bar-row poll-bar-row">
-          <span class="bar-label">What Lies Between Us<span class="poll-author"> — John Marrs</span></span>
+          <span class="bar-label"><span class="poll-title-text">What Lies Between Us</span><span class="poll-author"> — John Marrs</span></span>
           <span class="bar-track"><span class="bar-fill" style="width:37%"></span></span>
           <span class="bar-count">10%</span>
         </li>
@@ -1272,8 +1287,6 @@
         </div>
       </div>
 
-
-    <p class="note">Vote counts and turnout come from the club's poll screenshots; the March 2025 poll only recorded percentages, so it shows without vote counts. Site-wide averages exclude that poll.</p>
   </main>
 </body>
 </html>

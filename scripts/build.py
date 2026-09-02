@@ -47,6 +47,20 @@ def _pub_year(author: str) -> int | None:
     return int(m.group(1)) if m else None
 
 
+def _era_bucket(pub_year: int | None) -> str:
+    if not pub_year:
+        return "unknown"
+    if pub_year < 1900:
+        return "pre1900"
+    if pub_year < 1950:
+        return "1900s"
+    if pub_year < 2000:
+        return "1950s"
+    if pub_year < 2020:
+        return "2000s"
+    return "2020s"
+
+
 def _author_age_bucket(birth_year: int | None, pub_year: int | None) -> str:
     if not birth_year or not pub_year:
         return "unknown"
@@ -319,6 +333,7 @@ def _aggregate_books(all_books: list, authors: dict) -> dict:
     cw_counts = defaultdict(int)
     author_counts = defaultdict(int)
     age_counts = defaultdict(int)
+    era_counts = defaultdict(int)
     gender_counts = defaultdict(int)
     lgbtq_counts = defaultdict(int)
     bipoc_counts = defaultdict(int)
@@ -329,7 +344,9 @@ def _aggregate_books(all_books: list, authors: dict) -> dict:
         cw_counts[book.get("cw_tier", "unknown")] += 1
         author_counts[_base_author_name(book["author"])] += 1
         info = authors.get(_base_author_name(book["author"]), {})
-        age_counts[_author_age_bucket(info.get("birth_year"), _pub_year(book["author"]))] += 1
+        pub_year = _pub_year(book["author"])
+        age_counts[_author_age_bucket(info.get("birth_year"), pub_year)] += 1
+        era_counts[_era_bucket(pub_year)] += 1
         gender_counts[info.get("gender", "unknown")] += 1
         lgbtq_counts[info.get("lgbtq", "unknown")] += 1
         bipoc_counts[info.get("bipoc", "unknown")] += 1
@@ -353,6 +370,7 @@ def _aggregate_books(all_books: list, authors: dict) -> dict:
         )[:8],
         "cw_counts": dict(cw_counts),
         "age_counts": dict(age_counts),
+        "era_counts": dict(era_counts),
         "gender_counts": dict(gender_counts),
         "lgbtq_counts": dict(lgbtq_counts),
         "bipoc_counts": dict(bipoc_counts),
@@ -509,11 +527,16 @@ def render_stats_page() -> str:
         "60s": "60s", "70+": "70+", "unknown": "Unknown",
     }
     gender_order = ["woman", "man", "nonbinary", "unknown"]
-    gender_labels = {"woman": "Woman", "man": "Man", "nonbinary": "Nonbinary", "unknown": "Unknown"}
+    gender_labels = {"woman": "Female", "man": "Male", "nonbinary": "Nonbinary", "unknown": "Unknown"}
     lgbtq_order = ["yes", "no", "unknown"]
-    lgbtq_labels = {"yes": "LGBTQIA+", "no": "Not publicly LGBTQIA+", "unknown": "Unknown"}
+    lgbtq_labels = {"yes": "LGBTQIA+", "no": "Straight", "unknown": "Unknown"}
     bipoc_order = ["yes", "no", "unknown"]
     bipoc_labels = {"yes": "BIPOC", "no": "Not BIPOC", "unknown": "Unknown"}
+    era_order = ["pre1900", "1900s", "1950s", "2000s", "2020s", "unknown"]
+    era_labels = {
+        "pre1900": "Pre-1900", "1900s": "1900–1949", "1950s": "1950–1999",
+        "2000s": "2000–2019", "2020s": "2020s", "unknown": "Unknown",
+    }
 
     cw_labels = {"mild": "Mild", "moderate": "Heavy", "extreme": "Extreme"}
 
@@ -523,6 +546,7 @@ def render_stats_page() -> str:
             "cw_rows": stacked_bar(agg["cw_counts"], cw_order, cw_labels),
             "author_rows": bar_list(agg["top_authors"]),
             "age_rows": stacked_bar(agg["age_counts"], age_order, age_labels),
+            "era_rows": stacked_bar(agg["era_counts"], era_order, era_labels),
             "gender_rows": stacked_bar(agg["gender_counts"], gender_order, gender_labels),
             "lgbtq_rows": stacked_bar(agg["lgbtq_counts"], lgbtq_order, lgbtq_labels),
             "bipoc_rows": stacked_bar(agg["bipoc_counts"], bipoc_order, bipoc_labels),
@@ -606,10 +630,10 @@ def compute_poll_stats(polls: list) -> dict:
     closest = None
     landslide = None
     for p in countable:
-        sorted_opts = sorted(p["options"], key=lambda o: -o["percentage"])
+        sorted_opts = sorted(p["options"], key=lambda o: -o["votes"])
         if len(sorted_opts) < 2:
             continue
-        gap = sorted_opts[0]["percentage"] - sorted_opts[1]["percentage"]
+        gap = sorted_opts[0]["votes"] - sorted_opts[1]["votes"]
         entry = {
             "month": p["archive_month"],
             "poll_type": p["poll_type"],
@@ -660,9 +684,9 @@ def render_polls_page() -> str:
         return (
             f'<div class="fact"><div class="fact-label">{kind_label}</div>'
             f'{month_label} ({type_label}): '
-            f'{entry["top"]["canonical_title"]} ({entry["top"]["percentage"]}%) vs. '
-            f'{entry["runner_up"]["canonical_title"]} ({entry["runner_up"]["percentage"]}%) '
-            f'— {entry["gap"]}pt gap</div>'
+            f'{entry["top"]["canonical_title"]} ({entry["top"]["votes"]} votes) vs. '
+            f'{entry["runner_up"]["canonical_title"]} ({entry["runner_up"]["votes"]} votes) '
+            f'— {entry["gap"]}-vote gap</div>'
         )
 
     race_cards = race_card(stats["closest"], "Closest race") + race_card(stats["landslide"], "Biggest landslide")
@@ -680,7 +704,9 @@ def render_polls_page() -> str:
             author = o["canonical_author"]
             rows.append(
                 f'        <li class="{row_class}">\n'
-                f'          <span class="bar-label">{o["canonical_title"]}{winner_mark}<span class="poll-author"> — {author}</span></span>\n'
+                f'          <span class="bar-label">'
+                f'<span class="poll-title-text">{o["canonical_title"]}</span>'
+                f'{winner_mark}<span class="poll-author"> — {author}</span></span>\n'
                 f'          <span class="bar-track"><span class="bar-fill" style="width:{pct_width}%"></span></span>\n'
                 f'          <span class="bar-count">{count_label}</span>\n'
                 f'        </li>'
@@ -703,6 +729,11 @@ def render_polls_page() -> str:
             f'        </div>\n'
         )
 
+    # Map "YYYY-MM" -> archive slug so poll cards can link to that month's page.
+    slug_by_month = {}
+    for path in MONTHS_DIR.glob("*.json"):
+        slug_by_month[path.stem[:7]] = json.loads(path.read_text())["slug"]
+
     # Group by month (novel + short story side by side), then by year.
     by_month = {}
     for p in polls:
@@ -724,9 +755,13 @@ def render_polls_page() -> str:
             columns.append(poll_column(entry["book"], "Novel poll"))
         if "short_story" in entry:
             columns.append(poll_column(entry["short_story"], "Short story poll"))
+        slug = slug_by_month.get(month)
+        month_heading = (
+            f'<a class="poll-month-link" href="archive/{slug}.html">{month_label} →</a>' if slug else month_label
+        )
         groups[-1][1].append(
             f'      <div class="poll-card" id="{month}">\n'
-            f'        <div class="poll-month">{month_label}</div>\n'
+            f'        <div class="poll-month">{month_heading}</div>\n'
             f'        <div class="poll-columns">\n{"".join(columns)}        </div>\n'
             f'      </div>\n'
         )
