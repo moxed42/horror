@@ -156,6 +156,18 @@
       box-shadow: var(--shadow);
     }
     .trend-panel { margin-bottom: 30px; }
+    .trend-chart-row { display: flex; gap: 8px; }
+    .trend-axis {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 100px;
+      font-size: 0.68rem;
+      color: var(--text-muted);
+      font-variant-numeric: tabular-nums;
+      text-align: right;
+      flex-shrink: 0;
+    }
     .trend-chart {
       display: flex;
       align-items: flex-end;
@@ -163,6 +175,7 @@
       height: 100px;
       overflow-x: auto;
       padding-bottom: 4px;
+      flex: 1;
     }
     .trend-bar {
       flex: 1 0 8px;
@@ -261,8 +274,9 @@
       overflow: hidden;
       text-overflow: ellipsis;
       white-space: nowrap;
-      min-width: 0;
-      flex-shrink: 1;
+      min-width: 20px;
+      flex: 1 1 auto;
+      cursor: default;
     }
     .poll-author {
       color: var(--text-muted);
@@ -270,7 +284,9 @@
       overflow: hidden;
       text-overflow: ellipsis;
       white-space: nowrap;
-      flex-shrink: 1;
+      flex: 0 1 auto;
+      max-width: 30%;
+      min-width: 0;
     }
     .poll-winner-tag {
       width: 15px;
