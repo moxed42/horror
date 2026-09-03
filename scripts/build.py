@@ -697,10 +697,16 @@ def render_polls_page() -> str:
                 f'<div class="trend-bar" title="{label}: {avg_voters} avg voters">'
                 f'<span class="trend-bar-fill" style="height:{height_pct}%"></span></div>'
             )
+        axis = (
+            '<div class="trend-axis">'
+            f'<span>{top}</span><span>{round(top / 2)}</span><span>0</span>'
+            '</div>'
+        )
         return (
-            '<div class="trend-chart">' + "".join(bars) + '</div>'
+            '<div class="trend-chart-row">' + axis +
+            '<div class="trend-chart">' + "".join(bars) + '</div></div>'
             f'<div class="trend-caption">{month_label_for_ym(points[0][0])} → {month_label_for_ym(points[-1][0])} '
-            '· hover a bar for exact turnout</div>'
+            '· avg unique voters per month · hover a bar for exact value</div>'
         )
 
     turnout_chart = turnout_trend(polls)
@@ -734,8 +740,8 @@ def render_polls_page() -> str:
             rows.append(
                 f'        <li class="{row_class}">\n'
                 f'          <span class="bar-label">'
-                f'<span class="poll-title-text">{o["canonical_title"]}</span>'
-                f'{winner_mark}<span class="poll-author"> — {author}</span></span>\n'
+                f'<span class="poll-title-text" title="{o["canonical_title"]} — {author}">{o["canonical_title"]}</span>'
+                f'{winner_mark}<span class="poll-author" title="{author}"> — {author}</span></span>\n'
                 f'          <span class="bar-track"><span class="bar-fill" style="width:{pct_width}%"></span></span>\n'
                 f'          <span class="bar-count">{count_label}</span>\n'
                 f'        </li>'
