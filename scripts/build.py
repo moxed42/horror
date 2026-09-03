@@ -633,18 +633,28 @@ def compute_poll_stats(polls: list) -> dict:
         sorted_opts = sorted(p["options"], key=lambda o: -o["votes"])
         if len(sorted_opts) < 2:
             continue
-        gap = sorted_opts[0]["votes"] - sorted_opts[1]["votes"]
-        entry = {
+
+        closest_gap = sorted_opts[0]["votes"] - sorted_opts[1]["votes"]
+        closest_entry = {
             "month": p["archive_month"],
             "poll_type": p["poll_type"],
             "top": sorted_opts[0],
             "runner_up": sorted_opts[1],
-            "gap": gap,
+            "gap": closest_gap,
         }
-        if closest is None or gap < closest["gap"]:
-            closest = entry
-        if landslide is None or gap > landslide["gap"]:
-            landslide = entry
+        if closest is None or closest_gap < closest["gap"]:
+            closest = closest_entry
+
+        landslide_gap = sorted_opts[0]["votes"] - sorted_opts[-1]["votes"]
+        landslide_entry = {
+            "month": p["archive_month"],
+            "poll_type": p["poll_type"],
+            "top": sorted_opts[0],
+            "runner_up": sorted_opts[-1],
+            "gap": landslide_gap,
+        }
+        if landslide is None or landslide_gap > landslide["gap"]:
+            landslide = landslide_entry
 
     return {
         "total_polls": total_polls,
