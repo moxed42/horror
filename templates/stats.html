@@ -283,6 +283,7 @@
       border: 1px solid var(--border-subtle);
     }
     .rank-title { color: var(--text-main); }
+    .rank-month { color: var(--text-muted); font-size: 0.78rem; }
     .rank-title a,
     .bar-label a { color: var(--text-main); text-decoration: none; border-bottom: 1px dotted var(--text-muted); }
     .rank-title a:hover,
@@ -382,6 +383,7 @@
       <a href="#diversity">Diversity</a>
       <a href="#snubbed">Snubbed</a>
       <a href="#hab">HAB</a>
+      <a href="#ratings">Club Ratings</a>
     </nav>
 
     <div class="stat-grid stat-grid-3">
@@ -535,6 +537,16 @@ __SNUBBED_ROWS__
       <div class="panel">
         <ul class="hab-list">
 __HAB_ROWS__
+        </ul>
+      </div>
+    </div>
+
+    <div class="section" id="ratings">
+      <div class="section-title">Club Ratings</div>
+      <p class="not-filtered-note">Not affected by the toggle above — the club's own average rating for each winner, given after we've actually read and discussed it (most recent first).</p>
+      <div class="panel">
+        <ul class="rank-list">
+__CLUB_RATING_ROWS__
         </ul>
       </div>
     </div>

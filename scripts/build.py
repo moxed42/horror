@@ -397,6 +397,7 @@ def compute_stats() -> dict:
     }
     all_books = []
     winning_books = []
+    club_ratings = []
 
     for month in months:
         for section, kind in (("novels", "novel"), ("short_works", "short")):
@@ -408,6 +409,12 @@ def compute_stats() -> dict:
                 if is_winner:
                     title_ever_won[book["title"]] = True
                     bucket["winners"] += 1
+                if book.get("club_rating"):
+                    club_ratings.append({
+                        "title": book["title"],
+                        "month_label": month.get("month_label", month.get("slug", "")),
+                        "rating": book["club_rating"],
+                    })
                 if book.get("is_hab"):
                     hab_titles.add(book["title"])
                 all_books.append((kind, book))
@@ -438,6 +445,7 @@ def compute_stats() -> dict:
         "short_noms": by_type["short"]["noms"],
         "noms": _aggregate_books(all_books, authors),
         "wins": _aggregate_books(winning_books, authors),
+        "club_ratings": list(reversed(club_ratings)),
     }
 
 
@@ -596,12 +604,27 @@ def render_stats_page() -> str:
     else:
         hab_rows = '        <li class="empty">None tagged yet.</li>'
 
+    if stats["club_ratings"]:
+        rows = []
+        for entry in stats["club_ratings"]:
+            rows.append(
+                f'        <li>\n'
+                f'          <span class="rank-title">{entry["title"]} '
+                f'<span class="rank-month">({entry["month_label"]})</span></span>\n'
+                f'          <span class="rank-count">{entry["rating"]}</span>\n'
+                f'        </li>'
+            )
+        club_rating_rows = "\n".join(rows)
+    else:
+        club_rating_rows = '        <li class="empty">No club ratings yet.</li>'
+
     replacements = {
         "__TOP_STAT_CARDS__": top_cards,
         "__NOVEL_NOMS__": str(stats["novel_noms"]),
         "__SHORT_NOMS__": str(stats["short_noms"]),
         "__SNUBBED_ROWS__": snubbed_rows,
         "__HAB_ROWS__": hab_rows,
+        "__CLUB_RATING_ROWS__": club_rating_rows,
         "__HAB_COUNT__": str(stats["hab_count"]),
         "__LAST_UPDATED__": f'{date.today():%B} {date.today().day}, {date.today():%Y}',
         "__BASE_URL__": BASE_URL,

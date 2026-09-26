@@ -75,3 +75,13 @@ on those two book entries in that month's `data/months/*.json` file, then
 re-run `python3 scripts/build.py data/months/YYYY-MM-slug.json`. The winning
 cards get a highlighted border and a "<Month>'s Winner" label — same pattern
 as previous months.
+
+## Adding the club's rating (after the meet)
+
+`avg_rating` on a book entry is a pre-read reference number (e.g. from
+Goodreads) shown on the book card before anyone's voted or read it — leave
+that as-is. Once the club has actually read and discussed a winner at the
+meet, add a separate `club_rating` field to that book entry (e.g.
+`"club_rating": "4.2★"`; use `"TBD"` as a placeholder if you haven't tallied
+it yet) and re-run `python3 scripts/build.py data/months/YYYY-MM-slug.json`.
+It shows up in the "Club Ratings" list on `stats.html`, most recent first.
