@@ -337,19 +337,49 @@ def _aggregate_books(all_books: list, authors: dict) -> dict:
     gender_counts = defaultdict(int)
     lgbtq_counts = defaultdict(int)
     bipoc_counts = defaultdict(int)
+    cw_examples = defaultdict(list)
+    age_examples = defaultdict(list)
+    era_examples = defaultdict(list)
+    gender_examples = defaultdict(list)
+    lgbtq_examples = defaultdict(list)
+    bipoc_examples = defaultdict(list)
     pages_by_kind = {"novel": [], "short": []}
 
     for kind, book in all_books:
         origin_counts[book.get("origin", "N/A")] += 1
-        cw_counts[book.get("cw_tier", "unknown")] += 1
-        author_counts[_base_author_name(book["author"])] += 1
-        info = authors.get(_base_author_name(book["author"]), {})
+        author_name = _base_author_name(book["author"])
+        info = authors.get(author_name, {})
         pub_year = _pub_year(book["author"])
-        age_counts[_author_age_bucket(info.get("birth_year"), pub_year)] += 1
-        era_counts[_era_bucket(pub_year)] += 1
-        gender_counts[info.get("gender", "unknown")] += 1
-        lgbtq_counts[info.get("lgbtq", "unknown")] += 1
-        bipoc_counts[info.get("bipoc", "unknown")] += 1
+        birth_year = info.get("birth_year")
+        age = pub_year - birth_year if birth_year and pub_year else None
+        detail = f'{book["title"]} — {author_name}' + (f" (age {age})" if age is not None else "")
+
+        cw_bucket = book.get("cw_tier", "unknown")
+        cw_counts[cw_bucket] += 1
+        cw_examples[cw_bucket].append(detail)
+
+        author_counts[author_name] += 1
+
+        age_bucket = _author_age_bucket(birth_year, pub_year)
+        age_counts[age_bucket] += 1
+        age_examples[age_bucket].append(detail)
+
+        era_bucket = _era_bucket(pub_year)
+        era_counts[era_bucket] += 1
+        era_examples[era_bucket].append(detail)
+
+        gender_bucket = info.get("gender", "unknown")
+        gender_counts[gender_bucket] += 1
+        gender_examples[gender_bucket].append(detail)
+
+        lgbtq_bucket = info.get("lgbtq", "unknown")
+        lgbtq_counts[lgbtq_bucket] += 1
+        lgbtq_examples[lgbtq_bucket].append(detail)
+
+        bipoc_bucket = info.get("bipoc", "unknown")
+        bipoc_counts[bipoc_bucket] += 1
+        bipoc_examples[bipoc_bucket].append(detail)
+
         pages = _parse_pages(book.get("pages", ""))
         if pages:
             pages_by_kind[kind].append((book["title"], pages))
@@ -374,6 +404,12 @@ def _aggregate_books(all_books: list, authors: dict) -> dict:
         "gender_counts": dict(gender_counts),
         "lgbtq_counts": dict(lgbtq_counts),
         "bipoc_counts": dict(bipoc_counts),
+        "cw_examples": dict(cw_examples),
+        "age_examples": dict(age_examples),
+        "era_examples": dict(era_examples),
+        "gender_examples": dict(gender_examples),
+        "lgbtq_examples": dict(lgbtq_examples),
+        "bipoc_examples": dict(bipoc_examples),
         "novel_pages": page_stats(pages_by_kind["novel"]),
         "short_pages": page_stats(pages_by_kind["short"]),
     }
@@ -495,25 +531,46 @@ def render_stats_page() -> str:
 
     palette = ["#f54545", "#4a9dff", "#9b6bff", "#5a6178"]
 
-    def stacked_bar(counts: dict, order: list, labels: dict) -> str:
-        pairs = [(labels[k], counts.get(k, 0)) for k in order]
-        total = sum(c for _, c in pairs) or 1
+    def stacked_bar(counts: dict, order: list, labels: dict, examples: dict | None = None) -> str:
+        import html as html_lib
+
+        examples = examples or {}
+        pairs = [(k, labels[k], counts.get(k, 0)) for k in order]
+        total = sum(c for _, _, c in pairs) or 1
         segments = []
         legend = []
-        for i, (label, count) in enumerate(pairs):
+        details = []
+        for i, (key, label, count) in enumerate(pairs):
             color = "#3a3f52" if label == "Unknown" else palette[i % len(palette)]
             pct = round(count / total * 100)
+            bucket_examples = sorted(examples.get(key, []))
+            has_detail = bool(bucket_examples)
+            seg_attr = f' data-bucket="{key}"' if has_detail else ""
+            seg_cls = "stack-seg clickable" if has_detail else "stack-seg"
             if count > 0:
-                segments.append(f'<span class="stack-seg" style="width:{pct}%;background:{color}"></span>')
+                segments.append(f'<span class="{seg_cls}" style="width:{pct}%;background:{color}"{seg_attr}></span>')
+            legend_attr = f' data-bucket="{key}" tabindex="0" role="button"' if has_detail else ""
+            legend_cls = "stack-legend-item clickable" if has_detail else "stack-legend-item"
             legend.append(
-                f'        <li><span class="stack-dot" style="background:{color}"></span>'
+                f'        <li class="{legend_cls}"{legend_attr}><span class="stack-dot" style="background:{color}"></span>'
                 f'{label} <span class="stack-count">{count} ({pct}%)</span></li>'
             )
+            if has_detail:
+                items_html = "".join(f"<li>{html_lib.escape(e)}</li>" for e in bucket_examples)
+                details.append(
+                    f'          <div class="stack-detail-panel" data-bucket="{key}" hidden>'
+                    f'<div class="stack-detail-title">{label} ({count})</div>'
+                    f'<ul class="stack-detail-list">{items_html}</ul></div>'
+                )
         segments_html = "".join(segments) if segments else '<span class="stack-seg" style="width:100%;background:#3a3f52"></span>'
         legend_html = "\n".join(legend) if legend else '        <li class="empty">No data yet.</li>'
+        details_html = "\n".join(details)
         return (
+            f'          <div class="stack-widget">\n'
             f'          <div class="stack-bar">{segments_html}</div>\n'
-            f'          <ul class="stack-legend">\n{legend_html}\n          </ul>'
+            f'          <ul class="stack-legend">\n{legend_html}\n          </ul>\n'
+            f'          <div class="stack-details">\n{details_html}\n          </div>\n'
+            f'          </div>'
         )
 
     def page_fact(bucket, key):
@@ -551,13 +608,13 @@ def render_stats_page() -> str:
     def sections_for(agg: dict) -> dict:
         return {
             "origin_rows": origin_bar_list(agg["top_origins"]),
-            "cw_rows": stacked_bar(agg["cw_counts"], cw_order, cw_labels),
+            "cw_rows": stacked_bar(agg["cw_counts"], cw_order, cw_labels, agg["cw_examples"]),
             "author_rows": bar_list(agg["top_authors"]),
-            "age_rows": stacked_bar(agg["age_counts"], age_order, age_labels),
-            "era_rows": stacked_bar(agg["era_counts"], era_order, era_labels),
-            "gender_rows": stacked_bar(agg["gender_counts"], gender_order, gender_labels),
-            "lgbtq_rows": stacked_bar(agg["lgbtq_counts"], lgbtq_order, lgbtq_labels),
-            "bipoc_rows": stacked_bar(agg["bipoc_counts"], bipoc_order, bipoc_labels),
+            "age_rows": stacked_bar(agg["age_counts"], age_order, age_labels, agg["age_examples"]),
+            "era_rows": stacked_bar(agg["era_counts"], era_order, era_labels, agg["era_examples"]),
+            "gender_rows": stacked_bar(agg["gender_counts"], gender_order, gender_labels, agg["gender_examples"]),
+            "lgbtq_rows": stacked_bar(agg["lgbtq_counts"], lgbtq_order, lgbtq_labels, agg["lgbtq_examples"]),
+            "bipoc_rows": stacked_bar(agg["bipoc_counts"], bipoc_order, bipoc_labels, agg["bipoc_examples"]),
             "avg_novel_pages": f'{agg["novel_pages"]["avg"]} pages' if agg["novel_pages"]["avg"] else "N/A",
             "avg_short_pages": f'{agg["short_pages"]["avg"]} pages' if agg["short_pages"]["avg"] else "N/A",
             "novel_record_table": record_table(agg["novel_pages"]),
