@@ -79,6 +79,18 @@
       border-radius: 6px;
     }
     .site-nav .visit-counter img { display: block; height: 18px; border-radius: 3px; opacity: 0.9; }
+    .refresh-btn {
+      font: inherit;
+      font-size: 0.78rem;
+      padding: 4px 10px;
+      border-radius: var(--radius-pill);
+      border: 1px solid var(--border-subtle);
+      background: rgba(4, 4, 16, 0.6);
+      color: var(--text-muted);
+      cursor: pointer;
+      margin-left: 8px;
+    }
+    .refresh-btn:hover { color: var(--accent-soft); border-color: rgba(245, 69, 69, 0.5); }
     .year-heading {
       font-size: 0.78rem;
       text-transform: uppercase;
@@ -115,6 +127,7 @@
       <span class="visit-counter">
         <img src="https://api.visitorbadge.io/api/visitors?path=finalgirlsbookclub.moxed42&label=visits&labelColor=%23111221&countColor=%23f54545&style=flat-square" alt="visit count" loading="lazy">
       </span>
+      <button type="button" class="refresh-btn" onclick="location.reload()" title="Reload this page">⟳ Refresh</button>
     </nav>
     <h1><span>Final Girls</span> <span>Book Club</span> — Archive</h1>
     <h2 class="year-heading">2026</h2>

@@ -47,6 +47,13 @@ def _pub_year(author: str) -> int | None:
     return int(m.group(1)) if m else None
 
 
+def _author_names(author: str) -> list[str]:
+    # "William Gibson and John Shirley (1981)" -> ["William Gibson", "John Shirley"]
+    import re
+    base = _base_author_name(author)
+    return [p.strip() for p in re.split(r"\s+and\s+", base) if p.strip()]
+
+
 def _era_bucket(pub_year: int | None) -> str:
     if not pub_year:
         return "unknown"
@@ -347,38 +354,49 @@ def _aggregate_books(all_books: list, authors: dict) -> dict:
 
     for kind, book in all_books:
         origin_counts[book.get("origin", "N/A")] += 1
-        author_name = _base_author_name(book["author"])
-        info = authors.get(author_name, {})
+        names = _author_names(book["author"])
         pub_year = _pub_year(book["author"])
-        birth_year = info.get("birth_year")
-        age = pub_year - birth_year if birth_year and pub_year else None
-        detail = f'{book["title"]} — {author_name}' + (f" (age {age})" if age is not None else "")
 
         cw_bucket = book.get("cw_tier", "unknown")
         cw_counts[cw_bucket] += 1
-        cw_examples[cw_bucket].append(detail)
-
-        author_counts[author_name] += 1
-
-        age_bucket = _author_age_bucket(birth_year, pub_year)
-        age_counts[age_bucket] += 1
-        age_examples[age_bucket].append(detail)
+        if len(names) == 1:
+            info = authors.get(names[0], {})
+            birth_year = info.get("birth_year")
+            age = pub_year - birth_year if birth_year and pub_year else None
+            book_detail = f'{book["title"]} — {names[0]}' + (f" (age {age})" if age is not None else "")
+        else:
+            book_detail = f'{book["title"]} — {" & ".join(names)}'
+        cw_examples[cw_bucket].append(book_detail)
 
         era_bucket = _era_bucket(pub_year)
         era_counts[era_bucket] += 1
-        era_examples[era_bucket].append(detail)
+        era_examples[era_bucket].append(book_detail)
 
-        gender_bucket = info.get("gender", "unknown")
-        gender_counts[gender_bucket] += 1
-        gender_examples[gender_bucket].append(detail)
+        # Demographic stats are per-author, so a co-written book (e.g. "X and Y")
+        # contributes once for each credited author, not once for the byline.
+        for name in names:
+            info = authors.get(name, {})
+            birth_year = info.get("birth_year")
+            age = pub_year - birth_year if birth_year and pub_year else None
+            detail = f'{book["title"]} — {name}' + (f" (age {age})" if age is not None else "")
 
-        lgbtq_bucket = info.get("lgbtq", "unknown")
-        lgbtq_counts[lgbtq_bucket] += 1
-        lgbtq_examples[lgbtq_bucket].append(detail)
+            author_counts[name] += 1
 
-        bipoc_bucket = info.get("bipoc", "unknown")
-        bipoc_counts[bipoc_bucket] += 1
-        bipoc_examples[bipoc_bucket].append(detail)
+            age_bucket = _author_age_bucket(birth_year, pub_year)
+            age_counts[age_bucket] += 1
+            age_examples[age_bucket].append(detail)
+
+            gender_bucket = info.get("gender", "unknown")
+            gender_counts[gender_bucket] += 1
+            gender_examples[gender_bucket].append(detail)
+
+            lgbtq_bucket = info.get("lgbtq", "unknown")
+            lgbtq_counts[lgbtq_bucket] += 1
+            lgbtq_examples[lgbtq_bucket].append(detail)
+
+            bipoc_bucket = info.get("bipoc", "unknown")
+            bipoc_counts[bipoc_bucket] += 1
+            bipoc_examples[bipoc_bucket].append(detail)
 
         pages = _parse_pages(book.get("pages", ""))
         if pages:
