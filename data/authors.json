@@ -5,14 +5,20 @@
     "birth_year": 1969
   },
   "Alex Grecian": {
-    "gender": "man"
+    "gender": "man",
+    "birth_year": 1969
   },
   "Alexander Pushkin": {
     "gender": "man",
     "birth_year": 1799
   },
   "Alexis Henderson": {
-    "gender": "woman"
+    "gender": "woman",
+    "bipoc": "yes"
+  },
+  "Andrew Joseph White": {
+    "gender": "man",
+    "lgbtq": "yes"
   },
   "Andrew Van Wey": {
     "gender": "man"
@@ -24,6 +30,10 @@
     "gender": "man",
     "birth_year": 1863
   },
+  "Bernardo Esquinca": {
+    "gender": "man",
+    "birth_year": 1972
+  },
   "Bram Stoker": {
     "gender": "man",
     "birth_year": 1847
@@ -32,6 +42,10 @@
     "gender": "man",
     "birth_year": 1965
   },
+  "C.M. Kośemen": {
+    "gender": "man",
+    "birth_year": 1984
+  },
   "Carmen Maria Machado": {
     "gender": "woman",
     "lgbtq": "yes",
@@ -39,14 +53,16 @@
     "birth_year": 1986
   },
   "Catriona Ward": {
-    "gender": "woman"
+    "gender": "woman",
+    "birth_year": 1982
   },
   "Charlotte Perkins Gilman": {
     "gender": "woman",
     "birth_year": 1860
   },
   "Christopher Buehlman": {
-    "gender": "man"
+    "gender": "man",
+    "birth_year": 1969
   },
   "Clive Barker": {
     "gender": "man",
@@ -58,10 +74,12 @@
     "birth_year": 1933
   },
   "Craig DiLouie": {
-    "gender": "man"
+    "gender": "man",
+    "birth_year": 1967
   },
   "Daniel Kraus": {
-    "gender": "man"
+    "gender": "man",
+    "birth_year": 1975
   },
   "Daphne du Maurier": {
     "gender": "woman",
@@ -75,7 +93,8 @@
     "birth_year": 1945
   },
   "Delilah S. Dawson": {
-    "gender": "woman"
+    "gender": "woman",
+    "birth_year": 1977
   },
   "E.M. Forster": {
     "gender": "man",
@@ -134,11 +153,17 @@
     "birth_year": 1968
   },
   "John Langan": {
-    "gender": "man"
+    "gender": "man",
+    "birth_year": 1969
   },
   "John Marrs": {
     "gender": "man",
-    "lgbtq": "yes"
+    "lgbtq": "yes",
+    "birth_year": 1970
+  },
+  "John Shirley": {
+    "gender": "man",
+    "birth_year": 1953
   },
   "John W. Campbell Jr.": {
     "gender": "man",
@@ -154,10 +179,12 @@
   },
   "Julia Armfield": {
     "gender": "woman",
-    "lgbtq": "yes"
+    "lgbtq": "yes",
+    "birth_year": 1990
   },
   "Kat Dunn": {
-    "gender": "woman"
+    "gender": "woman",
+    "lgbtq": "yes"
   },
   "Kathe Koja": {
     "gender": "woman",
@@ -196,7 +223,8 @@
     "birth_year": 1978
   },
   "Nat Cassidy": {
-    "gender": "man"
+    "gender": "man",
+    "birth_year": 1981
   },
   "Neil Gaiman": {
     "gender": "man",
@@ -217,10 +245,16 @@
   },
   "P. Djèlí Clark": {
     "gender": "man",
-    "bipoc": "yes"
+    "bipoc": "yes",
+    "birth_year": 1971
+  },
+  "P.H. Lee": {
+    "gender": "nonbinary",
+    "lgbtq": "yes"
   },
   "Peadar Ó Guilín": {
-    "gender": "man"
+    "gender": "man",
+    "birth_year": 1968
   },
   "Ray Bradbury": {
     "gender": "man",
@@ -280,7 +314,8 @@
     "birth_year": 1947
   },
   "Steven L. Peck": {
-    "gender": "man"
+    "gender": "man",
+    "birth_year": 1957
   },
   "T. Kingfisher": {
     "gender": "woman",
@@ -291,12 +326,17 @@
   },
   "V. Castro": {
     "gender": "woman",
-    "bipoc": "yes"
+    "bipoc": "yes",
+    "birth_year": 1979
   },
   "Victor LaValle": {
     "gender": "man",
     "bipoc": "yes",
     "birth_year": 1972
+  },
+  "William Gibson": {
+    "gender": "man",
+    "birth_year": 1948
   },
   "William Hope Hodgson": {
     "gender": "man",
@@ -305,5 +345,9 @@
   "William Peter Blatty": {
     "gender": "man",
     "birth_year": 1928
+  },
+  "qntm": {
+    "gender": "man",
+    "birth_year": 1983
   }
 }
