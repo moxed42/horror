@@ -466,6 +466,7 @@ __TOP_STAT_CARDS__
     <div class="toggle-row" data-toggle-scope>
       <button type="button" class="toggle-btn" data-view="noms">All nominations</button>
       <button type="button" class="toggle-btn active" data-view="wins">Winners only</button>
+      <button type="button" class="toggle-btn" data-view="current">Current (__CURRENT_MONTH_LABEL__)</button>
     </div>
     <div class="toggle-row" data-kind-scope>
       <button type="button" class="toggle-btn active" data-kind="all">Both formats</button>
@@ -481,37 +482,51 @@ __TOP_STAT_CARDS__
         <div class="subsection-title">Novels</div>
         <div class="stat-grid stat-grid-2">
       <div class="stat-card">
-        <div class="stat-value">__NOVEL_NOMS__</div>
+        <div class="stat-value" data-view-only="noms">__NOVEL_NOMS__</div>
+        <div class="stat-value" data-view-only="wins" hidden>__NOVEL_NOMS__</div>
+        <div class="stat-value" data-view-only="current" hidden>__NOVEL_NOMS_CURRENT__</div>
         <div class="stat-label">Nominations</div>
       </div>
-      <div class="stat-card" data-view-noms hidden>
+      <div class="stat-card" data-view-only="noms" hidden>
         <div class="stat-value">__AVG_NOVEL_PAGES_NOMS__</div>
         <div class="stat-label">Avg. pages</div>
       </div>
-      <div class="stat-card" data-view-wins>
+      <div class="stat-card" data-view-only="wins">
         <div class="stat-value">__AVG_NOVEL_PAGES_WINS__</div>
         <div class="stat-label">Avg. pages (winners)</div>
       </div>
+      <div class="stat-card" data-view-only="current" hidden>
+        <div class="stat-value">__AVG_NOVEL_PAGES_CURRENT__</div>
+        <div class="stat-label">Avg. pages (this month)</div>
+      </div>
         </div>
-        <div data-view-noms hidden>__NOVEL_RECORD_TABLE_NOMS__</div>
-        <div data-view-wins>__NOVEL_RECORD_TABLE_WINS__</div>
+        <div data-view-only="noms" hidden>__NOVEL_RECORD_TABLE_NOMS__</div>
+        <div data-view-only="wins">__NOVEL_RECORD_TABLE_WINS__</div>
+        <div data-view-only="current" hidden>__NOVEL_RECORD_TABLE_CURRENT__</div>
         <div class="subsection-title">Short works</div>
         <div class="stat-grid stat-grid-2">
       <div class="stat-card">
-        <div class="stat-value">__SHORT_NOMS__</div>
+        <div class="stat-value" data-view-only="noms">__SHORT_NOMS__</div>
+        <div class="stat-value" data-view-only="wins" hidden>__SHORT_NOMS__</div>
+        <div class="stat-value" data-view-only="current" hidden>__SHORT_NOMS_CURRENT__</div>
         <div class="stat-label">Nominations</div>
       </div>
-      <div class="stat-card" data-view-noms hidden>
+      <div class="stat-card" data-view-only="noms" hidden>
         <div class="stat-value">__AVG_SHORT_PAGES_NOMS__</div>
         <div class="stat-label">Avg. pages</div>
       </div>
-      <div class="stat-card" data-view-wins>
+      <div class="stat-card" data-view-only="wins">
         <div class="stat-value">__AVG_SHORT_PAGES_WINS__</div>
         <div class="stat-label">Avg. pages (winners)</div>
       </div>
+      <div class="stat-card" data-view-only="current" hidden>
+        <div class="stat-value">__AVG_SHORT_PAGES_CURRENT__</div>
+        <div class="stat-label">Avg. pages (this month)</div>
+      </div>
         </div>
-        <div data-view-noms hidden>__SHORT_RECORD_TABLE_NOMS__</div>
-        <div data-view-wins>__SHORT_RECORD_TABLE_WINS__</div>
+        <div data-view-only="noms" hidden>__SHORT_RECORD_TABLE_NOMS__</div>
+        <div data-view-only="wins">__SHORT_RECORD_TABLE_WINS__</div>
+        <div data-view-only="current" hidden>__SHORT_RECORD_TABLE_CURRENT__</div>
       </div>
     </div>
 
@@ -601,24 +616,22 @@ __HAB_ROWS__
       var kind = "all";
 
       var kindLabels = { all: "both formats", novel: "novels only", short: "short works only" };
+      var viewLabels = { noms: "all nominations", wins: "winners only", current: "this month's picks" };
 
       function apply() {
-        // Old two-state sections (just Format, post-bugfix): boolean
-        // presence attributes, no kind axis.
-        document.querySelectorAll("[data-view-noms]").forEach(function (el) {
-          el.hidden = view !== "noms";
+        // Format section: each element declares the single view it
+        // belongs to, so exactly one of the noms/wins/current variants
+        // for a given stat is ever visible.
+        document.querySelectorAll("[data-view-only]").forEach(function (el) {
+          el.hidden = el.getAttribute("data-view-only") !== view;
         });
-        document.querySelectorAll("[data-view-wins]").forEach(function (el) {
-          el.hidden = view !== "wins";
-        });
-        // New kind-filterable charts (Content & Era, Author diversity):
-        // exactly one of the 6 (view, kind) variants is visible.
+        // Kind-filterable charts (Content & Era, Author diversity):
+        // exactly one of the 9 (view, kind) variants is visible.
         document.querySelectorAll("[data-chart-view]").forEach(function (el) {
           el.hidden = !(el.getAttribute("data-chart-view") === view && el.getAttribute("data-chart-kind") === kind);
         });
         if (stateLabel) {
-          stateLabel.textContent = "Showing: " + (view === "noms" ? "all nominations" : "winners only") +
-            " · " + kindLabels[kind];
+          stateLabel.textContent = "Showing: " + viewLabels[view] + " · " + kindLabels[kind];
         }
       }
 

@@ -531,7 +531,7 @@ def _aggregate_books(all_books: list, authors: dict) -> dict:
     }
 
 
-def compute_stats() -> dict:
+def compute_stats(current_slug: str | None = None) -> dict:
     from collections import defaultdict
 
     month_files = sorted(MONTHS_DIR.glob("*.json"))
@@ -551,8 +551,15 @@ def compute_stats() -> dict:
     }
     all_books = []
     winning_books = []
+    current_books = []
+    current_month_label = ""
+    current_novel_noms = 0
+    current_short_noms = 0
 
     for month in months:
+        is_current = current_slug is not None and month["slug"] == current_slug
+        if is_current:
+            current_month_label = month["month_label"]
         for section, kind in (("novels", "novel"), ("short_works", "short")):
             for book in month.get(section, []):
                 bucket = by_type[kind]
@@ -567,6 +574,12 @@ def compute_stats() -> dict:
                 all_books.append((kind, book, month["month_label"]))
                 if is_winner:
                     winning_books.append((kind, book, month["month_label"]))
+                if is_current:
+                    current_books.append((kind, book, month["month_label"]))
+                    if kind == "novel":
+                        current_novel_noms += 1
+                    else:
+                        current_short_noms += 1
 
     total_nominations = by_type["novel"]["noms"] + by_type["short"]["noms"]
     total_winners = by_type["novel"]["winners"] + by_type["short"]["winners"]
@@ -586,7 +599,7 @@ def compute_stats() -> dict:
     # ("noms", "all") / ("wins", "all") double as the plain "noms"/"wins"
     # aggregates the Format section (which isn't kind-filterable) uses.
     variants = {}
-    for view_name, books in (("noms", all_books), ("wins", winning_books)):
+    for view_name, books in (("noms", all_books), ("wins", winning_books), ("current", current_books)):
         for kind_name in ("all", "novel", "short"):
             filtered = books if kind_name == "all" else [b for b in books if b[0] == kind_name]
             variants[(view_name, kind_name)] = _aggregate_books(filtered, authors)
@@ -600,14 +613,18 @@ def compute_stats() -> dict:
         "repeat_nominees": repeat_nominees,
         "novel_noms": by_type["novel"]["noms"],
         "short_noms": by_type["short"]["noms"],
+        "novel_noms_current": current_novel_noms,
+        "short_noms_current": current_short_noms,
+        "current_month_label": current_month_label,
         "noms": variants[("noms", "all")],
         "wins": variants[("wins", "all")],
+        "current": variants[("current", "all")],
         "variants": variants,
     }
 
 
-def render_stats_page() -> str:
-    stats = compute_stats()
+def render_stats_page(current_slug: str | None = None) -> str:
+    stats = compute_stats(current_slug)
     template = (TEMPLATES / "stats.html").read_text()
 
     def stat_card(label: str, value) -> str:
@@ -756,6 +773,7 @@ def render_stats_page() -> str:
 
     noms = sections_for(stats["noms"])
     wins = sections_for(stats["wins"])
+    current = sections_for(stats["current"])
 
     # The 8 charts in "Content & Era" and "Author diversity" also take a
     # novel/short-story/both filter. Rather than 6 hand-named template
@@ -770,7 +788,7 @@ def render_stats_page() -> str:
 
     combos = [
         (view_name, kind_name)
-        for view_name in ("wins", "noms")
+        for view_name in ("wins", "noms", "current")
         for kind_name in ("all", "novel", "short")
     ]
     sections_by_combo = {combo: sections_for(stats["variants"][combo]) for combo in combos}
@@ -830,6 +848,9 @@ def render_stats_page() -> str:
         "__TOP_STAT_CARDS__": top_cards,
         "__NOVEL_NOMS__": str(stats["novel_noms"]),
         "__SHORT_NOMS__": str(stats["short_noms"]),
+        "__NOVEL_NOMS_CURRENT__": str(stats["novel_noms_current"]),
+        "__SHORT_NOMS_CURRENT__": str(stats["short_noms_current"]),
+        "__CURRENT_MONTH_LABEL__": stats["current_month_label"] or "this month",
         "__SNUBBED_ROWS__": snubbed_rows,
         "__HAB_ROWS__": hab_rows,
         "__HAB_COUNT__": str(stats["hab_count"]),
@@ -841,6 +862,8 @@ def render_stats_page() -> str:
         replacements[f"__{key.upper()}_NOMS__"] = value
     for key, value in wins.items():
         replacements[f"__{key.upper()}_WINS__"] = value
+    for key, value in current.items():
+        replacements[f"__{key.upper()}_CURRENT__"] = value
     for key, value in charts.items():
         replacements[f"__{key.upper().replace('_ROWS', '')}_CHART__"] = value
 
@@ -1136,7 +1159,7 @@ def main():
     print(f"Wrote {archive_index_path}")
 
     stats_path = REPO_ROOT / "stats.html"
-    stats_path.write_text(render_stats_page())
+    stats_path.write_text(render_stats_page(month["slug"]))
     print(f"Wrote {stats_path}")
 
     polls_path = REPO_ROOT / "polls.html"
