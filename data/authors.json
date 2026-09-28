@@ -50,8 +50,12 @@
     "gender": "woman",
     "birth_year": 1860
   },
-  "Christopher Buehlman": {
+  "C.F. Page": {
     "gender": "man"
+  },
+  "Christopher Buehlman": {
+    "gender": "man",
+    "birth_year": 1969
   },
   "Clive Barker": {
     "gender": "man",
@@ -204,7 +208,8 @@
     "birth_year": 1978
   },
   "Nat Cassidy": {
-    "gender": "man"
+    "gender": "man",
+    "birth_year": 1981
   },
   "Neil Gaiman": {
     "gender": "man",
@@ -258,6 +263,9 @@
     "gender": "woman",
     "lgbtq": "yes"
   },
+  "Sammy Scott": {
+    "gender": "man"
+  },
   "Scott Smith": {
     "gender": "man",
     "birth_year": 1965
@@ -288,7 +296,8 @@
     "birth_year": 1947
   },
   "Steven L. Peck": {
-    "gender": "man"
+    "gender": "man",
+    "birth_year": 1957
   },
   "T. Kingfisher": {
     "gender": "woman",
