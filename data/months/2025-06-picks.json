@@ -19,7 +19,22 @@
       "warnings": "Graphic violence, serial killer content, body horror, psychological horror, disturbing imagery (particularly the \"24 Hours\" arc).",
       "is_winner": false,
       "book_theme": "Dark Fantasy",
-      "age_category": "Adult"
+      "age_category": "Adult",
+      "series": {
+        "name": "The Sandman",
+        "books": [
+          "The Sandman: Preludes and Nocturnes",
+          "The Sandman: The Doll's House",
+          "The Sandman: Dream Country",
+          "The Sandman: Season of Mists",
+          "The Sandman: A Game of You",
+          "The Sandman: Fables and Reflections",
+          "The Sandman: Brief Lives",
+          "The Sandman: World's End",
+          "The Sandman: The Kindly Ones",
+          "The Sandman: The Wake"
+        ]
+      }
     },
     {
       "type": "Novel",
@@ -53,7 +68,18 @@
       "warnings": "Rape and sexual assault (including a graphic backstory), misogyny, death of children, body horror, smallpox/disease imagery, medical trauma.",
       "is_winner": false,
       "book_theme": "Cursed Media",
-      "age_category": "Adult"
+      "age_category": "Adult",
+      "series": {
+        "name": "Ring",
+        "books": [
+          "Ring",
+          "Spiral",
+          "Loop",
+          "Birthday",
+          "S",
+          "Tide"
+        ]
+      }
     },
     {
       "type": "Novel",

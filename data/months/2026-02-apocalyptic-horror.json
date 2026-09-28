@@ -38,7 +38,14 @@
       "origin": "United States",
       "warnings": "Graphic violence, arson, murder, sexual assault, drug addiction, racism, death of family members.",
       "is_winner": false,
-      "age_category": "Adult"
+      "age_category": "Adult",
+      "series": {
+        "name": "Earthseed",
+        "books": [
+          "Parable of the Sower",
+          "Parable of the Talents"
+        ]
+      }
     },
     {
       "type": "Novel",
@@ -72,7 +79,15 @@
       "origin": "United Kingdom",
       "warnings": "Graphic violence, death, exile/isolation, body horror (mutation), themes of ecological collapse.",
       "is_winner": false,
-      "age_category": "Adult"
+      "age_category": "Adult",
+      "series": {
+        "name": "Rampart Trilogy",
+        "books": [
+          "The Book of Koli",
+          "The Trials of Koli",
+          "The Fall of Koli"
+        ]
+      }
     }
   ],
   "short_works": [

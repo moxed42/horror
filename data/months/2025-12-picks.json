@@ -19,7 +19,16 @@
       "warnings": "Body horror, suicide, gun violence, death, cancer, alcoholism, psychological horror.",
       "is_winner": true,
       "book_theme": "Cosmic Horror",
-      "age_category": "Adult"
+      "age_category": "Adult",
+      "series": {
+        "name": "Southern Reach",
+        "books": [
+          "Annihilation",
+          "Authority",
+          "Acceptance",
+          "Absolution"
+        ]
+      }
     },
     {
       "type": "Novel",

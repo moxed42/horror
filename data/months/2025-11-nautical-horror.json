@@ -19,7 +19,14 @@
       "warnings": "Extreme gore and body horror, multiple graphic deaths, gun violence, animal death, an abusive ex-partner subplot.",
       "is_winner": true,
       "theme_fit": 5,
-      "age_category": "Adult"
+      "age_category": "Adult",
+      "series": {
+        "name": "Rolling in the Deep",
+        "books": [
+          "Rolling in the Deep",
+          "Into the Drowning Deep"
+        ]
+      }
     },
     {
       "type": "Novel",

@@ -54,7 +54,14 @@
       "origin": "United States",
       "warnings": "Graphic violence, religious abuse and extremism, sexual assault, self-harm, body horror, misogyny.",
       "is_winner": false,
-      "age_category": "Adult"
+      "age_category": "Adult",
+      "series": {
+        "name": "Bethel",
+        "books": [
+          "The Year of the Witching",
+          "The Dawn of the Coven"
+        ]
+      }
     },
     {
       "type": "Novel",
@@ -71,7 +78,14 @@
       "origin": "United States",
       "warnings": "Graphic violence and gore, body horror, animal death, racism (period-typical), sexual content.",
       "is_winner": false,
-      "age_category": "Adult"
+      "age_category": "Adult",
+      "series": {
+        "name": "Red Rabbit",
+        "books": [
+          "Red Rabbit",
+          "Rose of Jericho"
+        ]
+      }
     }
   ],
   "short_works": [

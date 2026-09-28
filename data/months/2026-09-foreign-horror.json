@@ -22,7 +22,18 @@
       "origin": "Japan",
       "age_category": "Adult",
       "club_rating": 3.7,
-      "club_rating_count": 12
+      "club_rating_count": 12,
+      "series": {
+        "name": "Ring",
+        "books": [
+          "Ring",
+          "Spiral",
+          "Loop",
+          "Birthday",
+          "S",
+          "Tide"
+        ]
+      }
     },
     {
       "type": "Novel",

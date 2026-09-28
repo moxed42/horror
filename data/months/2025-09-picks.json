@@ -53,7 +53,14 @@
       "warnings": "Graphic violence against a child, blasphemy/religious desecration, disturbing sexual content, profanity, body horror.",
       "is_winner": true,
       "book_theme": "Possession",
-      "age_category": "Adult"
+      "age_category": "Adult",
+      "series": {
+        "name": "The Exorcist",
+        "books": [
+          "The Exorcist",
+          "Legion"
+        ]
+      }
     },
     {
       "type": "Novel",

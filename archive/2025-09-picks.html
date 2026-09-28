@@ -5,6 +5,7 @@
   <title>Final Girls Book Club Picks</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+  <link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
   <meta name="theme-color" content="#f54545">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Final Girls Book Club">
@@ -102,6 +103,26 @@
     }
     .theme-value { font-weight: 600; }
     .month-tag { margin-top: 6px; font-size: 0.85rem; color: var(--text-muted); }
+    .coming-soon-banner {
+      margin: 22px 0;
+      padding: 14px 18px;
+      border-radius: var(--radius-lg);
+      background: linear-gradient(120deg, rgba(74, 157, 255, 0.16), rgba(155, 107, 255, 0.14));
+      border: 1px solid rgba(74, 157, 255, 0.4);
+      display: flex;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 6px 10px;
+    }
+    .coming-soon-label {
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      font-size: 0.7rem;
+      color: var(--accent-soft);
+      font-weight: 700;
+    }
+    .coming-soon-theme { font-weight: 600; }
+    .coming-soon-note { color: var(--text-muted); font-size: 0.85rem; }
     .month-tag .mono {
       font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
       color: var(--accent-soft);
@@ -302,6 +323,52 @@
       background: rgba(5, 6, 16, 0.8);
       border: 1px solid rgba(255, 255, 255, 0.06);
     }
+    .series-pill { position: relative; display: inline-block; margin-top: 6px; }
+    .series-pill summary {
+      cursor: pointer;
+      list-style: none;
+      padding: 3px 9px;
+      border-radius: var(--radius-pill);
+      background: rgba(5, 6, 16, 0.8);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+    .series-pill summary::-webkit-details-marker { display: none; }
+    .series-pill summary::after { content: " \25be"; }
+    .series-pill[open] summary::after { content: " \25b4"; }
+    .series-popover {
+      position: absolute;
+      top: calc(100% + 6px);
+      left: 0;
+      z-index: 20;
+      min-width: 220px;
+      max-width: 280px;
+      background: var(--card-bg);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: 10px 12px;
+      box-shadow: var(--shadow);
+    }
+    .series-popover-title {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-muted);
+      margin-bottom: 6px;
+    }
+    .series-popover ol {
+      margin: 0;
+      padding-left: 18px;
+      font-size: 0.85rem;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .series-popover li.series-current {
+      color: var(--accent-soft);
+      font-weight: 600;
+    }
     .theme-score { text-align: right; font-size: 0.82rem; }
     .theme-score-label {
       text-transform: uppercase;
@@ -423,6 +490,7 @@
       </aside>
     </header>
 
+
     <nav class="month-nav">
       <a class="nav-prev" href="2025-08-picks.html">← August 2025</a>
       <a class="nav-index" href="index.html">All months</a>
@@ -522,6 +590,16 @@
                 <span class="meta-pill">Debut novel: No</span>
                 <span class="meta-pill">Avg rating: 4.2★</span>
               </div>
+              <details class="series-pill">
+                <summary>Part of a series</summary>
+                <div class="series-popover">
+                  <div class="series-popover-title">The Exorcist</div>
+                  <ol>
+                    <li class="series-current">The Exorcist</li>
+                    <li>Legion</li>
+                  </ol>
+                </div>
+              </details>
             </div>
             <div class="theme-score">
               <div class="theme-score-label">Theme</div>

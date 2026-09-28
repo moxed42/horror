@@ -61,16 +61,23 @@
       "author": "William Peter Blatty (1971)",
       "pages": "~380 pages",
       "debut_label": "Debut novel: No",
-      "avg_rating": "4.2★",
+      "avg_rating": "4.2\u2605",
       "cw_tier": "extreme",
       "cw_label": "Extreme",
-      "vibe": "The classic possession novel that defined the genre — a mother's search for answers as her daughter's body and mind are taken over by something ancient.",
+      "vibe": "The classic possession novel that defined the genre \u2014 a mother's search for answers as her daughter's body and mind are taken over by something ancient.",
       "summary": "When young Regan begins exhibiting terrifying, inexplicable behavior, her mother exhausts every medical explanation before turning to the Church for help. Two priests are drawn into a brutal, escalating exorcism that tests their faith as much as it endangers their lives, in the novel that inspired the landmark film.",
       "origin": "United States",
       "warnings": "Graphic violence against a child, blasphemy/religious desecration, disturbing sexual content, profanity, body horror.",
       "is_winner": false,
       "book_theme": "Possession",
-      "age_category": "Adult"
+      "age_category": "Adult",
+      "series": {
+        "name": "The Exorcist",
+        "books": [
+          "The Exorcist",
+          "Legion"
+        ]
+      }
     }
   ],
   "short_works": [

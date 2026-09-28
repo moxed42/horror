@@ -38,7 +38,15 @@
       "origin": "United States",
       "warnings": "Graphic rape scene, home invasion, animal dismemberment, extreme violence and gore, disembowelment.",
       "is_winner": false,
-      "age_category": "Adult"
+      "age_category": "Adult",
+      "series": {
+        "name": "The Howling",
+        "books": [
+          "The Howling",
+          "The Howling II",
+          "The Howling III"
+        ]
+      }
     },
     {
       "type": "Novel",

@@ -19,7 +19,14 @@
       "warnings": "Body horror, graphic and gruesome death, disability-related trauma, attempted sexual assault, violence against teenagers.",
       "is_winner": false,
       "book_theme": "Survival Horror",
-      "age_category": "YA"
+      "age_category": "YA",
+      "series": {
+        "name": "The Call",
+        "books": [
+          "The Call",
+          "The Invasion"
+        ]
+      }
     },
     {
       "type": "Novel",
