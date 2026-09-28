@@ -335,6 +335,22 @@ def render_archive_index() -> str:
     return template
 
 
+def _drill_books_attr(entries: list) -> str:
+    """HTML attribute embedding a chart segment's contributing books as
+    JSON, for the stats page's click-to-drill-down. Empty for an
+    unclickable (zero-count) segment."""
+    import html
+    if not entries:
+        return ""
+    payload = []
+    for e in entries:
+        row = {"title": e["title"], "author": e["author"], "month": e["month"]}
+        if e.get("inferred"):
+            row["inferred"] = True
+        payload.append(row)
+    return f' data-books="{html.escape(json.dumps(payload))}"'
+
+
 def _parse_pages(pages: str) -> int | None:
     import re
     if not pages:
@@ -347,8 +363,20 @@ def _parse_pages(pages: str) -> int | None:
 
 def _aggregate_books(all_books: list, authors: dict) -> dict:
     """Aggregate origin/CW/author/age/diversity/page stats over a list of
-    (kind, book) tuples. Called once for all nominations and once for
-    winners only, so the stats page toggle can filter every section."""
+    (kind, book, month_label) tuples. Called once for all nominations and
+    once for winners only, so the stats page toggle can filter every
+    section. Alongside each count, also collects the books that make up
+    that bucket (for the stats page's click-to-drill-down).
+
+    LGBTQIA+ and BIPOC are the two dimensions where authors.json records
+    only confidently-sourced "yes" values (see its _note) — no one issues
+    a statement confirming they're straight, and treating "no record" as
+    Unknown there produced a stats page that was ~90% Unknown. So here,
+    and only for these two, no record is bucketed as "no" rather than
+    "unknown". That's a real assumption, made knowingly at the display
+    layer — authors.json itself stays untouched, recording only what's
+    actually been confirmed.
+    """
     from collections import defaultdict
 
     origin_counts = defaultdict(int)
@@ -359,19 +387,51 @@ def _aggregate_books(all_books: list, authors: dict) -> dict:
     gender_counts = defaultdict(int)
     lgbtq_counts = defaultdict(int)
     bipoc_counts = defaultdict(int)
+    origin_books = defaultdict(list)
+    cw_books = defaultdict(list)
+    author_books = defaultdict(list)
+    age_books = defaultdict(list)
+    era_books = defaultdict(list)
+    gender_books = defaultdict(list)
+    lgbtq_books = defaultdict(list)
+    bipoc_books = defaultdict(list)
     pages_by_kind = {"novel": [], "short": []}
 
-    for kind, book in all_books:
-        origin_counts[book.get("origin", "N/A")] += 1
-        cw_counts[book.get("cw_tier", "unknown")] += 1
-        author_counts[_base_author_name(book["author"])] += 1
-        info = authors.get(_base_author_name(book["author"]), {})
+    for kind, book, month_label in all_books:
+        entry = {"title": book["title"], "author": book["author"], "month": month_label}
+        base_author = _base_author_name(book["author"])
+        info = authors.get(base_author, {})
         pub_year = _pub_year(book["author"])
-        age_counts[_author_age_bucket(info.get("birth_year"), pub_year)] += 1
-        era_counts[_era_bucket(pub_year)] += 1
-        gender_counts[info.get("gender", "unknown")] += 1
-        lgbtq_counts[info.get("lgbtq", "unknown")] += 1
-        bipoc_counts[info.get("bipoc", "unknown")] += 1
+
+        origin = book.get("origin", "N/A")
+        cw = book.get("cw_tier", "unknown")
+        age = _author_age_bucket(info.get("birth_year"), pub_year)
+        era = _era_bucket(pub_year)
+        gender = info.get("gender", "unknown")
+        lgbtq_confirmed = "lgbtq" in info
+        bipoc_confirmed = "bipoc" in info
+        lgbtq = info.get("lgbtq", "no")
+        bipoc = info.get("bipoc", "no")
+
+        origin_counts[origin] += 1
+        origin_books[origin].append(entry)
+        cw_counts[cw] += 1
+        cw_books[cw].append(entry)
+        author_counts[base_author] += 1
+        author_books[base_author].append(entry)
+        age_counts[age] += 1
+        age_books[age].append(entry)
+        era_counts[era] += 1
+        era_books[era].append(entry)
+        gender_counts[gender] += 1
+        gender_books[gender].append(entry)
+        lgbtq_counts[lgbtq] += 1
+        # inferred: no confirmed record either way, defaulted to "no"
+        # (marked with * on the stats page's drill-down)
+        lgbtq_books[lgbtq].append({**entry, "inferred": not lgbtq_confirmed})
+        bipoc_counts[bipoc] += 1
+        bipoc_books[bipoc].append({**entry, "inferred": not bipoc_confirmed})
+
         pages = _parse_pages(book.get("pages", ""))
         if pages:
             pages_by_kind[kind].append((book["title"], pages))
@@ -396,6 +456,14 @@ def _aggregate_books(all_books: list, authors: dict) -> dict:
         "gender_counts": dict(gender_counts),
         "lgbtq_counts": dict(lgbtq_counts),
         "bipoc_counts": dict(bipoc_counts),
+        "origin_books": dict(origin_books),
+        "cw_books": dict(cw_books),
+        "author_books": dict(author_books),
+        "age_books": dict(age_books),
+        "era_books": dict(era_books),
+        "gender_books": dict(gender_books),
+        "lgbtq_books": dict(lgbtq_books),
+        "bipoc_books": dict(bipoc_books),
         "novel_pages": page_stats(pages_by_kind["novel"]),
         "short_pages": page_stats(pages_by_kind["short"]),
     }
@@ -434,9 +502,9 @@ def compute_stats() -> dict:
                     bucket["winners"] += 1
                 if book.get("is_hab"):
                     hab_titles.add(book["title"])
-                all_books.append((kind, book))
+                all_books.append((kind, book, month["month_label"]))
                 if is_winner:
-                    winning_books.append((kind, book))
+                    winning_books.append((kind, book, month["month_label"]))
 
     total_nominations = by_type["novel"]["noms"] + by_type["short"]["noms"]
     total_winners = by_type["novel"]["winners"] + by_type["short"]["winners"]
@@ -477,7 +545,7 @@ def render_stats_page() -> str:
             f'      </div>\n'
         )
 
-    def bar_list(pairs, max_items=8):
+    def bar_list(pairs, books_map=None, max_items=8):
         pairs = pairs[:max_items]
         if not pairs:
             return '        <li class="empty">No data yet.</li>'
@@ -485,8 +553,11 @@ def render_stats_page() -> str:
         rows = []
         for label, count in pairs:
             pct = round(count / top * 100)
+            entries = (books_map or {}).get(label, [])
+            books_attr = _drill_books_attr(entries)
+            clickable = " clickable" if entries else ""
             rows.append(
-                f'        <li class="bar-row">\n'
+                f'        <li class="bar-row{clickable}"{books_attr} data-drill-label="{label}">\n'
                 f'          <span class="bar-label">{label}</span>\n'
                 f'          <span class="bar-track"><span class="bar-fill" style="width:{pct}%"></span></span>\n'
                 f'          <span class="bar-count">{count}</span>\n'
@@ -494,35 +565,56 @@ def render_stats_page() -> str:
             )
         return "\n".join(rows)
 
-    def origin_bar_list(pairs, top_n=5):
+    def origin_bar_list(pairs, books_by_origin=None, top_n=5):
         if not pairs:
             return bar_list(pairs)
-        total = sum(c for _, c in pairs)
+        books_by_origin = books_by_origin or {}
         head = pairs[:top_n]
         tail = pairs[top_n:]
+        books_map = {label: books_by_origin.get(label, []) for label, _ in head}
         if tail:
             tail_count = sum(c for _, c in tail)
-            head = head + [(f"Other ({len(tail)} countries)", tail_count)]
-        return bar_list(head, max_items=len(head))
+            tail_label = f"Other ({len(tail)} countries)"
+            tail_books = []
+            for label, _ in tail:
+                tail_books.extend(books_by_origin.get(label, []))
+            head = head + [(tail_label, tail_count)]
+            books_map[tail_label] = tail_books
+        return bar_list(head, books_map=books_map, max_items=len(head))
 
     def diversity_rows(counts: dict, order: list, labels: dict) -> str:
         pairs = [(labels[k], counts.get(k, 0)) for k in order]
         return bar_list(pairs, max_items=len(order))
 
-    palette = ["#f54545", "#4a9dff", "#9b6bff", "#5a6178"]
+    # 7 distinct hues — covers the largest stacked bar (age has 6 non-Unknown
+    # buckets) without repeating a color within one legend.
+    palette = ["#f54545", "#4a9dff", "#9b6bff", "#f9d976", "#45c4a0", "#ff8a5c", "#5ad1ff"]
 
-    def stacked_bar(counts: dict, order: list, labels: dict) -> str:
-        pairs = [(labels[k], counts.get(k, 0)) for k in order]
-        total = sum(c for _, c in pairs) or 1
+    def stacked_bar(counts: dict, order: list, labels: dict, books_map: dict | None = None) -> str:
+        books_map = books_map or {}
+        pairs = [(k, labels[k], counts.get(k, 0)) for k in order]
+        total = sum(c for _, _, c in pairs) or 1
         segments = []
         legend = []
-        for i, (label, count) in enumerate(pairs):
-            color = "#3a3f52" if label == "Unknown" else palette[i % len(palette)]
+        color_i = 0
+        for key, label, count in pairs:
+            if label == "Unknown":
+                color = "#3a3f52"
+            else:
+                color = palette[color_i % len(palette)]
+                color_i += 1
             pct = round(count / total * 100)
+            entries = books_map.get(key, [])
+            books_attr = _drill_books_attr(entries)
+            clickable = " clickable" if entries else ""
             if count > 0:
-                segments.append(f'<span class="stack-seg" style="width:{pct}%;background:{color}"></span>')
+                segments.append(
+                    f'<span class="stack-seg{clickable}" style="width:{pct}%;background:{color}"'
+                    f'{books_attr} data-drill-label="{label}"></span>'
+                )
             legend.append(
-                f'        <li><span class="stack-dot" style="background:{color}"></span>'
+                f'        <li class="legend-item{clickable}"{books_attr} data-drill-label="{label}">'
+                f'<span class="stack-dot" style="background:{color}"></span>'
                 f'{label} <span class="stack-count">{count} ({pct}%)</span></li>'
             )
         segments_html = "".join(segments) if segments else '<span class="stack-seg" style="width:100%;background:#3a3f52"></span>'
@@ -552,10 +644,13 @@ def render_stats_page() -> str:
     }
     gender_order = ["woman", "man", "nonbinary", "unknown"]
     gender_labels = {"woman": "Female", "man": "Male", "nonbinary": "Nonbinary", "unknown": "Unknown"}
-    lgbtq_order = ["yes", "no", "unknown"]
-    lgbtq_labels = {"yes": "LGBTQIA+", "no": "Straight", "unknown": "Unknown"}
-    bipoc_order = ["yes", "no", "unknown"]
-    bipoc_labels = {"yes": "BIPOC", "no": "Not BIPOC", "unknown": "Unknown"}
+    # No "unknown" bucket here: authors.json only ever records a
+    # confirmed "yes"; absence of a record is treated as "no" (see
+    # _aggregate_books), so every book lands in one or the other.
+    lgbtq_order = ["yes", "no"]
+    lgbtq_labels = {"yes": "LGBTQIA+", "no": "Straight"}
+    bipoc_order = ["yes", "no"]
+    bipoc_labels = {"yes": "BIPOC", "no": "Not BIPOC"}
     era_order = ["pre1900", "1900s", "1950s", "2000s", "2020s", "unknown"]
     era_labels = {
         "pre1900": "Pre-1900", "1900s": "1900–1949", "1950s": "1950–1999",
@@ -566,14 +661,14 @@ def render_stats_page() -> str:
 
     def sections_for(agg: dict) -> dict:
         return {
-            "origin_rows": origin_bar_list(agg["top_origins"]),
-            "cw_rows": stacked_bar(agg["cw_counts"], cw_order, cw_labels),
-            "author_rows": bar_list(agg["top_authors"]),
-            "age_rows": stacked_bar(agg["age_counts"], age_order, age_labels),
-            "era_rows": stacked_bar(agg["era_counts"], era_order, era_labels),
-            "gender_rows": stacked_bar(agg["gender_counts"], gender_order, gender_labels),
-            "lgbtq_rows": stacked_bar(agg["lgbtq_counts"], lgbtq_order, lgbtq_labels),
-            "bipoc_rows": stacked_bar(agg["bipoc_counts"], bipoc_order, bipoc_labels),
+            "origin_rows": origin_bar_list(agg["top_origins"], agg["origin_books"]),
+            "cw_rows": stacked_bar(agg["cw_counts"], cw_order, cw_labels, agg["cw_books"]),
+            "author_rows": bar_list(agg["top_authors"], agg["author_books"]),
+            "age_rows": stacked_bar(agg["age_counts"], age_order, age_labels, agg["age_books"]),
+            "era_rows": stacked_bar(agg["era_counts"], era_order, era_labels, agg["era_books"]),
+            "gender_rows": stacked_bar(agg["gender_counts"], gender_order, gender_labels, agg["gender_books"]),
+            "lgbtq_rows": stacked_bar(agg["lgbtq_counts"], lgbtq_order, lgbtq_labels, agg["lgbtq_books"]),
+            "bipoc_rows": stacked_bar(agg["bipoc_counts"], bipoc_order, bipoc_labels, agg["bipoc_books"]),
             "avg_novel_pages": f'{agg["novel_pages"]["avg"]} pages' if agg["novel_pages"]["avg"] else "N/A",
             "avg_short_pages": f'{agg["short_pages"]["avg"]} pages' if agg["short_pages"]["avg"] else "N/A",
             "novel_record_table": record_table(agg["novel_pages"]),

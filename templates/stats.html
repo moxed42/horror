@@ -250,6 +250,14 @@
       border-radius: var(--radius-pill);
     }
     .bar-count { color: var(--accent-soft); text-align: right; font-variant-numeric: tabular-nums; }
+    .bar-row.clickable, .legend-item.clickable, .stack-seg.clickable {
+      cursor: pointer;
+    }
+    .bar-row.clickable:hover .bar-label,
+    .legend-item.clickable:hover {
+      color: var(--accent-soft);
+    }
+    .stack-seg.clickable:hover { filter: brightness(1.25); }
     .stack-bar {
       display: flex;
       height: 22px;
@@ -269,6 +277,7 @@
     }
     .stack-legend li { display: flex; align-items: center; gap: 6px; color: var(--text-main); }
     .stack-legend li.empty { color: var(--text-muted); font-style: italic; }
+    .asterisk-note { color: var(--accent-soft); }
     .stack-dot { width: 10px; height: 10px; border-radius: 50%; display: inline-block; flex-shrink: 0; }
     .stack-count { color: var(--accent-soft); font-variant-numeric: tabular-nums; }
     ul.rank-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
@@ -358,6 +367,65 @@
       margin-top: 30px;
       font-size: 0.78rem;
       color: var(--text-muted);
+    }
+    .drill-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(2, 3, 8, 0.78);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      z-index: 50;
+    }
+    .drill-panel {
+      position: relative;
+      width: 100%;
+      max-width: 480px;
+      max-height: 80vh;
+      overflow-y: auto;
+      background: var(--card-bg);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: 22px 20px 18px;
+      box-shadow: var(--shadow);
+    }
+    .drill-close {
+      position: absolute;
+      top: 12px;
+      right: 14px;
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      font-size: 1.3rem;
+      line-height: 1;
+      cursor: pointer;
+      padding: 4px;
+    }
+    .drill-close:hover { color: var(--accent-soft); }
+    .drill-title {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text-main);
+      margin: 0 26px 14px 0;
+    }
+    ul.drill-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .drill-list li {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      padding: 8px 10px;
+      background: rgba(4, 4, 16, 0.6);
+      border-radius: 10px;
+      border: 1px solid var(--border-subtle);
+    }
+    .drill-book-title { color: var(--text-main); font-size: 0.85rem; }
+    .drill-book-meta { color: var(--text-muted); font-size: 0.76rem; }
+    .drill-footnote {
+      margin-top: 14px;
+      font-size: 0.74rem;
+      color: var(--text-muted);
+      font-style: italic;
     }
   </style>
 </head>
@@ -469,7 +537,7 @@ __ERA_ROWS_WINS__
 
     <div class="section" id="diversity" data-toggle-scope>
       <div class="section-title">Author diversity</div>
-      <p class="diversity-note">Based only on publicly self-identified info (author bios/interviews, birth years) — "Unknown" means we haven't found public info either way, not that it doesn't exist.</p>
+      <p class="diversity-note">Based only on publicly self-identified info (author bios/interviews, birth years). For Gender and Author age, "Unknown" means we haven't found public info either way, not that it doesn't exist. For LGBTQIA+ and BIPOC, no confirmed public record counts as No/Not BIPOC — those entries are marked <span class="asterisk-note">*</span> in the drill-down list below, since that's an assumption, not a confirmed fact.</p>
       <div class="panel panel-grid panel-grid-5">
         <div>
           <div class="subsection-title">Repeat authors (2+ picks)</div>
@@ -540,6 +608,16 @@ __HAB_ROWS__
     </div>
 
   </main>
+
+  <div class="drill-overlay" id="drillOverlay" hidden>
+    <div class="drill-panel">
+      <button type="button" class="drill-close" id="drillClose" aria-label="Close">×</button>
+      <div class="drill-title" id="drillTitle"></div>
+      <ul class="drill-list" id="drillList"></ul>
+      <p class="drill-footnote" id="drillFootnote" hidden><span class="asterisk-note">*</span> No confirmed public record — assumed, not verified.</p>
+    </div>
+  </div>
+
   <script>
     (function () {
       var toggleButtons = document.querySelectorAll(".toggle-btn");
@@ -558,6 +636,52 @@ __HAB_ROWS__
             stateLabel.textContent = "Showing: " + (view === "noms" ? "all nominations" : "winners only");
           }
         });
+      });
+    })();
+
+    (function () {
+      var overlay = document.getElementById("drillOverlay");
+      var titleEl = document.getElementById("drillTitle");
+      var listEl = document.getElementById("drillList");
+      var footnoteEl = document.getElementById("drillFootnote");
+      var closeBtn = document.getElementById("drillClose");
+      if (!overlay) return;
+
+      function openDrill(el) {
+        var raw = el.getAttribute("data-books");
+        if (!raw) return;
+        var books;
+        try { books = JSON.parse(raw); } catch (e) { return; }
+        if (!books || !books.length) return;
+        var label = el.getAttribute("data-drill-label") || "";
+        titleEl.textContent = label + " — " + books.length + (books.length === 1 ? " book" : " books");
+        listEl.innerHTML = "";
+        var anyInferred = false;
+        books.forEach(function (b) {
+          var li = document.createElement("li");
+          var t = document.createElement("span");
+          t.className = "drill-book-title";
+          t.textContent = b.title + (b.inferred ? " *" : "");
+          if (b.inferred) anyInferred = true;
+          var m = document.createElement("span");
+          m.className = "drill-book-meta";
+          m.textContent = b.author + " · " + b.month;
+          li.appendChild(t);
+          li.appendChild(m);
+          listEl.appendChild(li);
+        });
+        footnoteEl.hidden = !anyInferred;
+        overlay.hidden = false;
+      }
+
+      document.addEventListener("click", function (e) {
+        var el = e.target.closest("[data-books]");
+        if (el) { openDrill(el); return; }
+        if (e.target === overlay) { overlay.hidden = true; }
+      });
+      closeBtn.addEventListener("click", function () { overlay.hidden = true; });
+      document.addEventListener("keydown", function (e) {
+        if (e.key === "Escape") overlay.hidden = true;
       });
     })();
   </script>

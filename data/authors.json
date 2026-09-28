@@ -1,5 +1,5 @@
 {
-  "_note": "Only publicly self-identified info is recorded here (author bios, interviews, own statements). Anything not confidently sourced is left \"unknown\" rather than guessed — do not infer from names, nationality, or vibes.",
+  "_note": "Only publicly self-identified info is recorded here (author bios, interviews, own statements). Anything not confidently sourced is left \"unknown\" rather than guessed — do not infer from names, nationality, or vibes. Exception: for lgbtq/bipoc specifically, only add a confirmed \"yes\" here — don't add \"no\"/\"straight\" entries. The stats page's build script (scripts/build.py) already treats no entry as \"no\" for just those two fields (nobody issues a statement confirming they're straight, so requiring one is an impossible bar); gender and birth_year keep the normal unknown-until-confirmed rule.",
   "Adam Nevill": {
     "gender": "man",
     "birth_year": 1969
