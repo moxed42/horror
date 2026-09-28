@@ -302,7 +302,7 @@ def render_page(
                 '    <div class="coming-soon-banner">\n'
                 '      <span class="coming-soon-label">Coming up</span>\n'
                 f'      {theme_span}\n'
-                f'      <span class="coming-soon-note">— {next_month["month_label"]}, nominations in progress.</span>\n'
+                f'      <span class="coming-soon-note">— {next_month["month_label"]}, submissions open.</span>\n'
                 '    </div>\n'
             )
 
@@ -319,6 +319,7 @@ def render_page(
         "__BASE_URL__": BASE_URL,
         "__PAGE_URL__": page_url,
         "__FAVICON_HREF__": favicon_href,
+        "__APPLE_ICON_HREF__": f"{assets_prefix}apple-touch-icon.png",
         "__MONTH_NAV_BLOCK__": nav_block,
         "__NAV_HOME__": nav_ctx["home"],
         "__NAV_ARCHIVE__": nav_ctx["archive"],
