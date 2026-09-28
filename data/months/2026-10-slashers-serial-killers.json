@@ -3,7 +3,7 @@
   "theme": "Slashers & Serial Killers",
   "month_label": "October 2026",
   "subtitle": "Monthly horror picks for the mortally curious.",
-  "vote_instructions": "Vote for as many novels as you're interested in.",
+  "vote_instructions": "Vote for as many novels and short works as you're interested in.",
   "novels": [
     {
       "type": "Novel",
@@ -90,5 +90,80 @@
       }
     }
   ],
-  "novels_subtitle": "Pick your favorite way to not survive the night."
+  "novels_subtitle": "Pick your favorite way to not survive the night.",
+  "short_works": [
+    {
+      "type": "Short story",
+      "title": "The October Game",
+      "author": "Ray Bradbury (1948)",
+      "pages": "~10 pages",
+      "debut_label": "Debut book: No",
+      "avg_rating": "N/A",
+      "theme_fit": 3,
+      "cw_tier": "extreme",
+      "cw_label": "Extreme",
+      "vibe": "A quietly vicious domestic horror story where the real monster is a bitter husband, not anything supernatural.",
+      "summary": "On Halloween night, a resentful husband decides the only way to truly punish his wife for years of misery is through their young daughter, using a blindfolded party game in a pitch-black cellar as his method. Bradbury never shows what happens, letting the final image and a single line of dialogue do all the damage.",
+      "warnings": "Implied child murder/dismemberment, domestic resentment and cruelty, ambiguous but deeply disturbing ending.",
+      "is_winner": false,
+      "origin": "United States",
+      "age_category": "Adult"
+    },
+    {
+      "type": "Short story",
+      "title": "The Midnight Meat Train",
+      "author": "Clive Barker (1984)",
+      "pages": "~40 pages",
+      "debut_label": "Debut book: No",
+      "avg_rating": "4.1★",
+      "theme_fit": 5,
+      "cw_tier": "extreme",
+      "cw_label": "Extreme",
+      "vibe": "Grimy, gore-soaked New York subway horror that turns a straightforward serial-killer hunt into full-blown urban mythology.",
+      "summary": "Leon, a New Yorker disillusioned with the city he moved to, becomes obsessed with a string of brutal, ritualistic murders happening on the subway after dark. His investigation leads him underground into the true, monstrous machinery behind the killings — something far older and stranger than a lone human predator. Classic Barker: visceral, unflinching, and more interested in what feeds on the city than in easy answers.",
+      "warnings": "Extreme graphic violence and gore, mass murder, body horror, ritualistic killing.",
+      "is_winner": false,
+      "origin": "United Kingdom",
+      "age_category": "Adult"
+    },
+    {
+      "type": "Short story",
+      "title": "Hostel",
+      "author": "Fiona McFarlane (2024)",
+      "pages": "~15 pages",
+      "debut_label": "Debut book: No",
+      "avg_rating": "N/A",
+      "theme_fit": 4,
+      "cw_tier": "moderate",
+      "cw_label": "Heavy",
+      "vibe": "A quiet, unsettling New Yorker story where a stranger's murder becomes an uncomfortable mirror for the narrator's own life.",
+      "summary": "A woman recalls the night she and her husband found a Swiss backpacker crying outside a hostel — a young woman who was murdered not long after. Retelling the story becomes a habit for the couple, and the narrator increasingly imagines herself into the dead woman's place, using the tragedy to examine her own marriage and desires. Less a whodunit than a slow, voyeuristic unease about proximity to violence.",
+      "warnings": "Murder of a young woman (backstory/off-page), voyeurism, marital dissatisfaction, mild sexual content.",
+      "is_winner": false,
+      "origin": "Australia",
+      "age_category": "Adult"
+    },
+    {
+      "type": "Short story",
+      "title": "The Risk",
+      "author": "S.T. Abby (2016)",
+      "pages": "~130 pages",
+      "debut_label": "Debut book: No",
+      "avg_rating": "4.2★",
+      "theme_fit": 5,
+      "cw_tier": "extreme",
+      "cw_label": "Extreme",
+      "vibe": "A romance-thriller mashup where the heroine is the serial killer the FBI agent dating her is hunting.",
+      "summary": "Lana survived a horrific sex-trafficking ordeal and now hunts down and kills the men responsible, one by one, while falling for Logan, the FBI agent assigned to catch her. Told across dual POVs, it's a fast, pulpy vigilante-killer thriller that leans hard into moral murkiness and the tension between hunter and hunted.",
+      "warnings": "Graphic sexual assault and rape (including backstory), torture, murder, human trafficking, homophobia, mental trauma.",
+      "is_winner": false,
+      "origin": "United States",
+      "age_category": "Adult",
+      "series": {
+        "name": "Mindf*ck",
+        "books": ["The Risk", "Sidetracked", "Scarlet Angel", "All The Lies", "Paint It All Red"]
+      }
+    }
+  ],
+  "short_works_subtitle": "Pick your favorite shorter bloodbath."
 }
