@@ -615,6 +615,7 @@ __HAB_ROWS__
       <div class="drill-title" id="drillTitle"></div>
       <ul class="drill-list" id="drillList"></ul>
       <p class="drill-footnote" id="drillFootnote" hidden><span class="asterisk-note">*</span> No confirmed public record — assumed, not verified.</p>
+      <p class="drill-footnote" id="drillTransFootnote" hidden>🏳️‍⚧️ Openly transgender (self-identified).</p>
     </div>
   </div>
 
@@ -644,6 +645,7 @@ __HAB_ROWS__
       var titleEl = document.getElementById("drillTitle");
       var listEl = document.getElementById("drillList");
       var footnoteEl = document.getElementById("drillFootnote");
+      var transFootnoteEl = document.getElementById("drillTransFootnote");
       var closeBtn = document.getElementById("drillClose");
       if (!overlay) return;
 
@@ -657,6 +659,7 @@ __HAB_ROWS__
         titleEl.textContent = label + " — " + books.length + (books.length === 1 ? " book" : " books");
         listEl.innerHTML = "";
         var anyInferred = false;
+        var anyTrans = false;
         books.forEach(function (b) {
           var li = document.createElement("li");
           var t = document.createElement("span");
@@ -665,12 +668,14 @@ __HAB_ROWS__
           if (b.inferred) anyInferred = true;
           var m = document.createElement("span");
           m.className = "drill-book-meta";
-          m.textContent = b.author + " · " + b.month;
+          m.textContent = b.author + (b.trans ? " 🏳️‍⚧️" : "") + " · " + b.month;
+          if (b.trans) anyTrans = true;
           li.appendChild(t);
           li.appendChild(m);
           listEl.appendChild(li);
         });
         footnoteEl.hidden = !anyInferred;
+        transFootnoteEl.hidden = !anyTrans;
         overlay.hidden = false;
       }
 

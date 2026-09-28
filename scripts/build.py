@@ -40,6 +40,13 @@ def _base_author_name(author: str) -> str:
     return re.sub(r"\s*\([^)]*\)\s*$", "", author).strip()
 
 
+def _split_coauthors(base_author: str) -> list[str]:
+    # "William Gibson and John Shirley" -> ["William Gibson", "John Shirley"]
+    import re
+    parts = re.split(r"\s+(?:and|&)\s+", base_author, flags=re.IGNORECASE)
+    return [p.strip() for p in parts if p.strip()]
+
+
 def _pub_year(author: str) -> int | None:
     # "Mariana Enríquez (2019, tr. 2022)" -> 2019 (original publication year)
     import re
@@ -347,6 +354,8 @@ def _drill_books_attr(entries: list) -> str:
         row = {"title": e["title"], "author": e["author"], "month": e["month"]}
         if e.get("inferred"):
             row["inferred"] = True
+        if e.get("trans"):
+            row["trans"] = True
         payload.append(row)
     return f' data-books="{html.escape(json.dumps(payload))}"'
 
@@ -398,39 +407,56 @@ def _aggregate_books(all_books: list, authors: dict) -> dict:
     pages_by_kind = {"novel": [], "short": []}
 
     for kind, book, month_label in all_books:
-        entry = {"title": book["title"], "author": book["author"], "month": month_label}
-        base_author = _base_author_name(book["author"])
-        info = authors.get(base_author, {})
+        entry_base = {"title": book["title"], "author": book["author"], "month": month_label}
         pub_year = _pub_year(book["author"])
+        coauthors = [
+            (name, authors.get(name, {}))
+            for name in _split_coauthors(_base_author_name(book["author"]))
+        ]
 
+        # Book-level dimensions: counted once per book, regardless of how
+        # many authors it has. Flagged trans if any credited co-author is
+        # (authors.json only ever records "trans": true for someone
+        # openly, confirmedly out — never inferred, unlike lgbtq/bipoc).
+        book_entry = (
+            {**entry_base, "trans": True}
+            if any(info.get("trans") for _, info in coauthors)
+            else entry_base
+        )
         origin = book.get("origin", "N/A")
         cw = book.get("cw_tier", "unknown")
-        age = _author_age_bucket(info.get("birth_year"), pub_year)
         era = _era_bucket(pub_year)
-        gender = info.get("gender", "unknown")
-        lgbtq_confirmed = "lgbtq" in info
-        bipoc_confirmed = "bipoc" in info
-        lgbtq = info.get("lgbtq", "no")
-        bipoc = info.get("bipoc", "no")
-
         origin_counts[origin] += 1
-        origin_books[origin].append(entry)
+        origin_books[origin].append(book_entry)
         cw_counts[cw] += 1
-        cw_books[cw].append(entry)
-        author_counts[base_author] += 1
-        author_books[base_author].append(entry)
-        age_counts[age] += 1
-        age_books[age].append(entry)
+        cw_books[cw].append(book_entry)
         era_counts[era] += 1
-        era_books[era].append(entry)
-        gender_counts[gender] += 1
-        gender_books[gender].append(entry)
-        lgbtq_counts[lgbtq] += 1
-        # inferred: no confirmed record either way, defaulted to "no"
-        # (marked with * on the stats page's drill-down)
-        lgbtq_books[lgbtq].append({**entry, "inferred": not lgbtq_confirmed})
-        bipoc_counts[bipoc] += 1
-        bipoc_books[bipoc].append({**entry, "inferred": not bipoc_confirmed})
+        era_books[era].append(book_entry)
+
+        # Author-level dimensions: a co-authored book (e.g. "William
+        # Gibson and John Shirley") counts once per author, so it can
+        # land in two different age/gender/etc. buckets at once.
+        for author_name, info in coauthors:
+            age = _author_age_bucket(info.get("birth_year"), pub_year)
+            gender = info.get("gender", "unknown")
+            lgbtq_confirmed = "lgbtq" in info
+            bipoc_confirmed = "bipoc" in info
+            lgbtq = info.get("lgbtq", "no")
+            bipoc = info.get("bipoc", "no")
+            author_entry = {**entry_base, "trans": True} if info.get("trans") else entry_base
+
+            author_counts[author_name] += 1
+            author_books[author_name].append(author_entry)
+            age_counts[age] += 1
+            age_books[age].append(author_entry)
+            gender_counts[gender] += 1
+            gender_books[gender].append(author_entry)
+            lgbtq_counts[lgbtq] += 1
+            # inferred: no confirmed record either way, defaulted to "no"
+            # (marked with * on the stats page's drill-down)
+            lgbtq_books[lgbtq].append({**author_entry, "inferred": not lgbtq_confirmed})
+            bipoc_counts[bipoc] += 1
+            bipoc_books[bipoc].append({**author_entry, "inferred": not bipoc_confirmed})
 
         pages = _parse_pages(book.get("pages", ""))
         if pages:
@@ -565,12 +591,18 @@ def render_stats_page() -> str:
             )
         return "\n".join(rows)
 
-    def origin_bar_list(pairs, books_by_origin=None, top_n=5):
+    def origin_bar_list(pairs, books_by_origin=None, top_n=5, collapse_min=3):
         if not pairs:
             return bar_list(pairs)
         books_by_origin = books_by_origin or {}
         head = pairs[:top_n]
         tail = pairs[top_n:]
+        # A tail of only 1-2 countries is fine to list individually — the
+        # "Other (N countries)" grouping only earns its keep once it's
+        # actually hiding more than a couple of one-off origins.
+        if tail and len(tail) < collapse_min:
+            head = head + tail
+            tail = []
         books_map = {label: books_by_origin.get(label, []) for label, _ in head}
         if tail:
             tail_count = sum(c for _, c in tail)

@@ -7,6 +7,11 @@
   "Alex Grecian": {
     "gender": "man"
   },
+  "Andrew Joseph White": {
+    "gender": "man",
+    "lgbtq": "yes",
+    "trans": true
+  },
   "Alexander Pushkin": {
     "gender": "man",
     "birth_year": 1799
@@ -88,7 +93,8 @@
   },
   "Edogawa Ranpo": {
     "gender": "man",
-    "birth_year": 1894
+    "birth_year": 1894,
+    "bipoc": "yes"
   },
   "Eric LaRocca": {
     "gender": "man",
@@ -108,7 +114,8 @@
   },
   "Han Kang": {
     "gender": "woman",
-    "birth_year": 1970
+    "birth_year": 1970,
+    "bipoc": "yes"
   },
   "Harlan Ellison": {
     "gender": "man",
@@ -173,7 +180,8 @@
   },
   "Kōji Suzuki": {
     "gender": "man",
-    "birth_year": 1957
+    "birth_year": 1957,
+    "bipoc": "yes"
   },
   "Lee Mandelo": {
     "gender": "man",
