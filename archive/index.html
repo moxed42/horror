@@ -98,10 +98,19 @@
     .month-list li:hover { border-color: rgba(245, 69, 69, 0.5); }
     .month-list a { color: var(--text-main); text-decoration: none; font-weight: 600; }
     .month-list a:hover { color: var(--accent-soft); }
+    .month-list .no-link { color: var(--text-muted); font-weight: 600; }
     .month-list .winner {
       color: var(--text-muted);
       font-size: 0.85rem;
       margin-top: 3px;
+    }
+    .rating-badge {
+      color: var(--accent-soft);
+      font-variant-numeric: tabular-nums;
+      white-space: nowrap;
+    }
+    .rating-count {
+      color: var(--text-muted);
     }
   </style>
 </head>
@@ -119,7 +128,9 @@
     <h1><span>Final Girls</span> <span>Book Club</span> — Archive</h1>
     <h2 class="year-heading">2026</h2>
     <ul class="month-list">
-      <li><a href="2026-09-foreign-horror.html">September 2026 — Foreign Horror</a><div class="winner">Ring · The Human Chair</div></li>
+      <li><span class="no-link">November 2026 — Sci-Fi Horror</span><div class="winner">Picks coming soon</div></li>
+      <li><span class="no-link">October 2026 — Slashers & Serial Killers</span><div class="winner">Picks coming soon</div></li>
+      <li><a href="2026-09-foreign-horror.html">September 2026 — Foreign Horror</a><div class="winner">Ring <span class="rating-badge">★3.7 <span class="rating-count">(12)</span></span> · The Human Chair</div></li>
       <li><a href="2026-08-body-horror.html">August 2026 — Body Horror</a><div class="winner">You Weren’t Meant to Be Human · Jacqueline Ess: Her Will and Testament</div></li>
       <li><a href="2026-07-witchcraft.html">July 2026 — Witches & Witchcraft</a><div class="winner">Slewfoot: A Tale of Bewitchery · This Town Doesn't Exist on Any Map</div></li>
       <li><a href="2026-06-werewolf.html">June 2026 — Werewolf/Shapeshifter</a><div class="winner">When the Wolf Comes Home · The Belonging Kind</div></li>

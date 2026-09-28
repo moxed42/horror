@@ -21,7 +21,8 @@
       "is_winner": true,
       "origin": "Japan",
       "age_category": "Adult",
-      "club_rating": "TBD"
+      "club_rating": 3.7,
+      "club_rating_count": 12
     },
     {
       "type": "Novel",

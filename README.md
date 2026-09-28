@@ -80,8 +80,10 @@ as previous months.
 
 `avg_rating` on a book entry is a pre-read reference number (e.g. from
 Goodreads) shown on the book card before anyone's voted or read it — leave
-that as-is. Once the club has actually read and discussed a winner at the
-meet, add a separate `club_rating` field to that book entry (e.g.
-`"club_rating": "4.2★"`; use `"TBD"` as a placeholder if you haven't tallied
-it yet) and re-run `python3 scripts/build.py data/months/YYYY-MM-slug.json`.
-It shows up in the "Club Ratings" list on `stats.html`, most recent first.
+that as-is. Once the club has actually read, discussed, and rated a winner
+at the meet, add two fields to that book entry: `club_rating` (the average,
+to one decimal, e.g. `3.7`) and `club_rating_count` (how many people rated
+it, e.g. `12`), then re-run
+`python3 scripts/build.py data/months/YYYY-MM-slug.json`. Both fields need
+to be set for it to show — it appears as a `★3.7 (12)` badge next to that
+book's title on the Archive page (`archive/index.html`).

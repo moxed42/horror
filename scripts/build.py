@@ -167,21 +167,38 @@ def render_book_card(book: dict, month_label: str, assets_prefix: str = "assets/
     return template
 
 
-def find_winner_title(books: list) -> str | None:
+def find_winner(books: list) -> dict | None:
     for book in books:
         if book.get("is_winner"):
-            return book["title"]
+            return book
     return None
 
 
+def _winner_label_html(book: dict) -> str:
+    """Winner title, plus a club-rating badge once the club has actually
+    rated it (club_rating + club_rating_count both set)."""
+    rating = book.get("club_rating")
+    count = book.get("club_rating_count")
+    if rating is not None and count:
+        return (
+            f'{book["title"]} '
+            f'<span class="rating-badge">★{rating:.1f} <span class="rating-count">({count})</span></span>'
+        )
+    return book["title"]
+
+
 def month_winners_label(month: dict) -> str:
-    novel_winner = find_winner_title(month["novels"])
-    short_winner = find_winner_title(month.get("short_works", []))
+    novels = month.get("novels", [])
+    short_works = month.get("short_works", [])
+    if not novels and not short_works:
+        return "Picks coming soon"
+    novel_winner = find_winner(novels)
+    short_winner = find_winner(short_works)
     parts = []
     if novel_winner:
-        parts.append(novel_winner)
+        parts.append(_winner_label_html(novel_winner))
     if short_winner:
-        parts.append(short_winner)
+        parts.append(_winner_label_html(short_winner))
     return " · ".join(parts) if parts else "Winner TBD"
 
 
@@ -291,8 +308,13 @@ def render_archive_index() -> str:
         theme = month.get("theme")
         label = f'{month["month_label"]} — {theme}' if theme else month["month_label"]
         winners = month_winners_label(month)
+        # A month with no picks yet has no archive/{slug}.html to link to
+        # (that page is only generated once build.py runs for it as the
+        # current month) — show it as plain, unlinked text instead.
+        has_picks = bool(month.get("novels")) or bool(month.get("short_works"))
+        title_html = f'<a href="{month["slug"]}.html">{label}</a>' if has_picks else f'<span class="no-link">{label}</span>'
         groups[-1][1].append(
-            f'      <li><a href="{month["slug"]}.html">{label}</a>'
+            f'      <li>{title_html}'
             f'<div class="winner">{winners}</div></li>'
         )
 
@@ -386,7 +408,9 @@ def compute_stats() -> dict:
     months = [json.loads(p.read_text()) for p in month_files]
     authors = load_authors()
 
-    total_months = len(months)
+    # Skip months with no picks yet — those are just announced-theme
+    # placeholders (see month_winners_label), not run months.
+    total_months = sum(1 for m in months if m.get("novels") or m.get("short_works"))
     title_appearances = defaultdict(int)
     title_ever_won = defaultdict(bool)
     hab_titles = set()
@@ -397,7 +421,6 @@ def compute_stats() -> dict:
     }
     all_books = []
     winning_books = []
-    club_ratings = []
 
     for month in months:
         for section, kind in (("novels", "novel"), ("short_works", "short")):
@@ -409,12 +432,6 @@ def compute_stats() -> dict:
                 if is_winner:
                     title_ever_won[book["title"]] = True
                     bucket["winners"] += 1
-                if book.get("club_rating"):
-                    club_ratings.append({
-                        "title": book["title"],
-                        "month_label": month.get("month_label", month.get("slug", "")),
-                        "rating": book["club_rating"],
-                    })
                 if book.get("is_hab"):
                     hab_titles.add(book["title"])
                 all_books.append((kind, book))
@@ -445,7 +462,6 @@ def compute_stats() -> dict:
         "short_noms": by_type["short"]["noms"],
         "noms": _aggregate_books(all_books, authors),
         "wins": _aggregate_books(winning_books, authors),
-        "club_ratings": list(reversed(club_ratings)),
     }
 
 
@@ -604,27 +620,12 @@ def render_stats_page() -> str:
     else:
         hab_rows = '        <li class="empty">None tagged yet.</li>'
 
-    if stats["club_ratings"]:
-        rows = []
-        for entry in stats["club_ratings"]:
-            rows.append(
-                f'        <li>\n'
-                f'          <span class="rank-title">{entry["title"]} '
-                f'<span class="rank-month">({entry["month_label"]})</span></span>\n'
-                f'          <span class="rank-count">{entry["rating"]}</span>\n'
-                f'        </li>'
-            )
-        club_rating_rows = "\n".join(rows)
-    else:
-        club_rating_rows = '        <li class="empty">No club ratings yet.</li>'
-
     replacements = {
         "__TOP_STAT_CARDS__": top_cards,
         "__NOVEL_NOMS__": str(stats["novel_noms"]),
         "__SHORT_NOMS__": str(stats["short_noms"]),
         "__SNUBBED_ROWS__": snubbed_rows,
         "__HAB_ROWS__": hab_rows,
-        "__CLUB_RATING_ROWS__": club_rating_rows,
         "__HAB_COUNT__": str(stats["hab_count"]),
         "__LAST_UPDATED__": f'{date.today():%B} {date.today().day}, {date.today():%Y}',
         "__BASE_URL__": BASE_URL,
@@ -873,7 +874,17 @@ def main():
 
     ARCHIVE_DIR.mkdir(exist_ok=True)
 
-    all_slugs = sorted(p.stem for p in MONTHS_DIR.glob("*.json"))
+    # Only chain prev/next through months that have actually been built
+    # (have picks) — a placeholder month with just an announced theme has
+    # no archive/{slug}.html yet to link to. Always include the month
+    # being built right now, even if (unusually) it has no picks yet.
+    def _has_picks(slug: str) -> bool:
+        if slug == month["slug"]:
+            return True
+        data = json.loads((MONTHS_DIR / f"{slug}.json").read_text())
+        return bool(data.get("novels")) or bool(data.get("short_works"))
+
+    all_slugs = sorted(p.stem for p in MONTHS_DIR.glob("*.json") if _has_picks(p.stem))
     idx = all_slugs.index(month["slug"])
     prev_slug = all_slugs[idx - 1] if idx > 0 else None
     next_slug = all_slugs[idx + 1] if idx < len(all_slugs) - 1 else None

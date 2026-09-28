@@ -1,0 +1,10 @@
+{
+  "slug": "2026-10-slashers-serial-killers",
+  "theme": "Slashers & Serial Killers",
+  "month_label": "October 2026",
+  "subtitle": "Monthly horror picks for the mortally curious.",
+  "vote_instructions": "Picks coming soon — check back once the reading list is up.",
+  "novels": [],
+  "short_works": [],
+  "_todo": "When this month goes live: regenerate assets/social-card.png with an English Slashers & Serial Killers tagline via scripts/gen_social_card.py — it currently still carries September's Spanish Foreign Horror line."
+}
