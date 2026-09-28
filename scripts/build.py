@@ -545,6 +545,16 @@ def compute_stats() -> dict:
         key=lambda t: (-t[1], t[0]),
     )
 
+    # A (view, kind) aggregate for every combination the stats page's two
+    # independent toggles (winners/all, novel/short/both) can land on.
+    # ("noms", "all") / ("wins", "all") double as the plain "noms"/"wins"
+    # aggregates the Format section (which isn't kind-filterable) uses.
+    variants = {}
+    for view_name, books in (("noms", all_books), ("wins", winning_books)):
+        for kind_name in ("all", "novel", "short"):
+            filtered = books if kind_name == "all" else [b for b in books if b[0] == kind_name]
+            variants[(view_name, kind_name)] = _aggregate_books(filtered, authors)
+
     return {
         "total_months": total_months,
         "total_nominations": total_nominations,
@@ -554,8 +564,9 @@ def compute_stats() -> dict:
         "repeat_nominees": repeat_nominees,
         "novel_noms": by_type["novel"]["noms"],
         "short_noms": by_type["short"]["noms"],
-        "noms": _aggregate_books(all_books, authors),
-        "wins": _aggregate_books(winning_books, authors),
+        "noms": variants[("noms", "all")],
+        "wins": variants[("wins", "all")],
+        "variants": variants,
     }
 
 
@@ -710,6 +721,38 @@ def render_stats_page() -> str:
     noms = sections_for(stats["noms"])
     wins = sections_for(stats["wins"])
 
+    # The 8 charts in "Content & Era" and "Author diversity" also take a
+    # novel/short-story/both filter. Rather than 6 hand-named template
+    # placeholders per chart, build one placeholder per chart holding all
+    # 6 (view, kind) variants, each wrapped so the page's JS can show
+    # exactly one at a time. Default visible: winners, both formats —
+    # matching the toggle row's default active buttons.
+    chart_keys = [
+        "origin_rows", "cw_rows", "era_rows",
+        "author_rows", "age_rows", "gender_rows", "lgbtq_rows", "bipoc_rows",
+    ]
+
+    combos = [
+        (view_name, kind_name)
+        for view_name in ("wins", "noms")
+        for kind_name in ("all", "novel", "short")
+    ]
+    sections_by_combo = {combo: sections_for(stats["variants"][combo]) for combo in combos}
+
+    def wrap_chart(key: str) -> str:
+        blocks = []
+        for view_name, kind_name in combos:
+            rows_html = sections_by_combo[(view_name, kind_name)][key]
+            is_default = view_name == "wins" and kind_name == "all"
+            hidden_attr = "" if is_default else " hidden"
+            blocks.append(
+                f'<div class="chart-variant" data-chart-view="{view_name}" '
+                f'data-chart-kind="{kind_name}"{hidden_attr}>\n{rows_html}\n</div>'
+            )
+        return "\n".join(blocks)
+
+    charts = {key: wrap_chart(key) for key in chart_keys}
+
     top_cards = "".join([
         stat_card("Months run", stats["total_months"]),
         stat_card("Total nominations", stats["total_nominations"]),
@@ -762,6 +805,8 @@ def render_stats_page() -> str:
         replacements[f"__{key.upper()}_NOMS__"] = value
     for key, value in wins.items():
         replacements[f"__{key.upper()}_WINS__"] = value
+    for key, value in charts.items():
+        replacements[f"__{key.upper().replace('_ROWS', '')}_CHART__"] = value
 
     for token, value in replacements.items():
         template = template.replace(token, value)

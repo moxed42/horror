@@ -192,7 +192,13 @@
       max-width: 640px;
     }
     .toggle-row { display: flex; align-items: center; gap: 8px; margin-bottom: 14px; flex-wrap: wrap; }
-    .toggle-state-label { font-size: 0.78rem; color: var(--text-muted); margin-left: 6px; }
+    .toggle-state-label {
+      font-size: 0.8rem;
+      color: var(--text-main);
+      font-weight: 600;
+      margin-bottom: 18px;
+    }
+    .chart-variant { display: block; }
     .not-filtered-note {
       font-size: 0.76rem;
       color: var(--text-muted);
@@ -459,11 +465,17 @@ __TOP_STAT_CARDS__
     <div class="toggle-row" data-toggle-scope>
       <button type="button" class="toggle-btn" data-view="noms">All nominations</button>
       <button type="button" class="toggle-btn active" data-view="wins">Winners only</button>
-      <span class="toggle-state-label">Showing: winners only</span>
     </div>
+    <div class="toggle-row" data-kind-scope>
+      <button type="button" class="toggle-btn active" data-kind="all">Both formats</button>
+      <button type="button" class="toggle-btn" data-kind="novel">Novels only</button>
+      <button type="button" class="toggle-btn" data-kind="short">Short works only</button>
+    </div>
+    <p class="toggle-state-label" id="toggleStateLabel">Showing: winners only · both formats</p>
 
     <div class="section" id="format" data-toggle-scope>
       <div class="section-title">Novels vs. Short Works</div>
+      <p class="not-filtered-note">The novel/short-work toggle above doesn't apply here — this section is already split by format.</p>
       <div class="panel">
         <div class="subsection-title">Novels</div>
         <div class="stat-grid stat-grid-2">
@@ -471,118 +483,78 @@ __TOP_STAT_CARDS__
         <div class="stat-value">__NOVEL_NOMS__</div>
         <div class="stat-label">Nominations</div>
       </div>
-      <div class="stat-card" data-view-wins hidden>
+      <div class="stat-card" data-view-noms hidden>
         <div class="stat-value">__AVG_NOVEL_PAGES_NOMS__</div>
         <div class="stat-label">Avg. pages</div>
       </div>
-      <div class="stat-card" data-view-noms>
+      <div class="stat-card" data-view-wins>
         <div class="stat-value">__AVG_NOVEL_PAGES_WINS__</div>
         <div class="stat-label">Avg. pages (winners)</div>
       </div>
         </div>
-        <div data-view-wins hidden>__NOVEL_RECORD_TABLE_NOMS__</div>
-        <div data-view-noms>__NOVEL_RECORD_TABLE_WINS__</div>
+        <div data-view-noms hidden>__NOVEL_RECORD_TABLE_NOMS__</div>
+        <div data-view-wins>__NOVEL_RECORD_TABLE_WINS__</div>
         <div class="subsection-title">Short works</div>
         <div class="stat-grid stat-grid-2">
       <div class="stat-card">
         <div class="stat-value">__SHORT_NOMS__</div>
         <div class="stat-label">Nominations</div>
       </div>
-      <div class="stat-card" data-view-wins hidden>
+      <div class="stat-card" data-view-noms hidden>
         <div class="stat-value">__AVG_SHORT_PAGES_NOMS__</div>
         <div class="stat-label">Avg. pages</div>
       </div>
-      <div class="stat-card" data-view-noms>
+      <div class="stat-card" data-view-wins>
         <div class="stat-value">__AVG_SHORT_PAGES_WINS__</div>
         <div class="stat-label">Avg. pages (winners)</div>
       </div>
         </div>
-        <div data-view-wins hidden>__SHORT_RECORD_TABLE_NOMS__</div>
-        <div data-view-noms>__SHORT_RECORD_TABLE_WINS__</div>
+        <div data-view-noms hidden>__SHORT_RECORD_TABLE_NOMS__</div>
+        <div data-view-wins>__SHORT_RECORD_TABLE_WINS__</div>
       </div>
     </div>
 
-    <div class="section" id="numbers" data-toggle-scope>
+    <div class="section" id="numbers" data-toggle-scope data-kind-scope>
       <div class="section-title">Content &amp; Era</div>
       <div class="panel panel-grid">
         <div>
           <div class="subsection-title">Origin country</div>
-          <ul class="bar-list" data-view-wins hidden>
-__ORIGIN_ROWS_NOMS__
-          </ul>
-          <ul class="bar-list" data-view-noms>
-__ORIGIN_ROWS_WINS__
-          </ul>
+__ORIGIN_CHART__
         </div>
         <div>
           <div class="subsection-title">Content-warning intensity</div>
-          <div data-view-wins hidden>
-__CW_ROWS_NOMS__
-          </div>
-          <div data-view-noms>
-__CW_ROWS_WINS__
-          </div>
+__CW_CHART__
         </div>
         <div>
           <div class="subsection-title">When it was written</div>
-          <div data-view-wins hidden>
-__ERA_ROWS_NOMS__
-          </div>
-          <div data-view-noms>
-__ERA_ROWS_WINS__
-          </div>
+__ERA_CHART__
         </div>
       </div>
     </div>
 
-    <div class="section" id="diversity" data-toggle-scope>
+    <div class="section" id="diversity" data-toggle-scope data-kind-scope>
       <div class="section-title">Author diversity</div>
       <p class="diversity-note">Based only on publicly self-identified info (author bios/interviews, birth years). For Gender and Author age, "Unknown" means we haven't found public info either way, not that it doesn't exist. For LGBTQIA+ and BIPOC, no confirmed public record counts as No/Not BIPOC — those entries are marked <span class="asterisk-note">*</span> in the drill-down list below, since that's an assumption, not a confirmed fact.</p>
       <div class="panel panel-grid panel-grid-5">
         <div>
           <div class="subsection-title">Repeat authors (2+ picks)</div>
-          <ul class="bar-list" data-view-wins hidden>
-__AUTHOR_ROWS_NOMS__
-          </ul>
-          <ul class="bar-list" data-view-noms>
-__AUTHOR_ROWS_WINS__
-          </ul>
+__AUTHOR_CHART__
         </div>
         <div>
           <div class="subsection-title">Gender</div>
-          <div data-view-wins hidden>
-__GENDER_ROWS_NOMS__
-          </div>
-          <div data-view-noms>
-__GENDER_ROWS_WINS__
-          </div>
+__GENDER_CHART__
         </div>
         <div>
           <div class="subsection-title">LGBTQIA+</div>
-          <div data-view-wins hidden>
-__LGBTQ_ROWS_NOMS__
-          </div>
-          <div data-view-noms>
-__LGBTQ_ROWS_WINS__
-          </div>
+__LGBTQ_CHART__
         </div>
         <div>
           <div class="subsection-title">BIPOC</div>
-          <div data-view-wins hidden>
-__BIPOC_ROWS_NOMS__
-          </div>
-          <div data-view-noms>
-__BIPOC_ROWS_WINS__
-          </div>
+__BIPOC_CHART__
         </div>
         <div>
           <div class="subsection-title">Author age (at writing)</div>
-          <div data-view-wins hidden>
-__AGE_ROWS_NOMS__
-          </div>
-          <div data-view-noms>
-__AGE_ROWS_WINS__
-          </div>
+__AGE_CHART__
         </div>
       </div>
     </div>
@@ -621,21 +593,46 @@ __HAB_ROWS__
 
   <script>
     (function () {
-      var toggleButtons = document.querySelectorAll(".toggle-btn");
-      var stateLabel = document.querySelector(".toggle-state-label");
-      toggleButtons.forEach(function (btn) {
+      var viewButtons = document.querySelectorAll(".toggle-row[data-toggle-scope] .toggle-btn");
+      var kindButtons = document.querySelectorAll(".toggle-row[data-kind-scope] .toggle-btn");
+      var stateLabel = document.getElementById("toggleStateLabel");
+      var view = "wins";
+      var kind = "all";
+
+      var kindLabels = { all: "both formats", novel: "novels only", short: "short works only" };
+
+      function apply() {
+        // Old two-state sections (just Format, post-bugfix): boolean
+        // presence attributes, no kind axis.
+        document.querySelectorAll("[data-view-noms]").forEach(function (el) {
+          el.hidden = view !== "noms";
+        });
+        document.querySelectorAll("[data-view-wins]").forEach(function (el) {
+          el.hidden = view !== "wins";
+        });
+        // New kind-filterable charts (Content & Era, Author diversity):
+        // exactly one of the 6 (view, kind) variants is visible.
+        document.querySelectorAll("[data-chart-view]").forEach(function (el) {
+          el.hidden = !(el.getAttribute("data-chart-view") === view && el.getAttribute("data-chart-kind") === kind);
+        });
+        if (stateLabel) {
+          stateLabel.textContent = "Showing: " + (view === "noms" ? "all nominations" : "winners only") +
+            " · " + kindLabels[kind];
+        }
+      }
+
+      viewButtons.forEach(function (btn) {
         btn.addEventListener("click", function () {
-          var view = btn.getAttribute("data-view");
-          toggleButtons.forEach(function (b) { b.classList.toggle("active", b === btn); });
-          document.querySelectorAll("[data-view-noms]").forEach(function (el) {
-            el.hidden = view !== "noms";
-          });
-          document.querySelectorAll("[data-view-wins]").forEach(function (el) {
-            el.hidden = view !== "wins";
-          });
-          if (stateLabel) {
-            stateLabel.textContent = "Showing: " + (view === "noms" ? "all nominations" : "winners only");
-          }
+          view = btn.getAttribute("data-view");
+          viewButtons.forEach(function (b) { b.classList.toggle("active", b === btn); });
+          apply();
+        });
+      });
+      kindButtons.forEach(function (btn) {
+        btn.addEventListener("click", function () {
+          kind = btn.getAttribute("data-kind");
+          kindButtons.forEach(function (b) { b.classList.toggle("active", b === btn); });
+          apply();
         });
       });
     })();
