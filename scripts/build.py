@@ -15,7 +15,7 @@ MONTHS_DIR = REPO_ROOT / "data" / "months"
 ARCHIVE_DIR = REPO_ROOT / "archive"
 AUTHORS_PATH = REPO_ROOT / "data" / "authors.json"
 POLLS_PATH = REPO_ROOT / "data" / "polls.json"
-BASE_URL = "https://moxed42.github.io/horror/"
+BASE_URL = "https://finalgirlsbookclub.com/"
 
 
 def load_polls() -> list:
