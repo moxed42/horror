@@ -209,7 +209,27 @@ def month_winners_label(month: dict) -> str:
     return " · ".join(parts) if parts else "Winner TBD"
 
 
-def render_page(month: dict, page_url: str, favicon_href: str, nav_block: str = "", nav_ctx: dict | None = None) -> str:
+def find_next_coming_soon(current_slug: str) -> dict | None:
+    """The next month's data, if it's an announced-theme-only placeholder
+    (no picks yet) — used to show a "coming soon" banner on the current
+    page while the club is between meetups. Returns None once that next
+    month has real picks (no banner needed) or there isn't one yet."""
+    all_slugs = sorted(p.stem for p in MONTHS_DIR.glob("*.json"))
+    if current_slug not in all_slugs:
+        return None
+    idx = all_slugs.index(current_slug)
+    if idx + 1 >= len(all_slugs):
+        return None
+    next_data = json.loads((MONTHS_DIR / f"{all_slugs[idx + 1]}.json").read_text())
+    if next_data.get("novels") or next_data.get("short_works"):
+        return None
+    return next_data
+
+
+def render_page(
+    month: dict, page_url: str, favicon_href: str, nav_block: str = "",
+    nav_ctx: dict | None = None, is_current: bool = False,
+) -> str:
     template = (TEMPLATES / "page.html").read_text()
     theme = month.get("theme")
     assets_prefix = favicon_href.rsplit("/", 1)[0] + "/" if "/" in favicon_href else ""
@@ -272,6 +292,20 @@ def render_page(month: dict, page_url: str, favicon_href: str, nav_block: str = 
         "polls": "polls.html", "active": "home",
     }
 
+    coming_soon_banner = ""
+    if is_current:
+        next_month = find_next_coming_soon(month["slug"])
+        if next_month:
+            next_theme = next_month.get("theme")
+            theme_span = f'<span class="coming-soon-theme">{next_theme}</span>' if next_theme else ""
+            coming_soon_banner = (
+                '    <div class="coming-soon-banner">\n'
+                '      <span class="coming-soon-label">Coming up</span>\n'
+                f'      {theme_span}\n'
+                f'      <span class="coming-soon-note">— {next_month["month_label"]}, nominations in progress.</span>\n'
+                '    </div>\n'
+            )
+
     replacements = {
         "__PAGE_TITLE__": page_title,
         "__SUBTITLE__": month["subtitle"],
@@ -294,6 +328,7 @@ def render_page(month: dict, page_url: str, favicon_href: str, nav_block: str = 
         "__NAV_ARCHIVE_ACTIVE__": "active" if nav_ctx["active"] == "archive" else "",
         "__NAV_STATS_ACTIVE__": "active" if nav_ctx["active"] == "stats" else "",
         "__NAV_POLLS_ACTIVE__": "active" if nav_ctx["active"] == "polls" else "",
+        "__COMING_SOON_BANNER__": coming_soon_banner,
     }
     for token, value in replacements.items():
         template = template.replace(token, value)
@@ -1040,7 +1075,7 @@ def main():
     month_path = Path(sys.argv[1])
     month = load_month(month_path)
 
-    page_html = render_page(month, page_url=BASE_URL, favicon_href="assets/favicon.svg")
+    page_html = render_page(month, page_url=BASE_URL, favicon_href="assets/favicon.svg", is_current=True)
     (REPO_ROOT / "index.html").write_text(page_html)
     print(f"Wrote {REPO_ROOT / 'index.html'}")
 

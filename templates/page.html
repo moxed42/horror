@@ -102,6 +102,26 @@
     }
     .theme-value { font-weight: 600; }
     .month-tag { margin-top: 6px; font-size: 0.85rem; color: var(--text-muted); }
+    .coming-soon-banner {
+      margin: 22px 0;
+      padding: 14px 18px;
+      border-radius: var(--radius-lg);
+      background: linear-gradient(120deg, rgba(74, 157, 255, 0.16), rgba(155, 107, 255, 0.14));
+      border: 1px solid rgba(74, 157, 255, 0.4);
+      display: flex;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 6px 10px;
+    }
+    .coming-soon-label {
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      font-size: 0.7rem;
+      color: var(--accent-soft);
+      font-weight: 700;
+    }
+    .coming-soon-theme { font-weight: 600; }
+    .coming-soon-note { color: var(--text-muted); font-size: 0.85rem; }
     .month-tag .mono {
       font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
       color: var(--accent-soft);
@@ -423,6 +443,7 @@ __THEME_FIT_LEGEND_BLOCK__        <div class="legend-row">
       </aside>
     </header>
 
+__COMING_SOON_BANNER__
 __MONTH_NAV_BLOCK__    <section class="section">
       <div class="section-header">
         <h2 class="section-title">Novels</h2>
