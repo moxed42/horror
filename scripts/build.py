@@ -151,6 +151,27 @@ def render_book_card(book: dict, month_label: str, assets_prefix: str = "assets/
         if book.get("is_hab") else ""
     )
 
+    series = book.get("series")
+    if series:
+        import html as _html
+        items = "\n".join(
+            f'                    <li class="series-current">{_html.escape(title)}</li>'
+            if title == book["title"] else
+            f'                    <li>{_html.escape(title)}</li>'
+            for title in series["books"]
+        )
+        series_block = (
+            f'              <details class="series-pill">\n'
+            f'                <summary>Part of a series</summary>\n'
+            f'                <div class="series-popover">\n'
+            f'                  <div class="series-popover-title">{_html.escape(series["name"])}</div>\n'
+            f'                  <ol>\n{items}\n                  </ol>\n'
+            f'                </div>\n'
+            f'              </details>\n'
+        )
+    else:
+        series_block = ""
+
     replacements = {
         "__SELECTED_CLASS__": " selected" if is_winner else "",
         "__PICK_LABEL__": f'          <div class="pick-label">{winner_label(month_label)}</div>\n' if is_winner else "",
@@ -161,6 +182,7 @@ def render_book_card(book: dict, month_label: str, assets_prefix: str = "assets/
         "__PAGES__": book["pages"],
         "__DEBUT_LABEL__": book["debut_label"],
         "__AVG_RATING_PILL__": avg_rating_pill,
+        "__SERIES_BLOCK__": series_block,
         "__THEME_FIT_BLOCK__": theme_fit_block,
         "__CW_TIER__": book["cw_tier"],
         "__CW_LABEL__": book["cw_label"],

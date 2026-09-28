@@ -323,6 +323,52 @@
       background: rgba(5, 6, 16, 0.8);
       border: 1px solid rgba(255, 255, 255, 0.06);
     }
+    .series-pill { position: relative; display: inline-block; margin-top: 6px; }
+    .series-pill summary {
+      cursor: pointer;
+      list-style: none;
+      padding: 3px 9px;
+      border-radius: var(--radius-pill);
+      background: rgba(5, 6, 16, 0.8);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+    .series-pill summary::-webkit-details-marker { display: none; }
+    .series-pill summary::after { content: " \25be"; }
+    .series-pill[open] summary::after { content: " \25b4"; }
+    .series-popover {
+      position: absolute;
+      top: calc(100% + 6px);
+      left: 0;
+      z-index: 20;
+      min-width: 220px;
+      max-width: 280px;
+      background: var(--card-bg);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: 10px 12px;
+      box-shadow: var(--shadow);
+    }
+    .series-popover-title {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-muted);
+      margin-bottom: 6px;
+    }
+    .series-popover ol {
+      margin: 0;
+      padding-left: 18px;
+      font-size: 0.85rem;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .series-popover li.series-current {
+      color: var(--accent-soft);
+      font-weight: 600;
+    }
     .theme-score { text-align: right; font-size: 0.82rem; }
     .theme-score-label {
       text-transform: uppercase;
@@ -478,6 +524,18 @@
                 <span class="meta-pill">Debut novel: No</span>
                 <span class="meta-pill">Avg rating: 4.1★</span>
               </div>
+              <details class="series-pill">
+                <summary>Part of a series</summary>
+                <div class="series-popover">
+                  <div class="series-popover-title">Hannibal Lecter</div>
+                  <ol>
+                    <li class="series-current">Red Dragon</li>
+                    <li>The Silence of the Lambs</li>
+                    <li>Hannibal</li>
+                    <li>Hannibal Rising</li>
+                  </ol>
+                </div>
+              </details>
             </div>
             <div class="theme-score">
               <div class="theme-score-label">Theme fit</div>
@@ -515,6 +573,17 @@
                 <span class="meta-pill">Debut novel: No</span>
                 <span class="meta-pill">Avg rating: 3.7★</span>
               </div>
+              <details class="series-pill">
+                <summary>Part of a series</summary>
+                <div class="series-popover">
+                  <div class="series-popover-title">Clown in a Cornfield</div>
+                  <ol>
+                    <li class="series-current">Clown in a Cornfield</li>
+                    <li>Clown in a Cornfield 2: Frendo Lives</li>
+                    <li>Clown in a Cornfield 3: The Church of Frendo</li>
+                  </ol>
+                </div>
+              </details>
             </div>
             <div class="theme-score">
               <div class="theme-score-label">Theme fit</div>
@@ -589,6 +658,17 @@
                 <span class="meta-pill">Debut novel: Yes</span>
                 <span class="meta-pill">Avg rating: 4.1★</span>
               </div>
+              <details class="series-pill">
+                <summary>Part of a series</summary>
+                <div class="series-popover">
+                  <div class="series-popover-title">The Collector</div>
+                  <ol>
+                    <li class="series-current">The Butterfly Garden</li>
+                    <li>The Roses of May</li>
+                    <li>The Summer Children</li>
+                  </ol>
+                </div>
+              </details>
             </div>
             <div class="theme-score">
               <div class="theme-score-label">Theme fit</div>

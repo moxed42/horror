@@ -20,7 +20,11 @@
       "warnings": "Graphic violence, murder of children and families, child abuse (backstory), sexual violence, animal death, mental illness portrayed as monstrous.",
       "is_winner": false,
       "origin": "United States",
-      "age_category": "Adult"
+      "age_category": "Adult",
+      "series": {
+        "name": "Hannibal Lecter",
+        "books": ["Red Dragon", "The Silence of the Lambs", "Hannibal", "Hannibal Rising"]
+      }
     },
     {
       "type": "Novel",
@@ -37,7 +41,15 @@
       "warnings": "Graphic violence and gore, gun violence, bullying, drug references, suicidal ideation, child endangerment.",
       "is_winner": false,
       "origin": "United States",
-      "age_category": "Young Adult"
+      "age_category": "Young Adult",
+      "series": {
+        "name": "Clown in a Cornfield",
+        "books": [
+          "Clown in a Cornfield",
+          "Clown in a Cornfield 2: Frendo Lives",
+          "Clown in a Cornfield 3: The Church of Frendo"
+        ]
+      }
     },
     {
       "type": "Novel",
@@ -71,7 +83,11 @@
       "warnings": "Child sexual abuse, rape, kidnapping and captivity, murder, forced tattooing, grooming, suicidal ideation.",
       "is_winner": false,
       "origin": "United States",
-      "age_category": "Adult"
+      "age_category": "Adult",
+      "series": {
+        "name": "The Collector",
+        "books": ["The Butterfly Garden", "The Roses of May", "The Summer Children"]
+      }
     }
   ],
   "novels_subtitle": "Pick your favorite way to not survive the night."
