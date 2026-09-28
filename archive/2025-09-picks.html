@@ -149,6 +149,7 @@
       margin-left: auto;
       display: flex;
       align-items: center;
+      gap: 4px;
     }
     .site-nav .visit-counter {
       padding: 3px;
@@ -157,6 +158,24 @@
       border-radius: 6px;
     }
     .site-nav .visit-counter img { display: block; height: 18px; border-radius: 3px; opacity: 0.9; }
+    .visit-refresh {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 18px;
+      height: 18px;
+      padding: 0;
+      border: none;
+      background: transparent;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      line-height: 1;
+      cursor: pointer;
+      border-radius: 3px;
+    }
+    .visit-refresh:hover { color: var(--accent-soft); }
+    .visit-refresh.spinning { animation: visit-spin 0.6s linear; }
+    @keyframes visit-spin { to { transform: rotate(360deg); } }
     .legend-card {
       background:
         radial-gradient(circle at 0 0, rgba(255, 255, 255, 0.06), transparent 60%),
@@ -449,9 +468,23 @@
       <a href="../stats.html" class="">Stats</a>
       <a href="../polls.html" class="">Polls</a>
       <span class="visit-counter">
-        <img src="https://api.visitorbadge.io/api/visitors?path=finalgirlsbookclub.moxed42&label=visits&labelColor=%23111221&countColor=%23f54545&style=flat-square" alt="visit count" loading="lazy">
+        <img id="visitBadge" src="https://api.visitorbadge.io/api/visitors?path=finalgirlsbookclub.moxed42&label=visits&labelColor=%23111221&countColor=%23f54545&style=flat-square" alt="visit count" loading="lazy">
+        <button type="button" class="visit-refresh" id="visitRefresh" aria-label="Refresh visit count" title="Refresh visit count">&#8635;</button>
       </span>
     </nav>
+    <script>
+      (function () {
+        var btn = document.getElementById("visitRefresh");
+        var img = document.getElementById("visitBadge");
+        if (!btn || !img) return;
+        var baseSrc = img.src.split("&_=")[0];
+        btn.addEventListener("click", function () {
+          btn.classList.add("spinning");
+          img.src = baseSrc + "&_=" + Date.now();
+          setTimeout(function () { btn.classList.remove("spinning"); }, 600);
+        });
+      })();
+    </script>
     <header>
       <div class="title-block">
         <div class="club-name">
