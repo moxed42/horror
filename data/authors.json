@@ -2,343 +2,491 @@
   "_note": "Only publicly self-identified info is recorded here (author bios, interviews, own statements). Anything not confidently sourced is left \"unknown\" rather than guessed — do not infer from names, nationality, or vibes. Exception: for lgbtq/bipoc specifically, only add a confirmed \"yes\" here — don't add \"no\"/\"straight\" entries. The stats page's build script (scripts/build.py) already treats no entry as \"no\" for just those two fields (nobody issues a statement confirming they're straight, so requiring one is an impossible bar); gender and birth_year keep the normal unknown-until-confirmed rule.",
   "Adam Nevill": {
     "gender": "man",
-    "birth_year": 1969
+    "birth_year": 1969,
+    "alive": true
   },
   "Alex Grecian": {
-    "gender": "man"
+    "gender": "man",
+    "alive": true,
+    "birth_year": 1969
   },
   "Andrew Joseph White": {
     "gender": "man",
     "lgbtq": "yes",
-    "trans": true
+    "trans": true,
+    "alive": true
   },
   "Alexander Pushkin": {
     "gender": "man",
-    "birth_year": 1799
+    "birth_year": 1799,
+    "alive": false,
+    "death_year": 1837
   },
   "Alexis Henderson": {
-    "gender": "woman"
+    "gender": "woman",
+    "alive": true
   },
   "Andrew Van Wey": {
-    "gender": "man"
+    "gender": "man",
+    "alive": true
   },
   "Ania Ahlborn": {
-    "gender": "woman"
+    "gender": "woman",
+    "alive": true
   },
   "Arthur Machen": {
     "gender": "man",
-    "birth_year": 1863
+    "birth_year": 1863,
+    "alive": false,
+    "death_year": 1947
   },
   "Bram Stoker": {
     "gender": "man",
-    "birth_year": 1847
+    "birth_year": 1847,
+    "alive": false,
+    "death_year": 1912
   },
   "Brom": {
     "gender": "man",
-    "birth_year": 1965
+    "birth_year": 1965,
+    "alive": true
   },
   "Carmen Maria Machado": {
     "gender": "woman",
     "lgbtq": "yes",
     "bipoc": "yes",
-    "birth_year": 1986
+    "birth_year": 1986,
+    "alive": true
   },
   "Catriona Ward": {
-    "gender": "woman"
+    "gender": "woman",
+    "alive": true
   },
   "Charlotte Perkins Gilman": {
     "gender": "woman",
-    "birth_year": 1860
+    "birth_year": 1860,
+    "alive": false,
+    "death_year": 1935
   },
   "C.F. Page": {
-    "gender": "man"
+    "gender": "man",
+    "alive": true
   },
   "Christopher Buehlman": {
     "gender": "man",
-    "birth_year": 1969
+    "birth_year": 1969,
+    "alive": true
   },
   "Clive Barker": {
     "gender": "man",
     "lgbtq": "yes",
-    "birth_year": 1952
+    "birth_year": 1952,
+    "alive": true
   },
   "Cormac McCarthy": {
     "gender": "man",
-    "birth_year": 1933
+    "birth_year": 1933,
+    "alive": false,
+    "death_year": 2023
   },
   "Craig DiLouie": {
-    "gender": "man"
+    "gender": "man",
+    "alive": true
   },
   "Daniel Kraus": {
-    "gender": "man"
+    "gender": "man",
+    "alive": true,
+    "birth_year": 1975
   },
   "Daphne du Maurier": {
     "gender": "woman",
-    "birth_year": 1907
+    "birth_year": 1907,
+    "alive": false,
+    "death_year": 1989
   },
   "David Sodergren": {
-    "gender": "man"
+    "gender": "man",
+    "alive": true
   },
   "Dean Koontz": {
     "gender": "man",
-    "birth_year": 1945
+    "birth_year": 1945,
+    "alive": true
   },
   "Delilah S. Dawson": {
-    "gender": "woman"
+    "gender": "woman",
+    "alive": true,
+    "birth_year": 1977
   },
   "E.M. Forster": {
     "gender": "man",
     "lgbtq": "yes",
-    "birth_year": 1879
+    "birth_year": 1879,
+    "alive": false,
+    "death_year": 1970
   },
   "Edgar Allan Poe": {
     "gender": "man",
-    "birth_year": 1809
+    "birth_year": 1809,
+    "alive": false,
+    "death_year": 1849
   },
   "Edogawa Ranpo": {
     "gender": "man",
     "birth_year": 1894,
-    "bipoc": "yes"
+    "bipoc": "yes",
+    "alive": false,
+    "death_year": 1965
   },
   "Eric LaRocca": {
     "gender": "man",
-    "lgbtq": "yes"
+    "lgbtq": "yes",
+    "alive": true
   },
   "F. Marion Crawford": {
     "gender": "man",
-    "birth_year": 1854
+    "birth_year": 1854,
+    "alive": false,
+    "death_year": 1909
   },
   "Gary Brandner": {
     "gender": "man",
-    "birth_year": 1930
+    "birth_year": 1930,
+    "alive": false,
+    "death_year": 2013
   },
   "H.P. Lovecraft": {
     "gender": "man",
-    "birth_year": 1890
+    "birth_year": 1890,
+    "alive": false,
+    "death_year": 1937
   },
   "Han Kang": {
     "gender": "woman",
     "birth_year": 1970,
-    "bipoc": "yes"
+    "bipoc": "yes",
+    "alive": true
   },
   "Harlan Ellison": {
     "gender": "man",
-    "birth_year": 1934
+    "birth_year": 1934,
+    "alive": false,
+    "death_year": 2018
   },
   "Henry James": {
     "gender": "man",
-    "birth_year": 1843
+    "birth_year": 1843,
+    "alive": false,
+    "death_year": 1916
   },
   "Hideyuki Kikuchi": {
     "gender": "man",
-    "birth_year": 1949
+    "birth_year": 1949,
+    "alive": true
   },
   "Jeff VanderMeer": {
     "gender": "man",
-    "birth_year": 1968
+    "birth_year": 1968,
+    "alive": true
   },
   "Jennifer Giesbrecht": {
-    "gender": "woman"
+    "gender": "woman",
+    "alive": true
   },
   "John Ajvide Lindqvist": {
     "gender": "man",
-    "birth_year": 1968
+    "birth_year": 1968,
+    "alive": true
   },
   "John Langan": {
-    "gender": "man"
+    "gender": "man",
+    "alive": true,
+    "birth_year": 1969
   },
   "John Marrs": {
     "gender": "man",
-    "lgbtq": "yes"
+    "lgbtq": "yes",
+    "alive": true
   },
   "John W. Campbell Jr.": {
     "gender": "man",
-    "birth_year": 1910
+    "birth_year": 1910,
+    "alive": false,
+    "death_year": 1971
   },
   "Jorge Luis Borges": {
     "gender": "man",
-    "birth_year": 1899
+    "birth_year": 1899,
+    "alive": false,
+    "death_year": 1986
   },
   "Joyce Carol Oates": {
     "gender": "woman",
-    "birth_year": 1938
+    "birth_year": 1938,
+    "alive": true
   },
   "Julia Armfield": {
     "gender": "woman",
-    "lgbtq": "yes"
+    "lgbtq": "yes",
+    "alive": true,
+    "birth_year": 1990
   },
   "Kat Dunn": {
-    "gender": "woman"
+    "gender": "woman",
+    "alive": true
   },
   "Kathe Koja": {
     "gender": "woman",
-    "birth_year": 1960
+    "birth_year": 1960,
+    "alive": true
   },
   "Kij Johnson": {
     "gender": "woman",
-    "birth_year": 1960
+    "birth_year": 1960,
+    "alive": true
   },
   "Kylie Lee Baker": {
     "gender": "woman",
-    "bipoc": "yes"
+    "bipoc": "yes",
+    "alive": true
   },
   "Kōji Suzuki": {
     "gender": "man",
     "birth_year": 1957,
-    "bipoc": "yes"
+    "bipoc": "yes",
+    "alive": false,
+    "death_year": 2026
   },
   "Lee Mandelo": {
     "gender": "man",
-    "lgbtq": "yes"
+    "lgbtq": "yes",
+    "alive": true
   },
   "M.R. Carey": {
     "gender": "man",
-    "birth_year": 1959
+    "birth_year": 1959,
+    "alive": true
   },
   "Mariana Enríquez": {
     "gender": "woman",
-    "birth_year": 1973
+    "birth_year": 1973,
+    "alive": true
   },
   "Mary Shelley": {
     "gender": "woman",
-    "birth_year": 1797
+    "birth_year": 1797,
+    "alive": false,
+    "death_year": 1851
   },
   "Mira Grant": {
     "gender": "woman",
-    "birth_year": 1978
+    "birth_year": 1978,
+    "alive": true
   },
   "Nat Cassidy": {
     "gender": "man",
-    "birth_year": 1981
+    "birth_year": 1981,
+    "alive": true
   },
   "Neil Gaiman": {
     "gender": "man",
-    "birth_year": 1960
+    "birth_year": 1960,
+    "alive": true
   },
   "Nick Cutter": {
     "gender": "man",
-    "birth_year": 1976
+    "birth_year": 1976,
+    "alive": true
   },
   "Nikolai Gogol": {
     "gender": "man",
-    "birth_year": 1809
+    "birth_year": 1809,
+    "alive": false,
+    "death_year": 1852
   },
   "Octavia E. Butler": {
     "gender": "woman",
     "bipoc": "yes",
-    "birth_year": 1947
+    "birth_year": 1947,
+    "alive": false,
+    "death_year": 2006
   },
   "P. Djèlí Clark": {
     "gender": "man",
-    "bipoc": "yes"
+    "bipoc": "yes",
+    "alive": true,
+    "birth_year": 1971
   },
   "Peadar Ó Guilín": {
-    "gender": "man"
+    "gender": "man",
+    "alive": true
   },
   "Ray Bradbury": {
     "gender": "man",
-    "birth_year": 1920
+    "birth_year": 1920,
+    "alive": false,
+    "death_year": 2012
   },
   "Richard Preston": {
     "gender": "man",
-    "birth_year": 1954
+    "birth_year": 1954,
+    "alive": true
   },
   "Robert Bloch": {
     "gender": "man",
-    "birth_year": 1917
+    "birth_year": 1917,
+    "alive": false,
+    "death_year": 1994
   },
   "Robert W. Chambers": {
     "gender": "man",
-    "birth_year": 1865
+    "birth_year": 1865,
+    "alive": false,
+    "death_year": 1933
   },
   "Robin Cook": {
     "gender": "man",
-    "birth_year": 1940
+    "birth_year": 1940,
+    "alive": true
   },
   "Ryū Murakami": {
     "gender": "man",
-    "birth_year": 1952
+    "birth_year": 1952,
+    "alive": true
   },
   "S.T. Gibson": {
     "gender": "woman",
-    "lgbtq": "yes"
+    "lgbtq": "yes",
+    "alive": true
   },
   "Sammy Scott": {
-    "gender": "man"
+    "gender": "man",
+    "alive": true
   },
   "Scott Smith": {
     "gender": "man",
-    "birth_year": 1965
+    "birth_year": 1965,
+    "alive": true
   },
   "Shane Stadler": {
-    "gender": "man"
+    "gender": "man",
+    "alive": true
   },
   "Sheridan Le Fanu": {
     "gender": "man",
-    "birth_year": 1814
+    "birth_year": 1814,
+    "alive": false,
+    "death_year": 1873
   },
   "Shirley Jackson": {
     "gender": "woman",
-    "birth_year": 1916
+    "birth_year": 1916,
+    "alive": false,
+    "death_year": 1965
   },
   "Silvia Moreno-Garcia": {
     "gender": "woman",
     "bipoc": "yes",
-    "birth_year": 1981
+    "birth_year": 1981,
+    "alive": true
   },
   "Stephen Graham Jones": {
     "gender": "man",
     "bipoc": "yes",
-    "birth_year": 1972
+    "birth_year": 1972,
+    "alive": true
   },
   "Stephen King": {
     "gender": "man",
-    "birth_year": 1947
+    "birth_year": 1947,
+    "alive": true
   },
   "Steven L. Peck": {
     "gender": "man",
-    "birth_year": 1957
+    "birth_year": 1957,
+    "alive": true
   },
   "T. Kingfisher": {
     "gender": "woman",
-    "birth_year": 1977
+    "birth_year": 1977,
+    "alive": true
   },
   "Tobias Wade": {
-    "gender": "man"
+    "gender": "man",
+    "alive": true
   },
   "V. Castro": {
     "gender": "woman",
-    "bipoc": "yes"
+    "bipoc": "yes",
+    "alive": true,
+    "birth_year": 1979
   },
   "Victor LaValle": {
     "gender": "man",
     "bipoc": "yes",
-    "birth_year": 1972
+    "birth_year": 1972,
+    "alive": true
   },
   "William Hope Hodgson": {
     "gender": "man",
-    "birth_year": 1877
+    "birth_year": 1877,
+    "alive": false,
+    "death_year": 1918
   },
   "William Peter Blatty": {
     "gender": "man",
-    "birth_year": 1928
+    "birth_year": 1928,
+    "alive": false,
+    "death_year": 2017
   },
   "Thomas Harris": {
     "gender": "man",
-    "birth_year": 1940
+    "birth_year": 1940,
+    "alive": true
   },
   "Adam Cesare": {
     "gender": "man",
-    "birth_year": 1988
+    "birth_year": 1988,
+    "alive": true
   },
   "Dot Hutchison": {
-    "gender": "woman"
+    "gender": "woman",
+    "alive": true
   },
   "Fiona McFarlane": {
     "gender": "woman",
-    "birth_year": 1978
+    "birth_year": 1978,
+    "alive": true
   },
   "S.T. Abby": {
-    "gender": "woman"
+    "gender": "woman",
+    "alive": false,
+    "death_year": 2021
+  },
+  "Bernardo Esquinca": {
+    "alive": true,
+    "birth_year": 1972
+  },
+  "C.M. Kośemen": {
+    "alive": true,
+    "birth_year": 1984
+  },
+  "Christian Wallis": {
+    "alive": true
+  },
+  "John Shirley": {
+    "alive": true,
+    "birth_year": 1953
+  },
+  "T.J. Payne": {
+    "alive": true
+  },
+  "William Gibson": {
+    "alive": true,
+    "birth_year": 1948
+  },
+  "qntm": {
+    "alive": true,
+    "birth_year": 1983
   }
 }

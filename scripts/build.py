@@ -414,6 +414,8 @@ def _drill_books_attr(entries: list) -> str:
             row["inferred"] = True
         if e.get("trans"):
             row["trans"] = True
+        if e.get("life_note"):
+            row["life_note"] = e["life_note"]
         payload.append(row)
     return f' data-books="{html.escape(json.dumps(payload))}"'
 
@@ -454,6 +456,7 @@ def _aggregate_books(all_books: list, authors: dict) -> dict:
     gender_counts = defaultdict(int)
     lgbtq_counts = defaultdict(int)
     bipoc_counts = defaultdict(int)
+    alive_counts = defaultdict(int)
     origin_books = defaultdict(list)
     cw_books = defaultdict(list)
     author_books = defaultdict(list)
@@ -462,6 +465,7 @@ def _aggregate_books(all_books: list, authors: dict) -> dict:
     gender_books = defaultdict(list)
     lgbtq_books = defaultdict(list)
     bipoc_books = defaultdict(list)
+    alive_books = defaultdict(list)
     pages_by_kind = {"novel": [], "short": []}
 
     for kind, book, month_label in all_books:
@@ -516,6 +520,27 @@ def _aggregate_books(all_books: list, authors: dict) -> dict:
             bipoc_counts[bipoc] += 1
             bipoc_books[bipoc].append({**author_entry, "inferred": not bipoc_confirmed})
 
+            # Alive/Deceased reflects status as of today, not at the time
+            # of writing — unlike age/era above. Only recorded when
+            # confidently sourced; no record stays "unknown" (same rule
+            # as gender/birth_year, not the lgbtq/bipoc default-no rule,
+            # since there's no equivalent "nobody confirms they're alive"
+            # asymmetry here).
+            is_alive = info.get("alive")
+            life_key = "alive" if is_alive is True else "deceased" if is_alive is False else "unknown"
+            death_year = info.get("death_year")
+            life_note = ""
+            if life_key == "deceased" and death_year:
+                age_at_death = death_year - info["birth_year"] if info.get("birth_year") else None
+                life_note = (
+                    f"(d. {death_year}, age {age_at_death})" if age_at_death is not None
+                    else f"(d. {death_year})"
+                )
+            alive_counts[life_key] += 1
+            alive_books[life_key].append(
+                {**author_entry, "life_note": life_note} if life_note else author_entry
+            )
+
         pages = _parse_pages(book.get("pages", ""))
         if pages:
             pages_by_kind[kind].append((book["title"], pages))
@@ -540,6 +565,7 @@ def _aggregate_books(all_books: list, authors: dict) -> dict:
         "gender_counts": dict(gender_counts),
         "lgbtq_counts": dict(lgbtq_counts),
         "bipoc_counts": dict(bipoc_counts),
+        "alive_counts": dict(alive_counts),
         "origin_books": dict(origin_books),
         "cw_books": dict(cw_books),
         "author_books": dict(author_books),
@@ -548,6 +574,7 @@ def _aggregate_books(all_books: list, authors: dict) -> dict:
         "gender_books": dict(gender_books),
         "lgbtq_books": dict(lgbtq_books),
         "bipoc_books": dict(bipoc_books),
+        "alive_books": dict(alive_books),
         "novel_pages": page_stats(pages_by_kind["novel"]),
         "short_pages": page_stats(pages_by_kind["short"]),
     }
@@ -769,6 +796,8 @@ def render_stats_page(current_slug: str | None = None) -> str:
     lgbtq_labels = {"yes": "LGBTQIA+", "no": "Straight"}
     bipoc_order = ["yes", "no"]
     bipoc_labels = {"yes": "BIPOC", "no": "Not BIPOC"}
+    alive_order = ["alive", "deceased", "unknown"]
+    alive_labels = {"alive": "Alive", "deceased": "Deceased", "unknown": "Unknown"}
     era_order = ["pre1900", "1900s", "1950s", "2000s", "2020s", "unknown"]
     era_labels = {
         "pre1900": "Pre-1900", "1900s": "1900–1949", "1950s": "1950–1999",
@@ -787,6 +816,7 @@ def render_stats_page(current_slug: str | None = None) -> str:
             "gender_rows": stacked_bar(agg["gender_counts"], gender_order, gender_labels, agg["gender_books"]),
             "lgbtq_rows": stacked_bar(agg["lgbtq_counts"], lgbtq_order, lgbtq_labels, agg["lgbtq_books"]),
             "bipoc_rows": stacked_bar(agg["bipoc_counts"], bipoc_order, bipoc_labels, agg["bipoc_books"]),
+            "alive_rows": stacked_bar(agg["alive_counts"], alive_order, alive_labels, agg["alive_books"]),
             "avg_novel_pages": f'{agg["novel_pages"]["avg"]} pages' if agg["novel_pages"]["avg"] else "N/A",
             "avg_short_pages": f'{agg["short_pages"]["avg"]} pages' if agg["short_pages"]["avg"] else "N/A",
             "novel_record_table": record_table(agg["novel_pages"]),
@@ -805,7 +835,7 @@ def render_stats_page(current_slug: str | None = None) -> str:
     # matching the toggle row's default active buttons.
     chart_keys = [
         "origin_rows", "cw_rows", "era_rows",
-        "author_rows", "age_rows", "gender_rows", "lgbtq_rows", "bipoc_rows",
+        "author_rows", "age_rows", "gender_rows", "lgbtq_rows", "bipoc_rows", "alive_rows",
     ]
 
     combos = [

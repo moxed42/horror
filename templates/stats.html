@@ -204,6 +204,7 @@
       .panel-grid.panel-grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
       .panel-grid.panel-grid-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
       .panel-grid.panel-grid-5 { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+      .panel-grid.panel-grid-6 { grid-template-columns: repeat(6, minmax(0, 1fr)); }
     }
     .diversity-note {
       font-size: 0.78rem;
@@ -583,8 +584,8 @@ __ERA_CHART__
 
     <div class="section" id="diversity" data-toggle-scope data-kind-scope>
       <div class="section-title">Author diversity</div>
-      <p class="diversity-note">Based only on publicly self-identified info (author bios/interviews, birth years). For Gender and Author age, "Unknown" means we haven't found public info either way, not that it doesn't exist. For LGBTQIA+ and BIPOC, no confirmed public record counts as No/Not BIPOC — those entries are marked <span class="asterisk-note">*</span> in the drill-down list below, since that's an assumption, not a confirmed fact.</p>
-      <div class="panel panel-grid panel-grid-5">
+      <p class="diversity-note">Based only on publicly self-identified info (author bios/interviews, birth years). For Gender and Author age, "Unknown" means we haven't found public info either way, not that it doesn't exist. For LGBTQIA+ and BIPOC, no confirmed public record counts as No/Not BIPOC — those entries are marked <span class="asterisk-note">*</span> in the drill-down list below, since that's an assumption, not a confirmed fact. Alive / Deceased reflects each author's status as of today, not at the time their pick was written.</p>
+      <div class="panel panel-grid panel-grid-6">
         <div>
           <div class="subsection-title">Repeat authors (2+ picks)</div>
 __AUTHOR_CHART__
@@ -604,6 +605,10 @@ __BIPOC_CHART__
         <div>
           <div class="subsection-title">Author age (at writing)</div>
 __AGE_CHART__
+        </div>
+        <div>
+          <div class="subsection-title">Alive / Deceased</div>
+__ALIVE_CHART__
         </div>
       </div>
     </div>
@@ -712,7 +717,7 @@ __HAB_ROWS__
           if (b.inferred) anyInferred = true;
           var m = document.createElement("span");
           m.className = "drill-book-meta";
-          m.textContent = b.author + (b.trans ? " 🏳️‍⚧️" : "") + " · " + b.month;
+          m.textContent = b.author + (b.life_note ? " " + b.life_note : "") + (b.trans ? " 🏳️‍⚧️" : "") + " · " + b.month;
           if (b.trans) anyTrans = true;
           li.appendChild(t);
           li.appendChild(m);
