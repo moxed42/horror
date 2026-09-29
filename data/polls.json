@@ -1394,7 +1394,7 @@
       "poll_submissions": 18,
       "total_option_votes": 27,
       "average_votes_per_person": 1.5,
-      "data_quality": "complete_current",
+      "data_quality": "complete",
       "options": [
         {
           "title": "Ring",
@@ -1442,7 +1442,7 @@
       "poll_submissions": 13,
       "total_option_votes": 18,
       "average_votes_per_person": 1.4,
-      "data_quality": "complete_current",
+      "data_quality": "complete",
       "options": [
         {
           "title": "The Secret Life of Insects",
@@ -1478,6 +1478,102 @@
           "canonical_author": "Alexander Pushkin",
           "votes": 5,
           "percentage": 28,
+          "is_winner": false
+        }
+      ]
+    },
+    {
+      "archive_month": "2026-10",
+      "poll_date": "2026-09-29",
+      "poll_type": "book",
+      "unique_voters": 19,
+      "poll_submissions": 19,
+      "total_option_votes": 30,
+      "average_votes_per_person": 1.6,
+      "data_quality": "complete_current",
+      "options": [
+        {
+          "title": "Red Dragon",
+          "canonical_title": "Red Dragon",
+          "author": "Thomas Harris",
+          "canonical_author": "Thomas Harris",
+          "votes": 10,
+          "percentage": 33,
+          "is_winner": true
+        },
+        {
+          "title": "Clown in a Cornfield",
+          "canonical_title": "Clown in a Cornfield",
+          "author": "Adam Cesare",
+          "canonical_author": "Adam Cesare",
+          "votes": 7,
+          "percentage": 23,
+          "is_winner": false
+        },
+        {
+          "title": "I Was a Teenage Slasher",
+          "canonical_title": "I Was a Teenage Slasher",
+          "author": "Stephen Graham Jones",
+          "canonical_author": "Stephen Graham Jones",
+          "votes": 7,
+          "percentage": 23,
+          "is_winner": false
+        },
+        {
+          "title": "The Butterfly Garden",
+          "canonical_title": "The Butterfly Garden",
+          "author": "Dot Hutchison",
+          "canonical_author": "Dot Hutchison",
+          "votes": 6,
+          "percentage": 20,
+          "is_winner": false
+        }
+      ]
+    },
+    {
+      "archive_month": "2026-10",
+      "poll_date": "2026-09-29",
+      "poll_type": "short_story",
+      "unique_voters": 18,
+      "poll_submissions": 18,
+      "total_option_votes": 29,
+      "average_votes_per_person": 1.6,
+      "data_quality": "complete_current",
+      "options": [
+        {
+          "title": "The October Games",
+          "canonical_title": "The October Game",
+          "author": "Ray Bradbury",
+          "canonical_author": "Ray Bradbury",
+          "votes": 7,
+          "percentage": 24,
+          "is_winner": false
+        },
+        {
+          "title": "The Midnight Meat Train",
+          "canonical_title": "The Midnight Meat Train",
+          "author": "Clive Barker",
+          "canonical_author": "Clive Barker",
+          "votes": 14,
+          "percentage": 48,
+          "is_winner": true
+        },
+        {
+          "title": "Hostel",
+          "canonical_title": "Hostel",
+          "author": "Fiona McFarlane",
+          "canonical_author": "Fiona McFarlane",
+          "votes": 3,
+          "percentage": 10,
+          "is_winner": false
+        },
+        {
+          "title": "Mindf*ck #1 The Risk",
+          "canonical_title": "The Risk",
+          "author": "S.T. Abby",
+          "canonical_author": "S.T. Abby",
+          "votes": 5,
+          "percentage": 17,
           "is_winner": false
         }
       ]
