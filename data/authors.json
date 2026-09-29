@@ -322,5 +322,23 @@
   "William Peter Blatty": {
     "gender": "man",
     "birth_year": 1928
+  },
+  "Thomas Harris": {
+    "gender": "man",
+    "birth_year": 1940
+  },
+  "Adam Cesare": {
+    "gender": "man",
+    "birth_year": 1988
+  },
+  "Dot Hutchison": {
+    "gender": "woman"
+  },
+  "Fiona McFarlane": {
+    "gender": "woman",
+    "birth_year": 1978
+  },
+  "S.T. Abby": {
+    "gender": "woman"
   }
 }
