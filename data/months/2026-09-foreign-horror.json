@@ -118,7 +118,8 @@
       "warnings": "Existential/cosmic dread, grief, brief unsettling body imagery.",
       "is_winner": false,
       "origin": "Argentina",
-      "age_category": "Adult"
+      "age_category": "Adult",
+      "avg_rating": "4.3\u2605"
     },
     {
       "type": "Short story",
@@ -134,7 +135,8 @@
       "warnings": "Non-consensual voyeurism/stalking, sexual undertones, psychological horror, themes of obsession and dehumanization.",
       "is_winner": true,
       "origin": "Japan",
-      "age_category": "Adult"
+      "age_category": "Adult",
+      "avg_rating": "3.9\u2605"
     },
     {
       "type": "Short story",
@@ -150,7 +152,8 @@
       "warnings": "Death (elderly character frightened to death), manipulation/coercion, gambling addiction, descent into madness/institutionalization.",
       "is_winner": false,
       "origin": "Russia",
-      "age_category": "Adult"
+      "age_category": "Adult",
+      "avg_rating": "3.9\u2605"
     }
   ],
   "novels_subtitle": "Choose one full\u2011length import for the month.",

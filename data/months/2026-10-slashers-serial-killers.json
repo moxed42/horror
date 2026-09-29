@@ -11,12 +11,12 @@
       "author": "Thomas Harris (1981)",
       "pages": "~450 pages",
       "debut_label": "Debut novel: No",
-      "avg_rating": "4.1★",
+      "avg_rating": "4.1\u2605",
       "theme_fit": 5,
       "cw_tier": "extreme",
       "cw_label": "Extreme",
       "vibe": "The procedural that invented the modern serial-killer thriller, cold and clinical right up until it isn't.",
-      "summary": "Retired FBI profiler Will Graham is pulled back into the field to catch the “Tooth Fairy,” a killer who murders entire families under the light of the full moon. To understand the killer's mind, Graham has to consult the one man who understands it best: Hannibal Lecter, the imprisoned psychiatrist whose capture nearly destroyed him. The book that introduced Lecter to readers, it's less about gore than the slow, disquieting intimacy of hunting a mind like your own.",
+      "summary": "Retired FBI profiler Will Graham is pulled back into the field to catch the \u201cTooth Fairy,\u201d a killer who murders entire families under the light of the full moon. To understand the killer's mind, Graham has to consult the one man who understands it best: Hannibal Lecter, the imprisoned psychiatrist whose capture nearly destroyed him. The book that introduced Lecter to readers, it's less about gore than the slow, disquieting intimacy of hunting a mind like your own.",
       "warnings": "Graphic violence, murder of children and families, child abuse (backstory), sexual violence, animal death, mental illness portrayed as monstrous.",
       "is_winner": true,
       "is_hab": true,
@@ -24,7 +24,12 @@
       "age_category": "Adult",
       "series": {
         "name": "Hannibal Lecter",
-        "books": ["Red Dragon", "The Silence of the Lambs", "Hannibal", "Hannibal Rising"]
+        "books": [
+          "Red Dragon",
+          "The Silence of the Lambs",
+          "Hannibal",
+          "Hannibal Rising"
+        ]
       }
     },
     {
@@ -33,7 +38,7 @@
       "author": "Adam Cesare (2020)",
       "pages": "~350 pages",
       "debut_label": "Debut novel: No",
-      "avg_rating": "3.7★",
+      "avg_rating": "3.7\u2605",
       "theme_fit": 5,
       "cw_tier": "extreme",
       "cw_label": "Extreme",
@@ -58,12 +63,12 @@
       "author": "Stephen Graham Jones (2024)",
       "pages": "~380 pages",
       "debut_label": "Debut novel: No",
-      "avg_rating": "3.5★",
+      "avg_rating": "3.5\u2605",
       "theme_fit": 5,
       "cw_tier": "moderate",
       "cw_label": "Heavy",
       "vibe": "A slasher told from inside the killer's own head, equal parts elegy and body count.",
-      "summary": "Tolly Driver is a quiet, overlooked seventeen-year-old in 1989 Lamesa, Texas, until one violent night rewires him into something else entirely, and he starts a summer-long killing spree he can't fully control. Narrated decades later by Tolly himself, looking back with real grief and real menace, it's a slasher novel that loves and dissects the genre from the inside — sympathetic to its “final girl” structure even as it centers the monster.",
+      "summary": "Tolly Driver is a quiet, overlooked seventeen-year-old in 1989 Lamesa, Texas, until one violent night rewires him into something else entirely, and he starts a summer-long killing spree he can't fully control. Narrated decades later by Tolly himself, looking back with real grief and real menace, it's a slasher novel that loves and dissects the genre from the inside \u2014 sympathetic to its \u201cfinal girl\u201d structure even as it centers the monster.",
       "warnings": "Graphic violence and gore, teen death, homophobia, racism, animal death, self-loathing/dissociation.",
       "is_winner": false,
       "origin": "United States",
@@ -75,7 +80,7 @@
       "author": "Dot Hutchison (2016)",
       "pages": "~280 pages",
       "debut_label": "Debut novel: Yes",
-      "avg_rating": "4.1★",
+      "avg_rating": "4.1\u2605",
       "theme_fit": 4,
       "cw_tier": "extreme",
       "cw_label": "Extreme",
@@ -87,7 +92,11 @@
       "age_category": "Adult",
       "series": {
         "name": "The Collector",
-        "books": ["The Butterfly Garden", "The Roses of May", "The Summer Children"]
+        "books": [
+          "The Butterfly Garden",
+          "The Roses of May",
+          "The Summer Children"
+        ]
       }
     }
   ],
@@ -99,7 +108,7 @@
       "author": "Ray Bradbury (1948)",
       "pages": "~10 pages",
       "debut_label": "Debut book: No",
-      "avg_rating": "N/A",
+      "avg_rating": "4.1\u2605",
       "theme_fit": 3,
       "cw_tier": "extreme",
       "cw_label": "Extreme",
@@ -116,12 +125,12 @@
       "author": "Clive Barker (1984)",
       "pages": "~40 pages",
       "debut_label": "Debut book: No",
-      "avg_rating": "4.1★",
+      "avg_rating": "4.1\u2605",
       "theme_fit": 5,
       "cw_tier": "extreme",
       "cw_label": "Extreme",
       "vibe": "Grimy, gore-soaked New York subway horror that turns a straightforward serial-killer hunt into full-blown urban mythology.",
-      "summary": "Leon, a New Yorker disillusioned with the city he moved to, becomes obsessed with a string of brutal, ritualistic murders happening on the subway after dark. His investigation leads him underground into the true, monstrous machinery behind the killings — something far older and stranger than a lone human predator. Classic Barker: visceral, unflinching, and more interested in what feeds on the city than in easy answers.",
+      "summary": "Leon, a New Yorker disillusioned with the city he moved to, becomes obsessed with a string of brutal, ritualistic murders happening on the subway after dark. His investigation leads him underground into the true, monstrous machinery behind the killings \u2014 something far older and stranger than a lone human predator. Classic Barker: visceral, unflinching, and more interested in what feeds on the city than in easy answers.",
       "warnings": "Extreme graphic violence and gore, mass murder, body horror, ritualistic killing.",
       "is_winner": true,
       "origin": "United Kingdom",
@@ -133,12 +142,12 @@
       "author": "Fiona McFarlane (2024)",
       "pages": "~15 pages",
       "debut_label": "Debut book: No",
-      "avg_rating": "N/A",
+      "avg_rating": "3.7\u2605",
       "theme_fit": 4,
       "cw_tier": "moderate",
       "cw_label": "Heavy",
       "vibe": "A quiet, unsettling New Yorker story where a stranger's murder becomes an uncomfortable mirror for the narrator's own life.",
-      "summary": "A woman recalls the night she and her husband found a Swiss backpacker crying outside a hostel — a young woman who was murdered not long after. Retelling the story becomes a habit for the couple, and the narrator increasingly imagines herself into the dead woman's place, using the tragedy to examine her own marriage and desires. Less a whodunit than a slow, voyeuristic unease about proximity to violence.",
+      "summary": "A woman recalls the night she and her husband found a Swiss backpacker crying outside a hostel \u2014 a young woman who was murdered not long after. Retelling the story becomes a habit for the couple, and the narrator increasingly imagines herself into the dead woman's place, using the tragedy to examine her own marriage and desires. Less a whodunit than a slow, voyeuristic unease about proximity to violence.",
       "warnings": "Murder of a young woman (backstory/off-page), voyeurism, marital dissatisfaction, mild sexual content.",
       "is_winner": false,
       "origin": "Australia",
@@ -150,7 +159,7 @@
       "author": "S.T. Abby (2016)",
       "pages": "~130 pages",
       "debut_label": "Debut book: No",
-      "avg_rating": "4.2★",
+      "avg_rating": "4.2\u2605",
       "theme_fit": 5,
       "cw_tier": "extreme",
       "cw_label": "Extreme",
@@ -162,7 +171,13 @@
       "age_category": "Adult",
       "series": {
         "name": "Mindf*ck",
-        "books": ["The Risk", "Sidetracked", "Scarlet Angel", "All The Lies", "Paint It All Red"]
+        "books": [
+          "The Risk",
+          "Sidetracked",
+          "Scarlet Angel",
+          "All The Lies",
+          "Paint It All Red"
+        ]
       }
     }
   ],

@@ -1,5 +1,5 @@
 {
-  "_note": "Only publicly self-identified info is recorded here (author bios, interviews, own statements). Anything not confidently sourced is left \"unknown\" rather than guessed — do not infer from names, nationality, or vibes. Exception: for lgbtq/bipoc specifically, only add a confirmed \"yes\" here — don't add \"no\"/\"straight\" entries. The stats page's build script (scripts/build.py) already treats no entry as \"no\" for just those two fields (nobody issues a statement confirming they're straight, so requiring one is an impossible bar); gender and birth_year keep the normal unknown-until-confirmed rule.",
+  "_note": "Only publicly self-identified info is recorded here (author bios, interviews, own statements). Anything not confidently sourced is left \"unknown\" rather than guessed \u2014 do not infer from names, nationality, or vibes. Exception: for lgbtq/bipoc specifically, only add a confirmed \"yes\" here \u2014 don't add \"no\"/\"straight\" entries. The stats page's build script (scripts/build.py) already treats no entry as \"no\" for just those two fields (nobody issues a statement confirming they're straight, so requiring one is an impossible bar); gender and birth_year keep the normal unknown-until-confirmed rule.",
   "Adam Nevill": {
     "gender": "man",
     "birth_year": 1969,
@@ -250,7 +250,7 @@
     "bipoc": "yes",
     "alive": true
   },
-  "Kōji Suzuki": {
+  "K\u014dji Suzuki": {
     "gender": "man",
     "birth_year": 1957,
     "bipoc": "yes",
@@ -267,7 +267,7 @@
     "birth_year": 1959,
     "alive": true
   },
-  "Mariana Enríquez": {
+  "Mariana Enr\u00edquez": {
     "gender": "woman",
     "birth_year": 1973,
     "alive": true
@@ -311,13 +311,13 @@
     "alive": false,
     "death_year": 2006
   },
-  "P. Djèlí Clark": {
+  "P. Dj\u00e8l\u00ed Clark": {
     "gender": "man",
     "bipoc": "yes",
     "alive": true,
     "birth_year": 1971
   },
-  "Peadar Ó Guilín": {
+  "Peadar \u00d3 Guil\u00edn": {
     "gender": "man",
     "alive": true
   },
@@ -349,7 +349,7 @@
     "birth_year": 1940,
     "alive": true
   },
-  "Ryū Murakami": {
+  "Ry\u016b Murakami": {
     "gender": "man",
     "birth_year": 1952,
     "alive": true
@@ -461,32 +461,47 @@
   "S.T. Abby": {
     "gender": "woman",
     "alive": false,
-    "death_year": 2021
+    "death_year": 2021,
+    "age_at_death": 37
   },
   "Bernardo Esquinca": {
     "alive": true,
-    "birth_year": 1972
+    "birth_year": 1972,
+    "gender": "man"
   },
-  "C.M. Kośemen": {
+  "C.M. Ko\u015bemen": {
     "alive": true,
-    "birth_year": 1984
+    "birth_year": 1984,
+    "gender": "man"
   },
   "Christian Wallis": {
-    "alive": true
+    "alive": true,
+    "gender": "man"
   },
   "John Shirley": {
     "alive": true,
-    "birth_year": 1953
+    "birth_year": 1953,
+    "gender": "man"
   },
   "T.J. Payne": {
-    "alive": true
+    "alive": true,
+    "gender": "man"
   },
   "William Gibson": {
     "alive": true,
-    "birth_year": 1948
+    "birth_year": 1948,
+    "gender": "man"
   },
   "qntm": {
     "alive": true,
-    "birth_year": 1983
+    "birth_year": 1983,
+    "gender": "man"
+  },
+  "P.H. Lee": {
+    "gender": "nonbinary",
+    "alive": true
+  },
+  "EmpyrealInvective": {
+    "alive": true
   }
 }

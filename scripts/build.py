@@ -531,7 +531,11 @@ def _aggregate_books(all_books: list, authors: dict) -> dict:
             death_year = info.get("death_year")
             life_note = ""
             if life_key == "deceased" and death_year:
-                age_at_death = death_year - info["birth_year"] if info.get("birth_year") else None
+                age_at_death = (
+                    info["age_at_death"] if info.get("age_at_death") is not None
+                    else death_year - info["birth_year"] if info.get("birth_year")
+                    else None
+                )
                 life_note = (
                     f"(d. {death_year}, age {age_at_death})" if age_at_death is not None
                     else f"(d. {death_year})"
