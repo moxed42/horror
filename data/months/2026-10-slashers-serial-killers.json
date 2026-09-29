@@ -18,7 +18,8 @@
       "vibe": "The procedural that invented the modern serial-killer thriller, cold and clinical right up until it isn't.",
       "summary": "Retired FBI profiler Will Graham is pulled back into the field to catch the “Tooth Fairy,” a killer who murders entire families under the light of the full moon. To understand the killer's mind, Graham has to consult the one man who understands it best: Hannibal Lecter, the imprisoned psychiatrist whose capture nearly destroyed him. The book that introduced Lecter to readers, it's less about gore than the slow, disquieting intimacy of hunting a mind like your own.",
       "warnings": "Graphic violence, murder of children and families, child abuse (backstory), sexual violence, animal death, mental illness portrayed as monstrous.",
-      "is_winner": false,
+      "is_winner": true,
+      "is_hab": true,
       "origin": "United States",
       "age_category": "Adult",
       "series": {
@@ -122,7 +123,7 @@
       "vibe": "Grimy, gore-soaked New York subway horror that turns a straightforward serial-killer hunt into full-blown urban mythology.",
       "summary": "Leon, a New Yorker disillusioned with the city he moved to, becomes obsessed with a string of brutal, ritualistic murders happening on the subway after dark. His investigation leads him underground into the true, monstrous machinery behind the killings — something far older and stranger than a lone human predator. Classic Barker: visceral, unflinching, and more interested in what feeds on the city than in easy answers.",
       "warnings": "Extreme graphic violence and gore, mass murder, body horror, ritualistic killing.",
-      "is_winner": false,
+      "is_winner": true,
       "origin": "United Kingdom",
       "age_category": "Adult"
     },
