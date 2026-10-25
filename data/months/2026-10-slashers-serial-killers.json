@@ -30,7 +30,9 @@
           "Hannibal",
           "Hannibal Rising"
         ]
-      }
+      },
+      "club_rating": 3.4,
+      "club_rating_count": 9
     },
     {
       "type": "Novel",
