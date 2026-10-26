@@ -20,7 +20,19 @@
       "origin": "United Kingdom",
       "warnings": "Death, psychological manipulation and gaslighting, domestic abuse themes, suicide (referenced), fire.",
       "is_winner": false,
-      "age_category": "Adult"
+      "age_category": "Adult",
+      "adaptations": [
+        {
+          "type": "Film",
+          "title": "Rebecca",
+          "year": 1940
+        },
+        {
+          "type": "Film",
+          "title": "Rebecca",
+          "year": 2020
+        }
+      ]
     },
     {
       "type": "Novel",
@@ -38,7 +50,19 @@
       "warnings": "Death of children (implied/ambiguous), psychological horror, child endangerment, ambiguous supernatural threat.",
       "is_winner": false,
       "is_hab": true,
-      "age_category": "Adult"
+      "age_category": "Adult",
+      "adaptations": [
+        {
+          "type": "Film",
+          "title": "The Innocents",
+          "year": 1961
+        },
+        {
+          "type": "Film",
+          "title": "The Turning",
+          "year": 2020
+        }
+      ]
     },
     {
       "type": "Novel",
@@ -72,7 +96,24 @@
       "origin": "United States",
       "warnings": "Suicide (by hanging and by car collision), suicidal ideation, mental illness/psychosis, gaslighting, death of a parent (off-page).",
       "is_winner": false,
-      "age_category": "Adult"
+      "age_category": "Adult",
+      "adaptations": [
+        {
+          "type": "Film",
+          "title": "The Haunting",
+          "year": 1963
+        },
+        {
+          "type": "Film",
+          "title": "The Haunting",
+          "year": 1999
+        },
+        {
+          "type": "TV series",
+          "title": "The Haunting of Hill House",
+          "year": 2018
+        }
+      ]
     }
   ],
   "short_works": [
@@ -92,7 +133,19 @@
       "warnings": "Death, premature burial, mental illness/psychological horror, familial decline, implied incestuous undertones.",
       "is_winner": true,
       "is_hab": true,
-      "age_category": "Adult"
+      "age_category": "Adult",
+      "adaptations": [
+        {
+          "type": "Film",
+          "title": "House of Usher",
+          "year": 1960
+        },
+        {
+          "type": "TV miniseries",
+          "title": "The Fall of the House of Usher",
+          "year": 2023
+        }
+      ]
     },
     {
       "type": "Short story",

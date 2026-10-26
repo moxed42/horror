@@ -32,7 +32,24 @@
         ]
       },
       "club_rating": 3.4,
-      "club_rating_count": 9
+      "club_rating_count": 9,
+      "adaptations": [
+        {
+          "type": "Film",
+          "title": "Manhunter",
+          "year": 1986
+        },
+        {
+          "type": "Film",
+          "title": "Red Dragon",
+          "year": 2002
+        },
+        {
+          "type": "TV series",
+          "title": "Hannibal",
+          "year": 2013
+        }
+      ]
     },
     {
       "type": "Novel",
@@ -57,7 +74,14 @@
           "Clown in a Cornfield 2: Frendo Lives",
           "Clown in a Cornfield 3: The Church of Frendo"
         ]
-      }
+      },
+      "adaptations": [
+        {
+          "type": "Film",
+          "title": "Clown in a Cornfield",
+          "year": 2025
+        }
+      ]
     },
     {
       "type": "Novel",
@@ -136,7 +160,14 @@
       "warnings": "Extreme graphic violence and gore, mass murder, body horror, ritualistic killing.",
       "is_winner": true,
       "origin": "United Kingdom",
-      "age_category": "Adult"
+      "age_category": "Adult",
+      "adaptations": [
+        {
+          "type": "Film",
+          "title": "The Midnight Meat Train",
+          "year": 2008
+        }
+      ]
     },
     {
       "type": "Short story",

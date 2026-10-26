@@ -54,7 +54,14 @@
       "origin": "South Korea",
       "warnings": "Sexual violence, force-feeding, self-harm, domestic and family violence, disordered eating, psychiatric institutionalization.",
       "is_winner": true,
-      "age_category": "Adult"
+      "age_category": "Adult",
+      "adaptations": [
+        {
+          "type": "Film",
+          "title": "The Vegetarian",
+          "year": 2009
+        }
+      ]
     },
     {
       "type": "Novel",
@@ -141,7 +148,24 @@
       "origin": "United States",
       "warnings": "Body horror, graphic violence, identity/body-snatching themes, period-typical racial homogeneity in characterization.",
       "is_winner": false,
-      "age_category": "Adult"
+      "age_category": "Adult",
+      "adaptations": [
+        {
+          "type": "Film",
+          "title": "The Thing from Another World",
+          "year": 1951
+        },
+        {
+          "type": "Film",
+          "title": "The Thing",
+          "year": 1982
+        },
+        {
+          "type": "Film",
+          "title": "The Thing",
+          "year": 2011
+        }
+      ]
     }
   ]
 }

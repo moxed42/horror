@@ -28,7 +28,14 @@
           "Acceptance",
           "Absolution"
         ]
-      }
+      },
+      "adaptations": [
+        {
+          "type": "Film",
+          "title": "Annihilation",
+          "year": 2018
+        }
+      ]
     },
     {
       "type": "Novel",

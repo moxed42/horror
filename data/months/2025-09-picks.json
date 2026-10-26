@@ -36,7 +36,14 @@
       "warnings": "Body horror (aging/transformation), period-typical sexism, mild violence, thematic dread rather than graphic content.",
       "is_winner": false,
       "book_theme": "Dark Carnival",
-      "age_category": "Adult"
+      "age_category": "Adult",
+      "adaptations": [
+        {
+          "type": "Film",
+          "title": "Something Wicked This Way Comes",
+          "year": 1983
+        }
+      ]
     },
     {
       "type": "Novel",
@@ -60,7 +67,19 @@
           "The Exorcist",
           "Legion"
         ]
-      }
+      },
+      "adaptations": [
+        {
+          "type": "Film",
+          "title": "The Exorcist",
+          "year": 1973
+        },
+        {
+          "type": "TV series",
+          "title": "The Exorcist",
+          "year": 2016
+        }
+      ]
     },
     {
       "type": "Novel",
@@ -77,7 +96,24 @@
       "warnings": "Suicide (by hanging and by car collision), suicidal ideation, mental illness/psychosis, gaslighting, death of a parent (off-page).",
       "is_winner": false,
       "book_theme": "Haunted House",
-      "age_category": "Adult"
+      "age_category": "Adult",
+      "adaptations": [
+        {
+          "type": "Film",
+          "title": "The Haunting",
+          "year": 1963
+        },
+        {
+          "type": "Film",
+          "title": "The Haunting",
+          "year": 1999
+        },
+        {
+          "type": "TV series",
+          "title": "The Haunting of Hill House",
+          "year": 2018
+        }
+      ]
     }
   ],
   "short_works": [
@@ -96,7 +132,19 @@
       "warnings": "Stoning/mob violence, animal cruelty (referenced), death.",
       "book_theme": "Folk Horror",
       "is_hab": true,
-      "age_category": "Adult"
+      "age_category": "Adult",
+      "adaptations": [
+        {
+          "type": "Short film",
+          "title": "The Lottery",
+          "year": 1969
+        },
+        {
+          "type": "TV film",
+          "title": "The Lottery",
+          "year": 1996
+        }
+      ]
     },
     {
       "type": "Short story",
@@ -130,7 +178,14 @@
       "is_winner": true,
       "book_theme": "Psychological Horror",
       "is_hab": true,
-      "age_category": "Adult"
+      "age_category": "Adult",
+      "adaptations": [
+        {
+          "type": "Film",
+          "title": "Smooth Talk",
+          "year": 1985
+        }
+      ]
     }
   ]
 }

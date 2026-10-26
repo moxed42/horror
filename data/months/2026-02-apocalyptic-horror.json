@@ -21,7 +21,14 @@
       "warnings": "Cannibalism, graphic violence, death of a parent (implied ending), starvation, suicide, child endangerment.",
       "is_winner": true,
       "is_hab": true,
-      "age_category": "Adult"
+      "age_category": "Adult",
+      "adaptations": [
+        {
+          "type": "Film",
+          "title": "The Road",
+          "year": 2009
+        }
+      ]
     },
     {
       "type": "Novel",
@@ -138,7 +145,14 @@
       "summary": "In the aftermath of a nuclear war, an automated house in Allendale, California continues its daily rituals \u2014 cooking, cleaning, reading poetry \u2014 for a family that no longer exists, their shadows burned into the exterior wall. The story builds a melancholy, understated dread as the house's mechanical routines wind toward their own end.",
       "origin": "United States",
       "warnings": "Nuclear apocalypse themes, implied mass death, house fire, existential dread.",
-      "age_category": "Adult"
+      "age_category": "Adult",
+      "adaptations": [
+        {
+          "type": "Animated short",
+          "title": "There Will Come Soft Rains",
+          "year": 1984
+        }
+      ]
     },
     {
       "type": "Short story",
@@ -154,7 +168,14 @@
       "summary": "In a future where humanity lives isolated underground, entirely dependent on an omniscient Machine for communication, sustenance, and belief itself, a young man's forbidden yearning to see the surface world puts him at odds with his mother and society. As the Machine begins to break down, the consequences prove civilization-ending.",
       "origin": "United Kingdom",
       "warnings": "Societal collapse, death, isolation themes, mild peril.",
-      "age_category": "Adult"
+      "age_category": "Adult",
+      "adaptations": [
+        {
+          "type": "TV episode",
+          "title": "Out of the Unknown: The Machine Stops",
+          "year": 1966
+        }
+      ]
     }
   ]
 }

@@ -34,7 +34,14 @@
           "The Sandman: The Kindly Ones",
           "The Sandman: The Wake"
         ]
-      }
+      },
+      "adaptations": [
+        {
+          "type": "TV series",
+          "title": "The Sandman",
+          "year": 2022
+        }
+      ]
     },
     {
       "type": "Novel",
@@ -79,7 +86,19 @@
           "S",
           "Tide"
         ]
-      }
+      },
+      "adaptations": [
+        {
+          "type": "Film",
+          "title": "Ringu",
+          "year": 1998
+        },
+        {
+          "type": "Film",
+          "title": "The Ring",
+          "year": 2002
+        }
+      ]
     },
     {
       "type": "Novel",
@@ -96,7 +115,24 @@
       "warnings": "Suicide (by hanging and by car collision), suicidal ideation, mental illness/psychosis, gaslighting, death of a parent (off-page).",
       "is_winner": false,
       "book_theme": "Haunted House",
-      "age_category": "Adult"
+      "age_category": "Adult",
+      "adaptations": [
+        {
+          "type": "Film",
+          "title": "The Haunting",
+          "year": 1963
+        },
+        {
+          "type": "Film",
+          "title": "The Haunting",
+          "year": 1999
+        },
+        {
+          "type": "TV series",
+          "title": "The Haunting of Hill House",
+          "year": 2018
+        }
+      ]
     }
   ]
 }

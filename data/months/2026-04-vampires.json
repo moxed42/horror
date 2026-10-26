@@ -54,7 +54,24 @@
       "origin": "Sweden",
       "warnings": "Child abuse, pedophilia (a major adult character), graphic violence, animal death, self-harm, body horror, bullying.",
       "is_winner": false,
-      "age_category": "Adult"
+      "age_category": "Adult",
+      "adaptations": [
+        {
+          "type": "Film",
+          "title": "Let the Right One In",
+          "year": 2008
+        },
+        {
+          "type": "Film",
+          "title": "Let Me In",
+          "year": 2010
+        },
+        {
+          "type": "TV series",
+          "title": "Let the Right One In",
+          "year": 2022
+        }
+      ]
     },
     {
       "type": "Novel",
@@ -123,7 +140,19 @@
       "origin": "Ireland",
       "warnings": "Vampirism/blood-drinking, death, illness, predatory undertones, period-typical treatment of female sexuality and class.",
       "is_winner": true,
-      "age_category": "Adult"
+      "age_category": "Adult",
+      "adaptations": [
+        {
+          "type": "Film",
+          "title": "The Vampire Lovers",
+          "year": 1970
+        },
+        {
+          "type": "Film",
+          "title": "Carmilla",
+          "year": 2019
+        }
+      ]
     },
     {
       "type": "Short story",

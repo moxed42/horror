@@ -87,7 +87,29 @@
       "warnings": "Violence and death, paranoia, loss of identity, period-typical sexism.",
       "is_winner": false,
       "origin": "United States",
-      "age_category": "Adult"
+      "age_category": "Adult",
+      "adaptations": [
+        {
+          "type": "Film",
+          "title": "Invasion of the Body Snatchers",
+          "year": 1956
+        },
+        {
+          "type": "Film",
+          "title": "Invasion of the Body Snatchers",
+          "year": 1978
+        },
+        {
+          "type": "Film",
+          "title": "Body Snatchers",
+          "year": 1993
+        },
+        {
+          "type": "Film",
+          "title": "The Invasion",
+          "year": 2007
+        }
+      ]
     }
   ],
   "short_works": [
@@ -123,7 +145,14 @@
       "warnings": "Animal cruelty (including a puppy), graphic violence and gore, torture, death.",
       "is_winner": false,
       "origin": "United States",
-      "age_category": "Adult"
+      "age_category": "Adult",
+      "adaptations": [
+        {
+          "type": "TV episode",
+          "title": "The Outer Limits: The Sandkings",
+          "year": 1995
+        }
+      ]
     },
     {
       "type": "Short story",
@@ -157,7 +186,14 @@
       "warnings": "Graphic gore, detailed dissection and body horror, parasitic possession, terminal illness, violence, death.",
       "is_winner": true,
       "origin": "United States",
-      "age_category": "Adult"
+      "age_category": "Adult",
+      "adaptations": [
+        {
+          "type": "TV episode",
+          "title": "Cabinet of Curiosities: The Autopsy",
+          "year": 2022
+        }
+      ]
     }
   ],
   "novels_subtitle": "Pick your favorite way to meet the future.",

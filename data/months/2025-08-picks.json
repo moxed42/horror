@@ -77,7 +77,19 @@
           "The Exorcist",
           "Legion"
         ]
-      }
+      },
+      "adaptations": [
+        {
+          "type": "Film",
+          "title": "The Exorcist",
+          "year": 1973
+        },
+        {
+          "type": "TV series",
+          "title": "The Exorcist",
+          "year": 2016
+        }
+      ]
     }
   ],
   "short_works": [
@@ -113,7 +125,14 @@
       "warnings": "Graphic violence and gore, body horror, mass murder, psychological manipulation, mob violence.",
       "is_winner": false,
       "book_theme": "Monster Horror",
-      "age_category": "Adult"
+      "age_category": "Adult",
+      "adaptations": [
+        {
+          "type": "Film",
+          "title": "Nightbreed",
+          "year": 1990
+        }
+      ]
     },
     {
       "type": "Short story",
@@ -130,7 +149,19 @@
       "warnings": "Vampirism/blood-drinking, death, illness, predatory undertones, period-typical treatment of female sexuality and class.",
       "is_winner": false,
       "book_theme": "Vampire Horror",
-      "age_category": "Adult"
+      "age_category": "Adult",
+      "adaptations": [
+        {
+          "type": "Film",
+          "title": "The Vampire Lovers",
+          "year": 1970
+        },
+        {
+          "type": "Film",
+          "title": "Carmilla",
+          "year": 2019
+        }
+      ]
     }
   ]
 }

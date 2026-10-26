@@ -90,7 +90,19 @@
       "is_winner": true,
       "book_theme": "Psychological Horror",
       "is_hab": true,
-      "age_category": "Adult"
+      "age_category": "Adult",
+      "adaptations": [
+        {
+          "type": "TV film",
+          "title": "The Yellow Wallpaper",
+          "year": 1989
+        },
+        {
+          "type": "Film",
+          "title": "The Yellow Wallpaper",
+          "year": 2022
+        }
+      ]
     }
   ]
 }

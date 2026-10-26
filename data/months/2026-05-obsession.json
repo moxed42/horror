@@ -51,7 +51,14 @@
       "origin": "United States",
       "warnings": "Graphic torture (including amputation), confinement, addiction, substance abuse, violence, psychological abuse.",
       "is_winner": false,
-      "age_category": "Adult"
+      "age_category": "Adult",
+      "adaptations": [
+        {
+          "type": "Film",
+          "title": "Misery",
+          "year": 1990
+        }
+      ]
     },
     {
       "type": "Novel",
@@ -67,7 +74,14 @@
       "origin": "United Kingdom",
       "warnings": "Graphic violence and gore, body horror, mass murder, psychological manipulation, mob violence.",
       "is_winner": true,
-      "age_category": "Adult"
+      "age_category": "Adult",
+      "adaptations": [
+        {
+          "type": "Film",
+          "title": "Nightbreed",
+          "year": 1990
+        }
+      ]
     }
   ],
   "short_works": [

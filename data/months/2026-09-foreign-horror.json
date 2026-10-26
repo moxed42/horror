@@ -33,7 +33,19 @@
           "S",
           "Tide"
         ]
-      }
+      },
+      "adaptations": [
+        {
+          "type": "Film",
+          "title": "Ringu",
+          "year": 1998
+        },
+        {
+          "type": "Film",
+          "title": "The Ring",
+          "year": 2002
+        }
+      ]
     },
     {
       "type": "Novel",
@@ -50,7 +62,14 @@
       "warnings": "Graphic violence, self-harm, child abuse (referenced), domestic/childhood abuse, sexual content, suicidal ideation, body horror.",
       "is_winner": false,
       "origin": "Japan",
-      "age_category": "Adult"
+      "age_category": "Adult",
+      "adaptations": [
+        {
+          "type": "Film",
+          "title": "Piercing",
+          "year": 2018
+        }
+      ]
     },
     {
       "type": "Novel",
@@ -67,7 +86,24 @@
       "warnings": "Child abuse, pedophilia (a major adult character), graphic violence, animal death, self-harm, body horror, bullying.",
       "is_winner": false,
       "origin": "Sweden",
-      "age_category": "Adult"
+      "age_category": "Adult",
+      "adaptations": [
+        {
+          "type": "Film",
+          "title": "Let the Right One In",
+          "year": 2008
+        },
+        {
+          "type": "Film",
+          "title": "Let Me In",
+          "year": 2010
+        },
+        {
+          "type": "TV series",
+          "title": "Let the Right One In",
+          "year": 2022
+        }
+      ]
     },
     {
       "type": "Novel",
@@ -136,7 +172,14 @@
       "is_winner": true,
       "origin": "Japan",
       "age_category": "Adult",
-      "avg_rating": "3.9\u2605"
+      "avg_rating": "3.9\u2605",
+      "adaptations": [
+        {
+          "type": "Film",
+          "title": "Ningen-isu",
+          "year": 2007
+        }
+      ]
     },
     {
       "type": "Short story",
@@ -153,7 +196,14 @@
       "is_winner": false,
       "origin": "Russia",
       "age_category": "Adult",
-      "avg_rating": "3.9\u2605"
+      "avg_rating": "3.9\u2605",
+      "adaptations": [
+        {
+          "type": "Film",
+          "title": "The Queen of Spades",
+          "year": 1949
+        }
+      ]
     }
   ],
   "novels_subtitle": "Choose one full\u2011length import for the month.",

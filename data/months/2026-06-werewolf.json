@@ -46,7 +46,14 @@
           "The Howling II",
           "The Howling III"
         ]
-      }
+      },
+      "adaptations": [
+        {
+          "type": "Film",
+          "title": "The Howling",
+          "year": 1981
+        }
+      ]
     },
     {
       "type": "Novel",

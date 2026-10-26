@@ -87,3 +87,17 @@ it, e.g. `12`), then re-run
 `python3 scripts/build.py data/months/YYYY-MM-slug.json`. Both fields need
 to be set for it to show — it appears as a `★3.7 (12)` badge next to that
 book's title on the Archive page (`archive/index.html`).
+
+## Screen adaptations
+
+Add an optional `adaptations` list to a book entry to show a "🎬 Adapted" pill on its card:
+
+```json
+"adaptations": [
+  {"type": "Film", "title": "The Exorcist", "year": 1973},
+  {"type": "TV series", "title": "The Exorcist", "year": 2016}
+]
+```
+
+`type` is free text (e.g. Film, TV series, TV film, TV episode, Short film). Only add entries for
+adaptations that credit the book or story as source material.

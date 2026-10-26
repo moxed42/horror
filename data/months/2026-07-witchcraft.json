@@ -135,7 +135,14 @@
       "summary": "A mathematics student rents a room in a notoriously crooked old Arkham house once inhabited by an executed witch, drawn by the building's strange non-Euclidean geometry. His studies of the room's angles begin to open dream-visions of other realities, and of the witch and her monstrous familiar, still very much active.",
       "origin": "United States",
       "warnings": "Child sacrifice, graphic violence, body horror, disturbing occult imagery, period-typical racism.",
-      "age_category": "Adult"
+      "age_category": "Adult",
+      "adaptations": [
+        {
+          "type": "TV episode",
+          "title": "Masters of Horror: Dreams in the Witch House",
+          "year": 2005
+        }
+      ]
     },
     {
       "type": "Short story",
@@ -151,7 +158,19 @@
       "summary": "After a fatal encounter with an old woman who turns out to be a witch, seminarian Khoma Brutus is ordered to keep vigil over her body in a remote church for three nights. Each night grows more nightmarish as the witch's corpse and the demonic forces she commands close in around him.",
       "origin": "Ukraine",
       "warnings": "Death, supernatural/demonic threat, disturbing imagery, religious horror.",
-      "age_category": "Adult"
+      "age_category": "Adult",
+      "adaptations": [
+        {
+          "type": "Film",
+          "title": "Viy",
+          "year": 1967
+        },
+        {
+          "type": "Film",
+          "title": "Viy",
+          "year": 2014
+        }
+      ]
     }
   ]
 }

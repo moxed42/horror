@@ -144,7 +144,14 @@
       "warnings": "Xenophobic and racially-coded \"degeneration\" themes (a well-documented issue in Lovecraft's work), body horror, mob violence, pursuit/chase horror.",
       "is_winner": true,
       "theme_fit": 5,
-      "age_category": "Adult"
+      "age_category": "Adult",
+      "adaptations": [
+        {
+          "type": "Film",
+          "title": "Dagon",
+          "year": 2001
+        }
+      ]
     }
   ],
   "theme": "Nautical Horror"

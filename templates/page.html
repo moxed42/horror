@@ -342,7 +342,7 @@
       background: rgba(5, 6, 16, 0.8);
       border: 1px solid rgba(255, 255, 255, 0.06);
     }
-    .series-pill { position: relative; display: inline-block; margin-top: 6px; }
+    .series-pill { position: relative; display: inline-block; margin-top: 6px; margin-right: 6px; }
     .series-pill summary {
       cursor: pointer;
       list-style: none;
@@ -376,13 +376,22 @@
       color: var(--text-muted);
       margin-bottom: 6px;
     }
-    .series-popover ol {
+    .series-popover ol,
+    .series-popover ul {
       margin: 0;
       padding-left: 18px;
       font-size: 0.85rem;
       display: flex;
       flex-direction: column;
       gap: 4px;
+    }
+    .series-popover ul { list-style: none; padding-left: 0; }
+    .adaptation-type {
+      font-size: 0.68rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--text-muted);
+      margin-right: 4px;
     }
     .series-popover li.series-current {
       color: var(--accent-soft);

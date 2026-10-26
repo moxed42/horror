@@ -342,7 +342,7 @@
       background: rgba(5, 6, 16, 0.8);
       border: 1px solid rgba(255, 255, 255, 0.06);
     }
-    .series-pill { position: relative; display: inline-block; margin-top: 6px; }
+    .series-pill { position: relative; display: inline-block; margin-top: 6px; margin-right: 6px; }
     .series-pill summary {
       cursor: pointer;
       list-style: none;
@@ -376,13 +376,22 @@
       color: var(--text-muted);
       margin-bottom: 6px;
     }
-    .series-popover ol {
+    .series-popover ol,
+    .series-popover ul {
       margin: 0;
       padding-left: 18px;
       font-size: 0.85rem;
       display: flex;
       flex-direction: column;
       gap: 4px;
+    }
+    .series-popover ul { list-style: none; padding-left: 0; }
+    .adaptation-type {
+      font-size: 0.68rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--text-muted);
+      margin-right: 4px;
     }
     .series-popover li.series-current {
       color: var(--accent-soft);
@@ -566,6 +575,15 @@
                   </ol>
                 </div>
               </details>
+              <details class="series-pill adaptation-pill">
+                <summary>🎬 Adapted</summary>
+                <div class="series-popover">
+                  <div class="series-popover-title">Screen adaptations</div>
+                  <ul>
+                    <li><span class="adaptation-type">TV series</span> The Sandman (2022)</li>
+                  </ul>
+                </div>
+              </details>
             </div>
             <div class="theme-score">
               <div class="theme-score-label">Theme</div>
@@ -655,6 +673,16 @@
                   </ol>
                 </div>
               </details>
+              <details class="series-pill adaptation-pill">
+                <summary>🎬 Adapted</summary>
+                <div class="series-popover">
+                  <div class="series-popover-title">Screen adaptations</div>
+                  <ul>
+                    <li><span class="adaptation-type">Film</span> Ringu (1998)</li>
+                    <li><span class="adaptation-type">Film</span> The Ring (2002)</li>
+                  </ul>
+                </div>
+              </details>
             </div>
             <div class="theme-score">
               <div class="theme-score-label">Theme</div>
@@ -692,6 +720,17 @@
                 <span class="meta-pill">Debut novel: No</span>
                 <span class="meta-pill">Avg rating: 3.8★</span>
               </div>
+              <details class="series-pill adaptation-pill">
+                <summary>🎬 Adapted</summary>
+                <div class="series-popover">
+                  <div class="series-popover-title">Screen adaptations</div>
+                  <ul>
+                    <li><span class="adaptation-type">Film</span> The Haunting (1963)</li>
+                    <li><span class="adaptation-type">Film</span> The Haunting (1999)</li>
+                    <li><span class="adaptation-type">TV series</span> The Haunting of Hill House (2018)</li>
+                  </ul>
+                </div>
+              </details>
             </div>
             <div class="theme-score">
               <div class="theme-score-label">Theme</div>

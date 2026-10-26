@@ -71,7 +71,14 @@
       "warnings": "Extreme gore, body horror, suicide, sexual assault, animal death, infection, starvation.",
       "is_winner": false,
       "origin": "United States",
-      "age_category": "Adult"
+      "age_category": "Adult",
+      "adaptations": [
+        {
+          "type": "Film",
+          "title": "The Ruins",
+          "year": 2008
+        }
+      ]
     }
   ],
   "short_works": [
