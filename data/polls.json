@@ -1577,6 +1577,54 @@
           "is_winner": false
         }
       ]
+    },
+    {
+      "archive_month": "2026-11",
+      "poll_date": null,
+      "poll_type": "book",
+      "unique_voters": null,
+      "poll_submissions": null,
+      "total_option_votes": null,
+      "average_votes_per_person": null,
+      "data_quality": "partial",
+      "options": [
+        {
+          "title": "Exoskeleton",
+          "canonical_title": "Exoskeleton",
+          "author": "Shane Stadler",
+          "canonical_author": "Shane Stadler",
+          "votes": 9,
+          "percentage": 39,
+          "is_winner": true
+        },
+        {
+          "title": "There Is No Antimemetics Division",
+          "canonical_title": "There Is No Antimemetics Division",
+          "author": "qntm",
+          "canonical_author": "qntm",
+          "votes": 6,
+          "percentage": 26,
+          "is_winner": false
+        },
+        {
+          "title": "Blood Music",
+          "canonical_title": "Blood Music",
+          "author": "Greg Bear",
+          "canonical_author": "Greg Bear",
+          "votes": 6,
+          "percentage": 26,
+          "is_winner": false
+        },
+        {
+          "title": "The Body Snatchers",
+          "canonical_title": "The Body Snatchers",
+          "author": "Jack Finney",
+          "canonical_author": "Jack Finney",
+          "votes": 2,
+          "percentage": 9,
+          "is_winner": false
+        }
+      ]
     }
   ]
 }
