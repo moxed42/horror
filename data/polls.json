@@ -1580,7 +1580,7 @@
     },
     {
       "archive_month": "2026-11",
-      "poll_date": null,
+      "poll_date": "2026-10-25",
       "poll_type": "book",
       "unique_voters": 16,
       "poll_submissions": 16,
@@ -1628,7 +1628,7 @@
     },
     {
       "archive_month": "2026-11",
-      "poll_date": null,
+      "poll_date": "2026-10-25",
       "poll_type": "short_story",
       "unique_voters": 13,
       "poll_submissions": 13,
