@@ -37,7 +37,16 @@
       "warnings": "Graphic violence and torture, prison setting, human experimentation, government conspiracy themes.",
       "is_winner": true,
       "origin": "United States",
-      "age_category": "Adult"
+      "age_category": "Adult",
+      "series": {
+        "name": "Exoskeleton",
+        "books": [
+          "Exoskeleton",
+          "Exoskeleton II: Tympanum",
+          "Exoskeleton III: Omniscient",
+          "Exoskeleton IV: Revenant"
+        ]
+      }
     },
     {
       "type": "Novel",
