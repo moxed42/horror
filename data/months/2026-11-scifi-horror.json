@@ -20,7 +20,14 @@
       "warnings": "Violence and death, existential/cosmic dread, memory loss, grief, mental distress.",
       "is_winner": false,
       "origin": "United Kingdom",
-      "age_category": "Adult"
+      "age_category": "Adult",
+      "series": {
+        "name": "Antimemetics Division",
+        "books": [
+          "There Is No Antimemetics Division",
+          "Five Five Five Five Five"
+        ]
+      }
     },
     {
       "type": "Novel",
