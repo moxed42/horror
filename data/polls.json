@@ -1582,11 +1582,11 @@
       "archive_month": "2026-11",
       "poll_date": null,
       "poll_type": "book",
-      "unique_voters": null,
-      "poll_submissions": null,
-      "total_option_votes": null,
-      "average_votes_per_person": null,
-      "data_quality": "partial",
+      "unique_voters": 16,
+      "poll_submissions": 16,
+      "total_option_votes": 23,
+      "average_votes_per_person": 1.4,
+      "data_quality": "complete_current",
       "options": [
         {
           "title": "Exoskeleton",
@@ -1630,11 +1630,11 @@
       "archive_month": "2026-11",
       "poll_date": null,
       "poll_type": "short_story",
-      "unique_voters": null,
-      "poll_submissions": null,
-      "total_option_votes": null,
-      "average_votes_per_person": null,
-      "data_quality": "partial",
+      "unique_voters": 13,
+      "poll_submissions": 13,
+      "total_option_votes": 20,
+      "average_votes_per_person": 1.5,
+      "data_quality": "complete_current",
       "options": [
         {
           "title": "The Autopsy",
