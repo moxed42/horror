@@ -1625,6 +1625,54 @@
           "is_winner": false
         }
       ]
+    },
+    {
+      "archive_month": "2026-11",
+      "poll_date": null,
+      "poll_type": "short_story",
+      "unique_voters": null,
+      "poll_submissions": null,
+      "total_option_votes": null,
+      "average_votes_per_person": null,
+      "data_quality": "partial",
+      "options": [
+        {
+          "title": "The Autopsy",
+          "canonical_title": "The Autopsy",
+          "author": "Michael Shea",
+          "canonical_author": "Michael Shea",
+          "votes": 9,
+          "percentage": 45,
+          "is_winner": true
+        },
+        {
+          "title": "All Tomorrows",
+          "canonical_title": "All Tomorrows",
+          "author": "C.M. Kösemen",
+          "canonical_author": "C.M. Kösemen",
+          "votes": 5,
+          "percentage": 25,
+          "is_winner": false
+        },
+        {
+          "title": "The Last Question",
+          "canonical_title": "The Last Question",
+          "author": "Isaac Asimov",
+          "canonical_author": "Isaac Asimov",
+          "votes": 5,
+          "percentage": 25,
+          "is_winner": false
+        },
+        {
+          "title": "Sandkings",
+          "canonical_title": "Sandkings",
+          "author": "George R.R. Martin",
+          "canonical_author": "George R.R. Martin",
+          "votes": 1,
+          "percentage": 5,
+          "is_winner": false
+        }
+      ]
     }
   ]
 }
